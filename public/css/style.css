@@ -1,0 +1,102 @@
+*{  margin:0;
+    padding:0;
+  }
+  html{
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+  }
+  body{
+      margin:0;
+      padding:0;
+      color:white;
+      height: 100vh;
+  }
+
+
+  .nav-item{
+    float: right;
+
+  }
+
+  section{
+    height:100vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .sectionText{
+      padding:17vw;
+  }  
+  #home{
+      background-image: url(../img/fondo1.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+
+  #services{
+      background-color: rgb(153, 102, 102);
+  }
+  #about{
+      background-color: rgb(153, 102, 51);
+  }
+  #apply{
+      background-color: rgb(153, 153, 51);
+  }
+  #contact{
+      height: 90vh;
+      background-color: #CCCC33;
+  }
+
+  footer{
+    background-color: rgb(153, 153, 51);
+    width:100%;
+    height:10vh;
+  }
+  .applyBtn{
+    border-radius: 8px;
+    background-color: fuchsia;
+    color:white;
+    cursor: pointer;
+  }
+
+  .iconDiv{
+    display: flex;
+    justify-content: space-between;
+  }
+  .divImgText{
+    display: flex;
+    justify-content: space-around;
+  }
+  .divText{
+    display: block;
+    align-self: center;
+  }
+
+  .divFollowInfo{
+    text-align: left;
+  }
+  .divInfo{
+    display: block;
+    align-self: center;
+  }
+  .requirements{
+    padding-left: 15px;
+  }
+  .noBulletsList{
+    list-style: none;
+    padding-left: 0;
+  }
+  .social{
+    padding-right: 20px;
+    font-size: 2em;
+  }
+
+  .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: 20px;
+  }
