@@ -4,60 +4,108 @@
   html{
     scroll-behavior: smooth;
     overflow-y: scroll;
+ 
   }
   body{
       margin:0;
       padding:0;
       color:white;
-      height: 100vh;
+      background:linear-gradient(#A8419D,#99A010);
+      background-size: cover;
+      font-family: 'Montserrat', sans-serif;
   }
+
 
 
   .nav-item{
     float: right;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
   }
-
+ 
   section{
-    height:100vh;
+    height:90vh;
     width:100%;
+    padding-left: 10vw;
+
+    padding-right: 10vw;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
   }
-
-  .sectionText{
-      padding:17vw;
-  }  
+ 
   #home{
-      background-image: url(../img/fondo1.png);
+      height:100vh;
+      background-image: url(../img/fondo-banner.png);
       background-size: cover;
       background-repeat: no-repeat;
   }
 
   #services{
-      background-color: rgb(153, 102, 102);
+    scroll-margin-top: 5vh;
+      background-color: rgba(255, 255, 255, 0.1);
+      height:100vh;
   }
   #about{
-      background-color: rgb(153, 102, 51);
-  }
-  #apply{
-      background-color: rgb(153, 153, 51);
-  }
+    scroll-margin-top: 5vh;
+    height:100vh;
+}
+
+#apply{
+  scroll-margin-top: 5vh;
+  height:100vh;
+}
+#reviews{
+  scroll-margin-top: 5vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  height:100vh;
+}
+ 
   #contact{
-      height: 90vh;
-      background-color: #CCCC33;
+      scroll-margin-top: 5vh;
+      height: 80vh;
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+#subscribe{
+  
+  height:10vh;
+}
+
+  #inputEmailSubscribe{
+    background: rgba(255, 255, 255, 0.2) !important;
+   
   }
 
-  footer{
-    background-color: rgb(153, 153, 51);
-    width:100%;
+  .subscribe-container{
     height:10vh;
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    grid-column-gap:2rem;
+  
   }
+
+ 
+  footer{
+   
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.1);
+   
+  }
+
+.footerTxt{
+  font-size: smaller;
+}
+
   .applyBtn{
     border-radius: 8px;
-    background-color: fuchsia;
+    background-color: #A11F63;
     color:white;
     cursor: pointer;
   }
@@ -98,5 +146,129 @@
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+
+#imgTextBtn{
+    width:100%;
+}
+#left{
+    float:left;
+    width:100px;
+}
+#right{
+    float:right;
+    width:100px;
+}
+#center{
+    margin:0 auto;
+    width:400px;
+}
+
+.reviewsDiv{
+    margin-top: 100px;
+}
+.review{
+  display: flex;
+  justify-content: center;
+}
+strong{
+  font-weight: 700;
+}
+
+.imgReviewComments{
+position: absolute;
+top: 0%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.card{
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 0px solid transparent;
+}
+.card-text{
+  line-height: 3rem;
+  font-size: 1.5rem;
+}
+.applyInput {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #fff !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color:#fff !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff !important;
+    opacity: 1 !important; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff !important;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff !important;
+  }
+  .link{
+    color:#fff !important;
+    text-decoration: none;
+  }
+  .social{
+    color:#fff !important;
+    text-decoration: none;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+h2{
+  font-size: 2.5rem;
+}
+
+h4{
+  font-weight: 300;
+}
+
+p{
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+
+
+.flexbox-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-between;
+
+}
+
+.flexbox-item1{
+ min-height: fit-content;
+
+}
+
+.flexbox-item2{
+  min-height: fit-content;
+ 
+ }
+
+ .flexbox-item3{
+  min-height: fit-content;
+ 
+ }
+
+ .flexbox-carrusel{
+  display: flex;
+  justify-content: space-around;
+  align-items: space-between;
+
+ }
+
+
