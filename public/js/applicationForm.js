@@ -4,15 +4,14 @@ fetch('https://apis.datos.gob.ar/georef/api/provincias')
   return response.json();
 })
 .then(function(provincias){
-    console.log(provincias);
    
   for(provincia of provincias['provincias']){
-     var option  = document.createElement('option');
-     var optionText= document.createTextNode(provincia["nombre"]);
-     option.value=provincia["nombre"];
-     option.dataset.index =provincia["id"];
-     option.append(optionText);
-     campoProvincia.append(option);
+     var optionProvincia  = document.createElement('option');
+     var optionProvinciaText= document.createTextNode(provincia["nombre"]);
+     optionProvincia.value=provincia["nombre"];
+     optionProvincia.dataset.index =provincia["id"];
+     optionProvincia.append(optionProvinciaText);
+     campoProvincia.append(optionProvincia);
  }
 })
 .catch(function (error){
@@ -22,31 +21,47 @@ fetch('https://apis.datos.gob.ar/georef/api/provincias')
 
 
 campoProvincia.addEventListener('change',function(){
-console.log(this.value);
-var valueSelected=this.value;
-var optionSelected = document.querySelector(`option[value='${valueSelected}']`);
-console.log(optionSelected);
-console.log(this);
+
+
+var valueProvinciaSelected=this.value;
+var optionProvinciaSelected = document.querySelector(`option[value='${valueProvinciaSelected}']`);
+
 
 
 
 var campoCiudad=document.getElementById('city');
-fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${this.value}`) 
+console.log(campoCiudad);
+console.log(campoCiudad.length);
+function removeOptions(campoCiudad) {
+  var i, L = campoCiudad.options.length - 1;
+  for(i = L; i >= 1; i--) {
+     campoCiudad.remove(i);
+  }
+}
+
+// using the function:
+removeOptions(document.getElementById('city'));
+
+
+
+
+fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinciaSelected}`) 
 .then(function(response){
  return response.json();
  })
 .then(function(localidades){
- console.log(localidades);
+ 
 
  
    
 for(localidad of localidades['localidades']){
-var option  = document.createElement('option');
-var optionText= document.createTextNode(localidad["nombre"]);
- option.value=localidad["nombre"];
-option.dataset.index =localidad["id"];
-option.append(optionText);
-campoCiudad.append(option);
+
+var optionLocalidad  = document.createElement('option');
+var optionLocalidadText= document.createTextNode(localidad["nombre"]);
+ optionLocalidad.value=localidad["nombre"];
+optionLocalidad.dataset.index =localidad["id"];
+optionLocalidad.append(optionLocalidadText);
+campoCiudad.append(optionLocalidad);
 }
 })
 .catch(function (error){

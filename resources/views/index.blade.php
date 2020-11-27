@@ -235,14 +235,14 @@
           <div class="divProvince col-12 col-md-6">
             <label for="province"></label>
             <select id="province" class="form-control">
-              <option>Selecciona la provincia donde vives...</option>
+              <option value=""> Selecciona la provincia donde vives...</option>
             </select>
             </div>
          
           <div class="divCity col-12 col-md-6">
               <label for="city"></label>
           <select id="city" class="form-control">
-            <option>Selecciona la ciudad donde vives...</option>
+            <option value="">Selecciona la ciudad donde vives...</option>
           
           </select>
           </div>
