@@ -220,28 +220,24 @@
           <label for="country"></label>
           <select id="country" class="form-control">
             <option selected>Selecciona el país donde vives...</option>
-            <option>Argentina</option>
-            <option>Brasil</option>
-            <option>Chile</option>
-            <option>Uruguay</option>
-            <option>Otro</option>
           </select>
         </div>
-         <div class="divOtherCountry col-12 col-md-6">
+
+         {{-- <div class="divOtherCountry col-12 col-md-6">
             <label for="otherCountry"></label>
             <input type="text" class="form-control applyInput" id="otherCountry" placeholder="Indica tu país">
-            </div>
+            </div> --}}
 
-          <div class="divProvince col-12 col-md-6">
+          <div class="divProvince col-12 col-md-6" style="display:none;" >
             <label for="province"></label>
-            <select id="province" class="form-control">
+            <select id="province" class="form-control" >
               <option value=""> Selecciona la provincia donde vives...</option>
             </select>
             </div>
          
-          <div class="divCity col-12 col-md-6">
+          <div class="divCity col-12 col-md-6" style="display:none;">
               <label for="city"></label>
-          <select id="city" class="form-control">
+          <select id="city" class="form-control" >
             <option value="">Selecciona la ciudad donde vives...</option>
           
           </select>

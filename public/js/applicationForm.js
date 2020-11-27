@@ -1,4 +1,47 @@
+// Llamar al select de pais, provincia y ciudad
+var campoPais=document.getElementById('country');
 var campoProvincia=document.getElementById('province');
+var campoCiudad=document.getElementById('city');
+
+// fetch paises en español y agregarlos a las opciones de pais alfabéticamente:
+  fetch('https://restcountries.eu/rest/v2/all') 
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(paises){
+    for(pais of paises){
+      var optionCountry  = document.createElement('option');
+      var optionCountryText= document.createTextNode(pais["translations"]["es"]);
+      optionCountry.append(optionCountryText);
+      campoPais.append(optionCountry);
+    }
+  })
+  .catch(function (error){
+    console.error(error);
+  });
+
+// identificar el país seleccionado para determinar si es Argentina o no:
+  
+
+campoPais.addEventListener('change',function(){
+
+  var valueCountrySelected=this.value;
+
+// si es Argentina cambiar display para que sea visible Provincia y ciudad, de lo contrario dejarlos ocultos.
+  if(valueCountrySelected=="Argentina"){
+    
+    document.querySelector('.divProvince').style.display = "block";
+    document.querySelector('.divCity').style.display = "block";
+    
+  }else{
+    document.querySelector('.divProvince').style.display = "none";
+    document.querySelector('.divCity').style.display = "none";
+
+  }
+ 
+});
+
+
 fetch('https://apis.datos.gob.ar/georef/api/provincias') 
 .then(function(response){
   return response.json();
@@ -6,12 +49,12 @@ fetch('https://apis.datos.gob.ar/georef/api/provincias')
 .then(function(provincias){
    
   for(provincia of provincias['provincias']){
-     var optionProvincia  = document.createElement('option');
-     var optionProvinciaText= document.createTextNode(provincia["nombre"]);
-     optionProvincia.value=provincia["nombre"];
-     optionProvincia.dataset.index =provincia["id"];
-     optionProvincia.append(optionProvinciaText);
-     campoProvincia.append(optionProvincia);
+     var optionProvince  = document.createElement('option');
+     var optionProvinceText= document.createTextNode(provincia["nombre"]);
+     optionProvince.value=provincia["nombre"];
+     optionProvince.dataset.index =provincia["id"];
+     optionProvince.append(optionProvinceText);
+     campoProvincia.append(optionProvince);
  }
 })
 .catch(function (error){
@@ -29,7 +72,7 @@ var optionProvinciaSelected = document.querySelector(`option[value='${valueProvi
 
 
 
-var campoCiudad=document.getElementById('city');
+
 console.log(campoCiudad);
 console.log(campoCiudad.length);
 function removeOptions(campoCiudad) {
@@ -45,9 +88,13 @@ removeOptions(document.getElementById('city'));
 
 
 
-fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinciaSelected}`) 
+fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinciaSelected}&orden=nombre&max=5000`) 
 .then(function(response){
- return response.json();
+
+  
+  return response.json();
+
+
  })
 .then(function(localidades){
  
@@ -56,12 +103,12 @@ fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinc
    
 for(localidad of localidades['localidades']){
 
-var optionLocalidad  = document.createElement('option');
-var optionLocalidadText= document.createTextNode(localidad["nombre"]);
- optionLocalidad.value=localidad["nombre"];
-optionLocalidad.dataset.index =localidad["id"];
-optionLocalidad.append(optionLocalidadText);
-campoCiudad.append(optionLocalidad);
+var optionCity = document.createElement('option');
+var optionCityText= document.createTextNode(localidad["nombre"]);
+ optionCity.value=localidad["nombre"];
+optionCity.dataset.index =localidad["id"];
+optionCity.append(optionCityText);
+campoCiudad.append(optionCity);
 }
 })
 .catch(function (error){
