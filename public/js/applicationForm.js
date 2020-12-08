@@ -67,9 +67,10 @@ campoProvincia.addEventListener('change',function(){
 
 
 var valueProvinciaSelected=this.value;
+
 var optionProvinciaSelected = document.querySelector(`option[value='${valueProvinciaSelected}']`);
 
-
+console.log(optionProvinciaSelected);
 
 
 
@@ -116,3 +117,13 @@ console.error(error);
  });
 },false);
 
+var btnFormulario = document.getElementById('btnFormulario');
+var formulario = document.getElementById('formulario');
+
+
+formulario.addEventListener('submit',function(evt){
+evt.preventDefault();
+alert("Gracias por postularte!");
+
+
+},true);

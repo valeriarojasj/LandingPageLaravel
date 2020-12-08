@@ -191,7 +191,7 @@
           <br>
           </div>
 </div>
-<form method="POST" action="">
+<form id="formulario" method="POST" action="">
   @csrf
     <div class="row form-group">
       
@@ -271,13 +271,13 @@
             <label for="jobToApply"></label>
             <select id="jobToApply" class="form-control">
                 <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
-                <<option>Abogacía</option>
-                <option>Ingeniería Informática</option>
-                <option>Diseño Gráfico</option>
-                <option>Ingeniería Industrial</option>
+                <<option>Analista Contable Ssr</option>
+                <option>Ejecutivo Large Corporate</option>
+                <option>Data Hub Jr</option>
               </select>
           </div>
       </div>
+      <button id="btnFormulario" class="btn applyBtn"> Enviar</button>
    </form>
     {{-- <div class="row">
       <div class="col-lg-8 mx-auto">
