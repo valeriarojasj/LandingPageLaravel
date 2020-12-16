@@ -18,6 +18,7 @@ class Formulario extends Component
     public $educationLevel;
     public $career;
     public $jobToApply;
+
     protected $rules = [
         'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
@@ -58,7 +59,6 @@ class Formulario extends Component
         }else{
             $this->validateCity();
         }
-
     }
     public function validateCity(){
         $cities = json_decode(Http::get("https://apis.datos.gob.ar/georef/api/localidades?provincia=".$this->province."&orden=nombre&max=5000"))->localidades;

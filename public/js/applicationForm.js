@@ -59,10 +59,6 @@ campoPais.addEventListener('change',function(){
 //fetch provincias Argentinas:
 campoProvincia.addEventListener('change',function(){
   var valueProvinciaSelected=this.value;
-  var optionProvinciaSelected = document.querySelector(`option[value='${valueProvinciaSelected}']`);
-  console.log(optionProvinciaSelected);
-  console.log(campoCiudad);
-  console.log(campoCiudad.length);
   function removeOptions(campoCiudad) {
     var i, L = campoCiudad.options.length - 1;
     for(i = L; i >= 1; i--) {
@@ -89,10 +85,3 @@ campoProvincia.addEventListener('change',function(){
     console.error(error);
   });
 },false);
-
-/*formulario.addEventListener('submit',function(evt){
-evt.preventDefault();
-alert("Gracias por postularte!");
-
-
-},true);*/

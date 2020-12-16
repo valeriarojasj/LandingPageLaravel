@@ -92,8 +92,10 @@
             </select>
         </div>
       </div>
-      <button id="btnFormulario" class="btn applyBtn"> Enviar </button>
-
+      <br>
+    <button type="button" id="btnFormulario" class="btn applyBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Enviar
+    </button>
 
 
      

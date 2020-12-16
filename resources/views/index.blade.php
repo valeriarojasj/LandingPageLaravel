@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>FYG</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    
     <script src="https://kit.fontawesome.com/b67648323f.js" crossorigin="anonymous"></script>
     @livewireStyles
   
@@ -422,31 +423,154 @@
       </div>
     </div> --}}
      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel" style='color:red;'>adasdasddas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      <form enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group col-md-12 border-b border-teal-500" >
+              <label for="fullName"></label>
+              <input type="text" class="form-control " id="fullName" placeholder="Nombre y apellido">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email"></label>
+            <input type="text" class="form-control" id="email" placeholder="Correo Electrónico">
+          </div>
+          <div class="form-group">
+            <label for="linkedinProfile"></label>
+            <input type="text" class="form-control" id="linkedinProfile" placeholder="Ingresa tu perfil de LinkedIn">
+          </div>
+
+          <div class="divEducation mt-3">
+            <select id="inputEducation" class="form-control">
+                <option selected>Selecciona tu nivel de educación...</option>
+                <<option>Secundario incompleto</option>
+                <option>Secundario Completo</option>
+                <option>Universitario en curso</option>
+                <option>Universitario Graduado</option>
+                <option>Universitario Abandonado</option>
+                <option>Posgrado en curso</option>
+                <option>Posgrado completo</option>
+              </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Ciudad</label>
+              <select id="inputCity" class="form-control">
+                <option selected>Selecciona la ciudad...</option>
+                <<option>Buenos Aires</option>
+                <option>La Plata</option>
+                <option>Bariloche</option>
+                <option>Salta</option>
+                <option>Mendoza</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCountry">País</label>
+              <select id="inputCountry" class="form-control">
+                <option selected>Selecciona el país...</option>
+                <option>Argentina</option>
+                <option>Uruguay</option>
+                <option>Brasil</option>
+              </select>
+            </div>
+
+            <div class="divEducation mt-3">
+                <select id="inputReferral" class="form-control">
+                    <option selected>¿Dónde nos conociste?...</option>
+                    <option>LinkedIn</option>
+                    <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>Conocido</option>
+                    <option>Universitario Abandonado</option>
+                    <option>Posgrado en curso</option>
+                    <option>Posgrado completo</option>
+                  </select>
+              </div>
+
+          </div>
+          <div class="row">
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <p>Pregunta</p>
+          </div>
+          <div class="form-check form-check-inline">
+            
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Si</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            
+            <p>Pregunta</p>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Si</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <p>Pregunta</p>
+              </div>
+              <div class="form-check form-check-inline">
+                
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Si</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+    
+            </div>
+            <div class="col">
+              <div class="form-check form-check-inline">
+                
+                <p style='color:red;'>Pregunta</p>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Si</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+            </div>
+            </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary">Aplicar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
-
+<!-- fin del modal -->
 </section>
 
 
@@ -510,11 +634,9 @@
     <p class="m-0 footerTxt text-center text-white">FYG Consultoría | Copyright &copy; 2020 - Todos los derechos reservados</p>
   </div>
 </footer>
-
 <script type="text/javascript" src="js/applicationForm.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 @livewireScripts
     
   </body>
