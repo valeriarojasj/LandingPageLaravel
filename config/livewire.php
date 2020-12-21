@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'asset_url'  => "http://localhost/fyg_jet/public",
+    'asset_url'  => "http://localhost:8001",
 
     /*
     |--------------------------------------------------------------------------

@@ -93,9 +93,10 @@
         </div>
       </div>
       <br>
-    <button type="button" id="btnFormulario" class="btn applyBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <!--<button type="button" id="btnFormulario" class="btn applyBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Enviar
-    </button>
+    </button>-->
+    <button id="btnFormulario" class="btn applyBtn"> Enviar2 </button>
 
 
      

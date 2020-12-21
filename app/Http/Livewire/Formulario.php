@@ -35,6 +35,7 @@ class Formulario extends Component
         return view('livewire.formulario');
     }
     public function save(){
+        dd('Estoy en save');
         $this->validateProvince();
         $this->validate();
         $candidate = new Candidate;
