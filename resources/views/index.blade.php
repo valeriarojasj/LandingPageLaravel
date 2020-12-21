@@ -52,7 +52,7 @@
                 <img src="img/contable.png" class="d-block" height="300px;" alt="...">
                 <div class="divText d-block">
                   <h2 class="text-left">Analista Contable SSr</h2>
-                  <ul class="requirements text-left">
+                  <ul class="text-left requirements">
                     <li>Experiencia en Ingreso y análisis de Asientos Contables</li>
                     <li>Normas IFRS</li>
                     <li>CNV y BCRA</li>
@@ -68,7 +68,7 @@
                 <img src="img/datahub.png" class="d-block" height="300px;" alt="...">
                 <div class="divText d-block">
                   <h2 class="text-left">DATA HUB Jr</h2>
-                  <ul class="requirements text-left">
+                  <ul class="text-left requirements">
                     <li>Experiencia mayor a 6 meses en procesos ETL</li>
                     <li>Conocimientos en Python y Scala</li>
                   </ul>
@@ -83,7 +83,7 @@
                 <img src="img/ejecutivo.png" class="d-block" height="300px;" alt="...">
                 <div class="divText d-block">
                   <h2 class="text-left">Ejecutivo Large Corporate</h2>
-                  <ul class="requirements text-left">
+                  <ul class="text-left requirements">
                     <li>Liderar la relación comercial con grandes cuentas</li>
                     <li>Administrar la venta e implementación de productos y servicios de todo el portafolio de la Cía</li>
                   </ul>
@@ -113,7 +113,7 @@
       <h2 class=text-center>¿Qué hacemos?</h2>
     </div>
       <div class="flexbox-item2">
-        <p class="sectionText text-justify"><strong>Reclutamiento, selección, entrenamiento, capacitación de equipos de trabajo</strong>, enfoca el objetivo en aportar herramientas en la formación de las personas haciendo que las cosas sucedan. Nuestros pilares: Profesionales comprometidos Desafiamos el Status-quo</p>
+        <p class="text-justify sectionText"><strong>Reclutamiento, selección, entrenamiento, capacitación de equipos de trabajo</strong>, enfoca el objetivo en aportar herramientas en la formación de las personas haciendo que las cosas sucedan. Nuestros pilares: Profesionales comprometidos Desafiamos el Status-quo</p>
       </div>  
         <div class="iconDiv flexbox-item3">
           <img src="img/lupa-cv.png" width="100px;" alt="">
@@ -131,7 +131,7 @@
     <h2 class="text-center">¿Quiénes somos?</h2>
     </div>
     <div class = "flexbox-item2">
-      <p class="sectionText text-justify">Somos un equipo de <strong>profesionales multidisciplinario</strong> especialista en <strong>Reclutamiento y Selección de Talento</strong> donde nuestro objetivo en este proceso no es simplemente de selección sino de mutua elección, cuidando a nuestros candidatos como futuros <strong>CO-CREADORES</strong> de la organización</p>
+      <p class="text-justify sectionText">Somos un equipo de <strong>profesionales multidisciplinario</strong> especialista en <strong>Reclutamiento y Selección de Talento</strong> donde nuestro objetivo en este proceso no es simplemente de selección sino de mutua elección, cuidando a nuestros candidatos como futuros <strong>CO-CREADORES</strong> de la organización</p>
     </div>
           
       
@@ -157,7 +157,7 @@
             
             
          
-            <div class="card card-block d-flex mb-3 justify-content-center align-items-center" >
+            <div class="mb-3 card card-block d-flex justify-content-center align-items-center" >
               <img class ="imgReviewComments" src="img/reviewComments.png" width="120px" alt="">
               <div class="row h-100 no-gutters d-flex align-items-center" >
                 <div class="col-md-4 d-flex align-items-center">
@@ -166,7 +166,7 @@
                 <div class="col-md-8 d-flex align-items-center">
                   <div class="card-body d-flex"> 
                     
-                    <p class="card-text text-justify">"...Realmente <strong>las felicito por el profesionalismo y humanidad </strong>que le ponen a lo que hacen, uno se siente <strong>persona y no un recurso</strong>"</p>
+                    <p class="text-justify card-text">"...Realmente <strong>las felicito por el profesionalismo y humanidad </strong>que le ponen a lo que hacen, uno se siente <strong>persona y no un recurso</strong>"</p>
                   
                   </div>
                 </div>
@@ -183,7 +183,7 @@
 
 <section id="apply">
     <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="mx-auto col-lg-8">
           <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
          <br>
 
@@ -211,11 +211,11 @@
           <input type="date" class="form-control" id="bday">
       </div>
     
-        <div class="col-12 col-md-6 mt-5">
+        <div class="mt-5 col-12 col-md-6">
             <label for="email">Correo Electrónico</label>
             <input  type="email" class="form-control applyInput" id="email" placeholder="">
         </div>
-        <div class="col-12 col-md-6 mt-5">
+        <div class="mt-5 col-12 col-md-6">
           <label for="linkedin">LinkedIn</label>
           <input type="text" class="form-control applyInput" id="linkedin" placeholder="">
       </div>
@@ -284,11 +284,11 @@
    </form>
    -->
        {{-- <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <div class="mx-auto col-lg-8">
         <h2 class=text-center>Postúlate</h2>
         <form enctype="multipart/form-data">
           <div class="form-row">
-            <div class="form-group col-md-12 border-b border-teal-500" >
+            <div class="border-b border-teal-500 form-group col-md-12" >
               <label for="fullName"></label>
               <input type="text" class="form-control " id="fullName" placeholder="Nombre y apellido">
             </div>
@@ -302,7 +302,7 @@
             <input type="text" class="form-control" id="linkedinProfile" placeholder="Ingresa tu perfil de LinkedIn">
           </div>
 
-          <div class="divEducation mt-3">
+          <div class="mt-3 divEducation">
             <select id="inputEducation" class="form-control">
                 <option selected>Selecciona tu nivel de educación...</option>
                 <<option>Secundario incompleto</option>
@@ -337,7 +337,7 @@
               </select>
             </div>
 
-            <div class="divEducation mt-3">
+            <div class="mt-3 divEducation">
                 <select id="inputReferral" class="form-control">
                     <option selected>¿Dónde nos conociste?...</option>
                     <option>LinkedIn</option>
@@ -436,7 +436,7 @@
       <div class="modal-body">
       <form enctype="multipart/form-data">
           <div class="form-row">
-            <div class="form-group col-md-12 border-b border-teal-500" >
+            <div class="border-b border-teal-500 form-group col-md-12" >
               <label for="fullName"></label>
               <input type="text" class="form-control " id="fullName" placeholder="Nombre y apellido">
             </div>
@@ -450,7 +450,7 @@
             <input type="text" class="form-control" id="linkedinProfile" placeholder="Ingresa tu perfil de LinkedIn">
           </div>
 
-          <div class="divEducation mt-3">
+          <div class="mt-3 divEducation">
             <select id="inputEducation" class="form-control">
                 <option selected>Selecciona tu nivel de educación...</option>
                 <<option>Secundario incompleto</option>
@@ -485,7 +485,7 @@
               </select>
             </div>
 
-            <div class="divEducation mt-3">
+            <div class="mt-3 divEducation">
                 <select id="inputReferral" class="form-control">
                     <option selected>¿Dónde nos conociste?...</option>
                     <option>LinkedIn</option>
@@ -631,13 +631,14 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="footerDiv">
-    <p class="m-0 footerTxt text-center text-white">FYG Consultoría | Copyright &copy; 2020 - Todos los derechos reservados</p>
+    <p class="m-0 text-center text-white footerTxt">FYG Consultoría | Copyright &copy; 2020 - Todos los derechos reservados</p>
   </div>
 </footer>
-<script type="text/javascript" src="js/applicationForm.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/applicationForm.js"></script>
 @livewireScripts
+
     
   </body>
 </html>
