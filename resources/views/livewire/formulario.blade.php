@@ -19,13 +19,13 @@
         </div>
 
         <!-- EMAIL -->
-        <div class="col-12 col-md-6 mt-5">
+        <div class="mt-5 col-12 col-md-6">
             <label for="email">Correo Electrónico</label>
             <input  type="email" class="form-control applyInput" id="email" placeholder="" wire:model.defer='email'>
         </div>
 
         <!-- LINKEDIN -->
-        <div class="col-12 col-md-6 mt-5">
+        <div class="mt-5 col-12 col-md-6">
             <label for="linkedin">LinkedIn</label>
             <input type="text" class="form-control applyInput" id="linkedin" placeholder="" wire:model.defer='linkedin'>
         </div>
@@ -70,15 +70,11 @@
         </div>
 
         <!-- CAREER -->
-        <div class="divCareer col-12 col-md-6">
-            <label for="career"></label>
-            <select id="career" class="form-control" wire:model.defer='career'>
-                <option selected>Selecciona tu carrera universitaria...</option>
-                <option>Abogacía</option>
-                <option>Ingeniería Informática</option>
-                <option>Diseño Gráfico</option>
-                <option>Ingeniería Industrial</option>
-            </select>
+        <div class="mt-5 divCareer col-12 col-md-6">
+            
+                <label for="career">Título universitario</label>
+                <input  type="text" class="form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
+           
         </div>
         
         <!-- JOBTOAPPLY -->

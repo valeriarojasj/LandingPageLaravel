@@ -23,7 +23,7 @@ fetch('https://restcountries.eu/rest/v2/all')
 });
 
 // fetch provincias Argentinas:
-fetch('https://apis.datos.gob.ar/georef/api/provincias') 
+fetch('https://apis.datos.gob.ar/georef/api/provincias?orden=id') 
 .then(function(response){
   return response.json();
 })
@@ -40,6 +40,8 @@ fetch('https://apis.datos.gob.ar/georef/api/provincias')
 .catch(function (error){
   console.error(error);
 });
+
+
 
 
 // identificar el país seleccionado para determinar si es Argentina o no:

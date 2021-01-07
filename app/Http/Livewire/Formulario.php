@@ -35,23 +35,28 @@ class Formulario extends Component
         return view('livewire.formulario');
     }
     public function save(){
-        dd('Estoy en save');
+       
+        dd('estoy en save');
         $this->validateProvince();
         $this->validate();
+       
         $candidate = new Candidate;
+        
         $candidate->fullName = $this->fullName;
         $candidate->dni = $this->dni;
         $candidate->birthday = $this->bday;
         $candidate->email = $this->email;
         $candidate->linkedin = $this->linkedin;
+       
         $candidate->country = $this->country;
         $candidate->province = $this->province;
         $candidate->city = $this->city;
         $candidate->education_level = $this->educationLevel;
         $candidate->career = $this->career;
         $candidate->job_to_apply = $this->jobToApply;
+        
         $candidate->save();
-        dd($candidate->id);
+        
     }
     public function validateProvince(){
         if($this->country != 'Argentina'){
