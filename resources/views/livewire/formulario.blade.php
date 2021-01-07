@@ -163,19 +163,19 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="option1" name="option1" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <input id="option1" name="option" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
                   <label for="option1" class="block ml-3 text-sm font-medium text-gray-700">
                     Opción 1
                   </label>
                 </div>
                 <div class="flex items-center">
-                  <input id="option2" name="option2" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <input id="option2" name="option" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
                   <label for="option2" class="block ml-3 text-sm font-medium text-gray-700">
                     Opción 2
                   </label>
                 </div>
                 <div class="flex items-center">
-                  <input id="option3" name="option3" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <input id="option3" name="option" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
                   <label for="option3" class="block ml-3 text-sm font-medium text-gray-700">
                     Opción 3
                   </label>
