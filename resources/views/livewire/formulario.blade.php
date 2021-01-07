@@ -112,7 +112,7 @@
       <div class="px-6 py-4 text-left modal-content">
         <!--Title-->
         <div class="flex items-center justify-between pb-3">
-          <p class="text-2xl font-bold">Contesta por favor estas preguntas</p>
+          <p class="text-2xl font-bold">Preguntas</p>
           <div class="z-50 cursor-pointer modal-close">
             <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
               <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -121,11 +121,79 @@
         </div>
 
         <!--Body-->
-        <p>Pregunta 1</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
-        <p>...</p>
+       
+          <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+            
+            <fieldset>
+              <legend class="text-base font-medium text-gray-900">Seleccion Multiple</legend>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="checkbox1" name="checkbox1" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="checkbox1" class="font-medium text-gray-700">Checkbox 1</label>
+                   
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="checkbox2" name="checkbox2" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="checkbox2" class="font-medium text-gray-700">Checkbox 2</label>
+                   
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="checkbox3" name="checkbox3" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="checkbox3" class="font-medium text-gray-700">Checkbox 3</label>
+                   
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div>
+                <legend class="text-base font-medium text-gray-900">Opciones única respuesta</legend>
+                <p class="text-sm text-gray-500">Solo se puede elegir una respuesta.</p>
+              </div>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-center">
+                  <input id="option1" name="option1" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <label for="option1" class="block ml-3 text-sm font-medium text-gray-700">
+                    Opción 1
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input id="option2" name="option2" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <label for="option2" class="block ml-3 text-sm font-medium text-gray-700">
+                    Opción 2
+                  </label>
+                </div>
+                <div class="flex items-center">
+                  <input id="option3" name="option3" type="radio" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                  <label for="option3" class="block ml-3 text-sm font-medium text-gray-700">
+                    Opción 3
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <div>
+
+           
+            <div class="mt-1">
+              <div class="mt-1">
+                <legend class="text-base font-medium text-gray-900">Pregunta abierta</legend>
+              </div>
+              <textarea class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
+            </div>
+          </div>
+          </div>
+        </div>
 
         <!--Footer-->
         <div class="flex justify-end pt-2">
@@ -134,7 +202,7 @@
         </div>
       </div>
     </div>
-  </div>     
+     
 
 
 </form>
