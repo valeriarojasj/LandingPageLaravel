@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    
 
     <meta charset="utf-8">
     <title>FYG</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    
+    {{-- Tailwind modal head --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">  
+    <style>
+      .modal {
+        transition: opacity 0.25s ease;
+      }
+      body.modal-active {
+        overflow-x: hidden;
+        overflow-y: visible !important;
+      }
+    </style>
+ {{-- end of Tailwind modal head --}}
     <script src="https://kit.fontawesome.com/b67648323f.js" crossorigin="anonymous"></script>
     @livewireStyles
   
@@ -193,384 +206,6 @@
           </div>
 </div>
 <livewire:formulario />
-<!-- 
-<form id="formulario" method="POST" action="">
-  @csrf
-    <div class="row form-group">
-      
-        <div class="divFullName col-12 col-md-4">
-            <label for="fullName">Nombre y Apellido</label>
-            <input  type="text" class="form-control applyInput" id="fullName" placeholder="">
-        </div>
-        <div class="divDni col-12 col-md-4">
-            <label for="dni">DNI</label>
-            <input  type="text" class="form-control applyInput" id="dni" placeholder="">
-        </div>
-        <div class="divBday col-12 col-md-4 ">
-          <label  for="bday">Fecha de Nacimiento</label>
-          <input type="date" class="form-control" id="bday">
-      </div>
-    
-        <div class="mt-5 col-12 col-md-6">
-            <label for="email">Correo Electrónico</label>
-            <input  type="email" class="form-control applyInput" id="email" placeholder="">
-        </div>
-        <div class="mt-5 col-12 col-md-6">
-          <label for="linkedin">LinkedIn</label>
-          <input type="text" class="form-control applyInput" id="linkedin" placeholder="">
-      </div>
-        <div class="divCountry col-12 col-md-6">
-          <label for="country"></label>
-          <select id="country" class="form-control">
-            <option selected>Selecciona el país donde vives...</option>
-          </select>
-        </div>
-
-         {{-- <div class="divOtherCountry col-12 col-md-6">
-            <label for="otherCountry"></label>
-            <input type="text" class="form-control applyInput" id="otherCountry" placeholder="Indica tu país">
-            </div> --}}
-
-          <div class="divProvince col-12 col-md-6" style="display:none;" >
-            <label for="province"></label>
-            <select id="province" class="form-control" >
-              <option value=""> Selecciona la provincia donde vives...</option>
-            </select>
-            </div>
-         
-          <div class="divCity col-12 col-md-6" style="display:none;">
-              <label for="city"></label>
-          <select id="city" class="form-control" >
-            <option value="">Selecciona la ciudad donde vives...</option>
-          
-          </select>
-          </div>
-
-          <div class="divEducation col-12 col-md-6">
-            <label for="educationLevel"></label>
-            <select id="educationLevel" class="form-control">
-                <option selected>Selecciona tu nivel de educación...</option>
-                <<option>Secundario incompleto</option>
-                <option>Secundario Completo</option>
-                <option>Universitario en curso</option>
-                <option>Universitario Graduado</option>
-                <option>Universitario Abandonado</option>
-                <option>Posgrado en curso</option>
-                <option>Posgrado completo</option>
-              </select>
-          </div>
-          <div class="divCareer col-12 col-md-6">
-            <label for="career"></label>
-            <select id="career" class="form-control">
-                <option selected>Selecciona tu carrera universitaria...</option>
-                <<option>Abogacía</option>
-                <option>Ingeniería Informática</option>
-                <option>Diseño Gráfico</option>
-                <option>Ingeniería Industrial</option>
-              </select>
-          </div>
-        
-          <div class="divJobtoApply col-12">
-            <label for="jobToApply"></label>
-            <select id="jobToApply" class="form-control">
-                <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
-                <<option>Analista Contable Ssr</option>
-                <option>Ejecutivo Large Corporate</option>
-                <option>Data Hub Jr</option>
-              </select>
-          </div>
-      </div>
-      <button id="btnFormulario" class="btn applyBtn"> Enviar</button>
-   </form>
-   -->
-       {{-- <div class="row">
-      <div class="mx-auto col-lg-8">
-        <h2 class=text-center>Postúlate</h2>
-        <form enctype="multipart/form-data">
-          <div class="form-row">
-            <div class="border-b border-teal-500 form-group col-md-12" >
-              <label for="fullName"></label>
-              <input type="text" class="form-control " id="fullName" placeholder="Nombre y apellido">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email"></label>
-            <input type="text" class="form-control" id="email" placeholder="Correo Electrónico">
-          </div>
-          <div class="form-group">
-            <label for="linkedinProfile"></label>
-            <input type="text" class="form-control" id="linkedinProfile" placeholder="Ingresa tu perfil de LinkedIn">
-          </div>
-
-          <div class="mt-3 divEducation">
-            <select id="inputEducation" class="form-control">
-                <option selected>Selecciona tu nivel de educación...</option>
-                <<option>Secundario incompleto</option>
-                <option>Secundario Completo</option>
-                <option>Universitario en curso</option>
-                <option>Universitario Graduado</option>
-                <option>Universitario Abandonado</option>
-                <option>Posgrado en curso</option>
-                <option>Posgrado completo</option>
-              </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity">Ciudad</label>
-              <select id="inputCity" class="form-control">
-                <option selected>Selecciona la ciudad...</option>
-                <<option>Buenos Aires</option>
-                <option>La Plata</option>
-                <option>Bariloche</option>
-                <option>Salta</option>
-                <option>Mendoza</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputCountry">País</label>
-              <select id="inputCountry" class="form-control">
-                <option selected>Selecciona el país...</option>
-                <option>Argentina</option>
-                <option>Uruguay</option>
-                <option>Brasil</option>
-              </select>
-            </div>
-
-            <div class="mt-3 divEducation">
-                <select id="inputReferral" class="form-control">
-                    <option selected>¿Dónde nos conociste?...</option>
-                    <option>LinkedIn</option>
-                    <option>Facebook</option>
-                    <option>Instagram</option>
-                    <option>Conocido</option>
-                    <option>Universitario Abandonado</option>
-                    <option>Posgrado en curso</option>
-                    <option>Posgrado completo</option>
-                  </select>
-              </div>
-
-          </div>
-          <div class="row">
-        <div class="col">
-          <div class="form-check form-check-inline">
-            <p>Pregunta</p>
-          </div>
-          <div class="form-check form-check-inline">
-            
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Si</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
-
-        </div>
-        <div class="col">
-          <div class="form-check form-check-inline">
-            
-            <p>Pregunta</p>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Si</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col">
-              <div class="form-check form-check-inline">
-                <p>Pregunta</p>
-              </div>
-              <div class="form-check form-check-inline">
-                
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
-    
-            </div>
-            <div class="col">
-              <div class="form-check form-check-inline">
-                
-                <p>Pregunta</p>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
-            </div>
-            </div>
-
-         
-          <button type="submit" class="btn btn-primary">Aplicar</button>
-          <button type="submit" class="btn btn-secondary">Cancelar</button>
-
-
-      </form>
-      </div>
-    </div> --}}
-     <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style='color:red;'>adasdasddas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form enctype="multipart/form-data">
-          <div class="form-row">
-            <div class="border-b border-teal-500 form-group col-md-12" >
-              <label for="fullName"></label>
-              <input type="text" class="form-control " id="fullName" placeholder="Nombre y apellido">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email"></label>
-            <input type="text" class="form-control" id="email" placeholder="Correo Electrónico">
-          </div>
-          <div class="form-group">
-            <label for="linkedinProfile"></label>
-            <input type="text" class="form-control" id="linkedinProfile" placeholder="Ingresa tu perfil de LinkedIn">
-          </div>
-
-          <div class="mt-3 divEducation">
-            <select id="inputEducation" class="form-control">
-                <option selected>Selecciona tu nivel de educación...</option>
-                <<option>Secundario incompleto</option>
-                <option>Secundario Completo</option>
-                <option>Universitario en curso</option>
-                <option>Universitario Graduado</option>
-                <option>Universitario Abandonado</option>
-                <option>Posgrado en curso</option>
-                <option>Posgrado completo</option>
-              </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity">Ciudad</label>
-              <select id="inputCity" class="form-control">
-                <option selected>Selecciona la ciudad...</option>
-                <<option>Buenos Aires</option>
-                <option>La Plata</option>
-                <option>Bariloche</option>
-                <option>Salta</option>
-                <option>Mendoza</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputCountry">País</label>
-              <select id="inputCountry" class="form-control">
-                <option selected>Selecciona el país...</option>
-                <option>Argentina</option>
-                <option>Uruguay</option>
-                <option>Brasil</option>
-              </select>
-            </div>
-
-            <div class="mt-3 divEducation">
-                <select id="inputReferral" class="form-control">
-                    <option selected>¿Dónde nos conociste?...</option>
-                    <option>LinkedIn</option>
-                    <option>Facebook</option>
-                    <option>Instagram</option>
-                    <option>Conocido</option>
-                    <option>Universitario Abandonado</option>
-                    <option>Posgrado en curso</option>
-                    <option>Posgrado completo</option>
-                  </select>
-              </div>
-
-          </div>
-          <div class="row">
-        <div class="col">
-          <div class="form-check form-check-inline">
-            <p>Pregunta</p>
-          </div>
-          <div class="form-check form-check-inline">
-            
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Si</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
-
-        </div>
-        <div class="col">
-          <div class="form-check form-check-inline">
-            
-            <p>Pregunta</p>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Si</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col">
-              <div class="form-check form-check-inline">
-                <p>Pregunta</p>
-              </div>
-              <div class="form-check form-check-inline">
-                
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
-    
-            </div>
-            <div class="col">
-              <div class="form-check form-check-inline">
-                
-                <p style='color:red;'>Pregunta</p>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
-            </div>
-            </div>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Aplicar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- fin del modal -->
 </section>
 
 
@@ -637,6 +272,51 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/applicationForm.js"></script>
+
+{{-- modal script --}}
+<script>
+  var openmodal = document.querySelectorAll('.modal-open')
+  for (var i = 0; i < openmodal.length; i++) {
+    openmodal[i].addEventListener('click', function(event){
+    event.preventDefault()
+    toggleModal()
+    })
+  }
+  
+  const overlay = document.querySelector('.modal-overlay')
+  overlay.addEventListener('click', toggleModal)
+  
+  var closemodal = document.querySelectorAll('.modal-close')
+  for (var i = 0; i < closemodal.length; i++) {
+    closemodal[i].addEventListener('click', toggleModal)
+  }
+  
+  document.onkeydown = function(evt) {
+    evt = evt || window.event
+    var isEscape = false
+    if ("key" in evt) {
+    isEscape = (evt.key === "Escape" || evt.key === "Esc")
+    } else {
+    isEscape = (evt.keyCode === 27)
+    }
+    if (isEscape && document.body.classList.contains('modal-active')) {
+    toggleModal()
+    }
+  };
+  
+  
+  function toggleModal () {
+    const body = document.querySelector('body')
+    const modal = document.querySelector('.modal')
+    modal.classList.toggle('opacity-0')
+    modal.classList.toggle('pointer-events-none')
+    body.classList.toggle('modal-active')
+  }
+  
+   
+</script>
+{{-- end of Modal script --}}
+
 @livewireScripts
 
     
