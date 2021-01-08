@@ -60,7 +60,7 @@ campoPais.addEventListener('change',function(){
 
 //fetch provincias Argentinas:
 campoProvincia.addEventListener('change',function(){
-  var valueProvinciaSelected=this.value;
+  var valueProvinciaSelected=this.options[this.selectedIndex].dataset.index;
   function removeOptions(campoCiudad) {
     var i, L = campoCiudad.options.length - 1;
     for(i = L; i >= 1; i--) {
@@ -69,12 +69,15 @@ campoProvincia.addEventListener('change',function(){
   }
   // using the function:
   removeOptions(document.getElementById('city'));
+
   fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinciaSelected}&orden=nombre&max=5000`) 
+  
   .then(function(response){
     return response.json();
   })
   .then(function(localidades){ 
     for(localidad of localidades['localidades']){
+     
       var optionCity = document.createElement('option');
       var optionCityText= document.createTextNode(localidad["nombre"]);
       optionCity.value=localidad["nombre"];

@@ -5,30 +5,35 @@
         <div class="divFullName col-12 col-md-4">
             <label for="fullName">Nombre y Apellido</label>
             <input  type="text" class="form-control applyInput" id="fullName" placeholder="" wire:model.defer='fullName'>
+            @error('fullName') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- DNI -->
         <div class="divDni col-12 col-md-4">
             <label for="dni">DNI</label>
             <input  type="text" class="form-control applyInput" id="dni" placeholder="" wire:model.defer='dni'>
+            @error('dni') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- BDAY -->
         <div class="divBday col-12 col-md-4 ">
             <label  for="bday">Fecha de Nacimiento</label>
             <input type="date" class="form-control date" id="bday" wire:model.defer='bday'>
+            @error('bday') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- EMAIL -->
         <div class="mt-5 col-12 col-md-6">
             <label for="email">Correo Electrónico</label>
             <input  type="email" class="form-control applyInput" id="email" placeholder="" wire:model.defer='email'>
+            @error('email') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- LINKEDIN -->
         <div class="mt-5 col-12 col-md-6">
             <label for="linkedin">LinkedIn</label>
             <input type="text" class="form-control applyInput" id="linkedin" placeholder="" wire:model.defer='linkedin'>
+            @error('linkedin') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- COUNTRY -->
@@ -37,6 +42,7 @@
             <select id="country" class="form-control" wire:model.defer='country'>
                 <option selected>Selecciona el país donde vives...</option>
             </select>
+            @error('country') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- PROVINCE -->
@@ -45,6 +51,7 @@
                 <select id="province" class="form-control" wire:model.defer='province'>
                     <option value=""> Selecciona la provincia donde vives...</option>
                 </select>
+                @error('province') <span class="error">{{ $message }}</span> @enderror
             </div>
             
             <!-- CITY -->
@@ -53,6 +60,7 @@
                 <select id="city" class="form-control" wire:model.defer='city'>
                     <option value="">Selecciona la ciudad donde vives...</option>
                 </select>
+                @error('city') <span class="error">{{ $message }}</span> @enderror
             </div>
 
         <!-- EDUCATIONLEVEL -->
@@ -60,22 +68,31 @@
             <label for="educationLevel"></label>
             <select id="educationLevel" class="form-control" wire:model.defer='educationLevel'>
                 <option selected>Selecciona tu nivel de educación...</option>
-                <option>Secundario incompleto</option>
-                <option>Secundario Completo</option>
-                <option>Universitario en curso</option>
-                <option>Universitario Graduado</option>
-                <option>Universitario Abandonado</option>
-                <option>Posgrado en curso</option>
-                <option>Posgrado completo</option>
+                <option>Secundario</option>
+                <option>Universitario</option>
+                <option>Posgrado</option>
+                <option>Doctorado</option>
             </select>
+            @error('educationLevel') <span class="error">{{ $message }}</span> @enderror   
         </div>
+    <!-- EDUCATIONSTATUS -->
+    <div class="divEducation col-12 col-md-6">
+      <label for="educationStatus"></label>
+      <select id="educationStatus" class="form-control" wire:model.defer='educationStatus'>
+          <option selected>Selecciona tu status de estudios...</option>
+          <option>En curso</option>
+          <option>Graduado</option>
+          <option>Abandonado</option>
+      </select>
+      @error('educationStatus') <span class="error">{{ $message }}</span> @enderror   
+  </div>
 
         <!-- CAREER -->
         <div class="mt-5 divCareer col-12 col-md-6">
             
                 <label for="career">Título universitario</label>
                 <input  type="text" class="form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
-           
+                @error('career') <span class="error">{{ $message }}</span> @enderror   
         </div>
         
         <!-- JOBTOAPPLY -->
@@ -87,6 +104,7 @@
                 <option>Ejecutivo Large Corporate</option>
                 <option>Data Hub Jr</option>
             </select>
+            @error('jobToApply') <span class="error">{{ $message }}</span> @enderror   
         </div>
       </div>
       <br>
@@ -197,8 +215,7 @@
 
         <!--Footer-->
         <div class="flex justify-end pt-2">
-          <button type="button" class="p-3 px-4 mr-2 text-indigo-500 bg-transparent rounded-lg hover:bg-gray-100 hover:text-indigo-400">Enviar</button>
-          <button id="btnFormulario"class="p-3 px-4 text-white bg-indigo-500 rounded-lg modal-close hover:bg-indigo-400">Cerrar</button>
+          <button id="btnFormulario"  class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
         </div>
       </div>
     </div>

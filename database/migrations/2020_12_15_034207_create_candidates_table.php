@@ -24,6 +24,7 @@ class CreateCandidatesTable extends Migration
             $table->string('province')->nullable($value = true);
             $table->string('city')->nullable($value = true);
             $table->string('education_level');
+            $table->string('education_status');
             $table->string('career');
             $table->string('job_to_apply');
             $table->timestamps();
