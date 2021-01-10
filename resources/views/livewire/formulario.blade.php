@@ -23,14 +23,14 @@
         </div>
 
         <!-- EMAIL -->
-        <div class="mt-5 col-12 col-md-6">
+        <div class="mt-3 col-12 col-md-6">
             <label for="email">Correo Electrónico</label>
             <input  type="email" class="form-control applyInput" id="email" placeholder="" wire:model.defer='email'>
             @error('email') <span class="error">{{ $message }}</span> @enderror
         </div>
 
         <!-- LINKEDIN -->
-        <div class="mt-5 col-12 col-md-6">
+        <div class="mt-3 col-12 col-md-6">
             <label for="linkedin">LinkedIn</label>
             <input type="text" class="form-control applyInput" id="linkedin" placeholder="" wire:model.defer='linkedin'>
             @error('linkedin') <span class="error">{{ $message }}</span> @enderror
@@ -76,7 +76,7 @@
             @error('educationLevel') <span class="error">{{ $message }}</span> @enderror   
         </div>
     <!-- EDUCATIONSTATUS -->
-    <div class="divEducation col-12 col-md-6">
+    <div class="mt-3 divEducation col-12 col-md-6">
       <label for="educationStatus"></label>
       <select id="educationStatus" class="form-control" wire:model.defer='educationStatus'>
           <option selected>Selecciona tu status de estudios...</option>
@@ -88,7 +88,7 @@
   </div>
 
         <!-- CAREER -->
-        <div class="mt-5 divCareer col-12 col-md-6">
+        <div class="mt-3 divCareer col-12 col-md-6">
             
                 <label for="career">Título universitario</label>
                 <input  type="text" class="form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
@@ -96,7 +96,7 @@
         </div>
         
         <!-- JOBTOAPPLY -->
-        <div class="divJobtoApply col-12">
+        <div class="mt-3 divJobtoApply col-12">
             <label for="jobToApply"></label>
             <select id="jobToApply" class="form-control" wire:model.defer='jobToApply'>
                 <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
