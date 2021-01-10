@@ -49,7 +49,25 @@
                             </tr>
                         @endforeach
                             
-                            
+                        </tbody>  
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Búsqueda</th>
+                                 <th>Nombre Completo</th>
+                                 <th>DNI</th>
+                                 <th>Fecha de Nacimiento</th>
+                                 <th>Email</th>
+                                 <th>Linkedin</th>
+                                 <th>País</th>
+                                 <th>Provincia</th>
+                                 <th>Ciudad</th>
+                                 <th>Nivel Educativo</th>
+                                 <th>Status Estudios</th>
+                                 <th>Título Universitario</th>
+                                 <th>Fecha de Aplicación</th>
+                            </tr>
+
                         </tfoot>
                     </table>
                 </div>
