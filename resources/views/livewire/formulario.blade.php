@@ -22,6 +22,7 @@
       <!-- Add margin if you want to see some of the overlay behind the modal-->
       <div class="px-6 py-4 text-left modal-content">
         <!--Title-->
+       {{-- @if($step<2) --}}
         <div class="flex items-center justify-between pb-3">
         <h1 class="text-2xl font-bold">{{$step}}</h1>
           <div class="z-50 cursor-pointer modal-close">
