@@ -1,11 +1,237 @@
-
+<div>
+  <button class="px-4 py-2 font-bold text-gray-500 bg-transparent border border-gray-500 rounded-full modal-open hover:border-indigo-500 hover:text-indigo-500">Postularme</button>
   
-    
+  <!--Modal-->
+  <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal">
+    <!--Modal Overlay-->
+    <div class="absolute w-full h-full bg-gray-900 opacity-50 modal-overlay"></div>
+    <!--Cierre Modal Overlay-->
+    <!--Contenedor del modal-->
+    <div class="z-50 w-11/12 mx-auto overflow-y-auto bg-white rounded shadow-lg modal-container md:max-w-md">
+      <form id="formulario" wire:submit.prevent='save'>
+        <div class="absolute top-0 right-0 z-50 flex flex-col items-center mt-4 mr-4 text-sm text-white cursor-pointer modal-close">
+          <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+          </svg>
+          <span class="text-sm"></span>
+        </div>
+
+        <!-- Contenido del modal (Title y Body)-->
+        <div class="px-6 py-4 text-left modal-content">
+          <!--Title-->
+          <div class="flex items-center justify-between pb-3">
+            <p class="text-2xl font-bold">Preguntas</p>
+            <div class="z-50 cursor-pointer modal-close">
+              <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+              </svg>
+            </div>
+          </div>
+          <!--Cierre del Title-->
+          
+            <!--Body-->
+              <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+                @if($step == 0)
+                  <!-- FULLNAME -->
+                  <fieldset>
+                    <div class="divFullName">
+                      <label for="fullName">Nombre y Apellido</label>
+                      <input  type="text" class="form-control applyInput" id="fullName" placeholder="" wire:model.defer='fullName'>
+                      @error('fullName') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+                  <!-- DNI -->
+                  <fieldset>
+                    <div class="divDni">
+                      <label for="dni">DNI</label>
+                      <input  type="text" class="form-control applyInput" id="dni" placeholder="" wire:model.defer='dni'>
+                      @error('dni') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+          
+                  <!--BDAY-->
+                  <fieldset>
+                    <div class="divBday">
+                      <label  for="bday">Fecha de Nacimiento</label>
+                      <input type="date" class="form-control date" id="bday" wire:model.defer='bday'>
+                      @error('bday') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+          
+                  <!-- EMAIL -->
+                  <fieldset>
+                    <div class="mt-3">
+                      <label for="email">Correo Electrónico</label>
+                      <input  type="email" class="form-control applyInput" id="email" placeholder="" wire:model.defer='email'>
+                      @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+
+                  <!-- LINKEDIN -->
+                  <fieldset>
+                    <div class="mt-3">
+                      <label for="linkedin">LinkedIn</label>
+                      <input type="text" class="form-control applyInput" id="linkedin" placeholder="" wire:model.defer='linkedin'>
+                      @error('linkedin') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+                @endif
+
+                @if($step == 1)
+                  <!-- COUNTRY -->
+                  <fieldset>
+                    <div class="divCountry">
+                      <label for="country"></label>
+                      <select id="country" class="form-control" wire:model.defer='country'>
+                        <option selected>Selecciona el país donde vives...</option>
+                      </select>
+                      @error('country') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+
+                  <!-- PROVINCE -->
+                  <fieldset>
+                    <div class="divProvince" style="display:none;">
+                      <label for="province"></label>
+                      <select id="province" class="form-control" wire:model.defer='province'>
+                        <option value=""> Selecciona la provincia donde vives...</option>
+                      </select>
+                      @error('province') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+                            
+                  <!-- CITY -->
+                  <fieldset>
+                    <div class="divCity" style="display:none;">
+                      <label for="city"></label>
+                      <select id="city" class="form-control" wire:model.defer='city'>
+                        <option value="">Selecciona la ciudad donde vives...</option>
+                      </select>
+                      @error('city') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                  </fieldset>
+                @endif
+                @if($step == 2)
+                  <!-- EDUCATIONLEVEL -->
+                  <fieldset>
+                    <div class="divEducation">
+                      <label for="educationLevel"></label>
+                      <select id="educationLevel" class="form-control" wire:model.defer='educationLevel'>
+                        <option selected>Selecciona tu nivel de educación...</option>
+                        <option>Secundario</option>
+                        <option>Universitario</option>
+                        <option>Posgrado</option>
+                        <option>Doctorado</option>
+                      </select>
+                      @error('educationLevel') <span class="error">{{ $message }}</span> @enderror   
+                    </div>
+                  </fieldset>
+                  <!-- EDUCATIONSTATUS -->
+                  <fieldset>
+                    <div class="mt-3 divEducation">
+                      <label for="educationStatus"></label>
+                      <select id="educationStatus" class="form-control" wire:model.defer='educationStatus'>
+                        <option selected>Selecciona tu status de estudios...</option>
+                        <option>En curso</option>
+                        <option>Graduado</option>
+                        <option>Abandonado</option>
+                      </select>
+                      @error('educationStatus') <span class="error">{{ $message }}</span> @enderror   
+                    </div>
+                  </fieldset>
+                  <!-- CAREER -->
+                  <fieldset>
+                    <div class="mt-3 divCareer">
+                      <label for="career">Título universitario</label>
+                      <input  type="text" class="form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
+                      @error('career') <span class="error">{{ $message }}</span> @enderror   
+                    </div>
+                  </fieldset>
+                  <!-- JOBTOAPPLY -->
+                  <fieldset>
+                    <div class="mt-3 divJobtoApply">
+                      <label for="jobToApply"></label>
+                      <select id="jobToApply" class="form-control" wire:model.defer='jobToApply'>
+                        <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
+                        <option>Analista Contable Ssr</option>
+                        <option>Ejecutivo Large Corporate</option>
+                        <option>Data Hub Jr</option>
+                      </select>
+                      @error('jobToApply') <span class="error">{{ $message }}</span> @enderror   
+                    </div>
+                  </fieldset>
+                @endif
+              </div>
+            <!--Cierre del Body-->
+        </div>
+        <!-- Cierre Contenido del modal (Title y Body)-->
+        <!--Footer-->
+        <div class="flex justify-end pt-2">
+          <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
+          @if($step>0 && $step<=2)
+            <button id="btnBack" type="button" wire:click="decreaseStep" class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400">Atrás</button>
+          @endif
+          @if($step == 2)
+            <button id="btnFormulario"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
+          @endif
+          @if($step < 2)
+            <button id="btnNext" type="button" wire:click="increaseStep" class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400">Siguiente</button>
+          @endif
+        </div>
+        <!--Cierre del Footer-->
+      </form>
+    </div>
+    <!--Cierre del Contenedor del Modal-->
+  </div>
+</div>
 
 
-{{-- modal button--}}
-<button class="px-4 py-2 font-bold text-white bg-pink-700 border border-gray-500 rounded-full modal-open hover:border-pink-900 hover:text-pink-900">Postularme</button>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--<div>
+  <button class="px-4 py-2 font-bold text-white bg-pink-700 border border-gray-500 rounded-full modal-open hover:border-pink-900 hover:text-pink-900">Postularme</button>
   <!--Modal-->
   <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal">
     <div class="absolute w-full h-full bg-gray-900 opacity-50 modal-overlay"></div>
@@ -33,64 +259,59 @@
 
         <!--Body-->
 
-        <form id="formulario" wire:submit.prevent='submit'  >  
+        <form id="formulario" wire:submit.prevent='submit'>  
        
           <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
-
+            <div class="row form-group"> 
             @if($step == 0)
 
-            <div class="row form-group">
               <!-- FULLNAME -->
               <fieldset>
-              <div class="divFullName">
-                  <label for="fullName">Nombre y Apellido</label>
-                  <input  type="text" class="form-control applyInput" id="fullName" placeholder="" wire:model.lazy='fullName'>
-                  @error('fullName') <span class="error">{{ $message }}</span> @enderror
-              </div>
-            </fieldset>
+                <div class="divFullName">
+                    <label for="fullName">Nombre y Apellido</label>
+                    <input  type="text" class="form-control applyInput" id="fullName" placeholder="" wire:model.lazy='fullName'>
+                    @error('fullName') <span class="error">{{ $message }}</span> @enderror
+                </div>
+              </fieldset>
       
               <!-- DNI -->
-            <fieldset>
-              <div class="divDni">
+              <fieldset>
+                <div class="divDni">
                   <label for="dni">DNI</label>
                   <input  type="text" class="form-control applyInput" id="dni" placeholder="" wire:model.lazy='dni'>
                   @error('dni') <span class="error">{{ $message }}</span> @enderror
-              </div>
-            </fieldset>
+                </div>
+              </fieldset>
       
               <!-- BDAY -->
-            <fieldset>
-              <div class="divBday">
+              <fieldset>
+                <div class="divBday">
                   <label  for="bday">Fecha de Nacimiento</label>
                   <input type="date" class="form-control date" id="bday" wire:model.lazy='bday'>
                   @error('bday') <span class="error">{{ $message }}</span> @enderror
-              </div>
-            </fieldset>
+                </div>
+              </fieldset>
       
               <!-- EMAIL -->
-            <fieldset>
-              <div class="mt-3">
+              <fieldset>
+                <div class="mt-3">
                   <label for="email">Correo Electrónico</label>
                   <input  type="email" class="form-control applyInput" id="email" placeholder="" wire:model.lazy='email'>
                   @error('email') <span class="error">{{ $message }}</span> @enderror
-              </div>
-            </fieldset>
+                </div>
+              </fieldset>
       
               <!-- LINKEDIN -->
-            <fieldset>
-              <div class="mt-3">
+              <fieldset>
+                <div class="mt-3">
                   <label for="linkedin">LinkedIn</label>
                   <input type="text" class="form-control applyInput" id="linkedin" placeholder="" wire:model.lazy='linkedin'>
                   @error('linkedin') <span class="error">{{ $message }}</span> @enderror
-              </div>
-            </fieldset>
+                </div>
+              </fieldset>
+            @endif
 
-              @endif
-
-
-
-              @if($step == 1)
-      
+            @if($step == 1)
               <!-- COUNTRY -->
             <fieldset>
               <div class="divCountry">
@@ -289,17 +510,7 @@
 
 
         <!--Footer-->
-        @if($step>0 && $step<=4)
-        <div class="flex justify-end pt-2">
-          <button id="btnBack"  type="button" wire:click="decreaseStep" class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400" >Atrás</button>
-        </div>
-        @endif
-
-        @if($step<4)
-        <div class="flex justify-end pt-2">
-          <button id="btnNext"  type="submit" class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400" >Siguiente</button>
-        </div>
-        @endif
+       
 
 
         @if($step==4)
@@ -311,13 +522,13 @@
       </div>
     </div>
      
-  </form>
+    </form>
 
 
-@if($step>4)
-<div class="flex items-center justify-between p-10 bg-white rounded-lg shadow">
-  <div>
-    <svg class="w-20 h-20 mx-auto mb-4 text-green-500" viewBox="0 0 20 20" fill="currentColor">  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+    @if($step>4)
+    <div class="flex items-center justify-between p-10 bg-white rounded-lg shadow">
+      <div>
+      <svg class="w-20 h-20 mx-auto mb-4 text-green-500" viewBox="0 0 20 20" fill="currentColor">  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
 
     <h2 class="mb-4 text-2xl font-bold text-center text-gray-800">Postulación Exitosa</h2>
 
@@ -332,3 +543,5 @@
   </div>
 </div>
 @endif
+
+</div>--}}

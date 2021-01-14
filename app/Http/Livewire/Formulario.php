@@ -19,7 +19,7 @@ class Formulario extends Component
     public $educationStatus;
     public $career;
     public $jobToApply;
-    public $step;
+    public $step=0;
     public $stepActions=[
         'submit1',
         'submit2',
@@ -77,7 +77,7 @@ class Formulario extends Component
 
     public function render()
     {
-        $this->mount();
+        
         
         return view('livewire.formulario');
     }
@@ -87,11 +87,11 @@ class Formulario extends Component
     }
 
     public function increaseStep(){
-         $this->step++;
+        $this->step++;
     }
 
     public function decreaseStep(){
-         $this->step--;
+        $this->step--;
     }
 
 
