@@ -19,6 +19,14 @@ class Formulario extends Component
     public $educationStatus;
     public $career;
     public $jobToApply;
+    public $step;
+    public $stepActions=[
+        'submit1',
+        'submit2',
+        'submit3',
+        'submit4',
+        'submit5'
+    ];
 
     protected $rules = [
         'fullName' => 'required',
@@ -32,10 +40,63 @@ class Formulario extends Component
         'career' => 'required',
         'jobToApply' => 'required'
     ];
+
+    public function submit(){
+        $action = $this->stepActions[$this->step];
+        $this->$action();
+
+    }
+    public function submit1(){
+        
+        $this->step++;
+
+    }
+    public function submit2(){
+        
+        $this->step++;
+
+    }
+    public function submit3(){
+        
+        $this->step++;
+
+    }
+
+    public function submit4(){
+        
+        $this->step++;
+
+    }
+
+    public function submit5(){
+        
+        $this->step++;
+
+    }
+
+
     public function render()
     {
+        $this->mount();
+        
         return view('livewire.formulario');
     }
+
+    public function mount(){
+        $this->step=0;
+    }
+
+    public function increaseStep(){
+         $this->step++;
+    }
+
+    public function decreaseStep(){
+         $this->step--;
+    }
+
+
+
+
     public function save(){
         $this->validateProvince();
         $this->validate();

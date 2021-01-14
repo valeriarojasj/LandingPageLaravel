@@ -195,24 +195,24 @@ transform: translate(-50%, -50%);
 }
 .applyInput {
   background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid #fff !important;
+  /* border: none !important; */
+  /* border-bottom: 1px solid #fff !important; */
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
-  color:#fff !important;
+  /* color:#fff !important; */
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #fff !important;
+    /* color: #fff !important; */
     opacity: 1 !important; /* Firefox */
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #fff !important;
+    /* color: #fff !important; */
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #fff !important;
+    /* color: #fff !important; */
   }
   .link{
     color:#fff !important;
@@ -222,10 +222,10 @@ transform: translate(-50%, -50%);
     color:#fff !important;
     text-decoration: none;
   }
-
+/* 
   ::-webkit-calendar-picker-indicator {
     filter: invert(1);
-}
+} */
 
 h2{
   font-size: 2.5rem;
