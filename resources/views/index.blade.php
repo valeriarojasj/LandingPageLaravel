@@ -206,7 +206,7 @@
           <br>
           </div>
 </div>
-<button class="px-4 py-2 font-bold text-gray-500 bg-transparent border border-gray-500 rounded-full modal-open hover:border-indigo-500 hover:text-indigo-500">Postularme</button>
+<button class="px-4 py-2 font-bold text-white bg-pink-700 border border-gray-500 rounded-full modal-open hover:border-indigo-500 hover:text-indigo-500">Postularme</button>
 
 
 
