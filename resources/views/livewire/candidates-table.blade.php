@@ -52,22 +52,49 @@
                         </tbody>  
                         <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Búsqueda</th>
-                                 <th>Nombre Completo</th>
-                                 <th>DNI</th>
-                                 <th>Fecha de Nacimiento</th>
-                                 <th>Email</th>
-                                 <th>Linkedin</th>
-                                 <th>País</th>
-                                 <th>Provincia</th>
-                                 <th>Ciudad</th>
-                                 <th>Nivel Educativo</th>
-                                 <th>Status Estudios</th>
-                                 <th>Título Universitario</th>
-                                 <th>Fecha de Aplicación</th>
+                                <td>
+                                    <input type='text' placeholder='ID' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Búsqueda' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Nombre Completo' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='DNI' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Fecha de Nacimiento' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Email' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Linkedin' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='País' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Provincia' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Ciudad' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Nivel Educativo' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Status Estudios' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Título Universitario' />
+                                </td>
+                                <td>
+                                    <input type='text' placeholder='Fecha de Aplicación' />
+                                </td>
                             </tr>
-
                         </tfoot>
                     </table>
                 </div>
@@ -83,26 +110,7 @@
             <script>
                 $(document).ready(function () {
                     let table = $('#example').DataTable({
-                        initComplete: function () {
-                            this.api().columns().every( function () {
-                                var column = this;
-                                var select = $('<select><option value=""></option></select>')
-                                    .appendTo( $(column.footer()).empty() )
-                                    .on( 'change', function () {
-                                        var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                        );
-                
-                                        column
-                                            .search( val ? '^'+val+'$' : '', true, false )
-                                            .draw();
-                                    } );
-                
-                                column.data().unique().sort().each( function ( d, j ) {
-                                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                                } );
-                            } );
-                        },
+                        
                         
                         responsive: true,
                         dom: 'Blfrtip',
