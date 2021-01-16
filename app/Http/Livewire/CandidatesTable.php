@@ -8,8 +8,6 @@ class CandidatesTable extends Component
 {
     public function render()
     {
-        return view('livewire.candidates-table', [
-            'candidates' => Candidate::paginate(5)
-        ]);
+        return view('livewire.candidates-table');
     }
 }
