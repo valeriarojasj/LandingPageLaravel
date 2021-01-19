@@ -56,7 +56,7 @@ class CandidateController extends Controller
         if(empty($searchRecordByColumn)){
             $searchRecords = $this->searchCandidates($columnName, $typeOfOrder, $start, $length, $search['value']);
         }else{
-            $searchRecords = $this->searchCandidatesBySelectOption($searchRecordByColumn);
+            $searchRecords = $this->searchCandidatesBySelectOption($searchRecordByColumn, $columnName, $typeOfOrder, $start, $length);
         }
         
         $data_arr = $this->prepareResults($searchRecords);
@@ -144,12 +144,15 @@ class CandidateController extends Controller
         }
         return $searchValues;
     }
-    public function searchCandidatesBySelectOption($columns){
+    public function searchCandidatesBySelectOption($columns, $columnToOrder, $order, $start, $length){
         $records = Candidate::select('*');
         foreach($columns as $column=>$value){
             $records->where($column, $value);
         };
-        return $records->get();
+        return $records->orderby($columnToOrder, $order)
+        ->skip($start)
+        ->take($length)
+        ->get();
     }
 
 }
