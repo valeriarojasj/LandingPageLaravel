@@ -14,66 +14,39 @@
                     
                         <thead>
                             <tr>
-                                <th data-priority="1">ID</th>
-                                <th data-priority="2">Búsqueda</th>
-                                <th data-priority="3">Nombre Completo</th>
-                                <th data-priority="4">DNI</th>
-                                <th data-priority="5">Fecha de Nacimiento</th>
-                                <th data-priority="6">Email</th>
-                                <th data-priority="7">Linkedin</th>
-                                <th data-priority="8">País</th>
-                                <th data-priority="9">Provincia</th>
-                                <th data-priority="10">Ciudad</th>
-                                <th data-priority="11">Nivel Educativo</th>
-                                <th data-priority="12">Status Estudios</th>
-                                <th data-priority="13">Título Universitario</th>
-                                <th data-priority="14">Fecha de Aplicación</th>
+                                <th>ID</th>
+                                <th>Búsqueda</th>
+                                <th>Nombre completo</th>
+                                <th>DNI</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Email</th>
+                                <th>Linkedin</th>
+                                <th>País</th>
+                                <th>Provincia</th>
+                                <th>Ciudad</th>
+                                <th>Nivel Educativo</th>
+                                <th>Status Estudios</th>
+                                <th>Título Universitario</th>
+                                <th>Fecha de Aplicación</th>
                             </tr>
                         </thead>
+
                         <tfoot>
                             <tr>
-                                <td>
-                                    <input type='text' placeholder='ID' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Búsqueda' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Nombre Completo' class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='DNI' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Fecha de Nacimiento'  class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Email' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Linkedin'  class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='País'  class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Provincia' class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Ciudad'  class='tfoot-input'/>
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Nivel Educativo' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Status Estudios' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Título Universitario' class='tfoot-input' />
-                                </td>
-                                <td>
-                                    <input type='text' placeholder='Fecha de Aplicación' class='tfoot-input' />
-                                </td>
+                                <th>ID</th>
+                                <th>Búsqueda</th>
+                                <th>Nombre completo</th>
+                                <th>DNI</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Email</th>
+                                <th>Linkedin</th>
+                                <th>País</th>
+                                <th>Provincia</th>
+                                <th>Ciudad</th>
+                                <th>Nivel Educativo</th>
+                                <th>Status Estudios</th>
+                                <th>Título Universitario</th>
+                                <th>Fecha de Aplicación</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -125,6 +98,7 @@
                         dom: 'Blfrtip',
                         "scrollX": true,
                         "scrollY": true,
+                        scrollCollapse: true,
                         buttons: [
                             'copy', 'excel', 'pdf'
                         ],
@@ -133,9 +107,35 @@
                                 next : 'Siguiente',
                                 previous : 'Anterior'
                             }
+                        },
+                        initComplete: function (data) {
+                            this.api().columns().every( function () {
+                                var column = this;
+                                const orden = data.json.orden;
+                                const index = column[0][0];
+                                const selectInfo = data.json.selectInfo;
+                                const info= selectInfo[orden[index]];
+                                var select = $('<select><option value="">Buscá por '+info.label+'</option></select>')
+                                    .appendTo( $(column.footer()).empty() )
+                                    .on( 'change', function () {
+                                        var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                        );
+                
+                                        column
+                                            .search( val ? val : '', true, false )
+                                            .draw();
+                                    } );
+                                for(option of info.selectOptions){
+                                    select.append( '<option value="'+option[info.name]+'">'+option[info.name]+'</option>' )
+                                };
+                            } );
                         }
-                    }).columns.adjust().responsive.recalc();
-                });
+                    });
+                    table.columns.adjust();
+                }).on( 'init.dt', function ( e, settings ) {
+                    $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
+                } );
             </script>
         </div>
     </div>
