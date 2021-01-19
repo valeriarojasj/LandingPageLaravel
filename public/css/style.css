@@ -271,4 +271,12 @@ p{
 
  }
 
+ .tfoot-input{
+  color : red;
+}
+
+.tfoot-input::placeholder{
+  color : black;
+  border: 1px solid black;
+}
 
