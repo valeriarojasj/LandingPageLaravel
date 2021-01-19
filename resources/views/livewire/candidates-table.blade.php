@@ -11,63 +11,43 @@
                 <!--Card-->
                 <div id='recipients' class="mt-6 bg-white rounded shadow lg:mt-0">
                     <table id="example" class="stripe">
+                    
                         <thead>
                             <tr>
-                                <th data-priority="1">ID</th>
-                                <th data-priority="2">Búsqueda</th>
-                                <th data-priority="3">Nombre Completo</th>
-                                <th data-priority="4">DNI</th>
-                                <th data-priority="5">Fecha de Nacimiento</th>
-                                <th data-priority="6">Email</th>
-                                <th data-priority="7">Linkedin</th>
-                                <th data-priority="8">País</th>
-                                <th data-priority="9">Provincia</th>
-                                <th data-priority="10">Ciudad</th>
-                                <th data-priority="11">Nivel Educativo</th>
-                                <th data-priority="12">Status Estudios</th>
-                                <th data-priority="13">Título Universitario</th>
-                                <th data-priority="14">Fecha de Aplicación</th>
+                                <th>ID</th>
+                                <th>Búsqueda</th>
+                                <th>Nombre completo</th>
+                                <th>DNI</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Email</th>
+                                <th>Linkedin</th>
+                                <th>País</th>
+                                <th>Provincia</th>
+                                <th>Ciudad</th>
+                                <th>Nivel Educativo</th>
+                                <th>Status Estudios</th>
+                                <th>Título Universitario</th>
+                                <th>Fecha de Aplicación</th>
                             </tr>
                         </thead>
-                        <tbody>
-                        @foreach ($candidates as $candidate)
-                            <tr>
-                                <td>{{ $candidate->id }}</td>
-                                <td>{{ $candidate-> job_to_apply}}</td>
-                                <td>{{ $candidate-> fullName}}</td>
-                                <td>{{ $candidate-> dni}}</td>
-                                <td>{{ $candidate-> birthday}}</td>
-                                <td>{{ $candidate-> email}}</td>
-                                <td>{{ $candidate-> linkedin}}</td>
-                                <td>{{ $candidate-> country}}</td>
-                                <td>{{ $candidate-> province}}</td>
-                                <td>{{ $candidate-> city}}</td>
-                                <td>{{ $candidate-> education_level}}</td>
-                                <td>{{ $candidate-> education_status}}</td>
-                                <td>{{ $candidate-> career}}</td>
-                                <td>{{ $candidate-> created_at}}</td>
-                            </tr>
-                        @endforeach
-                            
-                        </tbody>  
+
                         <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>Búsqueda</th>
-                                 <th>Nombre Completo</th>
-                                 <th>DNI</th>
-                                 <th>Fecha de Nacimiento</th>
-                                 <th>Email</th>
-                                 <th>Linkedin</th>
-                                 <th>País</th>
-                                 <th>Provincia</th>
-                                 <th>Ciudad</th>
-                                 <th>Nivel Educativo</th>
-                                 <th>Status Estudios</th>
-                                 <th>Título Universitario</th>
-                                 <th>Fecha de Aplicación</th>
+                                <th>Nombre completo</th>
+                                <th>DNI</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Email</th>
+                                <th>Linkedin</th>
+                                <th>País</th>
+                                <th>Provincia</th>
+                                <th>Ciudad</th>
+                                <th>Nivel Educativo</th>
+                                <th>Status Estudios</th>
+                                <th>Título Universitario</th>
+                                <th>Fecha de Aplicación</th>
                             </tr>
-
                         </tfoot>
                     </table>
                 </div>
@@ -80,13 +60,62 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-flash-1.6.4/b-html5-1.6.4/b-print-1.6.4/datatables.min.js"></script>
+            
             <script>
                 $(document).ready(function () {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
                     let table = $('#example').DataTable({
-                        initComplete: function () {
+                        
+                        processing: true,
+                        serverSide: true,
+                        ajax: "{{route('candidatos')}}",
+                        "drawCallback": function (settings) { 
+                            var response = settings.json;
+                            console.log(response);
+                        },
+                        columns : [
+                            {data:'id'},
+                            {data:'job_to_apply'},
+                            {data:'fullName'},
+                            {data:'dni'},
+                            {data:'birthday'},
+                            {data:'email'},
+                            {data:'linkedin'},
+                            {data:'country'},
+                            {data:'province'},
+                            {data:'city'},
+                            {data:'education_level'},
+                            {data:'education_status'},
+                            {data:'career'},
+                            {data:'created_at'}
+                        ],
+                        responsive: true,
+                        autoWidth : false,
+                        dom: 'Blfrtip',
+                        "scrollX": true,
+                        "scrollY": true,
+                        scrollCollapse: true,
+                        buttons: [
+                            'copy', 'excel', 'pdf'
+                        ],
+                        language:{
+                            paginate : {
+                                next : 'Siguiente',
+                                previous : 'Anterior'
+                            }
+                        },
+                        initComplete: function (data) {
                             this.api().columns().every( function () {
                                 var column = this;
-                                var select = $('<select><option value=""></option></select>')
+                                const orden = data.json.orden;
+                                const index = column[0][0];
+                                const selectInfo = data.json.selectInfo;
+                                const info= selectInfo[orden[index]];
+                                var select = $('<select><option value="">Buscá por '+info.label+'</option></select>')
                                     .appendTo( $(column.footer()).empty() )
                                     .on( 'change', function () {
                                         var val = $.fn.dataTable.util.escapeRegex(
@@ -94,25 +123,19 @@
                                         );
                 
                                         column
-                                            .search( val ? '^'+val+'$' : '', true, false )
+                                            .search( val ? val : '', true, false )
                                             .draw();
                                     } );
-                
-                                column.data().unique().sort().each( function ( d, j ) {
-                                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                                } );
+                                for(option of info.selectOptions){
+                                    select.append( '<option value="'+option[info.name]+'">'+option[info.name]+'</option>' )
+                                };
                             } );
-                        },
-                        
-                        responsive: true,
-                        dom: 'Blfrtip',
-                        "scrollX": true,
-                        "scrollY": true,
-                        buttons: [
-                            'copy', 'excel', 'pdf'
-                        ]
-                    }).columns.adjust().responsive.recalc();
-                });
+                        }
+                    });
+                    table.columns.adjust();
+                }).on( 'init.dt', function ( e, settings ) {
+                    $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
+                } );
             </script>
         </div>
     </div>
