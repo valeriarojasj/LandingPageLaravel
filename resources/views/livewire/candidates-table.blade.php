@@ -123,30 +123,31 @@
                                 next : 'Siguiente',
                                 previous : 'Anterior'
                             }
-                        },
-                        initComplete: function (data) {
-                            this.api().columns().every( function () {
-                                var column = this;
-                                const orden = data.json.orden;
-                                const index = column[0][0];
-                                const selectInfo = data.json.selectInfo;
-                                const info= selectInfo[orden[index]];
-                                var select = $('<select><option value="">Buscá por '+info.label+'</option></select>')
-                                    .appendTo( $(column.footer()).empty() )
-                                    .on( 'change', function () {
-                                        var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                        );
-                
-                                        column
-                                            .search( val ? val : '', true, false )
-                                            .draw();
-                                    } );
-                                for(option of info.selectOptions){
-                                    select.append( '<option value="'+option[info.name]+'">'+option[info.name]+'</option>' )
-                                };
-                            } );
                         }
+                        // ,
+                        // initComplete: function (data) {
+                        //     this.api().columns().every( function () {
+                        //         var column = this;
+                        //         const orden = data.json.orden;
+                        //         const index = column[0][0];
+                        //         const selectInfo = data.json.selectInfo;
+                        //         const info= selectInfo[orden[index]];
+                        //         var select = $('<select><option value="">Buscá por '+info.label+'</option></select>')
+                        //             .appendTo( $(column.footer()).empty() )
+                        //             .on( 'change', function () {
+                        //                 var val = $.fn.dataTable.util.escapeRegex(
+                        //                     $(this).val()
+                        //                 );
+                
+                        //                 column
+                        //                     .search( val ? val : '', true, false )
+                        //                     .draw();
+                        //             } );
+                        //         for(option of info.selectOptions){
+                        //             select.append( '<option value="'+option[info.name]+'">'+option[info.name]+'</option>' )
+                        //         };
+                        //     } );
+                        // }
                     });
                     table.columns.adjust();
                 }).on( 'init.dt', function ( e, settings ) {

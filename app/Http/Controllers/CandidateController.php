@@ -66,7 +66,8 @@ class CandidateController extends Controller
             "iTotalRecords" => $this->countAllRows(),
             "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length, $search['value']),
             "aaData" => $data_arr,
-            "selectInfo" => $this->getSelectInfo(),
+            "selectInfo" =>[],
+            // "selectInfo" => $this->getSelectInfo(),
             "orden" => $this->orden
         );
         echo json_encode($response);
