@@ -152,7 +152,7 @@
 <section id="about" class = "flexbox-container">
 
   <div class = "flexbox-item1">
-    <h2 class="text-center">¿Quiénes somos?</h2>\
+    <h2 class="text-center">¿Quiénes somos?</h2>
   </div>
 
   <div class = "flexbox-item2">
@@ -185,90 +185,125 @@
     <hr class="solid">
     
     <section id="reviews">  
-
-      <h2 class=text-center>Lo que dicen nuestros candidatos</h2>
-        <div class="reviewsDiv">
-         
-          <div class="review">
-            
-            <div class="mb-3 card card-block d-flex justify-content-center align-items-center" >
-              <img class ="imgReviewComments" src="img/icono-comentario.png" width="120px" alt="">
-              <div class="row h-100 no-gutters d-flex align-items-center" >
-                <div class="col-md-4 d-flex align-items-center">
-                  <img src="img/mujer.png" class="card-img"  style="width: 80%;" alt="...">
-                </div>
-
-                <div class="col-md-8 d-flex align-items-center">
-                  <div class="card-body d-flex"> 
-                    <p class="text-justify card-text">"...Realmente <strong>las felicito por el profesionalismo y humanidad </strong>que le ponen a lo que hacen, uno se siente <strong>persona y no un recurso</strong>"</p>
-                  </div>
-                </div>
+      
+    <h2 class=text-center>Lo que dicen nuestros candidatos</h2>
+    
+    <div class="reviewsDiv">
+      <div class="review">
+        <div class="mb-3 card card-block d-flex justify-content-center align-items-center" >
+          <img class ="imgReviewComments" src="img/icono-comentario.png" width="120px" alt="">
+          <div class="row h-100 no-gutters d-flex align-items-center" >
+            <div class="col-md-4 d-flex align-items-center">
+              <img src="img/mujer.png" class="card-img"  style="width: 80%;" alt="...">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body d-flex"> 
+                <p class="text-justify card-text">"...Realmente <strong>las felicito por el profesionalismo y humanidad </strong>
+                que le ponen a lo que hacen, uno se siente <strong>persona y no un recurso</strong>"
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section> 
-    
-    <hr class="solid">
-    
-    <section id="apply">
-    
-    <div class="row">
-        <div class="mx-auto">
-          <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
-          
-          <br>
+    </div>
+  </div>
+</section> 
 
-          <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
+<hr class="solid">
 
-          <br>
-        </div>
-        
-        <div class="grid grid-cols-3 gap-3">
-          <div class="flex flex-wrap px-4 py-3 rounded-xl tarjetaBusqueda">
-            <div class="col-span-3"><h5>Programador PHP</h5></div>
-              <div class="col-span-3"><p>Empresa Farmacéutica</p></div>
-              <div class="col-span-2"><span>Ciudad de Buenos Aires</span></div>
-              <div><button class="px-4 py-2 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button></div>  
-            </div>
+<section id="apply">
+  
+  <div class="row">
+    <div class="mx-auto">
+      <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
+      <br>
+      <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
+      <br>
+    </div>
+
+     <div class="grid grid-cols-3 gap-3">
+       <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
+         <h5 class="tituloBusqueda">Programador PHP</h5>
+         <p class="empresaBusqueda">Empresa Farmacéutica</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+       
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
+         <p class="empresaBusqueda">Importante banco</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Analista Contable</h5>
+         <p class="empresaBusqueda">Importante banco</p>
+         <span class="mb-1 lugarBusqueda">La Plata</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Gerente de Proyecto</h5>
+         <p class="empresaBusqueda">Importante empresa de retail</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Gerente de Producto</h5>
+         <p class="empresaBusqueda">Empresa de Tecnología</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Auditor de procesos</h5>
+         <p class="empresaBusqueda">Empresa automotriz</p>
+         <span class="mb-1 lugarBusqueda">Provincia de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Programador JAVA Senior</h5>
+         <p class="empresaBusqueda">Start up</p>
+         <span class="mb-1 lugarBusqueda">Mendoza</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
+         <p class="empresaBusqueda">Importante banco</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
+
+       <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
+         <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
+         <p class="empresaBusqueda">Importante banco</p>
+         <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
+         <div class="mt-auto text-right ">
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+         </div>
+       </div>
             
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5 class="tituloBusqueda">Programador PHP</h5>
-              <p class="empresaBusqueda">Empresa Farmacéutica</p>
-              <span class="lugarBusqueda">CABA</span>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div><div class="px-4 py-3 rounded-xl tarjetaBusqueda">
-              <h5>Programador PHP</h5>
-              <p>Empresa Farmacéutica</p>
-              <span>CABA</span>
-            </div>
-          </div>
-        </div>
 
 
 

@@ -108,7 +108,32 @@
     background-color: #D895B2;
     color:white;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    line-height: 1.9rem;
+    
 
+  }
+
+  h5.tituloBusqueda{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.9rem;
+  }
+  p.empresaBusqueda{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.9rem;
+  }
+  span.lugarBusqueda{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 300 !important;
+    font-style: italic;
+    line-height: 1.9rem;
   }
 
   .iconDiv{
@@ -323,6 +348,8 @@ hr.solid{
   border-top: 3px solid #bbb;
   margin-left: 5rem;
   margin-right: 5rem;
+  margin-top:1rem;
+  margin-bottom:2rem;
 }
 
 
