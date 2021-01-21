@@ -73,6 +73,7 @@
 
   #inputEmailSubscribe{
     background: rgba(255, 255, 255, 0.2) !important;
+    font-family: 'Montserrat', sans-serif;
    
   }
 
@@ -114,8 +115,19 @@
     font-size: 1rem !important;
     font-weight: 600 !important;
     line-height: 1.9rem;
+    z-index: 999999;
     
 
+  }
+  
+ 
+
+
+
+  .btnModal:hover{
+    color:rgba(245, 237, 245);
+    background-color:#d678a2;
+  
   }
 
   h5.tituloBusqueda{
@@ -137,6 +149,7 @@
     font-style: italic;
     line-height: 1.9rem;
   }
+ 
 
   .iconDiv{
     display: flex;
