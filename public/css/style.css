@@ -119,16 +119,26 @@
     
 
   }
-  
  
 
+.btn:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #A9CCEE;
+}
 
 
-  .btnModal:hover{
+
+.btn:hover {
+ 
+  filter: brightness(1.1);
+  color:#fff;
+}
+
+  /* .btnModal:hover{
     color:rgba(245, 237, 245);
     background-color:#d678a2;
   
-  }
+  } */
 
   h5.tituloBusqueda{
     font-family: 'Montserrat', sans-serif !important;
@@ -315,6 +325,7 @@ span{
 .tarjetaBusqueda{
   
   background-color: rgba(169, 204, 238,0.3);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -384,8 +395,4 @@ hr.solid{
 .carousel-indicators .active {
   background-color:#D895B2;
 }
-.applyBtn:hover{
-  color:rgba(245, 237, 245);
-  background-color:#d678a2;
 
-}

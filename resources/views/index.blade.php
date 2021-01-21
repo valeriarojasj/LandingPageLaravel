@@ -233,7 +233,7 @@
          <p class="empresaBusqueda">Empresa Farmacéutica</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
        
@@ -242,7 +242,7 @@
          <p class="empresaBusqueda">Importante banco</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -251,7 +251,7 @@
          <p class="empresaBusqueda">Importante banco</p>
          <span class="mb-1 lugarBusqueda">La Plata</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -260,7 +260,7 @@
          <p class="empresaBusqueda">Importante empresa de retail</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -269,7 +269,7 @@
          <p class="empresaBusqueda">Empresa de Tecnología</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -278,7 +278,7 @@
          <p class="empresaBusqueda">Empresa automotriz</p>
          <span class="mb-1 lugarBusqueda">Provincia de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -287,7 +287,7 @@
          <p class="empresaBusqueda">Start up</p>
          <span class="mb-1 lugarBusqueda">Mendoza</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -296,7 +296,7 @@
          <p class="empresaBusqueda">Importante banco</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
 
@@ -305,7 +305,7 @@
          <p class="empresaBusqueda">Importante banco</p>
          <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
          <div class="mt-auto text-right ">
-           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
+           <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
          </div>
        </div>
             
