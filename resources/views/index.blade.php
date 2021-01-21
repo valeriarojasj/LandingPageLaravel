@@ -222,7 +222,7 @@
       <br>
     </div>
 
-     <div class="grid grid-cols-3 gap-3">
+     <div class="grid max-w-screen-xl grid-cols-1 gap-4 px-4 mx-auto lg:grid-cols-3">
        <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
          <h5 class="tituloBusqueda">Programador PHP</h5>
          <p class="empresaBusqueda">Empresa Farmacéutica</p>

@@ -20,6 +20,8 @@
     float: right;
     padding-left: 1rem;
     padding-right: 1rem;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.2rem;
 
   }
  
@@ -301,6 +303,9 @@ span{
   
   background-color: rgba(169, 204, 238,0.3);
 }
+
+
+
 
 
 .flexbox-container{
