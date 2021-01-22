@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
+
+use App\Exports\CandidateExport;
+use App\Imports\CandidateImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class CandidateController extends Controller
 {
 
@@ -160,4 +165,22 @@ class CandidateController extends Controller
         ->get();
     }
 
+    /*public function importExportView()
+    {
+       return view('import');
+    }*/
+    public function export() 
+    {
+        return Excel::download(new CandidateExport, 'candidates.xlsx');
+    }
+    public function getCandidatesExcel(Request $request){
+        
+        return $request;
+    }
+    /*public function import() 
+    {
+        Excel::import(new CandidateImport,request()->file('file'));
+             
+        return back();
+    }*/
 }

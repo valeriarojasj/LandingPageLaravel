@@ -87,8 +87,8 @@
                         serverSide: true,
                         ajax: "{{route('candidatos')}}",
                         "drawCallback": function (settings) { 
-                            var response = settings.json;
-                            console.log(response);
+                            /*var response = settings.json;
+                            console.log(response);*/
                         },
                         columns : [
                             {data:'id'},
@@ -113,10 +113,38 @@
                         scrollCollapse: true,
                         dom: 'Bfrtip',
                         buttons: [
-                            'copyHtml5',
-                            'excelHtml5',
-                            'csvHtml5',
-                            'pdfHtml5'
+                            {
+                                text: 'EXCEL',
+                                action: async function ( e, dt, node, config ) {
+                                    var datos = dt["context"][0]["json"];
+                                    $.ajax({
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
+                                        url: '/candidates-excel',
+                                        dataType : 'json',
+                                        type: 'POST',
+                                        data: datos,
+                                        success:function(response) {
+                                            console.log(response);
+                                        }
+                                    });
+                                    /*fetch("http://localhost:8001/candidates-excel",{
+                                        method: 'POST',
+                                        credentials: 'same-origin',
+                                        headers: {
+                                        'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({a: 1, b: 2})
+                                    })
+                                    .then(function(response){
+                                        return response.json();
+                                    })
+                                    .then(function(data){
+                                        console.log(data);
+                                    });*/
+                                }
+                            }
                         ],
                         language:{
                             paginate : {

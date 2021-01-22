@@ -26,3 +26,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/job-openings', function () {
     return view('livewire.job-openings');
 })->name('job-openings');
+Route::middleware(['auth:sanctum', 'verified'])->post('/candidates-excel', [CandidateController::class, 'getCandidatesExcel']);
+/*Route::get('importExportView', [CandidateController::class, 'importExportView']);
+Route::get('export', [CandidateController::class, 'export'])->name('export');
+Route::post('import', [CandidateController::class, 'import'])->name('import');
+*/
