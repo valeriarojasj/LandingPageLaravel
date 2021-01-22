@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobOffersTable extends Migration
+class CreateJobOpeningsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJobOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_offers', function (Blueprint $table) {
+        Schema::create('job_openings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('job_title');
             $table->string('company_type');
@@ -36,7 +36,7 @@ class CreateJobOffersTable extends Migration
             $table->string('checkbox2_option_1');
             $table->string('checkbox2_option_2');
             $table->string('checkbox2_option_3');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
@@ -47,6 +47,6 @@ class CreateJobOffersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_offers');
+        Schema::dropIfExists('job_openings');
     }
 }
