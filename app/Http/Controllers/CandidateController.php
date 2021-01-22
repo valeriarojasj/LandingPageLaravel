@@ -61,8 +61,12 @@ class CandidateController extends Controller
         
         $data_arr = $this->prepareResults($searchRecords);
         $response = array(
-            "columns" => $searchRecordByColumn,
+            "columns" => $columns,
             "draw" => intval($draw),
+            "start" => $start,
+            "length" => $length,
+            "search" => $search,
+            "order" => $order,
             "iTotalRecords" => $this->countAllRows(),
             "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length, $search['value']),
             "aaData" => $data_arr,
