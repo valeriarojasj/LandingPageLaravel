@@ -1,4 +1,7 @@
 {
     "emmet.showSuggestionsAsSnippets": true,
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
+    "emmet.variables": {
+        "lang": "en"
+    }
 }
