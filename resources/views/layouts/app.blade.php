@@ -144,7 +144,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
         <script src="https://kit.fontawesome.com/b67648323f.js" crossorigin="anonymous"></script>
-        {{$head}}
+        {{ $head }}
     
     </head>
     <body class="font-sans antialiased">
@@ -153,9 +153,9 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <!-- <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
-                </div>
+                </div> -->
             </header>
 
             <!-- Page Content -->
@@ -166,7 +166,7 @@
 
         @stack('modals')
 
-        <script type="text/javascript" src="js/applicationForm.js"></script>
+        <script type="text/javascript" src="{{ asset('js/applicationForm.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         @livewireScripts
     </body>

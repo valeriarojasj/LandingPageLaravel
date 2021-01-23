@@ -34,7 +34,17 @@ td:last-child .button {
   background-color: #FFF;
 }
 
-td:last-child .button .fa {
+td:last-child .button .fas {
   line-height: 30px;
   width: 30px;
+}
+
+.table-icons{
+  font-size: 1rem;
+}
+
+.table-container {
+  display: block;
+  overflow-x: auto;
+
 }
