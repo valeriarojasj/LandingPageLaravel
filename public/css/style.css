@@ -36,6 +36,8 @@
     justify-content: center;
   }
  
+
+
   #home{
       height:100vh;
   }
@@ -87,6 +89,11 @@
     align-items: center;
     grid-column-gap:2rem;
   
+  }
+
+  .contactLi{
+    font-weight: 200;
+
   }
 
  
@@ -380,7 +387,10 @@ hr.solid{
   margin-right: 5rem;
   margin-top:1rem;
   margin-bottom:2rem;
+  display:block;
 }
+
+
 
 
 .carousel-indicators {

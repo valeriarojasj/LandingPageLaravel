@@ -227,7 +227,7 @@
       <br>
     </div>
 
-     <div class="grid max-w-screen-xl grid-cols-3 gap-4 px-4 mx-auto">
+     <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
        <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
          <h5 class="tituloBusqueda">Programador PHP</h5>
          <p class="empresaBusqueda">Empresa Farmacéutica</p>
@@ -350,7 +350,7 @@
 </div>
 </section>
 
-<hr class="solid">
+<hr class="solid contact-hr">
 
 <section id="contact">
   <div class="sectionText">
@@ -365,8 +365,8 @@
                 <a  href="https://www.facebook.com/FyGConsul" ><i class="fab fa-facebook-square" ></i></a>
                 <a   href="https://instagram.com/fygconsultoria?igshid=1qj5nmr67z1f1"><i class="fab fa-instagram"></i></a>
                 <ul class="noBulletsList">
-                  <li>Horario de atención</li>
-                  <li>Lunes a Viernes de 9 a 18 hs</li>
+                  <li class ="contactLi">Horario de atención</li>
+                  <li class ="contactLi">Lunes a Viernes de 9 a 18 hs</li>
                 </ul>
               </div>
             </div>
