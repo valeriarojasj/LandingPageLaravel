@@ -111,8 +111,8 @@
                         "scrollX": true,
                         "scrollY": true,
                         scrollCollapse: true,
-                        dom: 'Bfrtip',
-                        buttons: [
+                        dom: 'Blfrtip',
+                        buttons: [ 'copy',
                             {
                                 text: 'EXCEL',
                                 action: async function ( e, dt, node, config ) {
