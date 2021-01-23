@@ -111,7 +111,7 @@
                         "scrollX": true,
                         "scrollY": true,
                         scrollCollapse: true,
-                        dom: 'Bfrtip',
+                        dom: 'Blfrtip',
                         buttons: [
                             {
                                 text: 'EXCEL',
