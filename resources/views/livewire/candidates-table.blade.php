@@ -69,9 +69,9 @@
             <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
             
 
-
-
-
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+            <script type="text/javascript" src="js/fileSaver.js"></script>
+            <script type="text/javascript" src="js/excel.js"></script>
 
 
             <script>
@@ -126,23 +126,9 @@
                                         type: 'POST',
                                         data: datos,
                                         success:function(response) {
-                                            console.log(response);
+                                            downloadAsExcel(response);
                                         }
                                     });
-                                    /*fetch("http://localhost:8001/candidates-excel",{
-                                        method: 'POST',
-                                        credentials: 'same-origin',
-                                        headers: {
-                                        'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({a: 1, b: 2})
-                                    })
-                                    .then(function(response){
-                                        return response.json();
-                                    })
-                                    .then(function(data){
-                                        console.log(data);
-                                    });*/
                                 }
                             }
                         ],

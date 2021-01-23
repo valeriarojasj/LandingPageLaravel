@@ -174,8 +174,36 @@ class CandidateController extends Controller
         return Excel::download(new CandidateExport, 'candidates.xlsx');
     }
     public function getCandidatesExcel(Request $request){
-        
-        return $request;
+        $search = $request->get('search');
+        $order = $request->get('order');
+        $columns = $request->get('columns');
+
+        $columnIndex = $order[0]['column'];
+        $typeOfOrder = $order[0]['dir'];
+        $columnName = $columns[$columnIndex]['data'];
+
+        $records = Candidate::where('id', 'like', '%'.$search["value"].'%');
+        $columnsNames = Schema::getColumnListing('candidates');
+        for ($i = 1; $i < count($columnsNames); ++$i){
+            $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
+        }
+        return $records->orderby($columnName, $typeOfOrder)->get([
+            'id as ID',
+            'job_to_apply as Busqueda',
+            'fullName as Nombre_Completo',
+            'dni as DNI',
+            'birthday as Fecha_de_Nacimiento',
+            'email as Email',
+            'linkedin as Linkedin',
+            'country as Pais',
+            'province as Provincia',
+            'city as Ciudad',
+            'education_level as Nivel_Educativo',
+            'education_status as Status_Estudios',
+            'career as Titulo_Universitario',
+            'created_at as Fecha_de_Aplicacion'
+            ])
+        ->toArray();
     }
     /*public function import() 
     {
