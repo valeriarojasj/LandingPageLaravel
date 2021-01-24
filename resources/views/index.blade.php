@@ -174,14 +174,14 @@
     <div style="text-align: center;">
       <a href="https://www.linkedin.com/in/eliana-garzia-b34a9116" style="display: block;position: relative;top: 0;left: 0;width: 100%;">
         <img src="img/elianafoto.png" alt="">
-        <span><i class="fab fa-linkedin"></i>  Eliana Garzia</span>
+        <span class="index"><i class="fab fa-linkedin"></i>  Eliana Garzia</span>
       </a>
     </div>
     
     <div style="text-align: center;">
       <a href="https://www.linkedin.com/in/jesica-fichera-b2a30013" style="display: block;position: relative;top: 0;left: 0;width: 100%;">
         <img src="img/jesicafoto.png" alt="">
-        <span><i class="fab fa-linkedin"></i>  Jesica Fichera</span>
+        <span class="index"><i class="fab fa-linkedin"></i>  Jesica Fichera</span>
       </a>
     </div>
           

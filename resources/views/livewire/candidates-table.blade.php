@@ -82,7 +82,6 @@
                         }
                     });
                     let table = $('#example').DataTable({
-                        
                         processing: true,
                         serverSide: true,
                         ajax: "{{route('candidatos')}}",

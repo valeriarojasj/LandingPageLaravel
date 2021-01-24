@@ -324,7 +324,7 @@ p{
   line-height: 3rem;
 }
 
-span{
+span.index{
   font-family: 'Montserrat', sans-serif;
   font-size: 1.25rem !important;
   line-height: 3rem;

@@ -3,5 +3,17 @@
     "editor.tabCompletion": "on",
     "emmet.variables": {
         "lang": "en"
-    }
+    },
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/vendor/**/{Tests,tests}/**",
+        "**/.history/**"
+
+    ]
 }
