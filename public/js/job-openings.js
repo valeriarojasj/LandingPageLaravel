@@ -236,7 +236,10 @@ $("#editableTable")
   .click(function (e) {
     var x;
     if (confirm("Are you sure you want to delete entire row?") == true) {
+      
       $(this).closest("tr").remove();
+      
+
     } else {
     }
   });

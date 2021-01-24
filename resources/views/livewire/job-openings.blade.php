@@ -55,31 +55,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-id="1">
-          <td data-field="id">1</td>
-          <td data-field="job_title">Desarrollador PHP</td>
-          <td data-field="company_type">Importante empresa de tecnonogía</td>
-          <td data-field="job_location">Ciudad de Buenos Aires</td>
-          <td data-field="open_question_1">Cuéntanos por qué crees que eres el candidato ideal para esta posición?</td>
-          <td data-field="open_question_2">Cuál es tu expectativa salarial?</td>
-          <td data-field="multiple_choice_question_1">Tienes disponibilidad para viajar?</td>
-          <td data-field="multiple_choice1_option_1">Si</td>
-          <td data-field="multiple_choice1_option_2">No</td>
-          <td data-field="multiple_choice1_option_3"></td>
-          <td data-field="multiple_choice_question_2">Cuantos años de experiencia laboral tienes?</td>
-          <td data-field="multiple_choice2_option_1">Entre 0 y 3 años</td>
-          <td data-field="multiple_choice2_option_2">Entre 3 y 7 años</td>
-          <td data-field="multiple_choice2_option_3">Más de 7 años</td>
-          <td data-field="checkbox_question_1">Cuáles de estos lenguajes/frameworks sabes manejar?</td>
-          <td data-field="checkbox1_option_1">PHP</td>
-          <td data-field="checkbox1_option_2">Javascript</td>
-          <td data-field="checkbox1_option_3">Laravel</td>
-          <td data-field="checkbox_question_2">Cuáles de estos idiomas hablas y escribes con fluidez?</td>
-          <td data-field="checkbox2_option_1">Español</td>
-          <td data-field="checkbox2_option_2">Inglés</td>
-          <td data-field="checkbox2_option_3">Portugués</td>
-          <td data-field="created_at"></td>
-          <td data-field="updated_at"></td>
+
+      @foreach($jobOpenings as $jobOpening)
+        <tr data-id='{{$jobOpening->id}}'>
+          <td data-field="id" >{{$jobOpening->id}}</td>
+          <td data-field="job_title" wire:model="job_title" >{{$jobOpening->job_title}}</td>
+          <td data-field="company_type" wire:model="company_type">{{$jobOpening->company_type}}</td>
+          <td data-field="job_location" wire:model="job_location">{{$jobOpening->job_location}}</td>
+          <td data-field="open_question_1" wire:model="open_question_1" >{{$jobOpening->open_question_1}}</td>
+          <td data-field="open_question_2" wire:model="open_question_2">{{$jobOpening->open_question_2}}</td>
+          <td data-field="multiple_choice_question_1" wire:model="multiple_choice_question_1">{{$jobOpening->multiple_choice_question_1}}</td>
+          <td data-field="multiple_choice1_option_1" wire:model="multiple_choice1_option_1">{{$jobOpening->multiple_choice1_option_1}}</td>
+          <td data-field="multiple_choice1_option_2" wire:model="multiple_choice1_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
+          <td data-field="multiple_choice1_option_3" wire:model="multiple_choice1_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
+          <td data-field="multiple_choice_question_2" wire:model="multiple_choice_question_2">{{$jobOpening->multiple_choice_question_2}}</td>
+          <td data-field="multiple_choice2_option_1"wire:model="multiple_choice2_option_1">{{$jobOpening->multiple_choice2_option_1}}</td>
+          <td data-field="multiple_choice2_option_2" wire:model="multiple_choice2_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
+          <td data-field="multiple_choice2_option_3" wire:model="multiple_choice2_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
+          <td data-field="checkbox_question_1" wire:model="checkbox_question_1">{{$jobOpening->checkbox_question_1}}</td>
+          <td data-field="checkbox1_option_1" wire:model="checkbox1_option_1">{{$jobOpening->checkbox1_option_1}}</td>
+          <td data-field="checkbox1_option_2" wire:model="checkbox1_option_2">{{$jobOpening->checkbox1_option_2}}</td>
+          <td data-field="checkbox1_option_3" wire:model="checkbox1_option_3">{{$jobOpening->checkbox1_option_3}}</td>
+          <td data-field="checkbox_question_2" wire:model="checkbox_question_2">{{$jobOpening->checkbox_question_2}}</td>
+          <td data-field="checkbox2_option_1" wire:model="checkbox2_option_1">{{$jobOpening->checkbox2_option_1}}</td>
+          <td data-field="checkbox2_option_2" wire:model="checkbox2_option_2">{{$jobOpening->checkbox2_option_2}}</td>
+          <td data-field="checkbox2_option_3" wire:model="checkbox2_option_3">{{$jobOpening->checkbox2_option_3}}</td>
+          <td data-field="created_at" >{{$jobOpening->created_at}}</td>
+          <td data-field="updated_at" >{{$jobOpening->updated_at}}</td>
 
           
           
@@ -88,85 +90,20 @@
           <td>
             <a class="button button-small edit" title="Edit">
               <i class="fas fa-pencil-alt table-icons"></i>
-            </a> <a class="button button-small" title="Delete">
-              <i class="fas fa-trash-alt table-icons"></i>
+            </a> 
+            <a class="button button-small" title="Delete" wire:click="destroy({{$jobOpening}})" >
+              <i class="fas fa-trash-alt table-icons" ></i>
             </a>
           </td>
 
         </tr>
-        <tr data-id="2">
-          <td data-field="id">2</td>
-          <td data-field="job_title">Auditor Interno</td>
-          <td data-field="company_type">Importante empresa automotriz</td>
-          <td data-field="job_location">Ciudad de Buenos Aires</td>
-          <td data-field="open_question_1">Cuéntanos por qué crees que eres el candidato ideal para esta posición?</td>
-          <td data-field="open_question_2">Cuál es tu expectativa salarial?</td>
-          <td data-field="multiple_choice_question_1">Tienes disponibilidad para viajar?</td>
-          <td data-field="multiple_choice1_option_1">Si</td>
-          <td data-field="multiple_choice1_option_2">No</td>
-          <td data-field="multiple_choice1_option_3"></td>
-          <td data-field="multiple_choice_question_2">Cuantos años de experiencia laboral tienes?</td>
-          <td data-field="multiple_choice2_option_1">Entre 0 y 3 años</td>
-          <td data-field="multiple_choice2_option_2">Entre 3 y 7 años</td>
-          <td data-field="multiple_choice2_option_3">Más de 7 años</td>
-          <td data-field="checkbox_question_1">Cuáles de estas certificaciónes tienes?</td>
-          <td data-field="checkbox1_option_1">CIA</td>
-          <td data-field="checkbox1_option_2">CISA</td>
-          <td data-field="checkbox1_option_3">CPA</td>
-          <td data-field="checkbox_question_2">Cuáles de estos idiomas hablas y escribes con fluidez?</td>
-          <td data-field="checkbox2_option_1">Español</td>
-          <td data-field="checkbox2_option_2">Inglés</td>
-          <td data-field="checkbox2_option_3">Alemán</td>
-          <td data-field="created_at"></td>
-          <td data-field="updated_at"></td>
 
-          
-          <td>
-            <a class="button button-small edit" title="Edit">
-              <i class="fas fa-pencil-alt table-icons"></i>
-            </a> <a class="button button-small" title="Delete">
-              <i class="fas fa-trash-alt table-icons"></i>
-            </a>
-          </td>
-
-        </tr>
-        <tr data-id="3">
-          <td data-field="id">3</td>
-          <td data-field="job_title">Gerente de Logística</td>
-          <td data-field="company_type">Importante empresa de retail</td>
-          <td data-field="job_location">Tigre, Buenos Aires</td>
-          <td data-field="open_question_1">Cuéntanos por qué crees que eres el candidato ideal para esta posición?</td>
-          <td data-field="open_question_2">Cuál es tu expectativa salarial?</td>
-          <td data-field="multiple_choice_question_1">Has tenido posiciones gerenciales con personal a cargo?</td>
-          <td data-field="multiple_choice1_option_1">Si</td>
-          <td data-field="multiple_choice1_option_2">No</td>
-          <td data-field="multiple_choice1_option_3"></td>
-          <td data-field="multiple_choice_question_2">Cuantos años de experiencia laboral tienes?</td>
-          <td data-field="multiple_choice2_option_1">Menos de 7 años</td>
-          <td data-field="multiple_choice2_option_2">Entre 7 y 10 años</td>
-          <td data-field="multiple_choice2_option_3">Más de 10 años</td>
-          <td data-field="checkbox_question_1">Cuáles de estos programas manejas?</td>
-          <td data-field="checkbox1_option_1">SAP MM</td>
-          <td data-field="checkbox1_option_2">SAP FICO</td>
-          <td data-field="checkbox1_option_3">Excel</td>
-          <td data-field="checkbox_question_2">Cuáles de estos idiomas hablas y escribes con fluidez?</td>
-          <td data-field="checkbox2_option_1">Español</td>
-          <td data-field="checkbox2_option_2">Inglés</td>
-          <td data-field="checkbox2_option_3">Francés</td>
-          <td data-field="created_at"></td>
-          <td data-field="updated_at"></td>
-          
-          <td>
-            <a class="button button-small edit" title="Edit">
-              <i class="fas fa-pencil-alt table-icons"></i>
-            </a> <a class="button button-small" title="Delete">
-              <i class="fas fa-trash-alt table-icons"></i>
-            </a>
-          </td>
-
-        </tr>
+        @endforeach
       </tbody>
     </table>
+    <div>
+     {{$jobOpenings->links()}}
+    </div>
   </div>
 </div>
 </div>
