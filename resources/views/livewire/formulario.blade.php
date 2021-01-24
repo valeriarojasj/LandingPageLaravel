@@ -1,4 +1,4 @@
-<div>
+<div class='divmodal'>
   <div>
     <form id="formulario" wire:submit.prevent='save'>
       <!--Body-->
@@ -82,6 +82,7 @@
                 @error('city') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
+            <script>cargarPaises()</script>
           @endif
           @if($step == 2)
             <!-- EDUCATIONLEVEL -->
@@ -152,6 +153,6 @@
     </form>
   </div>
   <!-- Cierre Contenido del modal (Title y Body)-->
-  
+  <script type="text/javascript" src="js/applicationForm.js"></script>
 </div>
 
