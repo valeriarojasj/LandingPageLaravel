@@ -139,7 +139,7 @@
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
         @if($step>0 && $step<=2)
-          <button id="btnBack" wire:click="decreaseStep">Atrás</button>
+          <button id="btnBack" type='button' wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
           <button id="btnFormulario"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
