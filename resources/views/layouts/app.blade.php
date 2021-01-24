@@ -90,7 +90,8 @@
                  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
                  letter-spacing: 0.1em;
                  text-transform: uppercase;
-                 color: #374151 !important;
+                 color: #7C7C7C !important;
+                 font-family: 'Montserrat',sans-serif !important;
                  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
                  font-size: 0.75rem;
                  font-weight: 600;
@@ -103,6 +104,20 @@
                  overflow: visible;
                  margin-bottom: 0
              }
+
+             .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+                cursor: default;
+                color: #e5e5e5!important;
+                border: 1px solid #e5e5e5;
+                background: transparent;
+                box-shadow: none;
+                font-family: 'Montserrat',sans-serif !important;
+                font-weight: 600;
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                border-radius:0.375rem;
+
+             }
      
              .dataTables_wrapper .dataTables_paginate .paginate_button.next:focus:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button.next:hover:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button.previous:focus:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button:focus:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.disabled), button.dt-button:focus, button.dt-button:focus:not(.disabled), button.dt-button:hover, button.dt-button:hover:not(.disabled) {
                  background-color: #edf2f7 !important;
@@ -112,9 +127,9 @@
              }
      
              .dataTables_wrapper .dataTables_paginate .paginate_button.current:not(.disabled) {
-                 background: #6875f5 !important;
+                 background: #A9CCEE !important;
                  color: #ffffff !important;
-                 border-color: #8da2fb !important
+                 border-color: #87a3be !important
              }
      
              .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {

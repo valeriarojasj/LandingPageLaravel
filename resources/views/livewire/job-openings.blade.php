@@ -6,7 +6,7 @@
             <!--Container-->
             <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
                 <!--Title-->
-                <h1 class="px-2 py-8 font-sans text-xl font-bold text-indigo-500 break-normal md:text-2xl">
+                <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
                     Búsquedas laborales
                 </h1>
                 <!--Card-->
@@ -17,7 +17,7 @@
 <div class="row">
   <div class="col-md-12">
     <br>
-    <button class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Add Row</button>
+    <button class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
   </div>
 </div>
 

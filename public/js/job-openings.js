@@ -205,17 +205,19 @@ function editTable() {
 $(".add-row").click(function () {
   $("#editableTable")
     .find("tbody tr:first")
-    .before(
-      "<tr><td data-field='id'></td><td data-field='id'></td><td data-field='id'></td><td data-field='id'></td><td><a class='button button-small edit' title='Edit'><i class='fas fa-pencil-alt table-icons'></i></a> <a class='button button-small' title='Delete'><i class='fas fa-trash-alt table-icons'></i></a></td></tr>"
+    .before( 
+      "<tr><td data-field='id'></td><td data-field='job_title'></td><td data-field='company_type'></td><td data-field='job_location'></td><td data-field='open_question_1'></td><td data-field='open_question_2'></td><td data-field='multiple_choice_question_1'></td><td data-field='multiple_choice1_option_1'></td><td data-field='multiple_choice1_option_2'></td><td data-field='multiple_choice1_option_3'></td><td data-field='multiple_choice_question_2'></td><td data-field='multiple_choice2_option_1'></td><td data-field='multiple_choice2_option_2'></td><td data-field='multiple_choice2_option_3'></td><td data-field='checkbox_question_1'></td><td data-field='checkbox1_option_1'></td><td data-field='checkbox1_option_2'></td><td data-field='checkbox1_option_3'></td><td data-field='checkbox_question_2'></td><td data-field='checkbox2_option_1'></td><td data-field='checkbox2_option_2'></td><td data-field='checkbox2_option_3'></td><td data-field='created_at'></td><td data-field='updated_at'></td><td><a class='button button-small edit' title='Edit'><i class='fas fa-pencil-alt table-icons'></i></a> <a class='button button-small' title='Delete'><i class='fas fa-trash-alt table-icons'></i></a></td></tr>"
     );
   editTable();
+  $imprimir= $("#editableTable").find("tbody tr:first td:last a[title='Edit']");
+  console.log($imprimir);
   setTimeout(function () {
     $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click();
   }, 200);
 
   setTimeout(function () {
     $("#editableTable")
-      .find("tbody tr:first td:first input[type='text']")
+      .find("tbody tr:first td:last input[type='text']")
       .focus();
   }, 300);
 

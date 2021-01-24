@@ -5,7 +5,7 @@
             <!--Container-->
             <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
                 <!--Title-->
-                <h1 class="px-2 py-8 font-sans text-xl font-bold text-indigo-500 break-normal md:text-2xl">
+                <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
                     Candidatos
                 </h1>
                 <!--Card-->
@@ -133,8 +133,8 @@
                         ],
                         language:{
                             paginate : {
-                                next : 'Siguiente',
-                                previous : 'Anterior'
+                                next : 'SIGUIENTE',
+                                previous : 'ANTERIOR'
                             }
                         }
                         // ,

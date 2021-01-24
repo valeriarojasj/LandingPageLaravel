@@ -1,5 +1,18 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .row {
   margin-bottom: 20px;
+}
+
+th{
+  color:#7C7C7C;
+}
+
+td{
+  color:#7C7C7C;
+  font-weight: 400;
 }
    
 .button.button-small {
@@ -41,6 +54,18 @@ td:last-child .button .fas {
 
 .table-icons{
   font-size: 1rem;
+  color:#7C7C7C;
+}
+
+.fa-plus-circle{
+  color:#D895B2 !important;
+}
+
+.add-row{
+  color: #D895B2;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .table-container {
@@ -48,4 +73,12 @@ td:last-child .button .fas {
   overflow-x: auto;
   
 
+}
+thead{
+  background-color: rgba(169,204,238,0.2);
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  color: #D895B2;
 }
