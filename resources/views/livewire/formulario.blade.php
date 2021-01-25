@@ -1,4 +1,4 @@
-<div>
+<div class='divmodal'>
   <div>
     <form id="formulario" wire:submit.prevent='save'>
       <!--Body-->
@@ -53,9 +53,9 @@
             <!-- COUNTRY -->
             <fieldset>
               <div class="divCountry">
-                <label for="country"></label>
-                <select id="country" class="form-control" wire:model.defer='country'>
-                  <option selected>Selecciona el país donde vives...</option>
+                <label for="country">Pais</label>
+                <select id="country" class="form-control" wire:model.defer='country' data-country="{{$country}}">
+                  <option value=''>Selecciona el país donde vives...</option>
                 </select>
                 @error('country') <span class="error">{{ $message }}</span> @enderror
               </div>
@@ -64,8 +64,8 @@
             <!-- PROVINCE -->
             <fieldset>
               <div class="divProvince" style="display:none;">
-                <label for="province"></label>
-                <select id="province" class="form-control" wire:model.defer='province'>
+                <label for="province">Provincia</label>
+                <select id="province" class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
                   <option value=""> Selecciona la provincia donde vives...</option>
                 </select>
                 @error('province') <span class="error">{{ $message }}</span> @enderror
@@ -75,13 +75,14 @@
             <!-- CITY -->
             <fieldset>
               <div class="divCity" style="display:none;">
-                <label for="city"></label>
-                <select id="city" class="form-control" wire:model.defer='city'>
-                  <option value="">Selecciona la ciudad donde vives...</option>
+                <label for="city">Localidad</label>
+                <select id="city" class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
+                  <option selected="{{false}}" value="">Selecciona la ciudad donde vives...</option>
                 </select>
                 @error('city') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
+            <script>cargarPaises()</script>
           @endif
           @if($step == 2)
             <!-- EDUCATIONLEVEL -->
@@ -139,7 +140,7 @@
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
         @if($step>0 && $step<=2)
-          <button id="btnBack" wire:click="decreaseStep">Atrás</button>
+          <button id="btnBack" type='button' wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
           <button id="btnFormulario"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
@@ -152,6 +153,6 @@
     </form>
   </div>
   <!-- Cierre Contenido del modal (Title y Body)-->
-  
+  <script type="text/javascript" src="js/applicationForm.js"></script>
 </div>
 
