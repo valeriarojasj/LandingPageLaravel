@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 
 class JobOpenings extends Component
 {
-  
+    use WithPagination;
 
     public  
     $job_id, 
@@ -41,7 +41,7 @@ class JobOpenings extends Component
   
     public function render()
     {
-        $jobOpenings= JobOpening::latest('id')->paginate('30');        
+        $jobOpenings= JobOpening::latest('id')->paginate('10');        
         return view('livewire.job-openings',compact('jobOpenings'));
     }
 

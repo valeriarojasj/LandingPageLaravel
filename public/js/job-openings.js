@@ -61,9 +61,9 @@
           field = $(this).data("field"),
           value = $(this).text(),
           width = $(this).width();
-
-        values[field] = value;
-
+          values[field] = value;
+          
+        
         $(this).empty();
 
         if (instance.options.maintainWidth) {
@@ -206,7 +206,44 @@ $(".add-row").click(function () {
   $("#editableTable")
     .find("tbody tr:first")
     .before( 
-      "<tr><td data-field='id'></td><td data-field='job_title'></td><td data-field='company_type'></td><td data-field='job_location'></td><td data-field='open_question_1'></td><td data-field='open_question_2'></td><td data-field='multiple_choice_question_1'></td><td data-field='multiple_choice1_option_1'></td><td data-field='multiple_choice1_option_2'></td><td data-field='multiple_choice1_option_3'></td><td data-field='multiple_choice_question_2'></td><td data-field='multiple_choice2_option_1'></td><td data-field='multiple_choice2_option_2'></td><td data-field='multiple_choice2_option_3'></td><td data-field='checkbox_question_1'></td><td data-field='checkbox1_option_1'></td><td data-field='checkbox1_option_2'></td><td data-field='checkbox1_option_3'></td><td data-field='checkbox_question_2'></td><td data-field='checkbox2_option_1'></td><td data-field='checkbox2_option_2'></td><td data-field='checkbox2_option_3'></td><td data-field='created_at'></td><td data-field='updated_at'></td><td><a class='button button-small edit' title='Edit'><i class='fas fa-pencil-alt table-icons'></i></a> <a class='button button-small' title='Delete'><i class='fas fa-trash-alt table-icons'></i></a></td></tr>"
+      
+      `<tr>
+        <td class='iconitos'>
+          <button class="bg-blue-400 button button-small edit text-white" title="Edit">
+            Editar
+          </button>
+          <button class="bg-green-400 button button-small edit text-white">
+            Guardar
+          </button>
+          <button wire:click="destroy({{$jobOpening}})" title="Delete" class="bg-red-400 button button-small edit text-white">
+            Eliminar
+          </button>
+        </td>
+        <td data-field='id'></td>
+        <td data-field='job_title'></td>
+        <td data-field='company_type'></td>
+        <td data-field='job_location'></td>
+        <td data-field='open_question_1'></td>
+        <td data-field='open_question_2'></td>
+        <td data-field='multiple_choice_question_1'></td>
+        <td data-field='multiple_choice1_option_1'></td>
+        <td data-field='multiple_choice1_option_2'></td>
+        <td data-field='multiple_choice1_option_3'></td>
+        <td data-field='multiple_choice_question_2'></td>
+        <td data-field='multiple_choice2_option_1'></td>
+        <td data-field='multiple_choice2_option_2'></td>
+        <td data-field='multiple_choice2_option_3'></td>
+        <td data-field='checkbox_question_1'></td>
+        <td data-field='checkbox1_option_1'></td>
+        <td data-field='checkbox1_option_2'></td>
+        <td data-field='checkbox1_option_3'></td>
+        <td data-field='checkbox_question_2'></td>
+        <td data-field='checkbox2_option_1'></td>
+        <td data-field='checkbox2_option_2'></td>
+        <td data-field='checkbox2_option_3'></td>
+        <td data-field='created_at'></td>
+        <td data-field='updated_at'></td>
+      </tr>`
     );
   editTable();
   $imprimir= $("#editableTable").find("tbody tr:first td:last a[title='Edit']");
@@ -222,7 +259,7 @@ $(".add-row").click(function () {
   }, 300);
 
   $("#editableTable")
-    .find("a[title='Delete']")
+    .find('button[title="Delete"]')
     .unbind("click")
     .click(function (e) {
       $(this).closest("tr").remove();
@@ -232,8 +269,9 @@ $(".add-row").click(function () {
 function myFunction() {}
 
 $("#editableTable")
-  .find("a[title='Delete']")
+  .find('button[title="Delete"]')
   .click(function (e) {
+    console.log('borrando')
     var x;
     if (confirm("Are you sure you want to delete entire row?") == true) {
       

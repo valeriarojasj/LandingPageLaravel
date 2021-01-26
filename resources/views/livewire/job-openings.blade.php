@@ -1,31 +1,44 @@
 <div>
-<div class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-            <!--<x-jet-welcome />-->
-            <!--Container-->
-            <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
-                <!--Title-->
-                <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
-                    Búsquedas laborales
-                </h1>
-                <!--Card-->
-                <div id='recipients' class="mt-6 bg-white rounded shadow lg:mt-0">
+  <div class="py-12">
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+              <!--<x-jet-welcome />-->
+              <!--Container-->
+              <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+                  <!--Title-->
+                  <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
+                      Búsquedas laborales
+                  </h1>
+                  <!--Card-->
+                  <div id='recipients' class="mt-6 bg-white rounded shadow lg:mt-0">
 
-<div class="container">
-
-<div class="row">
-  <div class="col-md-12">
-    <br>
-    <button class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
-  </div>
-</div>
-
-<div class="row">
+  <div class="container">
   <div class="col-md-12 table-container">
+    <x-jet-confirmation-modal wire:model="confirmingUserDeletion">
+      <x-slot name='title'>
+        CONFIRMACIÓN
+      </x-slot>
+      <x-slot name='content'>
+        Desea Borrar?
+      </x-slot>
+      <x-slot name='footer'>
+        <button>Si</button>
+      </x-slot>
+      
+    </x-jet-confirmation-modal>
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <button class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
+    </div>
+  </div>
+
+<div class="row">
+  
     <table class="table table-bordered" id="editableTable">
       <thead>
         <tr>
+          <th>Opciones de edición</th>
           <th>ID</th>
           <th>Título de la búsqueda</th>
           <th>Tipo de empresa</th>
@@ -50,7 +63,7 @@
           <th>CB2 Opción 3</th>
           <th>Fecha de creación</th>
           <th>Fecha de actualización</th>
-          <th>Opciones de edición</th>
+          
 
         </tr>
       </thead>
@@ -58,6 +71,23 @@
 
       @foreach($jobOpenings as $jobOpening)
         <tr data-id='{{$jobOpening->id}}'>
+          <td class='iconitos'>
+            <button class="bg-blue-400 button button-small edit text-white">
+              Editar
+            </button>
+            <button class="bg-green-400 button button-small edit text-white">
+              Guardar
+            </button>
+            <button wire:click="destroy({{$jobOpening}})" class="bg-red-400 button button-small edit text-white">
+              Eliminar
+            </button>
+            <!--<a class="button button-small edit" title="Edit">
+              <i class="fas fa-pencil-alt table-icons"></i>
+            </a> 
+            <a class="button button-small" title="Delete"  >
+              <i class="fas fa-trash-alt table-icons" ></i>
+            </a>-->
+          </td>
           <td data-field="id" >{{$jobOpening->id}}</td>
           <td data-field="job_title" wire:model="job_title" >{{$jobOpening->job_title}}</td>
           <td data-field="company_type" wire:model="company_type">{{$jobOpening->company_type}}</td>
@@ -82,25 +112,11 @@
           <td data-field="checkbox2_option_3" wire:model="checkbox2_option_3">{{$jobOpening->checkbox2_option_3}}</td>
           <td data-field="created_at" >{{$jobOpening->created_at}}</td>
           <td data-field="updated_at" >{{$jobOpening->updated_at}}</td>
-
-          
-          
-          
-          
-          <td>
-            <a class="button button-small edit" title="Edit">
-              <i class="fas fa-pencil-alt table-icons"></i>
-            </a> 
-            <a class="button button-small" title="Delete" wire:click="destroy({{$jobOpening}})" >
-              <i class="fas fa-trash-alt table-icons" ></i>
-            </a>
-          </td>
-
         </tr>
-
         @endforeach
       </tbody>
     </table>
+    
     <div>
      {{$jobOpenings->links()}}
     </div>
