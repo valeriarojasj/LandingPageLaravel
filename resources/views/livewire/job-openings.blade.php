@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-md-12">
       <br>
-      <button class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
+      <button  class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
     </div>
   </div>
 
@@ -60,14 +60,14 @@
 
       @foreach($jobOpenings as $jobOpening)
         <tr data-id='{{$jobOpening->id}}'>
-          <td class='iconitos'>
-            <button class="text-white bg-blue-400 button button-small edit">
+          <td class='align-middle iconitos'>
+            <button   title="Edit" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
               Editar
             </button>
-            <button class="text-white bg-green-400 button button-small edit">
+            <button  wire:click="update()" class="w-full font-bold text-white bg-green-400 rounded-md button button-small edit">
               Guardar
             </button>
-            <button  wire:click="$toggle('confirmingDestroy')" class="text-white bg-red-400 button button-small edit">
+            <button  wire:click="$toggle('confirmingDestroy')" class="w-full font-bold text-white bg-red-400 rounded-md button button-small edit">
               Eliminar
             </button>
             <!--<a class="button button-small edit" title="Edit">

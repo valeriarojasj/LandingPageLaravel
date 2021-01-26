@@ -212,7 +212,7 @@ $(".add-row").click(function () {
           <button class="bg-blue-400 button button-small edit text-white" title="Edit">
             Editar
           </button>
-          <button class="bg-green-400 button button-small edit text-white">
+          <button wire:click="update()" class="bg-green-400 button button-small edit text-white">
             Guardar
           </button>
           <button "$toggle('confirmingDestroy')" title="Delete" class="bg-red-400 button button-small edit text-white">
