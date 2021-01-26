@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use App\Models\Candidate;
@@ -20,20 +20,23 @@ class Formulario extends Component
     public $career;
     public $jobToApply;
     public $step=0;
+   
+
     public $stepActions=[
         'submit1',
         'submit2',
-        'submit3',
-        'submit4',
-        'submit5'
+        'submit3'
+        // ', submit4',
+        // 'submit5'
     ];
 
+   
     protected $rules = [
         'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
-        'bday' => 'required|date',
+        'bday' => 'required|date|before_or_equal:-18 years',
         'email' => 'required|email',
-        'linkedin' => 'url',
+        'linkedin' => 'required|url|starts_with:https://www.linkedin.com/in/',
         'country' => 'required',
         'educationLevel' => 'required',
         'educationStatus' => 'required',
@@ -41,13 +44,32 @@ class Formulario extends Component
         'jobToApply' => 'required'
     ];
 
+    protected $messages =[
+        'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
+        'dni.required' => 'Por favor ingresa tu DNI.',
+        'bday.required' => 'Por favor ingresa tu fecha de nacimiento.',
+        'bday.date' => 'El campo Fecha de Nacimiento debe contener una fecha.',
+        'bday.before_or_equal:-18 years' => 'Debes ser mayor de 18 años para postularte.',
+        'email.required' => 'Por favor ingresa tu email.',
+        'email.email' => 'El formato de email no es válido.',
+        'linkedin.required' => 'Por favor ingresa tu perfil de LinkedIn. Debe comenzar por https://www.linkedin.com/in/ seguido por tu perfil.',
+        'linkedin.url' => 'El perfil de LinkedIn debe comenzar por: https://www.linkedin.com/in/ seguido por tu perfil.',
+        'linkedin.starts_with:https://www.linkedin.com/in/' => 'El formato de perfil de LinkedIn debe comenzar por: https://www.linkedin.com/in/ seguido por tu perfil.',
+        'country.required' => 'Por favor selecciona tu país de residencia.',
+        'educationLevel.required' => 'Por favor selecciona tu Nivel Educativo.',
+        'educationStatus.required' => 'Por favor selecciona el status de tus estudios.',
+        'career.required' => 'Por favor ingresa tu Título Universitario, si no tienes escribe: Ninguno.',
+        'jobToApply' => 'Para postularte debes indicar la posición a la que quieres aplicar.'
+    ];
+
     public function submit(){
+       
         $action = $this->stepActions[$this->step];
         $this->$action();
 
     }
     public function submit1(){
-        
+      
         $this->step++;
 
     }
@@ -62,17 +84,17 @@ class Formulario extends Component
 
     }
 
-    public function submit4(){
+    // public function submit4(){
         
-        $this->step++;
+    //     $this->step++;
 
-    }
+    // }
 
-    public function submit5(){
+    // public function submit5(){
         
-        $this->step++;
+    //     $this->step++;
 
-    }
+    // }
 
 
     public function render()
@@ -87,7 +109,22 @@ class Formulario extends Component
     }
 
     public function increaseStep(){
-        $this->step++;
+        if($this->step==0){
+        
+        $this->validate([
+            'fullName' => 'required',
+            'dni' => 'required|regex:/^[0-9]*$/i',
+            'bday' => 'required|date|before_or_equal:-18 years',
+            'email' => 'required|email',
+            'linkedin' => 'url|starts_with:https://www.linkedin.com/in/']);
+
+            $this->step++;
+
+         }elseif($this->step==1){
+            $this->validate([
+                'country' => 'required']);
+             $this->step++;
+            }
     }
 
     public function decreaseStep(){
@@ -123,6 +160,7 @@ class Formulario extends Component
         $candidate->job_to_apply = $this->jobToApply;
         
         $candidate->save();
+
         
     }
 

@@ -116,6 +116,21 @@
     font-family: 'Montserrat', sans-serif !important;
   }
 
+  .backBtn{
+    background-color: #7c7c7c;
+    color:white;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif !important;
+    margin-right: 0.3rem;
+  }
+
+  .error{
+    color: #D895B2;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+  }
+
   .btnModal{
     background-color: #D895B2;
     color:white;
@@ -254,31 +269,30 @@ transform: translate(-50%, -50%);
   font-size: 1.5rem;
 }
 .applyInput {
-  background: transparent !important;
+  border-radius: 0.3rem;
+ 
   /* border: none !important; */
   /* border-bottom: 1px solid #fff !important; */
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
   /* color:#fff !important; */
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+/* ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     /* color: #fff !important; */
-    opacity: 1 !important; /* Firefox */
-  }
+    /* opacity: 1 !important; Firefox */
+  /* } */
   
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  /* :-ms-input-placeholder { Internet Explorer 10-11 */
     /* color: #fff !important; */
-  }
+  /* } */
   
-  ::-ms-input-placeholder { /* Microsoft Edge */
+  /* ::-ms-input-placeholder { Microsoft Edge */
     /* color: #fff !important; */
-  }
+  /* } */
+
   .link{
    
     text-decoration: none;
     display: block;
-  }
+  } 
   
 /* 
   ::-webkit-calendar-picker-indicator {

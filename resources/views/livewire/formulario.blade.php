@@ -2,7 +2,7 @@
   <div>
     <form id="formulario"  wire:submit.prevent='save'>
       <!--Body-->
-        <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+        <div class="px-4 py-5 space-y-4 bg-white sm:p-6">
           @if($step == 0)
             <!-- FULLNAME -->
             <fieldset>
@@ -116,7 +116,7 @@
             <fieldset>
               <div class="mt-3 divCareer">
                 <label for="career">Título universitario</label>
-                <input  type="text" class="form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
+                <input  type="text" class="rounded-md form-control applyInput" id="career" placeholder="" wire:model.defer='career'>
                 @error('career') <span class="error">{{ $message }}</span> @enderror   
               </div>
             </fieldset>
@@ -124,7 +124,7 @@
             <fieldset>
               <div class="mt-3 divJobtoApply">
                 <label for="jobToApply"></label>
-                <select id="jobToApply" class="form-control" wire:model.defer='jobToApply'>
+                <select id="jobToApply" class="rounded-md form-control" wire:model.defer='jobToApply'>
                   <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
                   <option>Analista Contable Ssr</option>
                   <option>Ejecutivo Large Corporate</option>
@@ -139,16 +139,20 @@
       <!--Footer-->
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
+    
         @if($step>0 && $step<=2)
-          <button id="btnBack" type='button' wire:click="decreaseStep">Atrás</button>
+    
+    
+          <button id="btnBack" class="rounded-md backBtn btn applyBtn" type='button' wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
-          <button id="btnFormulario"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
+          <button id="btnFormulario" class="rounded-md btn applyBtn"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
         @endif
         @if($step < 2)
-          <button id="btnNext" type='button' wire:click="increaseStep">Siguiente</button>
+          <button id="btnNext" class="rounded-md btn applyBtn"  type='button' wire:click="increaseStep">Siguiente</button>
         @endif
       </div>
+
       <!--Cierre del Footer-->
     </form>
   </div>
