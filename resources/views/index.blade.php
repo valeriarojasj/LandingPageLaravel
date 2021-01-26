@@ -351,6 +351,8 @@
 
     {{-- modal script --}}
       <script>
+
+       
         var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
           openmodal[i].addEventListener('click', function(event){
@@ -358,12 +360,21 @@
             toggleModal();
           })
         }
+
         const overlay = document.querySelector('.modal-overlay');
         overlay.addEventListener('click', toggleModal);
-        var closemodal = document.querySelectorAll('.modal-close');
-        for (var i = 0; i < closemodal.length; i++) {
-          closemodal[i].addEventListener('click', toggleModal);
-        }
+
+
+        var cerrarModal = document.getElementById('btnFormulario');
+        if(document.body.classList.contains('modal-active')){
+          cerrarModal.addEventListener('click', toggleModal)};
+        
+    
+
+
+
+
+
         document.onkeydown = function(evt) {
           evt = evt || window.event
           var isEscape = false

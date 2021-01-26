@@ -88,7 +88,7 @@
             <!-- EDUCATIONLEVEL -->
             <fieldset>
               <div class="divEducation">
-                <label for="educationLevel"></label>
+                <label for="educationLevel">Nivel de educación</label>
                 <select id="educationLevel" class="form-control" wire:model.defer='educationLevel'>
                   <option selected>Selecciona tu nivel de educación...</option>
                   <option>Secundario</option>
@@ -102,7 +102,7 @@
             <!-- EDUCATIONSTATUS -->
             <fieldset>
               <div class="mt-3 divEducation">
-                <label for="educationStatus"></label>
+                <label for="educationStatus">Status de Estudios</label>
                 <select id="educationStatus" class="form-control" wire:model.defer='educationStatus'>
                   <option selected>Selecciona tu status de estudios...</option>
                   <option>En curso</option>
@@ -123,7 +123,7 @@
             <!-- JOBTOAPPLY -->
             <fieldset>
               <div class="mt-3 divJobtoApply">
-                <label for="jobToApply"></label>
+                <label for="jobToApply">Postularme para la posición</label>
                 <select id="jobToApply" class="rounded-md form-control" wire:model.defer='jobToApply'>
                   <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
                   <option>Analista Contable Ssr</option>
@@ -142,11 +142,11 @@
     
         @if($step>0 && $step<=2)
     
-    
+        <h3>{{$this->step}}</h3>
           <button id="btnBack" class="rounded-md backBtn btn applyBtn" type='button' wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
-          <button id="btnFormulario" class="rounded-md btn applyBtn"  type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-lg hover:bg-indigo-400 modal-close" >Enviar</button>
+          <button id="btnFormulario" class="rounded-md btn applyBtn"  type='button' class="p-3 px-4 text-white bg-indigo-500 rounded-lg cerrarModal modal-close hover:bg-indigo-400" >Enviar</button>
         @endif
         @if($step < 2)
           <button id="btnNext" class="rounded-md btn applyBtn"  type='button' wire:click="increaseStep">Siguiente</button>

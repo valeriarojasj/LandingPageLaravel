@@ -215,9 +215,11 @@ $(".add-row").click(function () {
           <button wire:click="update()" class="bg-green-400 button button-small edit text-white">
             Guardar
           </button>
-          <button "$toggle('confirmingDestroy')" title="Delete" class="bg-red-400 button button-small edit text-white">
-            Eliminar
-          </button>
+          <button  wire:click="$toggle('confirmingDestroy')" class="w-full font-bold text-white bg-red-400 rounded-md button button-small edit">
+          Eliminar
+        </button>
+
+          
         </td>
         <td data-field='id'></td>
         <td data-field='job_title'></td>

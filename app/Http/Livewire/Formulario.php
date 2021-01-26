@@ -162,6 +162,8 @@ class Formulario extends Component
         $candidate->save();
 
         
+
+        
     }
 
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
