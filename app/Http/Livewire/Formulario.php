@@ -98,7 +98,7 @@ class Formulario extends Component
 
 
     public function save(){
-        dd('aasdasd');
+       
         $this->validateProvince();
         $this->validate();
       

@@ -1,6 +1,6 @@
 <div class='divmodal'>
   <div>
-    <form id="formulario" wire:submit.prevent='save'>
+    <form id="formulario"  wire:submit.prevent='save'>
       <!--Body-->
         <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
           @if($step == 0)
