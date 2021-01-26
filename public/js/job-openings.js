@@ -215,7 +215,7 @@ $(".add-row").click(function () {
           <button class="bg-green-400 button button-small edit text-white">
             Guardar
           </button>
-          <button wire:click="destroy({{$jobOpening}})" title="Delete" class="bg-red-400 button button-small edit text-white">
+          <button "$toggle('confirmingDestroy')" title="Delete" class="bg-red-400 button button-small edit text-white">
             Eliminar
           </button>
         </td>

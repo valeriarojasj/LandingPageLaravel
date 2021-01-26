@@ -14,18 +14,7 @@
 
   <div class="container">
   <div class="col-md-12 table-container">
-    <x-jet-confirmation-modal wire:model="confirmingUserDeletion">
-      <x-slot name='title'>
-        CONFIRMACIÓN
-      </x-slot>
-      <x-slot name='content'>
-        Desea Borrar?
-      </x-slot>
-      <x-slot name='footer'>
-        <button>Si</button>
-      </x-slot>
-      
-    </x-jet-confirmation-modal>
+  
   <div class="row">
     <div class="col-md-12">
       <br>
@@ -72,13 +61,13 @@
       @foreach($jobOpenings as $jobOpening)
         <tr data-id='{{$jobOpening->id}}'>
           <td class='iconitos'>
-            <button class="bg-blue-400 button button-small edit text-white">
+            <button class="text-white bg-blue-400 button button-small edit">
               Editar
             </button>
-            <button class="bg-green-400 button button-small edit text-white">
+            <button class="text-white bg-green-400 button button-small edit">
               Guardar
             </button>
-            <button wire:click="destroy({{$jobOpening}})" class="bg-red-400 button button-small edit text-white">
+            <button  wire:click="$toggle('confirmingDestroy')" class="text-white bg-red-400 button button-small edit">
               Eliminar
             </button>
             <!--<a class="button button-small edit" title="Edit">
@@ -114,6 +103,28 @@
           <td data-field="updated_at" >{{$jobOpening->updated_at}}</td>
         </tr>
         @endforeach
+
+        <x-jet-confirmation-modal wire:model="confirmingDestroy">
+    <x-slot name="title">
+        Eliminar Registro
+    </x-slot>
+
+    <x-slot name="content" >
+      <div class="text-xs">
+        Estas segura de que quieres eliminar este registro {{$jobOpening}}? Una vez eliminado se borrará también de la base de datos junto con los candidatos que hayan aplicado a esta búsqueda.
+        </div>
+    </x-slot>
+   
+    <x-slot name="footer">
+        <x-jet-secondary-button wire:click="$toggle('confirmingDestroy')" wire:loading.attr="disabled">
+           Cancelar
+        </x-jet-secondary-button>
+
+        <x-jet-danger-button class="ml-2" wire:click="destroy({{$jobOpening}})" wire:loading.attr="disabled">
+            Eliminar Registro
+        </x-jet-danger-button>
+    </x-slot>
+</x-jet-confirmation-modal>
       </tbody>
     </table>
     

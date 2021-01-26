@@ -35,7 +35,8 @@ class JobOpenings extends Component
     $checkbox2_option_2,
     $checkbox2_option_3,
     $created_at,
-    $updated_at;
+    $updated_at,
+    $confirmingDestroy=false;
 
 
   
@@ -107,9 +108,19 @@ class JobOpenings extends Component
         ]);
     }
 
+
+
+
+
     public function destroy(JobOpening $jobOpening){
-        
+
+       
+        $confirmingDestroy=false;
         $jobOpening->delete();
+        
+
+
+        
     }
 
 }
