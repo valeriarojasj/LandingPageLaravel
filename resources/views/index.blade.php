@@ -193,7 +193,10 @@
             <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
             <br>
           </div>
+
+          
           <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
+            
             <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
               <h5 class="tituloBusqueda">Programador PHP</h5>
               <p class="empresaBusqueda">Empresa Farmacéutica</p>
@@ -268,7 +271,7 @@
                 <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
               </div>
             </div>
-            
+ 
             <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal">
             <!--Modal Overlay-->
               <div class="absolute w-full h-full bg-gray-900 opacity-50 modal-overlay"></div>
@@ -350,53 +353,47 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
     {{-- modal script --}}
-      <script>
-
-       
-        var openmodal = document.querySelectorAll('.modal-open');
-        for (var i = 0; i < openmodal.length; i++) {
-          openmodal[i].addEventListener('click', function(event){
-            event.preventDefault();
-            toggleModal();
-          })
-        }
-
-        const overlay = document.querySelector('.modal-overlay');
-        overlay.addEventListener('click', toggleModal);
-
-
-        var cerrarModal = document.getElementById('btnFormulario');
-        if(document.body.classList.contains('modal-active')){
-          cerrarModal.addEventListener('click', toggleModal)};
-        
+    <script>
+    var openmodal = document.querySelectorAll('.modal-open')
+    for (var i = 0; i < openmodal.length; i++) {
+      openmodal[i].addEventListener('click', function(event){
+    	event.preventDefault()
+    	toggleModal()
+      })
+    }
     
-
-
-
-
-
-        document.onkeydown = function(evt) {
-          evt = evt || window.event
-          var isEscape = false
-          if ("key" in evt) {
-            isEscape = (evt.key === "Escape" || evt.key === "Esc")
-          } else {
-            isEscape = (evt.keyCode === 27)
-          }
-          if (isEscape && document.body.classList.contains('modal-active')) {
-            toggleModal()
-          }
-        };
-        function toggleModal () {
-          const body = document.querySelector('body')
-          const modal = document.querySelector('.modal')
-          const modalContainer = document.querySelector('.modal-container')
-          modal.classList.toggle('opacity-0')
-          modal.classList.toggle('pointer-events-none')
-          body.classList.toggle('modal-active')
-          modalContainer.classList.toggle('hidden') 
-        }
-      </script>
+    const overlay = document.querySelector('.modal-overlay')
+    overlay.addEventListener('click', toggleModal)
+    
+    var closemodal = document.querySelectorAll('.modal-close')
+    for (var i = 0; i < closemodal.length; i++) {
+      closemodal[i].addEventListener('click', toggleModal)
+    }
+    
+    document.onkeydown = function(evt) {
+      evt = evt || window.event
+      var isEscape = false
+      if ("key" in evt) {
+    	isEscape = (evt.key === "Escape" || evt.key === "Esc")
+      } else {
+    	isEscape = (evt.keyCode === 27)
+      }
+      if (isEscape && document.body.classList.contains('modal-active')) {
+    	toggleModal()
+      }
+    };
+    
+    
+    function toggleModal () {
+      const body = document.querySelector('body')
+      const modal = document.querySelector('.modal')
+      modal.classList.toggle('opacity-0')
+      modal.classList.toggle('pointer-events-none')
+      body.classList.toggle('modal-active')
+    }
+    
+     
+  </script>
     {{-- end of Modal script --}}
 
     @livewireScripts  

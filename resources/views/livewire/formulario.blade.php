@@ -143,13 +143,13 @@
         @if($step>0 && $step<=2)
     
         <h3>{{$this->step}}</h3>
-          <button id="btnBack" class="rounded-md backBtn btn applyBtn" type='button' wire:click="decreaseStep">Atrás</button>
+          <button id="btnBack" class="rounded-md backBtn btn applyBtn"  wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
-          <button id="btnFormulario" class="rounded-md btn applyBtn"  type='button' class="p-3 px-4 text-white bg-indigo-500 rounded-lg cerrarModal modal-close hover:bg-indigo-400" >Enviar</button>
+          <button id="btnFormulario" wire:click="save" class="p-3 px-4 text-white bg-indigo-500 rounded-md rounded-lg btn applyBtn modal-close hover:bg-indigo-400" >Enviar</button>
         @endif
         @if($step < 2)
-          <button id="btnNext" class="rounded-md btn applyBtn"  type='button' wire:click="increaseStep">Siguiente</button>
+          <button id="btnNext" class="rounded-md btn applyBtn"  wire:click="increaseStep">Siguiente</button>
         @endif
       </div>
 

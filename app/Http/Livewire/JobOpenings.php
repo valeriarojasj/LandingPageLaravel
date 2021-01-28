@@ -46,6 +46,12 @@ class JobOpenings extends Component
         return view('livewire.job-openings',compact('jobOpenings'));
     }
 
+    public function showJobOpenings()
+    {
+        $jobOpenings= JobOpening::latest('id')->paginate('10');        
+        return view('index',compact('jobOpenings'));
+    }
+
     public function store()
     {
         JobOpening::create([
