@@ -193,109 +193,9 @@
             <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
             <br>
           </div>
-          <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
-            <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
-              <h5 class="tituloBusqueda">Programador PHP</h5>
-              <p class="empresaBusqueda">Empresa Farmacéutica</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
-              <p class="empresaBusqueda">Importante banco</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Analista Contable</h5>
-              <p class="empresaBusqueda">Importante banco</p>
-              <span class="mb-1 lugarBusqueda">La Plata</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Gerente de Proyecto</h5>
-              <p class="empresaBusqueda">Importante empresa de retail</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Gerente de Producto</h5>
-              <p class="empresaBusqueda">Empresa de Tecnología</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Auditor de procesos</h5>
-              <p class="empresaBusqueda">Empresa automotriz</p>
-              <span class="mb-1 lugarBusqueda">Provincia de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Programador JAVA Senior</h5>
-              <p class="empresaBusqueda">Start up</p>
-              <span class="mb-1 lugarBusqueda">Mendoza</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
-              <p class="empresaBusqueda">Importante banco</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-              <h5 class="tituloBusqueda">Asesores Financieros Idóneos CNV</h5>
-              <p class="empresaBusqueda">Importante banco</p>
-              <span class="mb-1 lugarBusqueda">Ciudad de Buenos Aires</span>
-              <div class="mt-auto text-right ">
-                <button class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >Postularme</button>
-              </div>
-            </div>
-            
-            <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal">
-            <!--Modal Overlay-->
-              <div class="absolute w-full h-full bg-gray-900 opacity-50 modal-overlay"></div>
-            <!--Cierre Modal Overlay-->
-            <!--Contenedor del modal-->
-              <div class="z-50 hidden w-11/12 mx-auto overflow-y-auto bg-white rounded shadow-lg modal-container md:max-w-md">
-                <div class="absolute top-0 right-0 z-50 flex flex-col items-center mt-4 mr-4 text-sm text-white cursor-pointer modal-close">
-                  <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                    <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-                  </svg>
-                  <span class="text-sm"></span>
-                </div>
-                <div class="px-6 py-4 text-left modal-content ">
-                  <!--Title-->
-                    <div class="flex items-center justify-between pb-3">
-                      <p class="text-2xl font-bold">Formulario de Aplicación</p>
-                      <div class="z-50 cursor-pointer modal-close">
-                        <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  <!--Cierre del Title-->
-                  <livewire:formulario />
-                </div>
-              </div>
-            <!--Cierre del Contenedor del Modal-->
+          
+          <div >
+            <livewire:active-jobs />
           </div>
         </div>
       </section>
@@ -351,15 +251,61 @@
 
     {{-- modal script --}}
       <script>
-        var openmodal = document.querySelectorAll('.modal-open');
+        var openmodal = document.querySelectorAll('.modal-open')
+        let selectedModalTargetId = ''
+        for (var i = 0; i < openmodal.length; i++) {
+          openmodal[i].addEventListener('click', function(event){
+            selectedModalTargetId = event.target.attributes.getNamedItem('data-target').value
+            event.preventDefault()
+            toggleModal()
+          })
+        }
+
+        const overlay = document.querySelector('.modal-overlay')
+        overlay.addEventListener('click', toggleModal)
+
+        var closemodal = document.querySelectorAll('.modal-close')
+        for (var i = 0; i < closemodal.length; i++) {
+          closemodal[i].addEventListener('click', toggleModal)
+        }
+
+        document.onkeydown = function(evt) {
+          evt = evt || window.event
+          var isEscape = false
+          if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc")
+          } else {
+            isEscape = (evt.keyCode === 27)
+          }
+          if (isEscape && document.body.classList.contains('modal-active')) {
+            toggleModal()
+          }
+        }
+
+        function toggleModal () {
+          if(!selectedModalTargetId) {
+            return
+          }
+          const body = document.querySelector('body')
+          const modal = document.getElementById(selectedModalTargetId)
+          modal.classList.toggle('opacity-0')
+          modal.classList.toggle('pointer-events-none')
+          body.classList.toggle('modal-active')
+        }
+        /*var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
           openmodal[i].addEventListener('click', function(event){
             event.preventDefault();
-            toggleModal();
+            toggleModal(this.id);
           })
+          const overlay = document.querySelector('.modal-overlay');
+          overlay.addEventListener('click', function(){
+            toggleModal(openmodal[i].id)
+           });
         }
-        const overlay = document.querySelector('.modal-overlay');
-        overlay.addEventListener('click', toggleModal);
+
+        
+
         var closemodal = document.querySelectorAll('.modal-close');
         for (var i = 0; i < closemodal.length; i++) {
           closemodal[i].addEventListener('click', toggleModal);
@@ -376,6 +322,15 @@
             toggleModal()
           }
         };
+        function toggleModal (id) {
+          const body = document.querySelector('body')
+          const modal = document.getElementById('modal-'+id)
+          const modalContainer = document.querySelector('.modal-container')
+          modal.classList.toggle('opacity-0')
+          modal.classList.toggle('pointer-events-none')
+          body.classList.toggle('modal-active')
+          modalContainer.classList.toggle('hidden') 
+        }
         function toggleModal () {
           const body = document.querySelector('body')
           const modal = document.querySelector('.modal')
@@ -384,7 +339,7 @@
           modal.classList.toggle('pointer-events-none')
           body.classList.toggle('modal-active')
           modalContainer.classList.toggle('hidden') 
-        }
+        }*/
       </script>
     {{-- end of Modal script --}}
 
