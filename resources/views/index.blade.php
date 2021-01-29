@@ -250,14 +250,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
     {{-- modal script --}}
+
+
+    
       <script>
-        var openmodal = document.querySelectorAll('.modal-open')
-        let selectedModalTargetId = ''
+           var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
           openmodal[i].addEventListener('click', function(event){
-            selectedModalTargetId = event.target.attributes.getNamedItem('data-target').value
-            event.preventDefault()
-            toggleModal()
+            event.preventDefault();
+            toggleModal();
           })
         }
 
@@ -281,16 +282,14 @@
             toggleModal()
           }
         }
-
         function toggleModal () {
-          if(!selectedModalTargetId) {
-            return
-          }
           const body = document.querySelector('body')
-          const modal = document.getElementById(selectedModalTargetId)
+          const modal = document.querySelector('.modal')
+          const modalContainer = document.querySelector('.modal-container')
           modal.classList.toggle('opacity-0')
           modal.classList.toggle('pointer-events-none')
           body.classList.toggle('modal-active')
+          // modalContainer.classList.toggle('hidden') 
         }
         /*var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
