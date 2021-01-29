@@ -20,6 +20,7 @@ class Formulario extends Component
     public $career;
     public $jobToApply;
     public $step=0;
+
     
    
 
@@ -107,7 +108,7 @@ class Formulario extends Component
 
     public function mount(){
         
-
+   
         $this->step=0;
     }
 

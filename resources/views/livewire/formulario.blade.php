@@ -1,5 +1,5 @@
 <div class='divmodal'>
-  
+<form wire:submit.prevent='save'>
       <!--Body-->
         <div class="px-4 py-5 space-y-4 bg-white sm:p-6">
           @if($step == 0)
@@ -153,7 +153,7 @@
       </div>
 
       <!--Cierre del Footer-->
-   
+      </form>
   <!-- Cierre Contenido del modal (Title y Body)-->
   <script type="text/javascript" src="js/applicationForm.js"></script>
 </div>

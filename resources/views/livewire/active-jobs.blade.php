@@ -58,10 +58,10 @@
                 <div>
                 
               
-                    <form wire:submit.prevent='save'>
+                   
                 
                         <livewire:formulario />
-                     </form>
+                    
         
                 
                 
