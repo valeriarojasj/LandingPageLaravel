@@ -1,3 +1,4 @@
+
 <div>
     
     <div class='content-center justify-between d-flex'>
@@ -5,19 +6,18 @@
             <i class="fas fa-chevron-left"></i> 
         </button>
         <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
-            @foreach ($jobs as $job)
+        @foreach ($jobs as $job)
                 <div class="px-4 py-3 rounded-xl d-flex flex-column tarjetaBusqueda">
                     <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
                     <p class="empresaBusqueda">{{$job->company_type}}</p>
                     <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
                     <div class="mt-auto text-right">
-                        <button  class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
-                            Postularme
+                        <button  id="{{$job->id}}" data-myindex="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
+                        Postularme {{$job->id}}
                         </button>
                     </div>
                 </div>
-
-            @endforeach
+         @endforeach
         </div>
 
         <button wire:click='increment'>
@@ -41,8 +41,8 @@
                 </svg>
                 <span class="text-sm"></span>
                 </div>
-     
-                <div class="px-6 py-4 text-left modal-content ">
+            
+                <div  class="hidden px-6 py-4 text-left modal-content ">
                 <!--Title-->
            
                     <div class="flex items-center justify-between pb-3">
@@ -57,14 +57,18 @@
                 <!--Cierre del Title-->
                 <div>
                 
+              
+                    <form wire:submit.prevent='save'>
                 
-                    <form id="formulario-{{$job->job_id}}"  wire:submit.prevent='save'>
                         <livewire:formulario />
                      </form>
+        
                 
                 
                   </div>
+
                 </div>
+           
             </div>
             <!--Cierre del Contenedor del Modal-->
         </div>

@@ -255,10 +255,14 @@
     
       <script>
            var openmodal = document.querySelectorAll('.modal-open');
+           const form= document.getElementsByTagName('form');
         for (var i = 0; i < openmodal.length; i++) {
-          openmodal[i].addEventListener('click', function(event){
+          const index = openmodal[i].id;
+          const thisForm = form[0];
+          openmodal[i].addEventListener('click', function(event){ 
             event.preventDefault();
-            toggleModal();
+            thisForm.id=index;
+            toggleModal();  
           })
         }
 
@@ -286,10 +290,11 @@
           const body = document.querySelector('body')
           const modal = document.querySelector('.modal')
           const modalContainer = document.querySelector('.modal-container')
+          const modalContent = document.querySelector('.modal-content')
           modal.classList.toggle('opacity-0')
           modal.classList.toggle('pointer-events-none')
           body.classList.toggle('modal-active')
-          // modalContainer.classList.toggle('hidden') 
+          modalContent.classList.toggle('hidden') 
         }
         /*var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
