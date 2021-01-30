@@ -1,7 +1,8 @@
-function cargarPaises(){
-    var campoPais=document.getElementById('country');
-    var campoProvincia=document.getElementById('province');
-    var campoCiudad=document.getElementById('city');
+function cargarPaises(id){
+    
+    var campoPais=document.getElementById('country-'+id);
+    var campoProvincia=document.getElementById('province-'+id);
+    var campoCiudad=document.getElementById('city-'+id);
     if(campoPais.dataset.country == 'Argentina'){
         showInputs();
     }

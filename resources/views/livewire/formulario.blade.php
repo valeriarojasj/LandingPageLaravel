@@ -1,10 +1,9 @@
-<div class='divmodal' id='divmodal-{{$uuid}}'>
-      {{$uuid}}
+<div class='divmodal'>
       <!--Body-->
         <div class="px-4 py-5 space-y-4 bg-white sm:p-6">
           @if($step == 0)
-            <!-- FULLNAME -->
-            <fieldset>
+             <!-- FULLNAME -->
+             <fieldset>
               <div class="divFullName">
                 <label for="fullName">Nombre y Apellido</label>
                 <input  type="text" class="form-control applyInput" id="fullName-{{$uuid}}" placeholder="" wire:model.defer='fullName'>
@@ -81,7 +80,9 @@
                 @error('city') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
-            <script>cargarPaises()</script>
+            <script>
+              cargarPaises({!! $uuid !!})
+            </script>
           @endif
           @if($step == 2)
             <!-- EDUCATIONLEVEL -->
@@ -140,15 +141,13 @@
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
     
         @if($step>0 && $step<=2)
-    
-        <h3>{{$this->step}}</h3>
-          <button id="btnBack-{{$uuid}}" class="rounded-md backBtn btn applyBtn"  wire:click="decreaseStep">Atrás</button>
+          <button id="btnBack" class="rounded-md btn applyBtn"  wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 2)
-          <button id="btnFormulario-{{$uuid}}" wire:click="save" class="p-3 px-4 text-white bg-indigo-500 rounded-md rounded-lg btn applyBtn modal-close hover:bg-indigo-400" >Enviar</button>
+          <button id="btnFormulario" wire:click="save" class="p-3 px-4 text-white bg-indigo-500 rounded-md rounded-lg btn applyBtn modal-close hover:bg-indigo-400" >Enviar</button>
         @endif
         @if($step < 2)
-          <button id="btnNext-{{$uuid}}" class="rounded-md btn applyBtn"  wire:click="increaseStep">Siguiente</button>
+          <button id="btnNext" class="rounded-md btn applyBtn"  wire:click="increaseStep">Siguiente</button>
         @endif
       </div>
 
@@ -156,5 +155,6 @@
    
   <!-- Cierre Contenido del modal (Title y Body)-->
   <script type="text/javascript" src="js/applicationForm.js"></script>
+  
 </div>
 

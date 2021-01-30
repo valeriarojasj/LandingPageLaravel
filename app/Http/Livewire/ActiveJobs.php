@@ -12,6 +12,7 @@ class ActiveJobs extends Component
     public function render()
     {
         
+        
         $jobs = $this->getJobOpening();
         return view('livewire.active-jobs', compact('jobs'));
     }
@@ -20,14 +21,16 @@ class ActiveJobs extends Component
         $this->maxPages = floor($this->cantidad/9);
         if($this->page < $this->maxPages){
             $this->page++;
-            $jobs = $this->getJobOpening();  
+            $jobs = $this->getJobOpening();
         }
         
     }
+    
     public function decrement(){
         if($this->page>0){
             $this->page--;
             $job = $this->getJobOpening();
+            $this->emit('setModal');
         }
     }
     public function getJobOpening(){
