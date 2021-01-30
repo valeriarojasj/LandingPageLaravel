@@ -32,7 +32,7 @@ class Formulario extends Component
 
    
     protected $rules = [
-        //'fullName' => 'required',
+        'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
         'bday' => 'required|date|before_or_equal:-18 years',
         'email' => 'required|email',
@@ -45,7 +45,7 @@ class Formulario extends Component
     ];
     
     protected $messages =[
-        //'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
+        'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
         'dni.required' => 'Por favor ingresa tu DNI.',
         'bday.required' => 'Por favor ingresa tu fecha de nacimiento.',
         'bday.date' => 'El campo Fecha de Nacimiento debe contener una fecha.',
@@ -109,7 +109,7 @@ class Formulario extends Component
     }
 
     public function increaseStep(){
-        /*if($this->step==0){
+        if($this->step==0){
             $this->validate([
                 'fullName' => 'required',
                 'dni' => 'required|regex:/^[0-9]*$/i',
@@ -123,8 +123,7 @@ class Formulario extends Component
                 'country' => 'required'
             ]);
             $this->step++;
-        }*/
-        $this->step++;
+        }
 
     }
 
@@ -136,35 +135,14 @@ class Formulario extends Component
 
 
     public function save(){
-       /*dd(
-        $this->fullName,
-       $this->dni,
-       $this->bday,
-       $this->email,
-       $this->linkedin,
-        $this->country,
-       $this->province,
-       $this->city,
-       $this->educationLevel,
-       $this->educationStatus,
-       $this->career,
-       $this->jobToApply
-       );*/
         $this->validateProvince();
         $this->validate();
-      
-
-       
-        
-       
         $candidate = new Candidate;
-        
         $candidate->fullName = $this->fullName;
         $candidate->dni = $this->dni;
         $candidate->birthday = $this->bday;
         $candidate->email = $this->email;
         $candidate->linkedin = $this->linkedin;
-       
         $candidate->country = $this->country;
         $candidate->province = $this->province;
         $candidate->city = $this->city;
@@ -172,12 +150,8 @@ class Formulario extends Component
         $candidate->education_status= $this->educationStatus;
         $candidate->career = $this->career;
         $candidate->job_to_apply = $this->jobToApply;
-        
         $candidate->save();
         $this->dispatchBrowserEvent('closeModal');
-        
-
-        
     }
 
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
