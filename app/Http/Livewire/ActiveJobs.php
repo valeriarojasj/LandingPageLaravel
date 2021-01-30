@@ -9,27 +9,28 @@ class ActiveJobs extends Component
     public $page = 0;
     public $cantidad=0;
     public $maxPages;
+    public $jobs = [];
+    public $isMount = true;
     public function render()
     {
-        
-        
-        $jobs = $this->getJobOpening();
-        return view('livewire.active-jobs', compact('jobs'));
+        return view('livewire.active-jobs');
     }
     public function increment(){
         $this->cantidad = JobOpening::select('*')->count();
         $this->maxPages = floor($this->cantidad/9);
         if($this->page < $this->maxPages){
             $this->page++;
-            $jobs = $this->getJobOpening();
+            $this->jobs = $this->getJobOpening();
+            $this->dispatchBrowserEvent('setUpModal');
         }
-        
     }
-    
+    public function mount(){
+        $this->jobs = $this->getJobOpening();
+    }
     public function decrement(){
         if($this->page>0){
             $this->page--;
-            $job = $this->getJobOpening();
+            $this->jobs = $this->getJobOpening();
         }
     }
     public function getJobOpening(){
