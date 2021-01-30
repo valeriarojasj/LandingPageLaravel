@@ -297,9 +297,6 @@
             toggleModal()
           }
         };
-        window.livewire.on('setmodal', () => {
-            console.log('aadasd');
-        });
       }  
 
       }

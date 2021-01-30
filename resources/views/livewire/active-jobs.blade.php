@@ -1,4 +1,4 @@
-<div wire:init="setModal">
+<div>
     <div class='content-center justify-between d-flex'>
         <button wire:click='decrement'>
             <i class="fas fa-chevron-left"></i> 

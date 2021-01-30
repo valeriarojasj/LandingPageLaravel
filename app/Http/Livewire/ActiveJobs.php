@@ -30,7 +30,6 @@ class ActiveJobs extends Component
         if($this->page>0){
             $this->page--;
             $job = $this->getJobOpening();
-            $this->emit('setModal');
         }
     }
     public function getJobOpening(){
