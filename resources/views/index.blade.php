@@ -289,7 +289,7 @@
             modalContainer.classList.toggle('hidden') 
           }
           window.addEventListener(`closeModal`, event => {
-            toggleModal()     
+            toggleModal(event.detail.uuid)     
           })
           document.onkeydown = function(evt) {
             evt = evt || window.event

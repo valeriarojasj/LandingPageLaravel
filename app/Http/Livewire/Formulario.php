@@ -151,9 +151,24 @@ class Formulario extends Component
         $candidate->career = $this->career;
         $candidate->job_to_apply = $this->jobToApply;
         $candidate->save();
-        $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
+        $this->resetAttributes();
     }
-
+    public function resetAttributes(){
+        $this->fullName = '';
+        $this->dni='';
+        $this->bday='';
+        $this->email='';
+        $this->linkedin='';
+        $this->country='';
+        $this->province='';
+        $this->city='';
+        $this->educationLevel='';
+        $this->educationStatus='';
+        $this->career='';
+        $this->jobToApply='';
+        $this->step=0;
+    }
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
     public function validateProvince(){
         if($this->country != 'Argentina'){
