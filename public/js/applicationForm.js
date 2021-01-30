@@ -3,8 +3,9 @@ function cargarPaises(id){
     var campoPais=document.getElementById('country-'+id);
     var campoProvincia=document.getElementById('province-'+id);
     var campoCiudad=document.getElementById('city-'+id);
+
     if(campoPais.dataset.country == 'Argentina'){
-        showInputs();
+        showInputs(id);
     }
     //Cargar select paises
     for(pais of paises){
@@ -42,23 +43,24 @@ function cargarPaises(id){
         var CountrySelected=this.value;
         // si es Argentina cambiar display para que sea visible Provincia y ciudad, de lo contrario dejarlos ocultos.
         if(CountrySelected=="Argentina"){
-            showInputs();
+            showInputs(id);
         }else{
-            hideInputs();
+            hideInputs(id);
         }
     });
 
 
     campoProvincia.addEventListener('change',function(){
+        console.log('click vento')
         var valueProvinciaSelected=this.options[this.selectedIndex].dataset.index;
-        function removeOptions(campoCiudad) {
+        function removeOptions() {
             var i, L = campoCiudad.options.length - 1;
             for(i = L; i >= 1; i--) {
                 campoCiudad.remove(i);
             }
         }
         // using the function:
-        removeOptions(document.getElementById('city'));
+        removeOptions();
     
         fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${valueProvinciaSelected}&orden=nombre&max=5000`) 
         .then(function(response){
@@ -83,13 +85,13 @@ function cargarPaises(id){
 
 
 
-function showInputs(){
-    document.querySelector('.divProvince').style.display = "block";
-    document.querySelector('.divCity').style.display = "block";
+function showInputs(id){
+    document.getElementById('divProvince-'+id).style.display = "block";
+    document.getElementById('divCity-'+id).style.display = "block";
 }
-function hideInputs(){
-    document.querySelector('.divProvince').style.display = "none";
-    document.querySelector('.divCity').style.display = "none";
+function hideInputs(id){
+    document.getElementById('divProvince-'+id).style.display = "none";
+    document.getElementById('divCity-'+id).style.display = "none";
 }
 var paises;
 fetch('https://restcountries.eu/rest/v2/all') 
