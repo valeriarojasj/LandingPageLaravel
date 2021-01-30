@@ -61,7 +61,7 @@
 
             <!-- PROVINCE -->
             <fieldset>
-              <div class="divProvince" style="display:none;">
+              <div id="divProvince-{{$uuid}}" class="divProvince-{{$uuid}}" style="display:none;">
                 <label for="province">Provincia</label>
                 <select id="province-{{$uuid}}" class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
                   <option value=""> Selecciona la provincia donde vives...</option>
@@ -72,7 +72,7 @@
                       
             <!-- CITY -->
             <fieldset>
-              <div class="divCity" style="display:none;">
+              <div id="divCity-{{$uuid}}"  class="divCity-{{$uuid}}" style="display:none;">
                 <label for="city">Localidad</label>
                 <select id="city-{{$uuid}}" class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
                   <option selected="{{false}}" value="">Selecciona la ciudad donde vives...</option>
