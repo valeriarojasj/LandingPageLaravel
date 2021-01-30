@@ -260,12 +260,12 @@
       setModal();
       function setModal(){
         var id;
-      var openmodal = document.querySelectorAll('.modal-open');
-      for (var i = 0; i < openmodal.length; i++) {
-        console.log(openmodal[i])
+        var openmodal = document.querySelectorAll('.modal-open');
+        for (var i = 0; i < openmodal.length; i++) {
         openmodal[i].addEventListener('click', function(event){
           event.preventDefault();
           id=this.id;
+          console.log(id)
           toggleModal();
         })
         const overlay = document.getElementsByClassName("modal-overlay "+openmodal[i].id).item(0);
