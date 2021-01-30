@@ -20,7 +20,7 @@ class Formulario extends Component
     public $career;
     public $jobToApply;
     public $step=0;
-   
+    public $uuid;
 
     public $stepActions=[
         'submit1',
