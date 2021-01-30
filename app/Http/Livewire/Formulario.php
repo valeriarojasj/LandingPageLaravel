@@ -20,9 +20,7 @@ class Formulario extends Component
     public $career;
     public $jobToApply;
     public $step=0;
-
-    
-   
+    public $uuid;
 
     public $stepActions=[
         'submit1',
@@ -45,7 +43,7 @@ class Formulario extends Component
         'career' => 'required',
         'jobToApply' => 'required'
     ];
-
+    
     protected $messages =[
         'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
         'dni.required' => 'Por favor ingresa tu DNI.',
@@ -113,22 +111,23 @@ class Formulario extends Component
     }
 
     public function increaseStep(){
-        if($this->step==0){
-        
-        $this->validate([
-            'fullName' => 'required',
-            'dni' => 'required|regex:/^[0-9]*$/i',
-            'bday' => 'required|date|before_or_equal:-18 years',
-            'email' => 'required|email',
-            'linkedin' => 'url|starts_with:https://www.linkedin.com/in/']);
-
-            $this->step++;
-
-         }elseif($this->step==1){
+       if($this->step==0){
             $this->validate([
-                'country' => 'required']);
-             $this->step++;
-            }
+                'fullName' => 'required',
+                'dni' => 'required|regex:/^[0-9]*$/i',
+                'bday' => 'required|date|before_or_equal:-18 years',
+                'email' => 'required|email',
+                'linkedin' => 'url|starts_with:https://www.linkedin.com/in/'
+            ]);
+            $this->step++;
+        }elseif($this->step==1){
+            $this->validate([
+                'country' => 'required'
+            ]);
+            $this->step++;
+        }
+        $this->step++;
+
     }
 
     public function decreaseStep(){
@@ -139,7 +138,20 @@ class Formulario extends Component
 
 
     public function save(){
-       
+       /*dd(
+        $this->fullName,
+       $this->dni,
+       $this->bday,
+       $this->email,
+       $this->linkedin,
+        $this->country,
+       $this->province,
+       $this->city,
+       $this->educationLevel,
+       $this->educationStatus,
+       $this->career,
+       $this->jobToApply
+       );*/
         $this->validateProvince();
         $this->validate();
       
@@ -164,7 +176,7 @@ class Formulario extends Component
         $candidate->job_to_apply = $this->jobToApply;
         
         $candidate->save();
-
+        $this->dispatchBrowserEvent('closeModal');
         
 
         

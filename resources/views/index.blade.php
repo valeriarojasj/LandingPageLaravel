@@ -196,9 +196,12 @@
           
           <div >
             <livewire:active-jobs />
+            
+            
           </div>
         </div>
       </section>
+
 
       <hr class="solid contact-hr">
 
@@ -253,67 +256,35 @@
 
 
     
-      <script>
-           var openmodal = document.querySelectorAll('.modal-open');
-           const form= document.getElementsByTagName('form');
+    <script>
+      setModal();
+      function setModal(){
+        var id;
+        var openmodal = document.querySelectorAll('.modal-open');
         for (var i = 0; i < openmodal.length; i++) {
-          const index = openmodal[i].id;
-          const thisForm = form[0];
-          openmodal[i].addEventListener('click', function(event){ 
-            event.preventDefault();
-            thisForm.id=index;
-            toggleModal();  
-          })
-        }
-
-        const overlay = document.querySelector('.modal-overlay')
-        overlay.addEventListener('click', toggleModal)
-
-        var closemodal = document.querySelectorAll('.modal-close')
-        for (var i = 0; i < closemodal.length; i++) {
-          closemodal[i].addEventListener('click', toggleModal)
-        }
-
-        document.onkeydown = function(evt) {
-          evt = evt || window.event
-          var isEscape = false
-          if ("key" in evt) {
-            isEscape = (evt.key === "Escape" || evt.key === "Esc")
-          } else {
-            isEscape = (evt.keyCode === 27)
-          }
-          if (isEscape && document.body.classList.contains('modal-active')) {
-            toggleModal()
-          }
-        }
+        openmodal[i].addEventListener('click', function(event){
+          event.preventDefault();
+          id=this.id;
+          console.log(id)
+          toggleModal();
+        })
+        const overlay = document.getElementsByClassName("modal-overlay "+openmodal[i].id).item(0);
+        overlay.addEventListener('click', toggleModal);
+        var closemodal = document.getElementsByClassName("modal-close "+openmodal[i].id).item(0);
+        closemodal.addEventListener('click', toggleModal);
         function toggleModal () {
           const body = document.querySelector('body')
-          const modal = document.querySelector('.modal')
-          const modalContainer = document.querySelector('.modal-container')
-          const modalContent = document.querySelector('.modal-content')
+          const modal = document.getElementsByClassName("modal "+id).item(0);
+
+          const modalContainer = document.getElementsByClassName("modal-container "+id).item(0);
           modal.classList.toggle('opacity-0')
           modal.classList.toggle('pointer-events-none')
           body.classList.toggle('modal-active')
-          modalContent.classList.toggle('hidden') 
+          modalContainer.classList.toggle('hidden') 
         }
-        /*var openmodal = document.querySelectorAll('.modal-open');
-        for (var i = 0; i < openmodal.length; i++) {
-          openmodal[i].addEventListener('click', function(event){
-            event.preventDefault();
-            toggleModal(this.id);
-          })
-          const overlay = document.querySelector('.modal-overlay');
-          overlay.addEventListener('click', function(){
-            toggleModal(openmodal[i].id)
-           });
-        }
-
-        
-
-        var closemodal = document.querySelectorAll('.modal-close');
-        for (var i = 0; i < closemodal.length; i++) {
-          closemodal[i].addEventListener('click', toggleModal);
-        }
+        window.addEventListener(`closeModal`, event => {
+            toggleModal()     
+        })
         document.onkeydown = function(evt) {
           evt = evt || window.event
           var isEscape = false
@@ -326,24 +297,10 @@
             toggleModal()
           }
         };
-        function toggleModal (id) {
-          const body = document.querySelector('body')
-          const modal = document.getElementById('modal-'+id)
-          const modalContainer = document.querySelector('.modal-container')
-          modal.classList.toggle('opacity-0')
-          modal.classList.toggle('pointer-events-none')
-          body.classList.toggle('modal-active')
-          modalContainer.classList.toggle('hidden') 
-        }
-        function toggleModal () {
-          const body = document.querySelector('body')
-          const modal = document.querySelector('.modal')
-          const modalContainer = document.querySelector('.modal-container')
-          modal.classList.toggle('opacity-0')
-          modal.classList.toggle('pointer-events-none')
-          body.classList.toggle('modal-active')
-          modalContainer.classList.toggle('hidden') 
-        }*/
+      }  
+
+      }
+      
       </script>
     {{-- end of Modal script --}}
 
