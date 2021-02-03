@@ -29,7 +29,7 @@
             <div  id='1s' class="absolute w-full h-full bg-gray-900 opacity-50 modal-overlay {{$job->id}}" data-id="{{$job->id}}"></div>
             <!--Cierre Modal Overlay-->
             <!--Contenedor del modal-->
-            <div  class="z-50 hidden w-11/12 mx-auto overflow-y-auto bg-white rounded shadow-lg modal-container {{$job->id}} md:max-w-md">
+            <div  class="z-50 hidden w-11/12 mx-auto overflow-y-auto bg-white rounded-xl shadow-lg modal-container {{$job->id}} md:max-w-md">
                 <div class="px-6 py-4 text-left modal-content ">
                     <!--Title-->
                         <div class="flex items-center justify-between pb-3">

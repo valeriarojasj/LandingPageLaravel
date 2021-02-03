@@ -272,9 +272,9 @@
       <!--Footer-->
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
-        {{$this->step}}
+    
         @if($step>0 && $step<=5)
-          <button id="btnBack" class="rounded-md btn applyBtn"  wire:click="decreaseStep">Atrás</button>
+          <button id="btnBack" class="mr-2 rounded-md btn applyBtn" style="background-color:#A9CCEE;"  wire:click="decreaseStep">Atrás</button>
         @endif
         @if($step == 5)
           <button id="btnFormulario" wire:click="save" class="p-3 px-4 text-white bg-indigo-500 rounded-md rounded-lg btn applyBtn modal-close hover:bg-indigo-400" >Enviar</button>
