@@ -118,7 +118,7 @@
       </div>
     </fieldset>
     <!-- JOBTOAPPLY -->
-    <fieldset>
+    <!-- <fieldset>
       <div class="mt-3 divJobtoApply">
         <label for="jobToApply">Postularme para la posición</label>
         <select id="jobToApply-{{$uuid}}" class="rounded-md form-control" wire:model.defer='jobToApply'>
@@ -129,7 +129,7 @@
         </select>
         @error('jobToApply') <span class="error">{{ $message }}</span> @enderror   
       </div>
-    </fieldset>
+    </fieldset> -->
     @endif
 
     @if($step == 3)
