@@ -30,12 +30,6 @@
             <!--Cierre Modal Overlay-->
             <!--Contenedor del modal-->
             <div  class="z-50 hidden w-11/12 mx-auto overflow-y-auto bg-white rounded shadow-lg modal-container {{$job->id}} md:max-w-md">
-                <div  class="absolute top-0 right-0 z-50 flex flex-col items-center mt-4 mr-4 text-sm text-white cursor-pointer">
-                    <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-                    </svg>
-                    <span class="text-sm"></span>
-                </div>
                 <div class="px-6 py-4 text-left modal-content ">
                     <!--Title-->
                         <div class="flex items-center justify-between pb-3">
