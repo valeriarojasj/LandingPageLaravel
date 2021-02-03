@@ -1,7 +1,7 @@
 
 <div>
     <div class='content-center justify-between d-flex'>
-        <button wire:click='decrement'>
+        <button class="focus:outline-none "wire:click='decrement'>
             <i class="fas fa-chevron-left"></i> 
         </button>
         <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
@@ -18,7 +18,7 @@
                 </div>
             @endforeach
         </div>
-        <button wire:click='increment'>
+        <button class="focus:outline-none" wire:click='increment'>
             <i class="fas fa-chevron-right"></i> 
         </button>
     </div>

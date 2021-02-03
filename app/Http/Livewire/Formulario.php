@@ -19,15 +19,27 @@ class Formulario extends Component
     public $educationStatus;
     public $career;
     public $jobToApply;
+    //nuevos campos
+    public $openAnswer1;
+    public $openAnswer2;
+    public $multipleChoice1A;
+    public $multipleChoice2A;
+    public $checkBox1AOp1;
+    public $checkBox1AOp2;
+    public $checkBox1AOp3;
+    public $checkBox2AOp1;
+    public $checkBox2AOp2;
+    public $checkBox2AOp3;
+    //fin de nuevos campos
     public $step=0;
     public $uuid;
 
     public $stepActions=[
         'submit1',
         'submit2',
-        'submit3'
-        // ', submit4',
-        // 'submit5'
+        'submit3', 
+        'submit4',
+        'submit5'
     ];
 
    
@@ -49,7 +61,7 @@ class Formulario extends Component
         'dni.required' => 'Por favor ingresa tu DNI.',
         'bday.required' => 'Por favor ingresa tu fecha de nacimiento.',
         'bday.date' => 'El campo Fecha de Nacimiento debe contener una fecha.',
-        'bday.before_or_equal:-18 years' => 'Debes ser mayor de 18 años para postularte.',
+        'bday.before_or_equal' => 'Debes ser mayor de 18 años para postularte.',
         'email.required' => 'Por favor ingresa tu email.',
         'email.email' => 'El formato de email no es válido.',
         'linkedin.required' => 'Por favor ingresa tu perfil de LinkedIn. Debe comenzar por https://www.linkedin.com/in/ seguido por tu perfil.',
@@ -84,17 +96,17 @@ class Formulario extends Component
 
     }
 
-    // public function submit4(){
+    public function submit4(){
         
-    //     $this->step++;
+       $this->step++;
 
-    // }
+     }
 
-    // public function submit5(){
+    public function submit5(){
         
-    //     $this->step++;
+     $this->step++;
 
-    // }
+    }
 
 
     public function render()
@@ -125,8 +137,9 @@ class Formulario extends Component
                 'country' => 'required'
             ]);
             $this->step++;
-        }
-
+        }elseif($this->step>=2){
+            $this->step++;
+            }
     }
 
     public function decreaseStep(){
@@ -152,6 +165,16 @@ class Formulario extends Component
         $candidate->education_status= $this->educationStatus;
         $candidate->career = $this->career;
         $candidate->job_to_apply = $this->jobToApply;
+        $candidate->open_answer_1 = $this->openAnswer1;
+        $candidate->open_answer_2 = $this->openAnswer2;
+        $candidate->multiple_choice_1_a = $this->multipleChoice1A;
+        $candidate->multiple_choice_2_a = $this->multipleChoice2A;
+        $candidate->checkbox_1_a_op_1 = $this->checkBox1AOp1;
+        $candidate->checkbox_1_a_op_2 = $this->checkBox1AOp2;
+        $candidate->checkbox_1_a_op_3 = $this->checkBox1AOp3;
+        $candidate->checkbox_2_a_op_1 = $this->checkBox2AOp1;
+        $candidate->checkbox_2_a_op_2 = $this->checkBox2AOp2;
+        $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
         $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
         $this->resetAttributes();
@@ -169,6 +192,17 @@ class Formulario extends Component
         $this->educationStatus='';
         $this->career='';
         $this->jobToApply='';
+        $this->openAnswer1='';
+        $this->openAnswer2='';
+        $this->multipleChoice1A='';
+        $this->multipleChoice2A='';
+        $this->checkBox1AOp1='';
+        $this->checkBox1AOp2='';
+        $this->checkBox1AOp3='';
+        $this->checkBox2AOp1='';
+        $this->checkBox2AOp2='';
+        $this->checkBox2AOp3='';
+
         $this->step=0;
     }
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos

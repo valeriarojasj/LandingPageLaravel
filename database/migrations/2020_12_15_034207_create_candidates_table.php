@@ -27,6 +27,16 @@ class CreateCandidatesTable extends Migration
             $table->string('education_status');
             $table->string('career');
             $table->string('job_to_apply');
+            $table->text('open_answer_1')->nullable($value = true);
+            $table->text('open_answer_2')->nullable($value = true);
+            $table->string('multiple_choice_1_a')->nullable($value = true);
+            $table->string('multiple_choice_2_a')->nullable($value = true);
+            $table->string('checkbox_1_a_op_1')->nullable($value = true);
+            $table->string('checkbox_1_a_op_2')->nullable($value = true);
+            $table->string('checkbox_1_a_op_3')->nullable($value = true);
+            $table->string('checkbox_2_a_op_1')->nullable($value = true);
+            $table->string('checkbox_2_a_op_2')->nullable($value = true);
+            $table->string('checkbox_2_a_op_3')->nullable($value = true);
             $table->timestamps();
         });
     }

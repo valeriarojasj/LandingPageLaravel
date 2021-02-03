@@ -272,7 +272,6 @@
           
           const overlay = document.getElementsByClassName("modal-overlay "+openmodal[i].id).item(0);
           overlay.addEventListener('click', function(event){
-
             toggleModal(this.dataset.id)
           });
           var closemodal = document.getElementsByClassName("modal-close "+openmodal[i].id).item(0);
@@ -306,8 +305,6 @@
         }  
       }  
     </script>
-    
-    
     {{-- end of Modal script --}}
 
     @livewireScripts  

@@ -32,6 +32,7 @@ class ActiveJobs extends Component
             $this->page--;
             $this->jobs = $this->getJobOpening();
         }
+          
     }
     public function getJobOpening(){
         $records = JobOpening::select('*')

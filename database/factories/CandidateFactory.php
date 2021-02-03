@@ -30,8 +30,18 @@ class CandidateFactory extends Factory
             "country"=> $this->faker->randomElement(['Argentina', 'Uruguay', 'Chile']),
             "education_level"=>$this->faker->randomElement(['Secundario', 'Universitario', 'Doctorado', 'Posgrado']),
             "education_status"=> $this->faker->randomElement(['En curso', 'Graduado', 'Abandonado']),
-            "career"=>$this->faker->sentence(),
-            "job_to_apply"=> $this->faker->randomElement(['Analista Contable Ssr', 'Ejecutivo Large Corporate', 'Data Hub Jr'])
+            "career"=>$this->faker->sentence($nbWords = 3, $variableNbWords = true),
+            "job_to_apply"=> $this->faker->randomElement(['Analista Contable Ssr', 'Ejecutivo Large Corporate', 'Data Hub Jr']),
+            "open_answer_1" => $this->faker->text($maxNbChars = 200),
+            "open_answer_2" => $this->faker->text($maxNbChars = 200),
+            "multiple_choice_1_a" => $this->faker->sentence($nbWords = 3, $variableNbWords = true) ,
+            "multiple_choice_2_a" => $this->faker->sentence($nbWords = 3, $variableNbWords = true) ,
+            "checkbox_1_a_op_1" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
+            "checkbox_1_a_op_2" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
+            "checkbox_1_a_op_3" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
+            "checkbox_2_a_op_1" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
+            "checkbox_2_a_op_2" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
+            "checkbox_2_a_op_3" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) 
         ];
     }
 }

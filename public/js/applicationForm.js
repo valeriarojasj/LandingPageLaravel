@@ -51,7 +51,7 @@ function cargarPaises(id){
 
 
     campoProvincia.addEventListener('change',function(){
-        console.log('click vento')
+     
         var valueProvinciaSelected=this.options[this.selectedIndex].dataset.index;
         function removeOptions() {
             var i, L = campoCiudad.options.length - 1;

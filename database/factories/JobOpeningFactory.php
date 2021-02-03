@@ -24,8 +24,8 @@ class JobOpeningFactory extends Factory
         return [
 
             
-           'job_title'=>$this->faker->jobTitle(),
-           'company_type'=>$this->faker->randomElement(['Importante banco', 'Empresa de retail', 'Empresa lider de tecnología', 'Startup', 'Importante compañía automotriz','Empresa de la industria farmaceútica' ]),
+           'job_title'=>$this->faker->jobTitle($nbWords = 3, $variableNbWords = true),
+           'company_type'=>$this->faker->randomElement(['Importante banco', 'Empresa de retail', 'Empresa lider de tecnología', 'Startup', 'Importante compañía automotriz','Empresa de la industria farmaceútica' ,'Empresa Multinacional']),
             'job_location'=>$this->faker->city(),
             'open_question_1'=>$this->faker->sentence($nbWords = 5,  $variableNbWords = true).'?',
             'open_question_2'=>$this->faker->sentence($nbWords = 5,  $variableNbWords = true).'?',
