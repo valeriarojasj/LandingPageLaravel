@@ -1,5 +1,6 @@
 
 <div>
+    <div class='content-center justify-between d-flex'>{{$page}}</div>
     <div class='content-center justify-between d-flex'>
         <button class="focus:outline-none "wire:click='decrement'>
             <i class="fas fa-chevron-left"></i> 

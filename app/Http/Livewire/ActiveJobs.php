@@ -31,6 +31,7 @@ class ActiveJobs extends Component
         if($this->page>0){
             $this->page--;
             $this->jobs = $this->getJobOpening();
+            $this->dispatchBrowserEvent('setUpModal');
         }
           
     }

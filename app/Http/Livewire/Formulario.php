@@ -52,11 +52,8 @@ class Formulario extends Component
     // public $checkbox2_option_1;
     // public $checkbox2_option_2;
     // public $checkbox2_option_3;
-
-
     public $step=0;
     public $uuid;
-
     public $stepActions=[
         'submit1',
         'submit2',
@@ -64,8 +61,6 @@ class Formulario extends Component
         'submit4',
         'submit5'
     ];
-
-   
     protected $rules = [
         'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
@@ -78,7 +73,6 @@ class Formulario extends Component
         'career' => 'required',
         'jobToApply' => 'required'
     ];
-    
     protected $messages =[
         'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
         'dni.required' => 'Por favor ingresa tu DNI.',
@@ -98,50 +92,34 @@ class Formulario extends Component
     ];
 
     public function submit(){
-       
         $action = $this->stepActions[$this->step];
         $this->$action();
-
     }
     public function submit1(){
-      
         $this->step++;
-
     }
     public function submit2(){
-        
         $this->step++;
-
     }
     public function submit3(){
-        
         $this->step++;
-
     }
 
-    public function submit4(){
-        
+    public function submit4(){ 
        $this->step++;
+    }
 
-     }
-
-    public function submit5(){
-        
+    public function submit5(){ 
      $this->step++;
-
     }
 
 
     public function render()
     {
-        
-        
         return view('livewire.formulario');
     }
 
     public function mount(){
-        
-   
         $this->step=0;
     }
 
@@ -162,15 +140,12 @@ class Formulario extends Component
             $this->step++;
         }elseif($this->step>=2){
             $this->step++;
-            }
+        }
     }
 
     public function decreaseStep(){
         $this->step--;
     }
-
-
-
 
     public function save(){
         $this->validateProvince();
@@ -201,6 +176,7 @@ class Formulario extends Component
         $candidate->save();
         $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
         $this->resetAttributes();
+        $this->dispatchBrowserEvent('setUpModal');
     }
     public function resetAttributes(){
         $this->fullName = '';
