@@ -259,7 +259,19 @@
       window.addEventListener('setUpModal', event => {
         setModal();
       })
+      window.addEventListener(`closeModal`, event => {
+            toggleModal(event.detail.uuid)     
+          })
       setModal();
+      function toggleModal (id) {
+            const body = document.querySelector('body')
+            const modal = document.getElementsByClassName("modal "+id).item(0);
+            const modalContainer = document.getElementsByClassName("modal-container "+id).item(0);
+            modal.classList.toggle('opacity-0')
+            modal.classList.toggle('pointer-events-none')
+            body.classList.toggle('modal-active')
+            modalContainer.classList.toggle('hidden') 
+          }
       function setModal(){
         
         var openmodal = document.querySelectorAll('.modal-open');
@@ -278,18 +290,8 @@
           closemodal.addEventListener('click', function(event){
             toggleModal(this.dataset.id)
           });
-          function toggleModal (id) {
-            const body = document.querySelector('body')
-            const modal = document.getElementsByClassName("modal "+id).item(0);
-            const modalContainer = document.getElementsByClassName("modal-container "+id).item(0);
-            modal.classList.toggle('opacity-0')
-            modal.classList.toggle('pointer-events-none')
-            body.classList.toggle('modal-active')
-            modalContainer.classList.toggle('hidden') 
-          }
-          window.addEventListener(`closeModal`, event => {
-            toggleModal(event.detail.uuid)     
-          })
+          
+          
           document.onkeydown = function(evt) {
             evt = evt || window.event
             var isEscape = false
