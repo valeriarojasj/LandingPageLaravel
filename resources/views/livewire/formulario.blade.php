@@ -137,7 +137,8 @@
     <fieldset>
       <div class="mt-3 divOpenQ1">
         <div class="mt-1">
-          <legend id="openQuestion1-{{$uuid}}" class="text-base font-medium text-gray-900">Pregunta abierta 1</legend>
+       
+          <legend id="openQuestion1-{{$uuid}}" class="text-base font-medium text-gray-900">{{$job->open_question_1}}</legend>
         </div>
           <textarea id="openAnswer1-{{$uuid}}" placeholder="" wire:model.defer='openAnswer1' class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
       </div>
@@ -146,7 +147,7 @@
     <fieldset>
       <div class="mt-1 divOpenQ1">
         <div class="mt-1">
-          <legend id="openQuestion2-{{$uuid}}"  class="text-base font-medium text-gray-900">Pregunta abierta 2</legend>
+          <legend id="openQuestion2-{{$uuid}}"  class="text-base font-medium text-gray-900">{{$job->open_question_2}}</legend>
         </div>
           <textarea id="openAnswer2-{{$uuid}}" placeholder="" wire:model.defer='openAnswer2'  class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
       </div>
@@ -157,23 +158,23 @@
     <!-- MULTIPLE CHOICE QUESTION 1 -->
     <fieldset>
       <div class="block divMCQ1">
-        <span id="multiple_choice_question_1-{{$uuid}}" class="text-gray-700">Radio Buttons</span>
+        <span id="multiple_choice_question_1-{{$uuid}}" class="text-gray-700">{{$job->multiple_choice_question_1}}</span>
         <div class="mt-2">
           <label class="inline-flex items-center">
-            <input id="multiple_choice1_option_1-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="1">
-            <span id="span_multiple_choice1_option_1-{{$uuid}}" class="ml-2">Option 1</span>
+            <input id="multiple_choice1_option_1-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice1_option_1}}">
+            <span id="span_multiple_choice1_option_1-{{$uuid}}" class="ml-2">{{$job->multiple_choice1_option_1}}</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
-            <input id="multiple_choice1_option_2-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="2" >
-            <span id="span_multiple_choice1_option_2-{{$uuid}}" class="ml-2">Option 2</span>
+            <input id="multiple_choice1_option_2-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice1_option_2}}" >
+            <span id="span_multiple_choice1_option_2-{{$uuid}}" class="ml-2">{{$job->multiple_choice1_option_2}}</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
-            <input id="multiple_choice1_option_3-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="3">
-            <span id="span_multiple_choice1_option_3-{{$uuid}}" class="ml-2">Option 3</span>
+            <input id="multiple_choice1_option_3-{{$uuid}}" wire:model.defer='multipleChoice1A'  name="multipleChoice1A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice1_option_3}}">
+            <span id="span_multiple_choice1_option_3-{{$uuid}}" class="ml-2">{{$job->multiple_choice1_option_3}}</span>
           </label>
         </div>
       </div>
@@ -181,23 +182,23 @@
     <!-- MULTIPLE CHOICE QUESTION 2 -->
     <fieldset>
       <div class="block divMCQ2">
-        <span id="multiple_choice_question_2-{{$uuid}}" class="text-gray-700">Radio Buttons</span>
+        <span id="multiple_choice_question_2-{{$uuid}}" class="text-gray-700">{{$job->multiple_choice_question_2}}</span>
         <div class="mt-2">
           <label class="inline-flex items-center">
-            <input id="multiple_choice2_option_1-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="1">
-            <span id="span_multiple_choice2_option_1-{{$uuid}}" class="ml-2">Option 1</span>
+            <input id="multiple_choice2_option_1-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice2_option_1}}">
+            <span id="span_multiple_choice2_option_1-{{$uuid}}" class="ml-2">{{$job->multiple_choice2_option_1}}</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
-            <input id="multiple_choice2_option_2-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="2" >
-            <span id="span_multiple_choice2_option_2-{{$uuid}}" class="ml-2">Option 2</span>
+            <input id="multiple_choice2_option_2-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice2_option_2}}" >
+            <span id="span_multiple_choice2_option_2-{{$uuid}}" class="ml-2">{{$job->multiple_choice2_option_2}}</span>
           </label>
         </div>
         <div>
           <label class="inline-flex items-center">
-            <input id="multiple_choice2_option_3-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="3">
-            <span id="span_multiple_choice2_option_3-{{$uuid}}" class="ml-2">Option 3</span>
+            <input id="multiple_choice2_option_3-{{$uuid}}" wire:model.defer='multipleChoice2A'  name="multipleChoice2A-{{$uuid}}" type="radio" class="form-radio" value="{{$job->multiple_choice2_option_3}}">
+            <span id="span_multiple_choice2_option_3-{{$uuid}}" class="ml-2">{{$job->multiple_choice2_option_3}}</span>
           </label>
         </div>
       </div>
@@ -207,30 +208,30 @@
     @if($step == 5)
     <!-- PREGUNTA DE CHECKBOX 1 -->
     <fieldset>
-      <legend id="checkbox_question_1-{{$uuid}}"  class="text-base font-medium text-gray-900">Pregunta Checkbox1</legend>
+      <legend id="checkbox_question_1-{{$uuid}}"  class="text-base font-medium text-gray-900">{{$job->checkbox_question_1}}</legend>
        <div class="mt-4 space-y-4">
          <div class="flex items-start">
             <div class="flex items-center h-5"> 
-              <input id="checkBox1AOp1-{{$uuid}}" wire:model.defer='checkBox1AOp1' name="checkBox1AOp1-{{$uuid}}" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <input id="checkBox1AOp1-{{$uuid}}" wire:model.defer='checkBox1AOp1' name="checkBox1AOp1-{{$uuid}}" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_1}}">
             </div>
             <div class="ml-3 text-sm">
-              <label for="checkbox1_option_1-{{$uuid}}"    class="font-medium text-gray-700">Checkbox 1</label>
+              <label for="checkbox1_option_1-{{$uuid}}"    class="font-medium text-gray-700">{{$job->checkbox1_option_1}}</label>
             </div>
          </div>
          <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="checkBox1AOp2-{{$uuid}}" name="checkBox1AOp2-{{$uuid}}"  wire:model.defer='checkBox1AOp2' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <input id="checkBox1AOp2-{{$uuid}}" name="checkBox1AOp2-{{$uuid}}"  wire:model.defer='checkBox1AOp2' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_2}}">
             </div>
             <div class="ml-3 text-sm">
-              <label for="checkBox1AOp2-{{$uuid}}" class="font-medium text-gray-700">Checkbox 2</label>
+              <label for="checkBox1AOp2-{{$uuid}}" class="font-medium text-gray-700">{{$job->checkbox1_option_2}}</label>
             </div>
          </div>
          <div class="flex items-start">
            <div class="flex items-center h-5">
-             <input id="checkBox1AOp3-{{$uuid}}" name="checkBox1AOp3-{{$uuid}}" wire:model.defer='checkBox1AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+             <input id="checkBox1AOp3-{{$uuid}}" name="checkBox1AOp3-{{$uuid}}" wire:model.defer='checkBox1AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_3}}">
            </div>
            <div class="ml-3 text-sm">
-             <label for="checkBox1AOp3-{{$uuid}}" class="font-medium text-gray-700">Checkbox 3</label>
+             <label for="checkBox1AOp3-{{$uuid}}" class="font-medium text-gray-700">{{$job->checkbox1_option_3}}</label>
            </div>
          </div>
         </div>
@@ -241,26 +242,26 @@
         <div class="mt-4 space-y-4">
           <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="checkBox2AOp1-{{$uuid}}" wire:model.defer='checkBox2AOp1' name="checkBox2AOp1-{{$uuid}}" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <input id="checkBox2AOp1-{{$uuid}}" wire:model.defer='checkBox2AOp1' name="checkBox2AOp1-{{$uuid}}" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_1}}">
             </div>
             <div class="ml-3 text-sm">
-              <label for="checkBox2AOp1-{{$uuid}}"    class="font-medium text-gray-700">Checkbox 1</label>
+              <label for="checkBox2AOp1-{{$uuid}}"    class="font-medium text-gray-700">{{$job->checkbox2_option_1}}</label>
             </div>
           </div>
           <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="checkBox2AOp2-{{$uuid}}" name="checkBox2AOp2-{{$uuid}}"  wire:model.defer='checkBox2AOp2'type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <input id="checkBox2AOp2-{{$uuid}}" name="checkBox2AOp2-{{$uuid}}"  wire:model.defer='checkBox2AOp2'type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_2}}">
             </div>
             <div class="ml-3 text-sm">
-              <label for="checkBox2AOp2-{{$uuid}}" class="font-medium text-gray-700">Checkbox 2</label>
+              <label for="checkBox2AOp2-{{$uuid}}" class="font-medium text-gray-700">{{$job->checkbox2_option_2}}</label>
             </div>
           </div>
           <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="checkBox2AOp3-{{$uuid}}" name="checkBox2AOp3-{{$uuid}}" wire:model.defer='checkBox2AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <input id="checkBox2AOp3-{{$uuid}}" name="checkBox2AOp3-{{$uuid}}" wire:model.defer='checkBox2AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_3}}">
             </div>
             <div class="ml-3 text-sm">
-              <label for="checkBox2AOp3-{{$uuid}}" class="font-medium text-gray-700">Checkbox 3</label>
+              <label for="checkBox2AOp3-{{$uuid}}" class="font-medium text-gray-700">{{$job->checkbox2_option_3}}</label>
             </div>
           </div>
         </div>
@@ -272,6 +273,7 @@
       <!--Footer-->
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
+        {{$this->step}}
     
         @if($step>0 && $step<=5)
           <button id="btnBack" class="mr-2 rounded-md btn applyBtn" style="background-color:#A9CCEE;"  wire:click="decreaseStep">Atrás</button>

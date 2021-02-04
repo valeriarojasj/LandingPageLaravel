@@ -46,7 +46,7 @@
                         <p>{{$job->job_title}}</p>
                         </div>
                     <!--Cierre del Title-->
-                    <livewire:formulario :uuid="$job->id" :key="$job->id" :jobToApply="$job->job_title"/>
+                    <livewire:formulario :uuid="$job->id" :key="$job->id" :jobToApply="$job->job_title" :job="$job"/>
                 </div>
             </div><!--Cierre del Contenedor del Modal-->
         </div>

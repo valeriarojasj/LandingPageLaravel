@@ -5,6 +5,8 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use App\Models\Candidate;
+use App\Models\JobOpening;
+
 class Formulario extends Component
 {   
     public $fullName;
@@ -31,6 +33,27 @@ class Formulario extends Component
     public $checkBox2AOp2;
     public $checkBox2AOp3;
     //fin de nuevos campos
+    public $job;
+    // public $open_question_1;
+    // public $open_question_2;
+    // public $multiple_choice_question_1;
+    // public $multiple_choice1_option_1;
+    // public $multiple_choice1_option_2;
+    // public $multiple_choice1_option_3;
+    // public $multiple_choice_question_2;
+    // public $multiple_choice2_option_1;
+    // public $multiple_choice2_option_2;
+    // public $multiple_choice2_option_3;
+    // public $checkbox_question_1;
+    // public $checkbox1_option_1;
+    // public $checkbox1_option_2;
+    // public $checkbox1_option_3;
+    // public $checkbox_question_2;
+    // public $checkbox2_option_1;
+    // public $checkbox2_option_2;
+    // public $checkbox2_option_3;
+
+
     public $step=0;
     public $uuid;
 
