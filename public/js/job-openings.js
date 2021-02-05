@@ -1,18 +1,19 @@
 (function ($, window, document, undefined) {
-  var pluginName = "editable",
-    defaults = {
-      keyboard: true,
-      dblclick: true,
-      button: true,
-      buttonSelector: ".edit",
-      maintainWidth: true,
-      dropdowns: {},
-      edit: function () {},
-      save: function () {},
-      cancel: function () {}
-    };
+  var pluginName = "editable";
+  var defaults = {
+    keyboard: true,
+    dblclick: true,
+    button: true,
+    buttonSelector: ".edit",
+    maintainWidth: true,
+    dropdowns: {},
+    edit: function () {},
+    save: function () {},
+    cancel: function () {}
+  };
 
   function editable(element, options) {
+    console.log(element)
     this.element = element;
     this.options = $.extend({}, defaults, options);
 
@@ -144,14 +145,16 @@
       }
     }
   };
-
+  
   $.fn[pluginName] = function (options) {
+    console.log(options)
     return this.each(function () {
       if (!$.data(this, "plugin_" + pluginName)) {
         $.data(this, "plugin_" + pluginName, new editable(this, options));
       }
     });
   };
+  console.log($.fn[pluginName])
 })(jQuery, window, document);
 
 editTable();
@@ -252,13 +255,13 @@ $(".add-row").click(function () {
   console.log($imprimir);
   setTimeout(function () {
     $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click();
-  }, 200);
+  }, 200000);
 
   setTimeout(function () {
     $("#editableTable")
       .find("tbody tr:first td:last input[type='text']")
       .focus();
-  }, 300);
+  }, 300000000);
 
   $("#editableTable")
     .find('button[title="Delete"]')
@@ -282,4 +285,4 @@ $("#editableTable")
 
     } else {
     }
-  });
+});
