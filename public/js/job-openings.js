@@ -271,18 +271,24 @@ $(".add-row").click(function () {
     });
 });
 
-function myFunction() {}
+// function myFunction() {}
 
-$("#editableTable")
-  .find('button[title="Delete"]')
-  .click(function (e) {
-    console.log('borrando')
-    var x;
-    if (confirm("Are you sure you want to delete entire row?") == true) {
+// $("#editableTable")
+//   .find('button[title="Delete"]')
+//   .click(function (e) {
+//     console.log('borrando')
+//     var x;
+//     if (confirm("Are you sure you want to delete entire row?") == true) {
       
-      $(this).closest("tr").remove();
+//       $(this).closest("tr").remove();
       
 
+<<<<<<< HEAD
     } else {
     }
 });
+=======
+//     } else {
+//     }
+//   });
+>>>>>>> 0d1b00b94cd76b9ee21a15cb4650de1048be4492
