@@ -268,18 +268,18 @@ $(".add-row").click(function () {
     });
 });
 
-function myFunction() {}
+// function myFunction() {}
 
-$("#editableTable")
-  .find('button[title="Delete"]')
-  .click(function (e) {
-    console.log('borrando')
-    var x;
-    if (confirm("Are you sure you want to delete entire row?") == true) {
+// $("#editableTable")
+//   .find('button[title="Delete"]')
+//   .click(function (e) {
+//     console.log('borrando')
+//     var x;
+//     if (confirm("Are you sure you want to delete entire row?") == true) {
       
-      $(this).closest("tr").remove();
+//       $(this).closest("tr").remove();
       
 
-    } else {
-    }
-  });
+//     } else {
+//     }
+//   });

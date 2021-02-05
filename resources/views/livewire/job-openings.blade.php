@@ -61,14 +61,14 @@
       @foreach($jobOpenings as $jobOpening)
         <tr data-id='{{$jobOpening->id}}'>
           <td class='align-middle iconitos'>
-            <button   title="Edit" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
+            <button  wire:click="edit({{$jobOpening}})" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
               Editar
             </button>
             <button  wire:click="update()" class="w-full font-bold text-white bg-green-400 rounded-md button button-small edit">
               Guardar
             </button>
-            <button  wire:click="$toggle('confirmingDestroy')" class="w-full font-bold text-white bg-red-400 rounded-md button button-small edit">
-              Eliminar
+            <button  wire:click="$toggle('confirmingDestroy')" job:$jobOpening class="w-full font-bold text-white bg-red-400 rounded-md button button-small edit">
+            Eliminar
             </button>
             <!--<a class="button button-small edit" title="Edit">
               <i class="fas fa-pencil-alt table-icons"></i>
@@ -78,27 +78,27 @@
             </a>-->
           </td>
           <td data-field="id" >{{$jobOpening->id}}</td>
-          <td data-field="job_title" wire:model="job_title" >{{$jobOpening->job_title}}</td>
-          <td data-field="company_type" wire:model="company_type">{{$jobOpening->company_type}}</td>
-          <td data-field="job_location" wire:model="job_location">{{$jobOpening->job_location}}</td>
-          <td data-field="open_question_1" wire:model="open_question_1" >{{$jobOpening->open_question_1}}</td>
-          <td data-field="open_question_2" wire:model="open_question_2">{{$jobOpening->open_question_2}}</td>
-          <td data-field="multiple_choice_question_1" wire:model="multiple_choice_question_1">{{$jobOpening->multiple_choice_question_1}}</td>
-          <td data-field="multiple_choice1_option_1" wire:model="multiple_choice1_option_1">{{$jobOpening->multiple_choice1_option_1}}</td>
-          <td data-field="multiple_choice1_option_2" wire:model="multiple_choice1_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
-          <td data-field="multiple_choice1_option_3" wire:model="multiple_choice1_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
-          <td data-field="multiple_choice_question_2" wire:model="multiple_choice_question_2">{{$jobOpening->multiple_choice_question_2}}</td>
-          <td data-field="multiple_choice2_option_1"wire:model="multiple_choice2_option_1">{{$jobOpening->multiple_choice2_option_1}}</td>
-          <td data-field="multiple_choice2_option_2" wire:model="multiple_choice2_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
-          <td data-field="multiple_choice2_option_3" wire:model="multiple_choice2_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
-          <td data-field="checkbox_question_1" wire:model="checkbox_question_1">{{$jobOpening->checkbox_question_1}}</td>
-          <td data-field="checkbox1_option_1" wire:model="checkbox1_option_1">{{$jobOpening->checkbox1_option_1}}</td>
-          <td data-field="checkbox1_option_2" wire:model="checkbox1_option_2">{{$jobOpening->checkbox1_option_2}}</td>
-          <td data-field="checkbox1_option_3" wire:model="checkbox1_option_3">{{$jobOpening->checkbox1_option_3}}</td>
-          <td data-field="checkbox_question_2" wire:model="checkbox_question_2">{{$jobOpening->checkbox_question_2}}</td>
-          <td data-field="checkbox2_option_1" wire:model="checkbox2_option_1">{{$jobOpening->checkbox2_option_1}}</td>
-          <td data-field="checkbox2_option_2" wire:model="checkbox2_option_2">{{$jobOpening->checkbox2_option_2}}</td>
-          <td data-field="checkbox2_option_3" wire:model="checkbox2_option_3">{{$jobOpening->checkbox2_option_3}}</td>
+          <td data-field="job_title" wire:model.defer="job_title" >{{$jobOpening->job_title}}</td>
+          <td data-field="company_type" wire:model.defer="company_type">{{$jobOpening->company_type}}</td>
+          <td data-field="job_location" wire:model.defer="job_location">{{$jobOpening->job_location}}</td>
+          <td data-field="open_question_1" wire:model.defer="open_question_1" >{{$jobOpening->open_question_1}}</td>
+          <td data-field="open_question_2" wire:model.defer="open_question_2">{{$jobOpening->open_question_2}}</td>
+          <td data-field="multiple_choice_question_1" wire:model.defer="multiple_choice_question_1">{{$jobOpening->multiple_choice_question_1}}</td>
+          <td data-field="multiple_choice1_option_1" wire:model.defer="multiple_choice1_option_1">{{$jobOpening->multiple_choice1_option_1}}</td>
+          <td data-field="multiple_choice1_option_2" wire:model.defer="multiple_choice1_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
+          <td data-field="multiple_choice1_option_3" wire:model.defer="multiple_choice1_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
+          <td data-field="multiple_choice_question_2" wire:model.defer="multiple_choice_question_2">{{$jobOpening->multiple_choice_question_2}}</td>
+          <td data-field="multiple_choice2_option_1"wire:model.defer="multiple_choice2_option_1">{{$jobOpening->multiple_choice2_option_1}}</td>
+          <td data-field="multiple_choice2_option_2" wire:model.defer="multiple_choice2_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
+          <td data-field="multiple_choice2_option_3" wire:model.defer="multiple_choice2_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
+          <td data-field="checkbox_question_1" wire:model.defer="checkbox_question_1">{{$jobOpening->checkbox_question_1}}</td>
+          <td data-field="checkbox1_option_1" wire:model.defer="checkbox1_option_1">{{$jobOpening->checkbox1_option_1}}</td>
+          <td data-field="checkbox1_option_2" wire:model.defer="checkbox1_option_2">{{$jobOpening->checkbox1_option_2}}</td>
+          <td data-field="checkbox1_option_3" wire:model.defer="checkbox1_option_3">{{$jobOpening->checkbox1_option_3}}</td>
+          <td data-field="checkbox_question_2" wire:model.defer="checkbox_question_2">{{$jobOpening->checkbox_question_2}}</td>
+          <td data-field="checkbox2_option_1" wire:model.defer="checkbox2_option_1">{{$jobOpening->checkbox2_option_1}}</td>
+          <td data-field="checkbox2_option_2" wire:model.defer="checkbox2_option_2">{{$jobOpening->checkbox2_option_2}}</td>
+          <td data-field="checkbox2_option_3" wire:model.defer="checkbox2_option_3">{{$jobOpening->checkbox2_option_3}}</td>
           <td data-field="created_at" >{{$jobOpening->created_at}}</td>
           <td data-field="updated_at" >{{$jobOpening->updated_at}}</td>
         </tr>
@@ -111,7 +111,7 @@
 
     <x-slot name="content" >
       <div class="text-xs">
-        Estas segura de que quieres eliminar este registro {{$jobOpening}}? Una vez eliminado se borrará también de la base de datos junto con los candidatos que hayan aplicado a esta búsqueda.
+        Estas segura de que quieres eliminar este registro {{$job}}? Una vez eliminado se borrará también de la base de datos junto con los candidatos que hayan aplicado a esta búsqueda.
         </div>
     </x-slot>
    
@@ -120,8 +120,8 @@
            Cancelar
         </x-jet-secondary-button>
 
-        <x-jet-danger-button class="ml-2" wire:click="destroy({{$jobOpening}})" wire:loading.attr="disabled">
-            Eliminar Registro
+        <x-jet-danger-button wire:model="job" class="ml-2" wire:click="destroy({{$job}})" wire:loading.attr="disabled">
+        {{$job}}
         </x-jet-danger-button>
     </x-slot>
 </x-jet-confirmation-modal>

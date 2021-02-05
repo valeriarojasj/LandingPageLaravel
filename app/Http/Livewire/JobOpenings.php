@@ -12,6 +12,7 @@ class JobOpenings extends Component
     use WithPagination;
 
     public  
+    $job,
     $job_id, 
     $job_title,
     $company_type,
@@ -82,11 +83,40 @@ class JobOpenings extends Component
 
         ]);
     }
+
+    public function edit(JobOpening $jobOpening){
+     
+             $this->job_title = $jobOpening->job_title;
+             $this->company_type = $jobOpening->company_type;
+             $this->job_location = $jobOpening->job_location;
+             $this->open_question_1 = $jobOpening->open_question_1;
+             $this->open_question_2 = $jobOpening->open_question_2;
+             $this->multiple_choice_question_1 = $jobOpening->multiple_choice_question_1;
+             $this->multiple_choice1_option_1 = $jobOpening->multiple_choice1_option_1;
+             $this->multiple_choice1_option_2 = $jobOpening->multiple_choice1_option_2;
+             $this->multiple_choice1_option_3 = $jobOpening->multiple_choice1_option_3;
+             $this->multiple_choice_question_2 = $jobOpening->multiple_choice_question_2;
+             $this->multiple_choice2_option_1 = $jobOpening->multiple_choice2_option_1;
+             $this->multiple_choice2_option_2 = $jobOpening->multiple_choice2_option_2;
+             $this->multiple_choice2_option_3 = $jobOpening->multiple_choice2_option_3;
+             $this->checkbox_question_1 = $jobOpening->checkbox_question_1;
+             $this->checkbox1_option_1 = $jobOpening->checkbox1_option_1;
+             $this->checkbox1_option_2 = $jobOpening->checkbox1_option_2;
+             $this->checkbox1_option_3 = $jobOpening->checkbox1_option_3;
+             $this->checkbox_question_2 = $jobOpening->checkbox_question_2;
+             $this->checkbox2_option_1 = $jobOpening->checkbox2_option_1;
+             $this->checkbox2_option_2 = $jobOpening->checkbox2_option_2;
+             $this->checkbox2_option_3 = $jobOpening->checkbox2_option_3;
+     
+    }
+
+
     public function update()
     {
         $jobOpening= JobOpening::find($this->id);
-        $jobOpening->update(
-        [
+
+
+            $jobOpening->update([
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,
@@ -108,21 +138,31 @@ class JobOpenings extends Component
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3
-         
-
-
-        ]);
+            ]);
+     
     }
 
 
+    public function confirmDestroy(){
+
+        $jobOpening= JobOpening::find($this->id);
+        
+        
+        $confirmingDestroy=false;
+        
+        return  $jobOpening;
+
+        
+    }
 
 
 
     public function destroy(JobOpening $jobOpening){
 
        
-        $confirmingDestroy=false;
+        
         $jobOpening->delete();
+        $confirmingDestroy=false;
         
 
 
