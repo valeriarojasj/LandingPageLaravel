@@ -12,7 +12,6 @@ class JobOpenings extends Component
     use WithPagination;
 
     public  
-    $job,
     $job_id, 
     $job_title,
     $company_type,
@@ -37,7 +36,7 @@ class JobOpenings extends Component
     $checkbox2_option_3,
     $created_at,
     $updated_at,
-    $confirmingDestroy=false;
+    $openModal=false;
 
 
   
@@ -162,7 +161,6 @@ class JobOpenings extends Component
        
         
         $jobOpening->delete();
-        $confirmingDestroy=false;
         
 
 
