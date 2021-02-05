@@ -283,12 +283,6 @@ $(".add-row").click(function () {
 //       $(this).closest("tr").remove();
       
 
-<<<<<<< HEAD
-    } else {
-    }
-});
-=======
 //     } else {
 //     }
 //   });
->>>>>>> 0d1b00b94cd76b9ee21a15cb4650de1048be4492
