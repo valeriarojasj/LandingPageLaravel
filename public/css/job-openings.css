@@ -71,8 +71,6 @@ td:last-child .button .fas {
 .table-container {
   display: block;
   overflow-x: auto;
-  
-
 }
 thead{
   background-color: rgba(169,204,238,0.2);

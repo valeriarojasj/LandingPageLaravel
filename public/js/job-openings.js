@@ -1,3 +1,10 @@
+document.getElementById("table-container")
+.addEventListener('mousemove', function(e) {
+  var x = -(e.pageX + this.offsetLeft) / 20;
+  var y = -(e.pageY + this.offsetTop) / 20;
+  e.currentTarget.style.backgroundPosition = x + 'px ' + y + 'px';
+})
+
 // (function ($, window, document, undefined) {
 //   var pluginName = "editable",
 //     defaults = {

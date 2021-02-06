@@ -36,8 +36,8 @@ class JobOpenings extends Component
     $checkbox2_option_3,
     $created_at,
     $updated_at,
+    $idToDelete,
     $openModal=false;
-
 
   
     public function render()
@@ -82,7 +82,10 @@ class JobOpenings extends Component
 
         ]);
     }
-
+    public function open($id){
+        $this->idToDelete = $id;
+        $this->openModal = true;
+    }
     public function edit(JobOpening $jobOpening){
      
              $this->job_title = $jobOpening->job_title;
@@ -109,13 +112,10 @@ class JobOpenings extends Component
      
     }
 
-
     public function update()
     {
         $jobOpening= JobOpening::find($this->id);
-
-
-            $jobOpening->update([
+        $jobOpening->update([
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,
@@ -137,34 +137,12 @@ class JobOpenings extends Component
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3
-            ]);
-     
+        ]);
     }
 
-
-    public function confirmDestroy(){
-
-        $jobOpening= JobOpening::find($this->id);
-        
-        
-        $confirmingDestroy=false;
-        
-        return  $jobOpening;
-
-        
-    }
-
-
-
-    public function destroy(JobOpening $jobOpening){
-
-       
-        
+    public function destroy($id){
+        $jobOpening = JobOpening::find($id);
         $jobOpening->delete();
-        
-
-
-        
+        $this->openModal = false;
     }
-
 }
