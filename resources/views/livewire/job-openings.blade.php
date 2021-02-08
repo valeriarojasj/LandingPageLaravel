@@ -54,7 +54,7 @@
                       @foreach($jobOpenings as $jobOpening)
                         <tr data-id='{{$jobOpening->id}}'>
                           <td class='align-middle iconitos'>
-                            <button  wire:click="edit({{$jobOpening}})" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
+                            <button  wire:click="contentEditable({{ $jobOpening->id }})" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
                               Editar
                             </button>
                             <button  wire:click="update()" class="w-full font-bold text-white bg-green-400 rounded-md button button-small edit">
@@ -64,7 +64,7 @@
                               Eliminar
                             </button>
                           </td>
-                          <td contenteditable data-field="id" >{{$jobOpening->id}}</td>
+                          <td data-field="id" >{{$jobOpening->id}}</td>
                           <td data-field="job_title" wire:model.defer="job_title" >{{$jobOpening->job_title}}</td>
                           <td data-field="company_type" wire:model.defer="company_type">{{$jobOpening->company_type}}</td>
                           <td data-field="job_location" wire:model.defer="job_location">{{$jobOpening->job_location}}</td>
