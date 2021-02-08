@@ -80,3 +80,11 @@ thead{
   filter: brightness(1.1);
   color: #D895B2;
 }
+
+
+.textareatd{
+  width: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
+  overflow:hidden;
+}

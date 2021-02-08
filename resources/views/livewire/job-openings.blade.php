@@ -16,7 +16,10 @@
                 <div class="row">
                   <div class="col-md-12">
                     <br>
-                    <button  class="btn btn-default pull-right add-row"><i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; Nuevo Registro</button>
+                    <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
+                      <i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; 
+                      Nuevo Registro
+                    </button>
                   </div>
                 </div>
                 <div class="row">
@@ -51,47 +54,21 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @if($showRow)
+                        <livewire:job-opening-row
+                            :objeto="$newJob"
+                            :nuevoObjeto="true"
+                        />
+                      @endif
                       @foreach($jobOpenings as $jobOpening)
-                        <tr data-id='{{$jobOpening->id}}'>
-                          <td class='align-middle iconitos'>
-                            <button  wire:click="contentEditable({{ $jobOpening->id }})" class="w-full font-bold text-white bg-blue-400 rounded-md button button-small edit">
-                              Editar
-                            </button>
-                            <button  wire:click="update()" class="w-full font-bold text-white bg-green-400 rounded-md button button-small edit">
-                              Guardar
-                            </button>
-                            <button  wire:click="open({{ $jobOpening->id }})" class="w-full font-bold text-white bg-red-400 rounded-md button button-small edit">
-                              Eliminar
-                            </button>
-                          </td>
-                          <td data-field="id" >{{$jobOpening->id}}</td>
-                          <td data-field="job_title" wire:model.defer="job_title" >{{$jobOpening->job_title}}</td>
-                          <td data-field="company_type" wire:model.defer="company_type">{{$jobOpening->company_type}}</td>
-                          <td data-field="job_location" wire:model.defer="job_location">{{$jobOpening->job_location}}</td>
-                          <td data-field="open_question_1" wire:model.defer="open_question_1" >{{$jobOpening->open_question_1}}</td>
-                          <td data-field="open_question_2" wire:model.defer="open_question_2">{{$jobOpening->open_question_2}}</td>
-                          <td data-field="multiple_choice_question_1" wire:model.defer="multiple_choice_question_1">{{$jobOpening->multiple_choice_question_1}}</td>
-                          <td data-field="multiple_choice1_option_1" wire:model.defer="multiple_choice1_option_1">{{$jobOpening->multiple_choice1_option_1}}</td>
-                          <td data-field="multiple_choice1_option_2" wire:model.defer="multiple_choice1_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
-                          <td data-field="multiple_choice1_option_3" wire:model.defer="multiple_choice1_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
-                          <td data-field="multiple_choice_question_2" wire:model.defer="multiple_choice_question_2">{{$jobOpening->multiple_choice_question_2}}</td>
-                          <td data-field="multiple_choice2_option_1"wire:model.defer="multiple_choice2_option_1">{{$jobOpening->multiple_choice2_option_1}}</td>
-                          <td data-field="multiple_choice2_option_2" wire:model.defer="multiple_choice2_option_2">{{$jobOpening->multiple_choice1_option_2}}</td>
-                          <td data-field="multiple_choice2_option_3" wire:model.defer="multiple_choice2_option_3">{{$jobOpening->multiple_choice1_option_3}}</td>
-                          <td data-field="checkbox_question_1" wire:model.defer="checkbox_question_1">{{$jobOpening->checkbox_question_1}}</td>
-                          <td data-field="checkbox1_option_1" wire:model.defer="checkbox1_option_1">{{$jobOpening->checkbox1_option_1}}</td>
-                          <td data-field="checkbox1_option_2" wire:model.defer="checkbox1_option_2">{{$jobOpening->checkbox1_option_2}}</td>
-                          <td data-field="checkbox1_option_3" wire:model.defer="checkbox1_option_3">{{$jobOpening->checkbox1_option_3}}</td>
-                          <td data-field="checkbox_question_2" wire:model.defer="checkbox_question_2">{{$jobOpening->checkbox_question_2}}</td>
-                          <td data-field="checkbox2_option_1" wire:model.defer="checkbox2_option_1">{{$jobOpening->checkbox2_option_1}}</td>
-                          <td data-field="checkbox2_option_2" wire:model.defer="checkbox2_option_2">{{$jobOpening->checkbox2_option_2}}</td>
-                          <td data-field="checkbox2_option_3" wire:model.defer="checkbox2_option_3">{{$jobOpening->checkbox2_option_3}}</td>
-                          <td data-field="created_at" >{{$jobOpening->created_at}}</td>
-                          <td data-field="updated_at" >{{$jobOpening->updated_at}}</td>
-                        </tr>
+                      
+                        <livewire:job-opening-row
+                          :key="$jobOpening->id"
+                          :objeto="$jobOpening"
+                        />
                       @endforeach
                     </tbody>
-                  </table>
+                  </table>  
                   <div>
                     {{$jobOpenings->links()}}
                   </div>
