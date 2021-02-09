@@ -2,6 +2,9 @@ window.addEventListener('habilitarTextArea', event => {
   const textAreas = document.querySelectorAll('.textarea'+event.detail.id);
   for(textArea of textAreas){
     textArea.disabled = false;
+    textArea.classList.add("bg-green-100");
+    textArea.classList.add("text-green-800");
+    
   }
 })
 window.addEventListener('deshabilitarTextArea', event => {

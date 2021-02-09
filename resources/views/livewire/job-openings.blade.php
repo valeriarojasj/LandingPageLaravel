@@ -10,98 +10,98 @@
             Búsquedas laborales
           </h1>
           <!--Card-->
-          <div id='recipients' class="mt-6 bg-white rounded shadow lg:mt-0">
+          <div id='recipients' class="mt-6 bg-white lg:mt-0">
             <div class="container">
               <div id="table-container" class="col-md-12 table-container">
                 <div class="row">
                   <div class="col-md-12">
                     <br>
                     <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
-                      <i class="fas fa-plus-circle table-icons"></i>&nbsp;&nbsp; 
+                    <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
                       Nuevo Registro
                     </button>
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                      <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                        <table class="table min-w-full divide-y divide-gray-200 table-bordered" id="editableTable">
-                          <thead class="bg-gray-50">
+                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >
+                    <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
+                      <div class="mb-3 overflow-hidden border-b border-gray-200 shadow align-left sm:rounded-lg">
+                        <table class="table min-w-full mb-0 divide-y divide-gray-200 table-bordered" id="editableTable">
+                          <thead class="bg-blue-100">
                             <tr>
                               <th scope="col" class="relative px-6 py-3">
                                 <span class="sr-only">Edit</span>
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 ID
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Título de la búsqueda
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Tipo de empresa
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Lugar de la búsqueda
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta Abierta 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta Abierta 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta de Selección Múltiple 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM1 Opción 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM1 Opción 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM1 Opción 3
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta de Selección Múltiple 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM2 Opción 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM2 Opción 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 SM2 Opción 3
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta de Checkbox 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 CB1 Opción 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 CB1 Opción 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 cb1 Opción 3
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Pregunta de Checkbox 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 CB2 Opción 1
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 CB2 Opción 2
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 CB2 Opción 3
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Fecha de Creación
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                                 Fecha de Actualización
                               </th>
                             </tr>
@@ -115,15 +115,22 @@
                              @endforeach
                           </tbody>
                         </table>
+                        
                       </div>
+                      
                     </div>
+                   
                   </div>
+                  
                 </div>
-                {{$jobOpenings->links()}}
+               
               </div>
             </div>
           </div>
+          {{$jobOpenings->links('pagination::tailwind')}}
+          
         </div>
+        
       </div>
       <!--/Card-->
     </div>
@@ -145,11 +152,12 @@
         </x-jet-danger-button>
       </x-slot>
     </x-jet-confirmation-modal>
+    
   </div>
   <!--container-->
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
+  <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/job-openings.js"></script>
 </div>
                    
