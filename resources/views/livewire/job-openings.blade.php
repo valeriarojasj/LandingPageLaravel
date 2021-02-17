@@ -108,7 +108,7 @@
                           </thead>
                           <tbody class="bg-white divide-y divide-gray-200">
                              @if($showRow)
-                             <livewire:job-opening-row :objeto="$newJob" :nuevoObjeto="true"/>
+                             <livewire:job-opening-row :objeto="$newJob" :nuevoObjeto='true'/>
                              @endif
                              @foreach($jobOpenings as $jobOpening)
                              <livewire:job-opening-row :key="$jobOpening->id" :objeto="$jobOpening"/>
@@ -160,6 +160,9 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
   <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/job-openings.js"></script>
+
+
+  
 
 </div>
                    

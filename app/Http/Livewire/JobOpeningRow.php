@@ -190,4 +190,5 @@ class JobOpeningRow extends Component
         $this->emit('reloadJobsopenings');
         
     }
+
 }
