@@ -135,7 +135,7 @@
                             emptyTable:     "No hay datos disponibles",
                             info:           "Resultados _START_ a _END_ de _TOTAL_ registros",
                             infoEmpty:      "Resultados 0 a 0 de 0 registros",
-                            infoFiltered:   "(filtrado de _MAX_ registros en total)",
+                            infoFiltered:   "(Resultados filtrados de _MAX_ registros en total)",
                             infoPostFix:    "",
                             thousands:      ",",
                             lengthMenu:     "Mostrar _MENU_ registros",

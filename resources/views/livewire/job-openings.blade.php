@@ -10,9 +10,9 @@
             Búsquedas laborales
           </h1>
           <!--Card-->
-          <div id='recipients' class="mt-6 bg-white lg:mt-0">
-            <div class="container">
-              <div id="table-container" class="col-md-12 table-container">
+          
+           
+              
                 <div class="row">
                   <div class="col-md-12">
                     <br>
@@ -22,17 +22,17 @@
                     </button>
                   </div>
                 </div>
-                <div class="flex flex-col">
-                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >
+              
+                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
                     <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
-                      <div class="mb-3 overflow-hidden border-b border-gray-200 shadow align-left sm:rounded-lg">
-                        <table class="table min-w-full mb-0 divide-y divide-gray-200 table-bordered" id="editableTable">
+                      <div class="mb-3 border-b border-gray-200 shadow align-left sm:rounded-lg">
+                        <table class="table mb-0" id="editableTable">
                           <thead class="bg-blue-100">
                             <tr>
-                              <th scope="col" class="relative px-6 py-3">
+                              <th scope="col" class="px-6 py-3 hard_left">
                                 <span class="sr-only">Edit</span>
                               </th>
-                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
                                 ID
                               </th>
                               <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
@@ -122,11 +122,10 @@
                    
                   </div>
                   
-                </div>
                
-              </div>
-            </div>
-          </div>
+            
+          
+        
           {{$jobOpenings->links('pagination::tailwind')}}
           
         </div>
@@ -154,11 +153,14 @@
     </x-jet-confirmation-modal>
     
   </div>
+
+  
   <!--container-->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
   <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/job-openings.js"></script>
+
 </div>
                    
  

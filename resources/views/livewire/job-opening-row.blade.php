@@ -1,5 +1,6 @@
 <tr data-id='{{$uuid}}' style="height:auto;">
- <td class='py-4 text-sm font-medium text-right align-middle iconitospx-6 whitespace-nowrap'>
+ <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap'>
+     <div class="px-2 btnDiv">
     @if($nuevoObjeto)
     <button  wire:click="store()" class="w-full font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button button-small edit">
         Guardar2
@@ -24,8 +25,10 @@
      </button>
      @endif
      @endif
+     </div>
+
     </td>
-    <td class="px-6 py-4 place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
+    <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
       <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" wire:model.defer='uuid' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
     <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="job_title" >
@@ -71,7 +74,7 @@
         <textarea class="inline-flex text-xs font-semibold  textareatd textarea{{$objeto->id}}" name="textarea" wire:model.defer='checkbox_question_1' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
     <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="checkbox1_option_1">
-        <textarea class="inline-flex text-xs font-semibold  textareatd textarea{{$objeto->id}}" name="textarea" wire:model.defer='checkbox1_option_1' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+        <textarea class="inline-flex text-xs font-semibold textareatd textarea{{$objeto->id}}" name="textarea" wire:model.defer='checkbox1_option_1' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
     <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="checkbox1_option_2">
         <textarea class="inline-flex text-xs font-semibold  textareatd textarea{{$objeto->id}}" name="textarea" wire:model.defer='checkbox1_option_2' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
