@@ -190,5 +190,7 @@ class JobOpeningRow extends Component
         $this->emit('reloadJobsopenings');
         
     }
-
+    public function hideRow(){
+        $this->emit('hideNewRow');
+    }
 }
