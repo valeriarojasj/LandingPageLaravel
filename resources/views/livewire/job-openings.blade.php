@@ -29,8 +29,8 @@
                         <table class="table mb-0" id="editableTable">
                           <thead class="bg-blue-100">
                             <tr>
-                              <th scope="col" class="px-6 py-3 hard_left">
-                                <span class="sr-only">Edit</span>
+                              <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left">
+                                Opciones de Edición
                               </th>
                               <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
                                 ID
