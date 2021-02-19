@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="head">
+    <link rel="stylesheet" href="{{ asset('css/candidates-table.css') }}">
     </x-slot>
     <!-- <x-slot name="header">
         <h2 class="text-xl font-bold leading-tight text-gray-800">

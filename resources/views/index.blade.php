@@ -228,19 +228,9 @@
       <hr class="solid">
 
       <section id ="subscribe">
-        <form>
-          <div class="subscribe-container">
-            <div class="subscribe-item1">
-              <label id="labelSubscribe" for="inputEmail3" >Querés enterarte de nuestras últimas búsquedas y eventos?</label>
-            </div>
-            <div class="subscribe-item2">
-              <input type="email" class="form-control" id="inputEmailSubscribe" placeholder="Escribí tu dirección de email">
-            </div>
-            <div class="subscribe-item3">
-              <button type="submit" class="rounded-full btn applyBtn">Subscribirme</button>
-            </div>
-          </div>
-        </form>
+      <livewire:subscription-component />
+
+        
       </section>
     </main>
 

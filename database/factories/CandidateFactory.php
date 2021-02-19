@@ -26,7 +26,7 @@ class CandidateFactory extends Factory
             "dni"=> $this->faker->numberBetween($min = 20000000, $max = 40000000),
             "birthday"=>$this->faker->dateTimeThisCentury->format('Y-m-d'),
             "email"=> $this->faker->unique()->safeEmail,
-            "linkedin"=> 'https://linkedin.com/'.$this->faker->username(),
+            "linkedin"=> 'https://linkedin.com/in/'.$this->faker->username(),
             "country"=> $this->faker->randomElement(['Argentina', 'Uruguay', 'Chile']),
             "education_level"=>$this->faker->randomElement(['Secundario', 'Universitario', 'Doctorado', 'Posgrado']),
             "education_status"=> $this->faker->randomElement(['En curso', 'Graduado', 'Abandonado']),
