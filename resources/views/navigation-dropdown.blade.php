@@ -18,8 +18,8 @@
                     <x-jet-nav-link href="{{ route('job-openings') }}" :active="request()->routeIs('job-openings')">
                         Búsquedas Laborales
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-                        Lista de Subscripción
+                    <x-jet-nav-link href="{{ route('admin.subscriptions.index') }}" :active="request()->routeIs('admin.subscriptions.index')">
+                        Lista de Subscriptores
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
                         Administración de Roles
@@ -134,8 +134,8 @@
             <x-jet-responsive-nav-link href="{{ route('job-openings') }}" :active="request()->routeIs('job-openings')">
             {{ __('Búsquedas Laborales') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
-            Lista de Subscripción
+            <x-jet-responsive-nav-link href="{{ route('admin.subscriptions.index') }}" :active="request()->routeIs('admin.subscriptions.index')">
+            Lista de Subscriptores
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
             Administración de Roles
