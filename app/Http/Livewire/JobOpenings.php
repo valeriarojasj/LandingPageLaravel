@@ -43,7 +43,7 @@ class JobOpenings extends Component
     protected $listeners = [
         'abrirModal' => 'open',
         'reloadJobsopenings' => 'reload',
-        'hideNewRow' => 'hideNewRow'
+        'hideNewRow' => 'render'
     ];
     
     public function saludar(){
@@ -52,6 +52,7 @@ class JobOpenings extends Component
 
     public function render()
     {
+        
         $jobOpenings= JobOpening::latest('id')->paginate('10');
         return view('livewire.job-openings',compact('jobOpenings'));
     }
@@ -62,7 +63,6 @@ class JobOpenings extends Component
         return view('index',compact('jobOpenings'));
     }
 
-    
     public function open($id){
         $this->idToDelete = $id;
         $this->openModal = true;

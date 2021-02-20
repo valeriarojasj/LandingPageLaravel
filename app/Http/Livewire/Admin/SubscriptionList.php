@@ -13,4 +13,9 @@ class SubscriptionList extends Component
         $subscriptions= Subscription::latest('id')->paginate('10');
         return view('livewire.admin.subscription-list', compact('subscriptions'));
     }
+
+    public function destroy($id){
+        $subscription = Subscription::find($id);
+        $subscription->delete();
+    }
 }
