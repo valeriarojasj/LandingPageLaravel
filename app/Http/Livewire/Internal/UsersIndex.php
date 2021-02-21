@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Internal;
 
 use Livewire\Component;
+use App\Models\User;
 use Livewire\WithPagination;
 
 class UsersIndex extends Component
@@ -10,6 +11,7 @@ class UsersIndex extends Component
     use WithPagination;
     public function render()
     {
-        return view('livewire.internal.users-index');
+        $users=User::paginate(10);
+        return view('livewire.internal.users-index',compact('users'));
     }
 }

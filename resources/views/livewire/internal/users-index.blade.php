@@ -44,6 +44,45 @@
                       </thead>
                       <tbody class="bg-white divide-y divide-gray-200">
                         <!-- ROWS  -->
+                        @foreach($users as $user)
+                          <tr  style="height:auto;">
+                            <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap'>
+                              <div class="px-2 btnDiv">
+                                <button  class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                                  Eliminar
+                                </button>
+                                <button   class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                                  Eliminar
+                                </button>
+                                <button   class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                                  Eliminar
+                                </button>
+                                <button  class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                                  Eliminar
+                                </button>
+                              </div>
+                            </td>
+                            <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
+                              {{$user->id}}   
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="name" >  
+                              {{$user->name}} 
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="email" >
+                              {{$user->email}}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="status" >
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="role" >
+                            </td>
+                            <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_at" >
+                              {{$user->created_at}}
+                            </td>
+                            <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
+                              {{$user->updated_at}}
+                            </td> 
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
@@ -51,6 +90,7 @@
               </div>
             </div>
           <!--/Card-->
+          {{$users->links('pagination::tailwind')}}
         </div>
       <!--/container-->
     </div>

@@ -16,6 +16,6 @@
             Búsquedas Laborales
         </h2>
     </x-slot>
-    <livewire:job-openings />
+    <livewire:internal.job-openings />
     
 </x-app-layout>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Internal;
 
 use Livewire\Component;
 use App\Models\JobOpening;
@@ -54,7 +54,7 @@ class JobOpenings extends Component
     {
         
         $jobOpenings= JobOpening::latest('id')->paginate('10');
-        return view('livewire.job-openings',compact('jobOpenings'));
+        return view('livewire.internal.job-openings',compact('jobOpenings'));
     }
     
     public function showJobOpenings()

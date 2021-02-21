@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
         Candidate::factory(15000)->create();
         JobOpening::factory(100)->create();
         Subscription::factory(100)->create();
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
+       
+        
 
     }
 }

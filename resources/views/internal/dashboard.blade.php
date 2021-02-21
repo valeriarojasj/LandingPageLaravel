@@ -8,6 +8,6 @@
         </h2>
     </x-slot> -->
     <x-slot name="slot">
-        <livewire:candidates-table />
+        <livewire:internal.candidates-table/>
     </x-slot>
 </x-app-layout>

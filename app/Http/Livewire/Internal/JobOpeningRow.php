@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Internal;
 
 use Livewire\Component;
 use App\Models\JobOpening;
@@ -36,7 +36,7 @@ class JobOpeningRow extends Component
 
     public function render()
     {
-        return view('livewire.job-opening-row');
+        return view('livewire.internal.job-opening-row');
     }
 
     public function mount(){
