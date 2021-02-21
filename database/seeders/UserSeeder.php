@@ -16,17 +16,20 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>'Valeria Rojas',
             'email'=>'valeriarojasj@gmail.com',
-            'password'=>bcrypt('12345678')
+            'password'=>bcrypt('12345678'),
+            'status'=>'activo'
         ])->assignRole('Admin');
         User::create([
             'name'=>'Lautaro Valle López',
             'email'=>'lautarovallelopez@gmail.com',
-            'password'=>bcrypt('12345678')
+            'password'=>bcrypt('12345678'),
+            'status'=>'activo'
         ])->assignRole('Admin');
         User::create([
             'name'=>'Magnolia Osorio',
             'email'=>'valeria82@gmail.com',
-            'password'=>bcrypt('12345678')
+            'password'=>bcrypt('12345678'),
+            'status'=>'activo'
         ])->assignRole('User');
 
         User::factory(9)->create();
