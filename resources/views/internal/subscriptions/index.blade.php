@@ -11,7 +11,7 @@
         </h2>
     </x-slot>
     <x-slot name="slot">
-        <livewire:admin.subscription-list />
+        <livewire:internal.subscription-list />
     </x-slot>
     
 </x-app-layout>

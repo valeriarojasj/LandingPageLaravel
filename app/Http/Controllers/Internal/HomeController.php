@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Internal;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-       return view('admin.index');
+       return view('internal.index');
     }
 }

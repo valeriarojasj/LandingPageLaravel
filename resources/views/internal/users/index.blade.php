@@ -16,6 +16,6 @@
             Usuarios y Roles
         </h2>
     </x-slot>
-    <livewire:admin.users-index />
+    <livewire:internal.users-index />
     
 </x-app-layout>
