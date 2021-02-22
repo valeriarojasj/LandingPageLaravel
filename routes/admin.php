@@ -19,7 +19,7 @@ Route::resource('subscriptions',SubscriptionController::class)->names('internal.
 Route::middleware(['auth:sanctum', 'verified'])->get('/candidatos', [CandidateController::class, 'getCandidates'])->name('candidatos');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('internal.dashboard');
+    return view('internal.index');
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/job-openings', function () {
