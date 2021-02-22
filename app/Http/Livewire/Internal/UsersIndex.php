@@ -18,11 +18,6 @@ class UsersIndex extends Component
             ->paginate(10);
         return view('livewire.internal.users-index',compact('users'));
     }
-    public function edit(){
-        $this->editable = true;
-    }
-    public function cancel(){
-        $this->editable = false;
-    }
+    
 
 }
