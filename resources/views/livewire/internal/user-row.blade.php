@@ -3,7 +3,7 @@
             @if(!$editable)
             <div>
                 <div class="px-2 btnDiv">
-                <button  wire:click='edit' class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                <button  wire:click='edit' class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
                     Editar
                 </button>
                 <button   class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
@@ -12,10 +12,10 @@
                 </div>
             @else
                 <div >  
-                <button class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                <button class="w-full font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none">
                     Guardar
                 </button>
-                <button wire:click='cancel'  class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                <button wire:click='cancel'  class="w-full mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
                     Cancelar
                 </button>
                 </div>

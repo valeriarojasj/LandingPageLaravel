@@ -37,23 +37,23 @@
                           <tbody class="bg-white divide-y divide-gray-200">
                           @foreach($subscriptions as $subscription)
                             <tr  style="height:auto;">
-                              <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap'>
+                              <td class='px-6 py-4 text-sm font-medium text-center align-middle iconitos whitespace-nowrap' style="width:20px;">
                                 <div class="px-2 btnDiv">
                                   <button  wire:click="destroy({{ $subscription->id }})" class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
                                     Eliminar
                                   </button>
                                 </div>
                               </td>
-                              <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
+                              <td class="px-6 py-4 text-center place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
                                 {{$subscription->id}}
                               </td>
-                              <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="email" >
+                              <td class="px-6 py-4 text-center whitespace-nowrap" style="position:relative;" data-field="email" >
                                 {{$subscription->email}}
                               </td>
-                              <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_at" >
+                              <td class='px-6 py-4 text-center whitespace-nowrap'  style="position:relative;" data-field="created_at" >
                                 {{$subscription->created_at}}
                               </td>
-                              <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
+                              <td class='px-6 py-4 text-center whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
                                 {{$subscription->updated_at}}
                               </td> 
                             </tr>
