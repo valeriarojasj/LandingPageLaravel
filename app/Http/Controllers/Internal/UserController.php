@@ -12,6 +12,14 @@ use App\Actions\Fortify\PasswordValidationRules;
 class UserController extends Controller
 {
     use PasswordValidationRules;
+
+    public function __construct()
+    {
+        $this->middleware('can:internal.users.index')->only('index');
+        $this->middleware('can:internal.users.register')->only('create');
+        $this->middleware('can:internal.users.store')->only('store');
+    }
+    
     public function index(){
         return view('internal.users.index');
     }

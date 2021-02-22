@@ -50,7 +50,7 @@
             {{$user->role_name ? $user->role_name : 'SIN ROL ASIGNADO'}} 
             @else
             <x-select
-                wire:model='user.role_name'"
+                wire:model='user.role_name'
                 id="tab-{{ $user->id }}"
                 :options="$tabOptions->toArray()"
                 selected="tabs.{{ $activeTab }}.option"

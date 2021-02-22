@@ -15,7 +15,7 @@ Route::resource('users',UserController::class,
         'store' => 'internal.users.store'
     ]
 ])->only(['index','create','store']);
-Route::resource('subscriptions',SubscriptionController::class)->names('internal.subscriptions');
+Route::resource('subscriptions',SubscriptionController::class)->names('internal.subscriptions')->only(['index']);;
 Route::middleware(['auth:sanctum', 'verified'])->get('/candidatos', [CandidateController::class, 'getCandidates'])->name('candidatos');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

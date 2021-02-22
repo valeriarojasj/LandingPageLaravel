@@ -25,7 +25,7 @@
 
   <body>
     <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="border-bottom: solid #bbb 2px;">
+      <nav class="shadow navbar fixed-top navbar-expand-lg navbar-light bg-light" style="border-bottom: solid #bbb 2px;">
         <a class="ml-5 navbar-brand" href="/"><img src="img/logo.png" style="height: 50px;" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -108,8 +108,11 @@
           </div>
         </div>  
       </section>
-
+      <div>
+      <div>
       <hr class="solid">
+      </div>
+      </div>
 
       <section id="services" class="flexbox-container">
         <div class="flexbox-item1">
@@ -128,7 +131,9 @@
         </div>
       </section>
 
+      <div>
       <hr class="solid">
+      </div>
 
       <section id="about" class = "flexbox-container">
         <div class = "flexbox-item1">
@@ -158,7 +163,9 @@
           </div>       
       </section>  
 
+      <div>
       <hr class="solid">
+      </div>
     
       <section id="reviews">  
         <h2 class=text-center>Lo que dicen nuestros candidatos</h2>
@@ -183,11 +190,13 @@
         </div>
       </section> 
 
+      <div>
       <hr class="solid">
+      </div>
 
-      <section id="apply">
-        <div class="row">
-          <div class="mx-auto">
+      <section id="apply" class="pt-3 mt-3">
+        <div class=" row">
+          <div class="mx-auto ">
             <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
             <br>
             <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
@@ -202,8 +211,9 @@
         </div>
       </section>
 
-
-      <hr class="solid contact-hr">
+      <div>
+      <hr class=" solid contact-hr">
+      </div>
 
       <section id="contact">
         <div class="sectionText">
@@ -225,7 +235,9 @@
         </div>
       </section>
 
-      <hr class="solid">
+      <div>
+      <hr class="solid ">
+      </div>
 
       <section id ="subscribe">
       <livewire:subscription-component />
