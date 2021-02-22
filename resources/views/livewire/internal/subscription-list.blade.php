@@ -3,17 +3,17 @@
         <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
             <!--<x-jet-welcome />-->
             <!--Container-->
-            <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+            <div class="container w-full px-2 mx-auto rounded md:w-4/5 xl:w-3/5">
                 <!--Title-->
                 <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
                     Lista de Subscriptores
                 </h1>
                 <!--Card-->
-                <div id='users-roles' class="mt-6 bg-white rounded shadow lg:mt-0">
+                <div id='users-roles' class="mt-6 bg-white lg:mt-0">
 
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
-                    <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
-                      <div class="mb-3 border-b border-gray-200 shadow align-left sm:rounded-lg">
+                    <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
+                      <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
                         <table class="table mb-0" id="subscriptionTable">
                           <thead class="bg-blue-100">
                             <tr>
@@ -45,18 +45,13 @@
                                 </div>
                               </td>
                               <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
-                               
-                               
-                                  {{$subscription->id}}
-                                  
+                                {{$subscription->id}}
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="email" >
-                                  
-                              {{$subscription->email}}
-                                  
+                                {{$subscription->email}}
                               </td>
                               <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_at" >
-                                    {{$subscription->created_at}}
+                                {{$subscription->created_at}}
                               </td>
                               <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
                                 {{$subscription->updated_at}}
@@ -68,14 +63,15 @@
                         
                       </div>
                       
+                 
                     </div>
+                    {{$subscriptions->links('pagination::tailwind')}}
                    
                   </div>
               
-                   
                 </div>
                 <!--/Card-->
-                {{$subscriptions->links('pagination::tailwind')}}
+               
             </div>
             <!--/container-->
   

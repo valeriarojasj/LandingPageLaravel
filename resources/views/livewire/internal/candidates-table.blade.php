@@ -1,3 +1,5 @@
+
+
 <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
@@ -9,47 +11,57 @@
                     Candidatos
                 </h1>
                 <!--Card-->
-                <div id='recipients' class="mt-6 bg-white rounded shadow lg:mt-0">
-                    <table id="example" class="stripe">
-                    
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Búsqueda</th>
-                                <th>Nombre completo</th>
-                                <th>DNI</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Email</th>
-                                <th>Linkedin</th>
-                                <th>País</th>
-                                <th>Provincia</th>
-                                <th>Ciudad</th>
-                                <th>Nivel Educativo</th>
-                                <th>Status Estudios</th>
-                                <th>Título Universitario</th>
-                                <th>Fecha de Aplicación</th>
-                            </tr>
-                        </thead>
-
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Búsqueda</th>
-                                <th>Nombre completo</th>
-                                <th>DNI</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Email</th>
-                                <th>Linkedin</th>
-                                <th>País</th>
-                                <th>Provincia</th>
-                                <th>Ciudad</th>
-                                <th>Nivel Educativo</th>
-                                <th>Status Estudios</th>
-                                <th>Título Universitario</th>
-                                <th>Fecha de Aplicación</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="d-flex justify-content-center">
+                <div class="text-blue-700 spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                </div>
+                
+                <div id='recipients' class="mt-6 bg-white rounded lg:mt-0">
+                    <div class="mx-6 overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
+                        <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
+                            <div class="px-6 mb-3 align-left sm:rounded-lg">
+                                <table id="example" class=" stripe">
+                                    <thead class="bg-blue-100">
+                                        <tr>
+                                            <th style=" border-bottom:2px solid #2b6cb0 !important;" >ID</th>
+                                            <th style="border-bottom:2px solid #2b6cb0 !important;" >Búsqueda</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Nombre completo</th>
+                                            <th style="border-bottom:2px solid #2b6cb0 !important;" >DNI</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Nacimiento</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Email</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Linkedin</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">País</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Provincia</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Ciudad</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Nivel Educativo</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Status Estudios</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Título Universitario</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th style="border-top:2px solid #2b6cb0 !important;" >ID</th>
+                                            <th style="border-top:2px solid #2b6cb0 !important;" >Búsqueda</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Nombre completo</th>
+                                            <th style="border-top:2px solid #2b6cb0 !important;" >DNI</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Nacimiento</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Email</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Linkedin</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">País</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Provincia</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Ciudad</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Nivel Educativo</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Status Estudios</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Título Universitario</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--/Card-->
             </div>
@@ -76,6 +88,7 @@
 
             <script>
                 $(document).ready(function () {
+                    $('.spinner-border').hide();
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -21,7 +21,7 @@
           </div>
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
             <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
-              <div class="mb-3 border-b border-gray-200 shadow align-left sm:rounded-lg">
+              <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
                 <table class="table mb-0" id="editableTable">
                   <thead class="bg-blue-100">
                     <tr>
