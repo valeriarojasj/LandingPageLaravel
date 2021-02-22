@@ -5,7 +5,7 @@
         <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
             <!--<x-jet-welcome />-->
             <!--Container-->
-            <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+            <div class="container w-full px-2 mx-auto md:w-4/5">
                 <!--Title-->
                 <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
                     Candidatos
@@ -82,8 +82,8 @@
             
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-            <script type="text/javascript" src="js/fileSaver.js"></script>
-            <script type="text/javascript" src="js/excel.js"></script>
+            <script type="text/javascript" src="{{asset('js/fileSaver.js')}}"></script>
+            <script type="text/javascript" src="{{asset('js/excel.js')}}"></script>
 
 
             <script>

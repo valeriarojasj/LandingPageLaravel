@@ -208,7 +208,7 @@
       <section id="contact">
         <div class="sectionText">
           <div class="divImgText">
-            <img src="img/logo-fyg.png" height="150px;" alt="">
+            <img src="{{asset('img/logo-fyg.png')}}" height="150px;" alt="">
             <div class="info">     
               <div class="divContactInfo">
                 <h3 class="mb-4 text-left" >Contactanos</h3>
