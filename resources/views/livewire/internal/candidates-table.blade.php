@@ -133,7 +133,7 @@
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                         },
-                                        url: '/candidates-excel',
+                                        url: '/internal/candidates-excel',
                                         dataType : 'json',
                                         type: 'POST',
                                         data: datos,
