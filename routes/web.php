@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
 /*Route::get('importExportView', [CandidateController::class, 'importExportView']);
 Route::get('export', [CandidateController::class, 'export'])->name('export');
 Route::post('import', [CandidateController::class, 'import'])->name('import');

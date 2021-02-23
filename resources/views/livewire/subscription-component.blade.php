@@ -10,25 +10,17 @@
             <div class="subscribe-item3">
               <button type="button" id="subscribeBtn" wire:click="save" class="rounded-full btn applyBtn">Subscribirme</button>
             </div>
-            <x-jet-dialog-modal  wire:model='modalOpen'>
-              <x-slot name="title">
-                 Subscripción Exitosa!
-              </x-slot>
-              <x-slot name="content" >
-                <div class="text-xs">
-                  Ya quedaste subscrito a nuestro newsletter. Pronto comenzarás a recibir nuestras últimas búsquedas y eventos!
-                </div>
-              </x-slot>
-              <x-slot name="footer">
-                <x-jet-secondary-button wire:click="$toggle('modalOpen')" wire:loading.attr="disabled">
-                  Cerrar
-                </x-jet-secondary-button>
-              </x-slot>
-           </x-jet-dialog-modal>
+          </div>  
+          <div>
+            @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+              {{ session('message') }}
+              <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            
-            
+            @endif
+          </div>
+         </form>
 
-          
-           
-        </form>
+       
