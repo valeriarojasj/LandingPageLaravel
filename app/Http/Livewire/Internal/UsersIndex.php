@@ -17,6 +17,7 @@ class UsersIndex extends Component
         $users = User::leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftJoin('roles', 'roles.id', '=', 'model_has_roles.role_id')
             ->select('users.*', 'roles.name as role')
+            ->latest('users.id')
             ->paginate('10');
         return view('livewire.internal.users-index', compact('users'));
     }

@@ -26,7 +26,7 @@
   <body>
     <header>
       <nav class="shadow navbar fixed-top navbar-expand-lg navbar-light bg-light" style="border-bottom: solid #bbb 2px;">
-        <a class="ml-5 navbar-brand" href="/"><img src="img/logo.png" style="height: 50px;" alt=""></a>
+        <a class="ml-5 navbar-brand" href="/login"><img src="img/logo.png" style="height: 50px;" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
