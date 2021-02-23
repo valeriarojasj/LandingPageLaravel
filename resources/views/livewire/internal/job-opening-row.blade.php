@@ -1,11 +1,12 @@
 <tr data-id='{{$uuid}}' style="height:auto;">
  <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap'>
      <div class="px-2 btnDiv">
+    
     @if($nuevoObjeto)
     <button  wire:click="store()" class="w-full font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button button-small edit">
         Guardar2
     </button>
-    <button  wire:click="hideRow" class="w-full mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
+    <button  wire:click="$emitUp('hideNewRow')" class="w-full mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
         Cancelar2
     </button>
     @else

@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Internal;
 
 use Livewire\Component;
 use App\Models\JobOpening;
+use DateTime;
+use DateTimeZone;
+
 class JobOpeningRow extends Component
 {
     public $uuid;
@@ -33,6 +36,8 @@ class JobOpeningRow extends Component
     public $objeto;
     public $nuevoObjeto=false;
     public $editable=true;
+  
+    
 
     public function render()
     {
@@ -62,8 +67,10 @@ class JobOpeningRow extends Component
     $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
     $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
     $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
-    $this->created_at=$this->objeto->created_at;
-    $this->updated_at=$this->objeto->updated_at;
+    if(!$this->objeto->created_at){$this->created_at="";}else{
+    $this->created_at=$this->objeto->created_at->format('Y-m-d H:i:s');}
+    if(!$this->objeto->updated_at){$this->updated_at="";}else{
+    $this->updated_at=$this->objeto->updated_at->format('Y-m-d H:i:s');}
     }
     public function ver(){
         dd($this->objeto);
@@ -74,7 +81,10 @@ class JobOpeningRow extends Component
     }
 
     public function save(){
+        
         $this->uuid='save';
+        
+
     }
     public function edit($id){
         $this->editable=false;
@@ -104,8 +114,8 @@ class JobOpeningRow extends Component
         $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
         $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
-        $this->created_at=$this->objeto->created_at;
-        $this->updated_at=$this->objeto->updated_at;
+        $this->created_at=$this->objeto->created_at->format('Y-m-d H:i:s');
+        $this->updated_at=$this->objeto->updated_at->format('Y-m-d H:i:s');
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
     }
     public function update($id)
@@ -186,10 +196,15 @@ class JobOpeningRow extends Component
             'checkbox2_option_3' => $this->checkbox2_option_3
         ]);
         
+        
         $this->emit('hideNewRow');
+        $this->emit('reloadJobsopenings');
         
     }
     public function hideRow(){
+       
         $this->emit('hideNewRow');
+      
+        
     }
 }

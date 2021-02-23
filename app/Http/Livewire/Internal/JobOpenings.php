@@ -43,12 +43,11 @@ class JobOpenings extends Component
     protected $listeners = [
         'abrirModal' => 'open',
         'reloadJobsopenings' => 'reload',
-        'hideNewRow' => 'render'
+        'hideNewRow' => 'hideNewRow'
+        
     ];
     
-    public function saludar(){
-        dd('Estoy saludando');
-    }
+   
 
     public function render()
     {
@@ -103,9 +102,13 @@ class JobOpenings extends Component
     public function newRow(){
         $this->newJob = new JobOpening();
         $this->showRow=true;
+
+     
     }
     public function hideNewRow(){
+       
         $this->showRow=false;
+       
     }
     public function reload(){
         $jobOpenings= JobOpening::latest('id')->paginate('10');
