@@ -38,6 +38,7 @@ class UserController extends Controller
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
                 'status' => "activo"
-        ]);
+        ])->assignRole('User');
+        
     }
 }

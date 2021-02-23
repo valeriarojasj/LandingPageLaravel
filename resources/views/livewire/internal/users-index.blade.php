@@ -51,7 +51,6 @@
                     </table>
                   </div>
                 </div>
-                {{$users->links('pagination::tailwind')}}
               </div>
             </div>
           <!--/Card-->

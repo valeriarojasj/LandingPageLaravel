@@ -32,7 +32,9 @@ class UserSeeder extends Seeder
             'status'=>'activo'
         ])->assignRole('User');
 
-        User::factory(9)->create();
+        User::factory(9)->create()->each(function ($user) {
+            $user->assignRole('User');
+        });
     }
 }
 
