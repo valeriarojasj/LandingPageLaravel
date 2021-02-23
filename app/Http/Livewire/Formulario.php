@@ -156,7 +156,10 @@ class Formulario extends Component
         $candidate->checkbox_2_a_op_2 = $this->checkBox2AOp2;
         $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
+        session()->flash('message', 'Gracias por postularte!');
+
         $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
+        
         $this->resetAttributes();
         $this->dispatchBrowserEvent('setUpModal');
     }

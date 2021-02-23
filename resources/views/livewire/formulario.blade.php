@@ -51,6 +51,19 @@
         <label for="country">Pais</label>
         <select id="country-{{$uuid}}" class="form-control" wire:model.defer='country' data-country="{{$country}}">
           <option value=''>Selecciona el país donde vives...</option>
+          <option value='Argentina'>Argentina</option>
+          <option value='Bolivia'>Bolivia</option>
+          <option value='Brasil'>Brasil</option>
+          <option value='Chile'>Chile</option>
+          <option value='Colombia'>Colombia</option>
+          <option value='Ecuador'>Ecuador</option>
+          <option value='Mexico'>México</option>
+          <option value='Paraguay'>Paraguay</option>
+          <option value='Peru'>Perú</option>
+          <option value='Uruguay'>Uruguay</option>
+          <option value='Venezuela'>Venezuela</option>       
+          <option value='Panama'>Panama</option>      
+          <option value='Otro'>Otro</option>
         </select>
         @error('country') <span class="error">{{ $message }}</span> @enderror
       </div>
@@ -238,7 +251,7 @@
     </fieldset>
     <!-- PREGUNTA DE CHECKBOX 2 -->
     <fieldset>
-      <legend id="checkbox_question_2-{{$uuid}}"  class="text-base font-medium text-gray-900">Pregunta Checkbox2</legend>
+      <legend id="checkbox_question_2-{{$uuid}}"  class="text-base font-medium text-gray-900">{{$job->checkbox_question_2}}</legend>
         <div class="mt-4 space-y-4">
           <div class="flex items-start">
             <div class="flex items-center h-5">
@@ -288,6 +301,14 @@
 
       <!--Cierre del Footer-->
   <!-- Cierre Contenido del modal (Title y Body)-->
+  @if (session()->has('message'))
+  <div class="alert alert-success alert-dismissible" role="alert">
+  {{ session('message') }}
+  <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  @endif
   <script type="text/javascript" src="js/applicationForm.js"></script>
   
 </div>

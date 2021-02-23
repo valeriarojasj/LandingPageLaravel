@@ -46,6 +46,7 @@
                         <div>
                         <p>{{$job->job_title}}</p>
                         </div>
+                       
                     <!--Cierre del Title-->
                     <livewire:formulario :uuid="$job->id" :key="$job->id" :jobToApply="$job->job_title" :job="$job"/>
                 </div>

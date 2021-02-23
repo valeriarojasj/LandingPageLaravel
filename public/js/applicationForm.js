@@ -8,16 +8,16 @@ function cargarPaises(id){
         showInputs(id);
     }
     //Cargar select paises
-    for(pais of paises){
-        var optionCountry  = document.createElement('option');
-        if(pais["translations"]["es"]){
-            var optionCountryText= document.createTextNode(pais["translations"]["es"]);
-            optionCountry.append(optionCountryText);
-            optionCountry.value = pais["translations"]["es"];
-            optionCountry.selected = "selected";
-            campoPais.append(optionCountry);
-        }
-    }
+    // for(pais of paises){
+    //     var optionCountry  = document.createElement('option');
+    //     if(pais["translations"]["es"]){
+    //         var optionCountryText= document.createTextNode(pais["translations"]["es"]);
+    //         optionCountry.append(optionCountryText);
+    //         optionCountry.value = pais["translations"]["es"];
+    //         optionCountry.selected = "selected";
+    //         campoPais.append(optionCountry);
+    //     }
+    // }
     //Cargar select provincias
     for(provincia of provincias['provincias']){
         var optionProvince  = document.createElement('option');
