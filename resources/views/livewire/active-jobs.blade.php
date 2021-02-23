@@ -11,6 +11,18 @@
                     <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
                     <p class="empresaBusqueda">{{$job->company_type}}</p>
                     <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
+                    <small>
+                        @if (($job->updated_at->diffInHours(now()))<24)
+                            @if (($job->updated_at->diffInHours(now()))<1)
+                            Hace {{$job->updated_at->diffInMinutes(now())}} minutos
+                            @else
+                            Hace {{$job->updated_at->diffInHours(now())}} horas
+                            @endif
+                        @else
+                            Hace {{$job->updated_at->diffInDays(now())}} días
+                        @endif
+                    
+                    </small>
                     <div class="mt-auto text-right">
                         <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
                             Postularme
