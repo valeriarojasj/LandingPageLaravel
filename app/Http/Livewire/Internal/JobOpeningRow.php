@@ -36,6 +36,23 @@ class JobOpeningRow extends Component
     public $objeto;
     public $nuevoObjeto=false;
     public $editable=true;
+
+
+    protected $rules = [
+        'job_title'  => 'required|max:50',
+        'company_type' => 'required|max:50',
+        'job_location' => 'required|max:50'
+      
+    ];
+    protected $messages =[
+        'job_title.required' => 'Por favor ingresa el nombre del cargo.',
+        'job_title.max' => 'Sólo puedes ingresar hasta 50 caracteres.',
+        'company_type.required' => 'Por favor ingresa una descripción del tipo de empresa.',
+        'company_type.max' => 'Sólo puedes ingresar hasta 50 caracteres.',
+        'job_location.required' => 'Por favor ingresa la ubicación del trabajo.',
+        'job_location_type.max' => 'Sólo puedes ingresar hasta 50 caracteres.'
+        
+    ];
   
     
 
@@ -119,8 +136,10 @@ class JobOpeningRow extends Component
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
     }
     public function update($id)
+
     {
         $jobOpening= JobOpening::find($id);
+        $this->validate();
         $jobOpening->update([
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
@@ -172,6 +191,7 @@ class JobOpeningRow extends Component
             $this->checkbox2_option_2,
             $this->checkbox2_option_3
         );*/
+        $this->validate();
         JobOpening::create([
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,

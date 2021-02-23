@@ -1,6 +1,7 @@
 <div class='divmodal'>
   <!--Body-->
-  <div class="px-4 py-5 space-y-4 bg-white sm:p-6">
+  <div class="px-4 py-2 space-y-3 bg-white sm:p-6">
+    
     @if($step == 0)
       <!-- FULLNAME -->
       <fieldset>
@@ -89,9 +90,9 @@
           @error('city') <span class="error">{{ $message }}</span> @enderror
         </div>
       </fieldset>
-      <script>
+      <!-- <script>
         cargarPaises({!! $uuid !!})
-      </script>
+      </script> -->
     @endif
     
     @if($step == 2)
@@ -319,7 +320,7 @@
   <!--Footer-->
   <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
-    {{$this->step}}
+    
       @if($step>0 && $step<=5)
         <button id="btnBack" class="mr-2 rounded-md btn applyBtn" style="background-color:#A9CCEE;"  wire:click="decreaseStep">Atrás</button>
       @endif
