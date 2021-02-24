@@ -198,9 +198,9 @@
         <div class=" row">
           <div class="mx-auto ">
             <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
-            <br>
+           
             <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
-            <br>
+           
           </div>
           
           <div >
@@ -211,7 +211,7 @@
         </div>
       </section>
 
-      <div>
+      <div class="pt-3">
       <hr class=" solid contact-hr">
       </div>
 

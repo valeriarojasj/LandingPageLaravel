@@ -1,33 +1,45 @@
+
+
 <div>
-    <div class='content-center justify-between d-flex'></div>
-        <div class='content-center justify-between d-flex'>
+     <div class='justify-center d-flex'>
+        <div class='justify-center justify-between d-flex'>
             <button class="focus:outline-none "wire:click='decrement'>
                 <i class="fas fa-chevron-left"></i> 
             </button>
-            <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
-                @foreach ($jobs as $job)
-                    <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-                        <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
-                        <p class="empresaBusqueda">{{$job->company_type}}</p>
-                        <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
-                        <small>
-                            @if (($job->updated_at->diffInHours(now()))<24)
-                                @if (($job->updated_at->diffInHours(now()))<1)
-                                    Hace {{$job->updated_at->diffInMinutes(now())}} minutos
-                                @else
-                                    Hace {{$job->updated_at->diffInHours(now())}} horas
-                                @endif
-                            @else
-                                Hace {{$job->updated_at->diffInDays(now())}} días
-                            @endif
-                        </small>
-                        <div class="mt-auto text-right">
-                            <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
-                                Postularme
-                            </button>
+            <div class="grid grid-cols-1 gap-2 xl:grid-cols-3 xl:grid-rows-3 lg:grid-cols-3 lg:grid-rows-3 grid-rows-9 md:grid-cols-2 md:grid-rows-5 sm:grid-cols-1 sm:grid-rows-9 jobs-container">
+               
+                    @foreach ($jobs as $job)
+                        <div class="rounded-lg job-card">
+                            <div class="job-card-content">
+                                <div class="job-card-text-content">
+                                    <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
+                                    <p class="empresaBusqueda">{{$job->company_type}}</p>
+                                    <span class="lugarBusqueda">{{$job->job_location}}</span>
+                                    <br>
+                                        <small >
+                                            @if (($job->updated_at->diffInHours(now()))<24)
+                                                @if (($job->updated_at->diffInHours(now()))<1)
+                                                    Hace {{$job->updated_at->diffInMinutes(now())}} minutos
+                                                @else
+                                                    Hace {{$job->updated_at->diffInHours(now())}} horas
+                                                @endif
+                                            @else
+                                                Hace {{$job->updated_at->diffInDays(now())}} días
+                                            @endif
+                                        </small>
+                                    
+                                    
+                                </div>
+
+                                <div class="job-card-div-btn" >
+                                    <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
+                                        Postularme
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                
             </div>
             <button class="focus:outline-none" wire:click='increment'>
                 <i class="fas fa-chevron-right"></i> 

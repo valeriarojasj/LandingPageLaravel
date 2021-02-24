@@ -1,5 +1,6 @@
 *{  margin:0;
     padding:0;
+    box-sizing: border-box;
   }
   html{
     scroll-behavior: smooth;
@@ -345,11 +346,7 @@ span.index{
   line-height: 3rem;
 
 }
-.tarjetaBusqueda{
-  
-  background-color: rgba(169, 204, 238,0.3);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
+
 
 
 
@@ -421,3 +418,68 @@ hr.solid{
 .carousel-indicators .active {
   background-color:#D895B2;
 }
+
+
+
+
+
+.job-card{
+  position: relative;
+  background-color: rgba(169, 204, 238,0.3);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  height:180px;
+  width:25vw; 
+}
+
+.job-card-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-card-text-content{
+  position: absolute;
+  top:0;
+  left:0;
+  padding:1rem;
+}
+
+.job-card-div-btn{
+  position: absolute;
+  bottom: 0;
+  right:0;
+  padding:1rem;
+}
+
+@media only screen
+and (max-device-width: 640px){
+
+  .job-card{
+ 
+ 
+    width:70vw; 
+  }
+}
+@media only screen
+and (max-device-width: 768px){
+  
+  .job-card{
+ 
+ 
+    width:35vw; 
+  }
+}
+
+
+
+/* sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	 */
+
+ 
+
