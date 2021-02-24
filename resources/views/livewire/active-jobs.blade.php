@@ -1,5 +1,5 @@
 <div>
-    <div class='content-center justify-between d-flex'></div>
+    <div class='content-center justify-between d-flex'>
         <div class='content-center justify-between d-flex'>
             <button class="focus:outline-none "wire:click='decrement'>
                 <i class="fas fa-chevron-left"></i> 

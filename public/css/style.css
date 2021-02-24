@@ -421,3 +421,34 @@ hr.solid{
 .carousel-indicators .active {
   background-color:#D895B2;
 }
+
+.job-card{
+  position: relative;
+  background-color: rgba(169, 204, 238,0.3);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  height:180px;
+  width:350px; 
+}
+
+.job-card-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-card-text-content{
+  position: absolute;
+  top:1rem;
+  left:1rem;
+  
+}
+
+.job-card-div-btn{
+  position: absolute;
+  bottom: 1rem;
+  right:1rem;
+  
+}
