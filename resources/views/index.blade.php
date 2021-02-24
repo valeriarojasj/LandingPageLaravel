@@ -194,21 +194,22 @@
       <hr class="solid">
       </div>
 
-      <section id="apply" class="pt-3 mt-3">
-        <div class=" row">
+      <section id="apply">
+        <div class="mb-3 row">
           <div class="mx-auto ">
             <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
-            <br>
+            
             <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
-            <br>
+           
           </div>
+        </div>
           
-          <div >
+          <div class="mt-3 row"  >
             <livewire:active-jobs />
             
             
           </div>
-        </div>
+        
       </section>
 
       <div>

@@ -1,5 +1,6 @@
 *{  margin:0;
     padding:0;
+    box-sizing: border-box;
   }
   html{
     scroll-behavior: smooth;
@@ -56,6 +57,8 @@
 #apply{
   scroll-margin-top: 5vh;
   height:100vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 #reviews{
   scroll-margin-top: 5vh;
@@ -168,20 +171,20 @@
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1.2rem !important;
     font-weight: 700 !important;
-    line-height: 1.9rem;
+  
   }
   p.empresaBusqueda{
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1rem !important;
     font-weight: 500 !important;
-    line-height: 1.9rem;
+   
   }
   span.lugarBusqueda{
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1rem !important;
     font-weight: 300 !important;
     font-style: italic;
-    line-height: 1.9rem;
+   
   }
  
 
@@ -422,12 +425,19 @@ hr.solid{
   background-color:#D895B2;
 }
 
+.job-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  
+
+}
 .job-card{
   position: relative;
   background-color: rgba(169, 204, 238,0.3);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  height:180px;
-  width:350px; 
+  height:130px;
+  width:80vw; 
 }
 
 .job-card-content{
@@ -441,14 +451,55 @@ hr.solid{
 
 .job-card-text-content{
   position: absolute;
-  top:1rem;
-  left:1rem;
-  
+  top:0;
+  left:0;
+  padding:1rem;
 }
 
 .job-card-div-btn{
   position: absolute;
-  bottom: 1rem;
-  right:1rem;
-  
+  bottom: 0;
+  right:0;
+  padding:1rem;
 }
+
+@media only screen
+and (min-device-width: 640px){
+
+  .job-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .job-card{
+ 
+    height:130px;
+    
+    width:40vw; 
+  }
+}
+@media only screen
+and (min-device-width: 1024px){
+  .job-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    
+  }
+
+ 
+  
+  .job-card{
+ 
+    height:180px;
+    width:27vw; 
+  }
+}
+
+
+
+/* sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	 */
