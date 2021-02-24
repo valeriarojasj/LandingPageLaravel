@@ -1,41 +1,48 @@
 <div> 
-    
-        <div class='d-flex justify-content-center'>
-            <button class="focus:outline-none "wire:click='decrement'>
-                <i class="fas fa-chevron-left"></i> 
-            </button>
-            <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
-                @foreach ($jobs as $job)
-                    <div class="job-card">
-                        <div class="px-4 py-3 rounded-xl job-card-content d-flex flex-column">
-                            <div class="job-card-text-content">
-                                <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
-                                <p class="empresaBusqueda">{{$job->company_type}}</p>
-                                <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
-                                <small>
-                                    @if (($job->updated_at->diffInHours(now()))<24)
-                                        @if (($job->updated_at->diffInHours(now()))<1)
-                                            Hace {{$job->updated_at->diffInMinutes(now())}} minutos
+   
+        <div class='flex justify-content-around'>
+            <div class="flex content-center">
+                <button class="focus:outline-none "wire:click='decrement'>
+                    <i class="fas fa-chevron-left"></i> 
+                </button>
+            </div>
+            <div class='flex justify-center '>
+                <div class="job-wrapper">
+                    @foreach ($jobs as $job)
+                        <div class="job-card">
+                            <div class="px-4 py-3 rounded-xl job-card-content d-flex flex-column">
+                                <div class="job-card-text-content">
+                                    <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
+                                    <p class="mt-2 mb-1 leading-tight empresaBusqueda">{{$job->company_type}}</p>
+                                    <span class="lugarBusqueda">{{$job->job_location}}</span>
+                                    <br>
+                                    <small>
+                                        @if (($job->updated_at->diffInHours(now()))<24)
+                                            @if (($job->updated_at->diffInHours(now()))<1)
+                                                Hace {{$job->updated_at->diffInMinutes(now())}} minutos
+                                            @else
+                                                Hace {{$job->updated_at->diffInHours(now())}} horas
+                                            @endif
                                         @else
-                                            Hace {{$job->updated_at->diffInHours(now())}} horas
+                                            Hace {{$job->updated_at->diffInDays(now())}} días
                                         @endif
-                                    @else
-                                        Hace {{$job->updated_at->diffInDays(now())}} días
-                                    @endif
-                                </small>
-                            </div>
-                            <div class="job-card-div-btn">
-                                <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
-                                    Postularme
-                                </button>
+                                    </small>
+                                </div>
+                                <div class="job-card-div-btn">
+                                    <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
+                                        Postularme
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-            <button class="focus:outline-none" wire:click='increment'>
-                <i class="fas fa-chevron-right"></i> 
-            </button>
+            <div class="flex content-center ">
+                <button class="focus:outline-none" wire:click='increment'>
+                    <i class="fas fa-chevron-right"></i> 
+                </button>
+            </div>
         </div>
         @foreach ($jobs as $job)
             <div id="granDivModal-{{$job->id}}" class=" granDivModal fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none {{$job->id}} modal">

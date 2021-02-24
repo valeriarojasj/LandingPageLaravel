@@ -57,6 +57,8 @@
 #apply{
   scroll-margin-top: 5vh;
   height:100vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 #reviews{
   scroll-margin-top: 5vh;
@@ -169,20 +171,20 @@
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1.2rem !important;
     font-weight: 700 !important;
-    line-height: 1.9rem;
+  
   }
   p.empresaBusqueda{
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1rem !important;
     font-weight: 500 !important;
-    line-height: 1.9rem;
+   
   }
   span.lugarBusqueda{
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1rem !important;
     font-weight: 300 !important;
     font-style: italic;
-    line-height: 1.9rem;
+   
   }
  
 
@@ -423,12 +425,19 @@ hr.solid{
   background-color:#D895B2;
 }
 
+.job-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  
+
+}
 .job-card{
   position: relative;
   background-color: rgba(169, 204, 238,0.3);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  height:180px;
-  width:25vw; 
+  height:130px;
+  width:80vw; 
 }
 
 .job-card-content{
@@ -455,21 +464,35 @@ hr.solid{
 }
 
 @media only screen
-and (max-device-width: 640px){
+and (min-device-width: 640px){
 
+  .job-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
   .job-card{
  
- 
-    width:70vw; 
+    height:130px;
+    
+    width:40vw; 
   }
 }
 @media only screen
-and (max-device-width: 768px){
+and (min-device-width: 1024px){
+  .job-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    
+  }
+
+ 
   
   .job-card{
  
- 
-    width:35vw; 
+    height:180px;
+    width:27vw; 
   }
 }
 
