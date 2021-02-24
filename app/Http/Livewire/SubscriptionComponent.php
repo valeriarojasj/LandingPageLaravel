@@ -8,7 +8,7 @@ use Livewire\Component;
 class SubscriptionComponent extends Component
 {
     public $email;
-    public $modalOpen=false;
+   
 
     protected $rules = [
         'email' => 'required|email|unique:subscriptions,email'
@@ -25,9 +25,7 @@ class SubscriptionComponent extends Component
         return view('livewire.subscription-component');
     }
 
-    public function modalOpen(){
-        $this->modalOpen = true;
-    }
+   
 
 
     public function save(){
@@ -35,9 +33,12 @@ class SubscriptionComponent extends Component
         $subscription = new Subscription();
         $subscription->email = $this->email;
         $subscription->save();
+        session()->flash('message', 'Gracias por subscribirte!');
         
         $this->resetAttributes();
-        $this->modalOpen = true;
+       
+    
+       
      
     }
     public function resetAttributes(){
