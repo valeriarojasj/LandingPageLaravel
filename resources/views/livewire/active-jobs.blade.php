@@ -1,30 +1,34 @@
-<div>
-    <div class='content-center justify-between d-flex'></div>
-        <div class='content-center justify-between d-flex'>
+<div> 
+    
+        <div class='d-flex justify-content-center'>
             <button class="focus:outline-none "wire:click='decrement'>
                 <i class="fas fa-chevron-left"></i> 
             </button>
             <div class="grid max-w-screen-xl grid-cols-1 px-4 mx-auto gap-y-4 lg:grid-cols-3 lg:gap-4">
                 @foreach ($jobs as $job)
-                    <div class="px-4 py-3 rounded-xl tarjetaBusqueda d-flex flex-column">
-                        <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
-                        <p class="empresaBusqueda">{{$job->company_type}}</p>
-                        <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
-                        <small>
-                            @if (($job->updated_at->diffInHours(now()))<24)
-                                @if (($job->updated_at->diffInHours(now()))<1)
-                                    Hace {{$job->updated_at->diffInMinutes(now())}} minutos
-                                @else
-                                    Hace {{$job->updated_at->diffInHours(now())}} horas
-                                @endif
-                            @else
-                                Hace {{$job->updated_at->diffInDays(now())}} días
-                            @endif
-                        </small>
-                        <div class="mt-auto text-right">
-                            <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
-                                Postularme
-                            </button>
+                    <div class="job-card">
+                        <div class="px-4 py-3 rounded-xl job-card-content d-flex flex-column">
+                            <div class="job-card-text-content">
+                                <h5 class="tituloBusqueda">{{$job->job_title}}</h5>
+                                <p class="empresaBusqueda">{{$job->company_type}}</p>
+                                <span class="mb-1 lugarBusqueda">{{$job->job_location}}</span>
+                                <small>
+                                    @if (($job->updated_at->diffInHours(now()))<24)
+                                        @if (($job->updated_at->diffInHours(now()))<1)
+                                            Hace {{$job->updated_at->diffInMinutes(now())}} minutos
+                                        @else
+                                            Hace {{$job->updated_at->diffInHours(now())}} horas
+                                        @endif
+                                    @else
+                                        Hace {{$job->updated_at->diffInDays(now())}} días
+                                    @endif
+                                </small>
+                            </div>
+                            <div class="job-card-div-btn">
+                                <button id="{{$job->id}}" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal modal-open hover:border-indigo-500 hover:text-indigo-500" >
+                                    Postularme
+                                </button>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -44,8 +48,8 @@
                         <!--Title-->
                         <div >
                             <div class="float-left">
-                            <span class="text-xl font-bold">Formulario de Aplicación</span>
-                            <p >{{$job->job_title}}</p>
+                                <span class="text-xl font-bold">Formulario de Aplicación</span>
+                                <p >{{$job->job_title}}</p>
                             </div>
                             <div class="z-50 cursor-pointer float-right modal-close {{$job->id}}" data-id="{{$job->id}}">
                                 <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
@@ -59,5 +63,5 @@
                 </div><!--Cierre del Contenedor del Modal-->
             </div>
         @endforeach
-    </div>
+    
 </div>
