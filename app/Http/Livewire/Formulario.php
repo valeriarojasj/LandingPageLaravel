@@ -93,6 +93,7 @@ class Formulario extends Component
 
     public function submit5(){ 
      $this->step++;
+   
     }
 
 
@@ -103,6 +104,7 @@ class Formulario extends Component
 
     public function mount(){
         $this->step=0;
+        
     }
 
     public function increaseStep(){
@@ -156,12 +158,16 @@ class Formulario extends Component
         $candidate->checkbox_2_a_op_2 = $this->checkBox2AOp2;
         $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
-        session()->flash('message', 'Gracias por postularte!');
+       
 
         $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
         
         $this->resetAttributes();
         $this->dispatchBrowserEvent('setUpModal');
+        session()->flash('message', 'Gracias por postularte!');
+        
+        
+       
     }
     public function resetAttributes(){
         $this->fullName = '';
@@ -187,7 +193,6 @@ class Formulario extends Component
         $this->checkBox2AOp2='';
         $this->checkBox2AOp3='';
 
-        $this->step=0;
     }
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
     public function validateProvince(){

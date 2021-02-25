@@ -90,13 +90,13 @@
           @error('city') <span class="error">{{ $message }}</span> @enderror
         </div>
       </fieldset>
-      <!-- <script>
+      <script>
         cargarPaises({!! $uuid !!})
-      </script> -->
+      </script>
     @endif
     
     @if($step == 2)
-      `<!-- EDUCATIONLEVEL -->
+      <!-- EDUCATIONLEVEL -->
       <fieldset>
         <div class="divEducation">
           <label for="educationLevel">Nivel de educación</label>
@@ -143,7 +143,7 @@
           </select>
           @error('jobToApply') <span class="error">{{ $message }}</span> @enderror   
         </div>
-      </fieldset> -->`
+      </fieldset> -->
     @endif
 
     @if($step == 3)

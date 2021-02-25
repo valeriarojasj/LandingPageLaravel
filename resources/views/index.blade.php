@@ -285,6 +285,7 @@
           openmodal[i].addEventListener('click', function(event){
             event.preventDefault();
             toggleModal(this.id);
+            
           })
           //id=openmodal[i].id;
           
@@ -312,6 +313,8 @@
           };
         }  
       }  
+
+    
     </script>
     {{-- end of Modal script --}}
 
