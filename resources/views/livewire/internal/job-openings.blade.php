@@ -11,6 +11,13 @@
           </h1>
           <!--Card-->
           <div class="row">
+          <div class="col-3">
+            
+            <label for="file">Imagen Carrusel 1</label>
+            <input type="file" name="file" class="form-control file">
+          </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <br>
               <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
