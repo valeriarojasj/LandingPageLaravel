@@ -8,7 +8,9 @@
         @foreach($carousels as $carousel)
             <div class="carousel-item {{ ($carousel->order == 1) ? 'active' : '' }}">
                 <div class="divImgText">
-                    <img src="{{$carousel->image_url}}" class="d-block" height="300px;" alt="...">
+                    <div class="carousel-img-wrapper">
+                    <img src="{{$carousel->image_url}}"   alt="...">
+                    </div>
                     <div class="divText d-block">
                         <h3 class="text-left">{{$carousel->job_title}}</h3>
                         <ul class="text-left requirements">

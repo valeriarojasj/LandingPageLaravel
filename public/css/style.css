@@ -44,6 +44,19 @@
       height:100vh;
   }
 
+  .carousel-img-wrapper{
+    position: relative;
+    height:300px;
+    width:300px;
+  }
+  
+  .carousel-img-wrapper img{
+    position: absolute;
+    height:100%;
+    width:100%;
+
+  }
+
   #services{
     scroll-margin-top: 5vh;
       background-color: rgba(255, 255, 255, 0.1);
@@ -503,3 +516,4 @@ md	768px	@media (min-width: 768px) { ... }
 lg	1024px	@media (min-width: 1024px) { ... }
 xl	1280px	@media (min-width: 1280px) { ... }
 2xl	1536px	 */
+
