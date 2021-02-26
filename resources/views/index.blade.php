@@ -53,60 +53,9 @@
     </header>
 
     <main>
+    
       <section id="home">
-        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselIndicators" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselIndicators" data-bs-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="divImgText">
-                <img src="img/imagen-scrum.png" class="d-block" height="300px;" alt="...">
-                <div class="divText d-block">
-                  <h3 class="text-left">Scrum Master</h3>
-                  <ul class="text-left requirements">
-                    <li>Para el <strong>equipo de IT </strong>en importante <strong>fintech</strong>.</li>
-                    <li>Experiencia de más de 2 años</li>
-                  </ul>
-                  <div class="mt-3 text-right">
-                    <a class="rounded-full btn applyBtn" href="#apply" role="button">Postúlate</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="divImgText">
-                <img src="img/imagen-scrum.png" class="d-block" height="300px;" alt="...">
-                <div class="divText d-block">
-                  <h3 class="text-left">Data Analyst</h3>
-                  <ul class="text-left requirements">
-                    <li>Experiencia en manejo de base de datos</li>
-                    <li>Para importante banco</li>
-                  </ul>
-                  <div class="mt-3 text-right">
-                    <a class="rounded-full btn applyBtn" href="#apply" role="button">Postúlate</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="divImgText">
-                <img src="img/imagen-scrum.png" class="d-block" height="300px;" alt="...">
-                <div class="divText d-block">
-                  <h3 class="text-left">Consultor</h3>
-                  <ul class="text-left requirements">
-                    <li>Disponibilidad para viajar</li>
-                  </ul>
-                  <div class="mt-3 text-right">
-                    <a class="rounded-full btn applyBtn" href="#apply" role="button">Postúlate</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>  
+        <livewire:carousel />
       </section>
       <div>
       <div>

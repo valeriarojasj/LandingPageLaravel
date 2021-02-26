@@ -16,11 +16,13 @@ class CreateCarouselTable extends Migration
     {
         Schema::create('carousel', function (Blueprint $table) {
             $table->id();
-           
-
-           
-            
+            $table->unsignedInteger('job_opening_id');
+            $table->string('image_url')->default('img/imagen-scrum.png');
+            $table->string('description1')->nullable();
+            $table->string('description2')->nullable();
+            $table->unsignedInteger('order')->nullable();
             $table->timestamps();
+            $table->foreign('job_opening_id')->references('id')->on('fyg_jet.job_openings');
         });
     }
 

@@ -20,8 +20,6 @@ class DatabaseSeeder extends Seeder
         Subscription::factory(100)->create();
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-       
-        
-
+        $this->call(CarouselSeeder::class);
     }
 }
