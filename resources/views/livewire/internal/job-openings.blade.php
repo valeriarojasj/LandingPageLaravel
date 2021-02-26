@@ -11,11 +11,34 @@
           </h1>
           <!--Card-->
           <div class="row">
-          <div class="col-3">
-            
-            <label for="file">Imagen Carrusel 1</label>
-            <input type="file" name="file" class="form-control file">
+            <div class="col-4">
+              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 1</label>
+                <input type="number" name="carrusel-job-id" class="form-control file">
+            </div>
+            <div class="col-3">
+              <label for="file">Imagen Carrusel 1</label>
+              <input type="file" name="file" class="form-control file">    
+           </div> 
           </div>
+          <div class="row">
+            <div class="col-4">
+              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 2</label>
+                <input type="number" name="carrusel-job-id" class="form-control file">
+            </div>
+            <div class="col-3">
+              <label for="file">Imagen Carrusel 2</label>
+              <input type="file" name="file" class="form-control file">    
+           </div> 
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 3</label>
+                <input type="number" name="carrusel-job-id" class="form-control file">
+            </div>
+            <div class="col-3">
+              <label for="file">Imagen Carrusel 3</label>
+              <input type="file" name="file" class="form-control file">    
+           </div> 
           </div>
           <div class="row">
             <div class="col-md-12">
