@@ -33,7 +33,7 @@ class SubscriptionComponent extends Component
         $subscription = new Subscription();
         $subscription->email = $this->email;
         $subscription->save();
-        session()->flash('message', 'Gracias por subscribirte!');
+        //session()->flash('message', 'Gracias por subscribirte!');
         
         $this->resetAttributes();
        
