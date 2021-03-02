@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Internal;
 use Livewire\Component;
 use App\Models\JobOpening;
 use Livewire\WithPagination;
+use App\Models\Carousel;
+
 
 
 class JobOpenings extends Component
@@ -53,7 +55,9 @@ class JobOpenings extends Component
     {
         
         $jobOpenings= JobOpening::latest('id')->paginate('10');
-        return view('livewire.internal.job-openings',compact('jobOpenings'));
+        $carousels=Carousel::all();
+       
+        return view('livewire.internal.job-openings',compact('jobOpenings','carousels'));
     }
     
     public function showJobOpenings()
