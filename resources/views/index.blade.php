@@ -154,13 +154,22 @@
         </div>
           
           <div class="mt-3 row"  >
-            
-            <div id='liveToastBtn' class="alert alert-success alert-dismissible" role="alert">
-              <label>sadfsd</label>
-              <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+            <button type="button" onclick="Toasty()" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+            <div id='mitostada' class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+              <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <img src="..." class="rounded me-2" alt="...">
+                  <strong class="me-auto">Bootstrap</strong>
+                  <small>11 mins ago</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
             </div>
+            
             <livewire:active-jobs :key="microtime()"/>
             
             
@@ -273,6 +282,14 @@
                     MENSAJE: ${event.detail.message}
             `);*/
         })
+</script>
+<script>
+function Toasty(){
+   const tostada = document.getElementById('mitostada');
+        var latostada = new bootstrap.Toast(tostada, {animation:true, delay:2000});
+        latostada.show();
+}
+       
 </script>
     {{-- end of Modal script --}}
 

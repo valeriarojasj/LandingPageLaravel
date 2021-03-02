@@ -1,5 +1,18 @@
 <div> 
-<button wire:click='showSuccessMessage'>mostrar</button>
+   <!-- <div id='mitostada' class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>-->
+    <!--<div id='alertToClose' class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><i class='fa fa-check-circle mr-1'></i>Gracias por postularte</strong>
+        <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>-->
     <div class='flex justify-content-around'>
         <div class="flex content-center">
             <button class="focus:outline-none "wire:click='decrement'>
@@ -76,4 +89,5 @@
 
         </div>
     </div>
+    
 </div>
