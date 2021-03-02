@@ -11,7 +11,128 @@
           </h1>
           <!--Card-->
           <div class="row">
-            <div class="col-4">
+            <h2 style="font-size:1.2rem !important;" class="text-center">Carrusel</h2>
+            <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
+              <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
+                <table id="carousel-table" class="table" style="margin-bottom:0 !important;">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left" style="width:10px;">
+                        Opciones de Edición
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        ID 
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Título 
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Ruta de imagen
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Imagen
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Descripción
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Fecha de creación
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                        Fecha de actualización
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr  style="height:auto;">
+                      <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap' style="width:10px;">
+                        <button  class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
+                          Editar
+                        </button>
+                      </td>
+                      <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;">
+                        <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" wire:model.defer='job_opening_id' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" >
+                        <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;"  >
+                          <textarea class="inline-flex text-xs font-semibold textareatd " name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                    </tr>
+                    <tr  style="height:auto;">
+                      <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap' style="width:10px;">
+                        <button  class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
+                          Editar
+                        </button>
+                      </td>
+                      <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;">
+                        <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" wire:model.defer='job_opening_id' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" >
+                        <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;"  >
+                          <textarea class="inline-flex text-xs font-semibold textareatd " name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                    </tr>
+                    <tr  style="height:auto;">
+                      <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap' style="width:10px;">
+                        <button  class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
+                          Editar
+                        </button>
+                      </td>
+                      <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;">
+                        <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" wire:model.defer='job_opening_id' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" >
+                        <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;"  >
+                          <textarea class="inline-flex text-xs font-semibold textareatd " name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea> 
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- <div class="col-4">
               <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 1</label>
                 <input type="number" name="carrusel-job-id" class="form-control file">
             </div>
@@ -39,8 +160,9 @@
               <label for="file">Imagen Carrusel 3</label>
               <input type="file" name="file" class="form-control file">    
            </div> 
-          </div>
+          </div> -->
           <div class="row">
+          <h2 style="font-size:1.2rem !important;" class="text-center">Listado de búsquedas y preguntas formulario</h2>
             <div class="col-md-12">
               <br>
               <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
