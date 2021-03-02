@@ -17,5 +17,7 @@ class Carousel extends Component
             join('job_openings', 'job_openings.id', '=', 'carousel.job_opening_id')
             ->select('carousel.*', 'job_openings.job_title')
             ->get();
+          
     }
+    
 }

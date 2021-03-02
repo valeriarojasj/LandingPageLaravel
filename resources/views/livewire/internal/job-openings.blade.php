@@ -58,22 +58,24 @@
                         <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">{{$carousel->job_opening_id}}</textarea>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" >
-                        <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->image_url}}</textarea> 
+                        <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$jobOpenings->find($carousel->job_opening_id)->job_title}}</textarea> 
                       </td>
                       <td class="p-0 whitespace-nowrap" style="position:relative;"  >
-                          <textarea class="inline-flex text-xs font-semibold textareatd " name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->description1}}</textarea> 
+                          <textarea class="inline-flex text-xs font-semibold textareatd " name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->image_url}}</textarea> 
+                      </td>
+                      
+                      <td class="p-0 whitespace-nowrap" style="position:relative; vertical-align:middle">
+                        <img src="{{asset($carousel->image_url)}}" style="height:50px;   margin-left: auto; margin-right: auto; display: block;"   alt="">
+                        
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative; ">
+                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->description1}}</textarea>
+                      </td>
+                      <td class="p-0 whitespace-nowrap" style="position:relative; ">
+                          <textarea class="inline-flex text-xs font-semibold text-center textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->created_at}}</textarea>
                       </td>
                       <td class="p-0 whitespace-nowrap" style="position:relative;">
-                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
-                      </td>
-                      <td class="p-0 whitespace-nowrap" style="position:relative;">
-                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
-                      </td>
-                      <td class="p-0 whitespace-nowrap" style="position:relative;">
-                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
-                      </td>
-                      <td class="p-0 whitespace-nowrap" style="position:relative;">
-                          <textarea class="inline-flex text-xs font-semibold textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+                          <textarea class="inline-flex text-xs font-semibold text-center textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">{{$carousel->updated_at}}</textarea>
                       </td>
                      
                     </tr>

@@ -56,6 +56,8 @@ class JobOpenings extends Component
         
         $jobOpenings= JobOpening::latest('id')->paginate('10');
         $carousels=Carousel::all();
+        
+    
        
         return view('livewire.internal.job-openings',compact('jobOpenings','carousels'));
     }
