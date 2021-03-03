@@ -49,10 +49,10 @@
                   @foreach($carousels as $carousel)
                     <tr  style="height:auto;">
                       <td class='px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap' style="width:10px;">
-                        <a href="job-openings/edit/id"></a>
-                        <button  class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
+                        <a class="w-full py-2 font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit" style="text-decoration:none;" href="{{route('internal.carousel.edit',$carousel)}}">Editar</a>
+                        <!-- <button  class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button edit">
                           Editar
-                        </button>
+                        </button> -->
                       </td>
                       <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;">
                         <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">{{$carousel->job_opening_id}}</textarea>

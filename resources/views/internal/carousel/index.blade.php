@@ -12,8 +12,8 @@
     
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            Editar Carrusel
+            Mostrar lista de carrusel
     </x-slot>
 
-    <p>Aca estoy en edit</p>
+    <p>Aca estoy en index</p>
 </x-app-layout>

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Livewire\Internal;
-
 use Livewire\Component;
 use App\Models\JobOpening;
 use Livewire\WithPagination;

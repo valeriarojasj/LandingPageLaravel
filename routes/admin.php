@@ -5,6 +5,8 @@ use App\Http\Controllers\Internal\HomeController;
 use App\Http\Controllers\Internal\SubscriptionController;
 use App\Http\Controllers\Internal\UserController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\Internal\CarouselController;
+
 
 Route::get('',[HomeController::class,'index']);
 Route::resource('users',UserController::class,
@@ -16,6 +18,7 @@ Route::resource('users',UserController::class,
     ]
 ])->only(['index','create','store']);
 Route::resource('subscriptions',SubscriptionController::class)->names('internal.subscriptions')->only(['index']);
+Route::resource('carousel',CarouselController::class)->names('internal.carousel');
 Route::middleware(['auth:sanctum', 'verified'])->get('/candidatos', [CandidateController::class, 'getCandidates'])->name('candidatos');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
