@@ -5,15 +5,15 @@
     @if($nuevoObjeto)
  
     <button  wire:click="store()" class="w-full font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button button-small edit">
-        Guardar2
+        Guardar
     </button>
     <button  wire:click="$emitUp('hideNewRow')" class="w-full mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
-        Cancelar2
+        Cancelar
     </button>
     @else
     @if(!$editable)
     <button  wire:click="update({{$objeto->id}})" class="w-full font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none">
-        Guardar
+        Actualizar
     </button>
     <button  wire:click="cancel({{$objeto->id}})" class="w-full mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
         Cancelar

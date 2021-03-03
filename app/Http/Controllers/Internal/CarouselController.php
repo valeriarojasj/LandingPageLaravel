@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Internal;
 use App\Http\Controllers\Controller;
 use App\Models\Carousel;
+use App\Models\JobOpening;
 
 use Illuminate\Http\Request;
 
@@ -56,9 +57,10 @@ class CarouselController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carousel $carousel)
-    {
-        return view('internal.carousel.edit', compact('carousel'));
+    public function edit(Carousel $carousel, jobOpening $jobOpenings)
+
+    {   $jobOpenings=JobOpening::all();
+        return view('internal.carousel.edit', compact('carousel','jobOpenings'));
     }
 
     /**
