@@ -16,4 +16,16 @@
     </x-slot>
 
     <p>Aca estoy en edit</p>
+    <div class="card">
+        <div class="card-body">
+            {!!form::open()!!}
+            
+
+
+        </div>
+
+
+    </div>
+    <form action=""></form>
+
 </x-app-layout>
