@@ -27,20 +27,40 @@
                          Editar Carrusel {{$carousel->id}}
                     </h1>
 
-                    {!! Form::open(['route'=>'internal.carousel.store', 'autocomplete'=>'off']) !!}
+                    {!! Form::model($carousel,['route'=>['internal.carousel.update',$carousel] , 'autocomplete'=>'off', 'files'=>true, 'method'=>'put']) !!}
                             <div class="form-group">
-                                {!! Form::label('carousel-job-id', 'ID de la búsqueda') !!}
-                                {!! Form::number('carousel-job-id', $jobOpenings->find($carousel->job_opening_id)->id, ['class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda para incluir en el carrusel']) !!}
+                              
+                                {!! Form::label('job_opening_id', 'ID de la búsqueda') !!}
+                             
+                                {!! Form::number('job_opening_id', $jobOpenings->find($carousel->job_opening_id)->id, ['class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda para incluir en el carrusel']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('carousel-job-title', 'Título de la búsqueda') !!}
-                                {!! Form::text('carousel-job-title', $jobOpenings->find($carousel->job_opening_id)->job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
+                                {!! Form::label('job_title', 'Título de la búsqueda') !!}
+                                {!! Form::text('job_title', $jobOpenings->find($carousel->job_opening_id)->job_title, ['onchange'=>'findJob(this.value);' , 'class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('carousel-description1', 'Descripción de la búsqueda') !!}
-                                {!! Form::textarea('carousel-description1', $carousel->description1, ['class'=>'form-control']) !!}
+                                {!! Form::label('description1', 'Descripción de la búsqueda') !!}
+                                {!! Form::textarea('description1', $carousel->description1, ['class'=>'form-control']) !!}
                             </div>
-                            {!! Form::submit('Actualizar', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
+                            <div class="row">
+                                <div class="col">
+
+                                    
+                                    <div class="img-wrapper" >
+                                        <img  id="picture" src="{{ asset('img/imagen-scrum.png') }}" alt="">
+                                    </div>
+                                    
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        {!! Form::label('file', 'Imagen que se mostrará en el carrusel') !!}
+                                        {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*']) !!}
+                                    </div>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis assumenda itaque commodi ducimus, rerum totam fugit quas accusamus, sed cupiditate nesciunt natus incidunt, quis nisi autem vel quam illum!
+                                    </p>
+                                </div>
+                            </div>
+                            {!! Form::submit('Actualizar Carrusel', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -49,10 +69,24 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
         <script>
            ClassicEditor
-        .create( document.querySelector( '#carousel-description1' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+                .create( document.querySelector( '#description1' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+
+            //Cambiar imagen
+            document.getElementById("file").addEventListener('change', cambiarImagen);
+
+            function cambiarImagen(event){
+                var file = event.target.files[0];
+
+                var reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("picture").setAttribute('src', event.target.result); 
+                };
+
+                reader.readAsDataURL(file);
+            }
         </script>
 
 

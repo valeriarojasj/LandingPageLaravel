@@ -9,13 +9,11 @@
             <div class="carousel-item {{ ($carousel->order == 1) ? 'active' : '' }}">
                 <div class="divImgText">
                     <div class="carousel-img-wrapper">
-                    <img src="{{$carousel->image_url}}"   alt="...">
+                    <img  src="{{ asset($carousel->image_url) }}"  alt="...">
                     </div>
                     <div class="divText d-block">
                         <h3 class="text-left">{{$carousel->job_title}}</h3>
-                        <ul class="text-left requirements">
-                            <li>{{$carousel->description1}}</li>
-                            <li>{{$carousel->description2}}</li>
+                        {!!$carousel->description1!!}
                         </ul>
                         <div class="mt-3 text-right">
                             <a class="rounded-full btn applyBtn" href="#apply" role="button">Postúlate</a>

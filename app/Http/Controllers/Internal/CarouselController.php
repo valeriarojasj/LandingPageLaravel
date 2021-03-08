@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Internal;
 use App\Http\Controllers\Controller;
 use App\Models\Carousel;
 use App\Models\JobOpening;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -37,7 +38,7 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -63,6 +64,8 @@ class CarouselController extends Controller
         return view('internal.carousel.edit', compact('carousel','jobOpenings'));
     }
 
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -72,7 +75,24 @@ class CarouselController extends Controller
      */
     public function update(Request $request, Carousel $carousel)
     {
-        //
+
+       $url='img/imagen-scrum.png';
+        if($request->file('file')){
+        $url= 'storage/'.Storage::put('images', $request->file('file'));
+        }
+     
+        $carousel->image_url=$url;
+        $carousel->job_opening_id=$request->job_opening_id;
+        $carousel->description1=$request->description1;
+        $carousel->save();
+        return redirect('/internal/job-openings');
+           
+        
+    }
+
+    public function findJob($id){
+        return $id;
+
     }
 
     /**
