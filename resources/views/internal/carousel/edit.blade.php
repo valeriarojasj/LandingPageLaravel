@@ -28,16 +28,7 @@
                     </h1>
 
                     {!! Form::model($carousel,['route'=>['internal.carousel.update',$carousel] , 'autocomplete'=>'off', 'files'=>true, 'method'=>'put']) !!}
-                            <div class="form-group">
-                              
-                                {!! Form::label('job_opening_id', 'ID de la búsqueda') !!}
-                             
-                                {!! Form::number('job_opening_id', $jobOpenings->find($carousel->job_opening_id)->id, ['class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda para incluir en el carrusel']) !!}
-                            </div>
-                            <div class="form-group">
-                                {!! Form::label('job_title', 'Título de la búsqueda') !!}
-                                {!! Form::text('job_title', $jobOpenings->find($carousel->job_opening_id)->job_title, ['onchange'=>'findJob(this.value);' , 'class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
-                            </div>
+                            <livewire:internal.search-title :carousel='$carousel'/>
                             <div class="form-group">
                                 {!! Form::label('description1', 'Descripción de la búsqueda') !!}
                                 {!! Form::textarea('description1', $carousel->description1, ['class'=>'form-control']) !!}
@@ -68,6 +59,12 @@
 
         <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
         <script>
+        function searchTitle(id){
+            alert
+            //const inputTitle = document.getElementById('job_title');
+            //
+            //inputTitle.value = '';
+        }
            ClassicEditor
                 .create( document.querySelector( '#description1' ) )
                 .catch( error => {

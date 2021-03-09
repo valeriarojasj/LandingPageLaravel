@@ -59,11 +59,18 @@ class CarouselController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Carousel $carousel, jobOpening $jobOpenings)
-
-    {   $jobOpenings=JobOpening::all();
+    {   
+        $jobOpenings=JobOpening::all();
         return view('internal.carousel.edit', compact('carousel','jobOpenings'));
     }
 
+    static public function getAllCarousels(){
+        $data = Carousel::select('carousel.*', 'job_openings.job_title')
+                ->join('job_openings', 'carousel.job_opening_id', '=', 'job_openings.id')
+                ->get();
+
+        return $data;
+    }
 
 
     /**
