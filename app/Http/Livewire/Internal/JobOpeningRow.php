@@ -35,7 +35,7 @@ class JobOpeningRow extends Component
     public $updated_at;
     public $objeto;
     public $nuevoObjeto=false;
-    public $editable=true;
+    public $editable=false;
 
 
     protected $rules = [
@@ -103,12 +103,13 @@ class JobOpeningRow extends Component
         
 
     }
-    public function edit($id){
-        $this->editable=false;
-        $this->dispatchBrowserEvent('habilitarTextArea', ['id' => $id]);
+    public function edit(){
+        $this->editable=true;
+        
+      
     }
     public function cancel($id){
-        $this->editable=true;
+        $this->editable=false;
         $this->uuid=$this->objeto->id;
         $this->job_title=$this->objeto->job_title;
         $this->company_type=$this->objeto->company_type;
@@ -163,8 +164,8 @@ class JobOpeningRow extends Component
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3
         ]);
-        $this->editable=true;
-        $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
+        $this->editable=false;
+       
     }
     public function store()
     {
@@ -216,9 +217,11 @@ class JobOpeningRow extends Component
             'checkbox2_option_3' => $this->checkbox2_option_3
         ]);
         
-        
+      
         $this->emit('hideNewRow');
+        
         $this->emit('reloadJobsopenings');
+        
         
     }
     public function hideRow(){

@@ -28,3 +28,9 @@ for (td of tdInputs) {
 window.addEventListener('render', event => {
   alert('renderizando');
 })
+
+
+
+
+
+
