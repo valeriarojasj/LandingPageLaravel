@@ -176,16 +176,15 @@ td,th:nth-child(n+3){
 } */
 /* 
 /* Ensure that the demo table scrolls */
-/* th,td { white-space: nowrap; }
-
+th { white-space: nowrap; }
 div.dataTables_wrapper {
-    width: 800px;
+    width: 1200px;
     margin: 0 auto;
 }
 
-.btnDiv{
+ .btnDiv{
   white-space: normal;
-}
+ }
 
 .dataTables_length{
   display:none;
@@ -200,8 +199,8 @@ div.dataTables_wrapper {
 
 .dataTables_paginate{
   display:none;
-}
-   */ 
+} 
+    
 
 
 

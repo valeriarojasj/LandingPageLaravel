@@ -124,85 +124,84 @@
               </button>
             </div>
           </div>
-          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
-            <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
-              <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
+          
+         
                 <table class="table mb-0" id="editableTable">
                   <thead class="bg-blue-100">
                     <tr>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left">
+                      <th>
                         Opciones de Edición
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                      <th>
                         ID
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Título de la búsqueda
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Tipo de empresa
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Lugar de la búsqueda
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th >
                         Pregunta Abierta 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Pregunta Abierta 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Pregunta de Selección Múltiple 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         SM1 Opción 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         SM1 Opción 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th >
                         SM1 Opción 3
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Pregunta de Selección Múltiple 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         SM2 Opción 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         SM2 Opción 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         SM2 Opción 3
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Pregunta de Checkbox 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         CB1 Opción 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         CB1 Opción 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         cb1 Opción 3
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Pregunta de Checkbox 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         CB2 Opción 1
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         CB2 Opción 2
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th >
                         CB2 Opción 3
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th >
                         Fecha de Creación
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                      <th>
                         Fecha de Actualización
                       </th>
                     </tr>
@@ -217,9 +216,7 @@
                     @endforeach
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
+         
           {{$jobOpenings->links('pagination::tailwind')}} 
         </div>
       </div>
@@ -245,10 +242,42 @@
     </x-jet-confirmation-modal>
   </div>
   <!--container-->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.3.2/css/fixedColumns.dataTables.min.css">
+
+  <script  type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/fc-3.3.2/datatables.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script  type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.3.2/js/dataTables.fixedColumns.min.js"></script>
+  
+
+ 
+
+
+  
+  
+
+
+
+  
   <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
   <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ asset('js/job-openings.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+    var table = $('#editableTable').DataTable( {
+        scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        fixedColumns:   {
+            leftColumns: 2
+        }
+    } );
+} );
+</script>
 </div>
                    
  
