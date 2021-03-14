@@ -250,6 +250,32 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
   <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ asset('js/job-openings.js') }}"></script>
+  <script>
+    //const slider = document.getElementById('editableTable');
+    const slider = document.querySelector('.table-container')
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+    slider.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = x - startX;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 </div>
                    
  

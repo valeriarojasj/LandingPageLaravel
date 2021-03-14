@@ -98,6 +98,7 @@ td:last-child .button .fas {
 .table-container{
   overflow-x: scroll;
   padding: 0;
+  cursor: grab;
 }
 .table-container table{
   width: 100%;
