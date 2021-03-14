@@ -72,8 +72,9 @@ class Formulario extends Component
         'career.required' => 'Por favor ingresa tu Título Universitario, si no tienes escribe: Ninguno.',
         'jobToApply' => 'Para postularte debes indicar la posición a la que quieres aplicar.'
     ];
-
+    protected $listeners = ['updateJob' => 'updateFormulario'];
     public function submit(){
+        
         $action = $this->stepActions[$this->step];
         $this->$action();
     }
@@ -93,7 +94,6 @@ class Formulario extends Component
 
     public function submit5(){ 
      $this->step++;
-   
     }
 
 
@@ -104,7 +104,6 @@ class Formulario extends Component
 
     public function mount(){
         $this->step=0;
-        
     }
 
     public function increaseStep(){
@@ -158,16 +157,10 @@ class Formulario extends Component
         $candidate->checkbox_2_a_op_2 = $this->checkBox2AOp2;
         $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
-       
-
-        $this->dispatchBrowserEvent('closeModal', ['uuid' => $this->uuid]);
-        
+        $this->dispatchBrowserEvent('toggle-modal');
+        //$this->emit('showSuccessMessage');
         $this->resetAttributes();
-        $this->dispatchBrowserEvent('setUpModal');
-        session()->flash('message', 'Gracias por postularte!');
         
-        
-       
     }
     public function resetAttributes(){
         $this->fullName = '';
@@ -192,7 +185,7 @@ class Formulario extends Component
         $this->checkBox2AOp1='';
         $this->checkBox2AOp2='';
         $this->checkBox2AOp3='';
-
+        $this->step=0;
     }
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
     public function validateProvince(){
@@ -200,22 +193,10 @@ class Formulario extends Component
             $this->province = null;
             $this->city = null;
         }
-        // else{
-        //     $this->validateCity();
-        // }
     }
-  
-    // public function validateCity(){
-    //     $cities = json_decode(Http::get("https://apis.datos.gob.ar/georef/api/localidades?provincia=".$this->province."&orden=nombre&max=5000"))->localidades;
-    //     $resetCity = true;
-    //     foreach ($cities as $city) {
-    //         if ($city->nombre == $this->city) {
-    //             $resetCity = false;
-    //             break;
-    //         }
-    //     }
-    //     if($resetCity){
-    //         $this->city = null;
-    //     }
-    // }
+    public function updateFormulario(JobOpening $job){
+        $this->job=$job;
+        $this->jobToApply = $job->job_title;
+        $this->dispatchBrowserEvent('toggle-modal');
+    }
 }

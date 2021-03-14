@@ -210,61 +210,63 @@
     {{-- modal script --}}
 
     <script>
-      
-      window.addEventListener('setUpModal', event => {
-        setModal();
+      window.addEventListener('toggle-modal', event => {
+        toggleModal();
       })
-      window.addEventListener(`closeModal`, event => {
-            toggleModal(event.detail.uuid)     
-          })
-      setModal();
-      function toggleModal (id) {
-            const body = document.querySelector('body')
-            const modal = document.getElementsByClassName("modal "+id).item(0);
-            const modalContainer = document.getElementsByClassName("modal-container "+id).item(0);
-            modal.classList.toggle('opacity-0')
-            modal.classList.toggle('pointer-events-none')
-            body.classList.toggle('modal-active')
-            modalContainer.classList.toggle('hidden') 
-          }
-      function setModal(){
-        
-        var openmodal = document.querySelectorAll('.modal-open');
-        for (var i = 0; i < openmodal.length; i++) {
-          openmodal[i].addEventListener('click', function(event){
-            event.preventDefault();
-            toggleModal(this.id);
-            
-          })
-          //id=openmodal[i].id;
-          
-          const overlay = document.getElementsByClassName("modal-overlay "+openmodal[i].id).item(0);
-          overlay.addEventListener('click', function(event){
-            toggleModal(this.dataset.id)
-          });
-          var closemodal = document.getElementsByClassName("modal-close "+openmodal[i].id).item(0);
-          closemodal.addEventListener('click', function(event){
-            toggleModal(this.dataset.id)
-          });
-          
-          
-          document.onkeydown = function(evt) {
-            evt = evt || window.event
-            var isEscape = false
-            if ("key" in evt) {
-              isEscape = (evt.key === "Escape" || evt.key === "Esc")
-            } else {
-              isEscape = (evt.keyCode === 27)
-            }
-            if (isEscape && document.body.classList.contains('modal-active')) {
-              toggleModal()
-            }
-          };
-        }  
-      }  
-
-    
-    </script>
+      window.addEventListener('print', event=>{
+        console.log('render')
+        console.log(event.detail.selected);
+      })
+  var openmodal = document.querySelectorAll('.modal-open')
+  for (var i = 0; i < openmodal.length; i++) {
+    openmodal[i].addEventListener('click', function(event){
+    event.preventDefault()
+    toggleModal()
+    })
+  }
+  
+  const overlay = document.querySelector('.modal-overlay')
+  overlay.addEventListener('click', toggleModal)
+  
+  var closemodal = document.querySelectorAll('.modal-close')
+  for (var i = 0; i < closemodal.length; i++) {
+    closemodal[i].addEventListener('click', toggleModal)
+  }
+  
+  document.onkeydown = function(evt) {
+    evt = evt || window.event
+    var isEscape = false
+    if ("key" in evt) {
+    isEscape = (evt.key === "Escape" || evt.key === "Esc")
+    } else {
+    isEscape = (evt.keyCode === 27)
+    }
+    if (isEscape && document.body.classList.contains('modal-active')) {
+    toggleModal()
+    }
+  };
+  
+  
+  function toggleModal () {
+    const body = document.querySelector('body')
+    const modal = document.querySelector('.modal')
+    const modalContainer =document.getElementById('divHidden');
+    let result = modalContainer.classList.contains('hidden')
+    modal.classList.toggle('opacity-0')
+    modal.classList.toggle('pointer-events-none')
+    body.classList.toggle('modal-active')
+    modalContainer.classList.toggle('hidden')
+  }
+  window.addEventListener('showtoast', event => {
+            const toast = document.querySelector('div#liveToastBtn');
+            console.log(toast)
+            console.log(event.detail.id);
+            //toast.show();
+            /*alert( `ID: ${}
+                    MENSAJE: ${event.detail.message}
+            `);*/
+        })
+</script>
     {{-- end of Modal script --}}
 
     @livewireScripts  

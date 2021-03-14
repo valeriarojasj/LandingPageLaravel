@@ -4,15 +4,23 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\JobOpening;
+use Illuminate\Support\Facades\Session;
 class ActiveJobs extends Component
 {
     public $page = 0;
     public $cantidad=0;
     public $maxPages;
     public $jobs = [];
+    public $title;
     public $isMount = true;
+    public $selectedJob;
+    protected $listeners = [
+        'setSelectedJob' => 'setSelectedJob',
+        'showSuccessMessage' => 'showSuccessMessage'
+    ];
     public function render()
     {
+        
         return view('livewire.active-jobs');
     }
     public function increment(){
@@ -21,20 +29,19 @@ class ActiveJobs extends Component
         if($this->page < $this->maxPages){
             $this->page++;
             $this->jobs = $this->getJobOpening();
-            $this->dispatchBrowserEvent('setUpModal');
         }
     }
     public function mount(){
         $this->jobs = $this->getJobOpening();
+        
     }
     public function decrement(){
         if($this->page>0){
             $this->page--;
             $this->jobs = $this->getJobOpening();
-            $this->dispatchBrowserEvent('setUpModal');
         }
-          
     }
+ 
     public function getJobOpening(){
         $records = JobOpening::select('*')
         ->orderby('id', 'desc')
@@ -42,5 +49,14 @@ class ActiveJobs extends Component
         ->take(9)
         ->get();
         return $records;
+    }
+    public function setSelectedJob(JobOpening $job){
+        $this->title=$job->job_title;
+        $this->emit('updateJob', $job->id);
+    }
+
+    public function showSuccessMessage(){
+        session()->flash('formSuccess', 'Gracias por postularte!'.$this->title);
+        $this->title = '';
     }
 }

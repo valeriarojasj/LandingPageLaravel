@@ -16,7 +16,9 @@
                         {!!$carousel->description1!!}
                         </ul>
                         <div class="mt-3 text-right">
-                            <a class="rounded-full btn applyBtn" href="#apply" role="button">Postúlate</a>
+                        <a wire:key="ancle-{{ $carousel->id }}" wire:click="$emit('setSelectedJob', {{$carousel->job_opening_id}})" class="rounded-full btn applyBtn" href="#apply" role="button">
+                            Postúlate
+                        </a>
                         </div>
                     </div>
                 </div>
