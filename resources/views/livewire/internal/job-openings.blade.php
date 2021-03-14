@@ -273,6 +273,7 @@
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = x - startX;
+      // const walk = (x - startX) * 2; esto es para q se mueva el doble  
       slider.scrollLeft = scrollLeft - walk;
     });
   </script>
