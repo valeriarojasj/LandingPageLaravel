@@ -387,5 +387,6 @@
       </div>
     <!--Cierre del Footer-->
   </form>
+
   <script type="text/javascript" src="js/applicationForm.js"></script>
 </div>

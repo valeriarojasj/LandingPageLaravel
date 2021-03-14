@@ -1,12 +1,7 @@
 <div> 
-    @if (session()->has('formSuccess'))
-        <div class="alert alert-success alert-dismissible" role="alert">
-            {{ session('formSuccess') }}
-            <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+    <div id='success'>
+        
+    </div>
     <div class='flex justify-content-around'>
         <div class="flex content-center">
             <button class="focus:outline-none "wire:click='decrement'>

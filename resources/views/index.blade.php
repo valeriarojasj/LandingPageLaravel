@@ -142,7 +142,7 @@
       <div>
       <hr class="solid">
       </div>
-
+        <br>
       <section id="apply">
         <div class="mb-3 row">
           <div class="mx-auto ">
@@ -160,12 +160,15 @@
           </div>
         
       </section>
-
+        <br>
+        <br>
+        <br>
       <div>
-      <hr class=" solid contact-hr">
+        <hr class=" solid contact-hr">
       </div>
 
       <section id="contact">
+      
         <div class="sectionText">
           <div class="divImgText">
             <img src="{{asset('img/logo-fyg.png')}}" height="150px;" alt="">
@@ -213,10 +216,7 @@
       window.addEventListener('toggle-modal', event => {
         toggleModal();
       })
-      window.addEventListener('print', event=>{
-        console.log('render')
-        console.log(event.detail.selected);
-      })
+      
   var openmodal = document.querySelectorAll('.modal-open')
   for (var i = 0; i < openmodal.length; i++) {
     openmodal[i].addEventListener('click', function(event){
@@ -257,15 +257,18 @@
     body.classList.toggle('modal-active')
     modalContainer.classList.toggle('hidden')
   }
-  window.addEventListener('showtoast', event => {
-            const toast = document.querySelector('div#liveToastBtn');
-            console.log(toast)
-            console.log(event.detail.id);
-            //toast.show();
-            /*alert( `ID: ${}
-                    MENSAJE: ${event.detail.message}
-            `);*/
-        })
+  window.addEventListener('showSuccessMessage', event=>{
+    const div = document.getElementById('success');
+    div.innerHTML=`
+      <div class="alert alert-success alert-dismissible" role="alert">
+        Gracias por postularte!
+        <button type="button" class="float-right close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    `
+  })
+  
 </script>
     {{-- end of Modal script --}}
 

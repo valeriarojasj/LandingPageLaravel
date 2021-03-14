@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\JobOpening;
-use Illuminate\Support\Facades\Session;
+
 class ActiveJobs extends Component
 {
     public $page = 0;
@@ -15,12 +15,12 @@ class ActiveJobs extends Component
     public $isMount = true;
     public $selectedJob;
     protected $listeners = [
-        'setSelectedJob' => 'setSelectedJob',
-        'showSuccessMessage' => 'showSuccessMessage'
+        'setSelectedJob' => 'setSelectedJob'
     ];
     public function render()
     {
-        
+ 
+  
         return view('livewire.active-jobs');
     }
     public function increment(){
@@ -53,10 +53,5 @@ class ActiveJobs extends Component
     public function setSelectedJob(JobOpening $job){
         $this->title=$job->job_title;
         $this->emit('updateJob', $job->id);
-    }
-
-    public function showSuccessMessage(){
-        session()->flash('formSuccess', 'Gracias por postularte!'.$this->title);
-        $this->title = '';
     }
 }

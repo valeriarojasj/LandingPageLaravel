@@ -131,7 +131,6 @@ class Formulario extends Component
     }
 
     public function save(){
-        $this->validateProvince();
         $this->validate();
         $candidate = new Candidate;
         $candidate->fullName = $this->fullName;
@@ -158,9 +157,8 @@ class Formulario extends Component
         $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
         $this->dispatchBrowserEvent('toggle-modal');
-        //$this->emit('showSuccessMessage');
         $this->resetAttributes();
-        
+        $this->dispatchBrowserEvent('showSuccessMessage');
     }
     public function resetAttributes(){
         $this->fullName = '';

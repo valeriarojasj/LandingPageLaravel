@@ -8,7 +8,8 @@ use Livewire\Component;
 class SubscriptionComponent extends Component
 {
     public $email;
-   
+    public $success=false;
+    public $messageSuccess='Gracias por subscribirte!';
 
     protected $rules = [
         'email' => 'required|email|unique:subscriptions,email'
@@ -33,13 +34,16 @@ class SubscriptionComponent extends Component
         $subscription = new Subscription();
         $subscription->email = $this->email;
         $subscription->save();
-        session()->flash('message', 'Gracias por subscribirte!');
+        $this->success=true;
         
         $this->resetAttributes();
        
     
        
      
+    }
+    public function closeSuccess(){
+        $this->success=false;
     }
     public function resetAttributes(){
        
