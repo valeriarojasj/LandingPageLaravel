@@ -95,7 +95,25 @@ td:last-child .button .fas {
   font-family: 'Montserrat', sans-serif;
 
 }
-
+.table-container{
+  overflow-x: scroll;
+  padding: 0;
+  cursor: grab;
+}
+.table-container table{
+  width: 100%;
+}
+.table-container .first-fixed-col{
+  position:sticky;
+  left:0;
+  z-index:1;
+}
+.bg-white{
+  background: #ffffff !important;
+}
+.bg-blue{
+  background: #d7eafd !important;
+}
 /* .table-container {
   display: block;
   overflow-x: auto;

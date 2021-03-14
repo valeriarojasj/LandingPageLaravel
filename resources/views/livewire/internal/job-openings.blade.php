@@ -124,84 +124,86 @@
               </button>
             </div>
           </div>
-          
-         
+            <!--este div hace que haga scroll la tabla -->
+            <div class="min-w-full py-2 space-between ">
+              <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
+              <div class="table-container">
                 <table class="table mb-0" id="editableTable">
                   <thead class="bg-blue-100">
                     <tr>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue first-fixed-col hard_left">
                         Opciones de Edición
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         ID
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Título de la búsqueda
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Tipo de empresa
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Lugar de la búsqueda
                       </th>
-                      <th >
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta Abierta 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta Abierta 2
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta de Selección Múltiple 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM1 Opción 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM1 Opción 2
                       </th>
-                      <th >
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM1 Opción 3
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta de Selección Múltiple 2
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM2 Opción 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM2 Opción 2
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         SM2 Opción 3
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta de Checkbox 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         CB1 Opción 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         CB1 Opción 2
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         cb1 Opción 3
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Pregunta de Checkbox 2
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         CB2 Opción 1
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         CB2 Opción 2
                       </th>
-                      <th >
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         CB2 Opción 3
                       </th>
-                      <th >
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Fecha de Creación
                       </th>
-                      <th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue">
                         Fecha de Actualización
                       </th>
                     </tr>
@@ -266,18 +268,31 @@
   <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ asset('js/job-openings.js') }}"></script>
   <script>
-    $(document).ready(function() {
-    var table = $('#editableTable').DataTable( {
-        scrollY:        "300px",
-        scrollX:        true,
-        scrollCollapse: true,
-        paging:         false,
-        fixedColumns:   {
-            leftColumns: 2
-        }
-    } );
-} );
-</script>
+    //const slider = document.getElementById('editableTable');
+    const slider = document.querySelector('.table-container')
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+    slider.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = x - startX;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 </div>
                    
  
