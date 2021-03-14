@@ -124,13 +124,14 @@
               </button>
             </div>
           </div>
-          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
-            <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
+            <!--este div hace que haga scroll la tabla -->
+            <div class="min-w-full py-2 space-between ">
               <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
+              <div class="table-container">
                 <table class="table mb-0" id="editableTable">
                   <thead class="bg-blue-100">
                     <tr>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left">
+                      <th scope="col" class="bg-blue first-fixed-col px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left">
                         Opciones de Edición
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
