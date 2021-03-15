@@ -10,10 +10,7 @@ class CandidatesTable extends Component
     
     public function render()
     {
-        $candidate = new CandidateController();
-        return view('livewire.internal.candidates-table', [
-            'selectInfo' => $candidate->getSelectInfo()
-        ]);
+        return view('livewire.internal.candidates-table');
     }
     
 

@@ -161,30 +161,41 @@
                                 previous : 'ANTERIOR'
                             }
                         }
-                        // ,
-                        // initComplete: function (data) {
-                        //     this.api().columns().every( function () {
-                        //         var column = this;
-                        //         const orden = data.json.orden;
-                        //         const index = column[0][0];
-                        //         const selectInfo = data.json.selectInfo;
-                        //         const info= selectInfo[orden[index]];
-                        //         var select = $('<select><option value="">Buscá por '+info.label+'</option></select>')
-                        //             .appendTo( $(column.footer()).empty() )
-                        //             .on( 'change', function () {
-                        //                 var val = $.fn.dataTable.util.escapeRegex(
-                        //                     $(this).val()
-                        //                 );
+                        ,
+                         initComplete: function (data) {
+                            const {orden, selectInfo} = data.json;
+                            this.api().columns().every( function () {
+                                var column = this;
+                                const index = column[0][0];
+                                const columnName = orden[index]
+                                const info= selectInfo[columnName];
+                                if(info){
+                                    var select = $('<select class="form-select form-select-sm" ><option value="">Buscá por '+info.label+'</option></select>')
+                                    .appendTo( $(column.footer()).empty() )
+                                   .on( 'change', function () {
+                                      var val = $.fn.dataTable.util.escapeRegex(
+                                           $(this).val()
+                                       );
                 
-                        //                 column
-                        //                     .search( val ? val : '', true, false )
-                        //                     .draw();
-                        //             } );
-                        //         for(option of info.selectOptions){
-                        //             select.append( '<option value="'+option[info.name]+'">'+option[info.name]+'</option>' )
-                        //         };
-                        //     } );
-                        // }
+                                       column
+                                           .search( val ? val : '', true, false )
+                                           .draw();
+                                   } );
+                                   console.log(info)
+                                  
+                               for(option of info.selectOptions){
+                                   if(option[columnName]){
+                                       select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
+                                   }else{
+                                    select.append( '<option value="null">Sin contestar</option>' )
+                                   }
+                                   
+                               };
+                                }
+                                
+                               
+                          } );
+                     }
                     });
                     table.columns.adjust();
                 }).on( 'init.dt', function ( e, settings ) {

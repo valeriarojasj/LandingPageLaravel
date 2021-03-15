@@ -28,6 +28,12 @@ class CandidateController extends Controller
         "career" => "Título Universitario",
         "created_at" => "Fecha de Aplicación"
     ];
+    private $selectables = [
+        "job_to_apply" => "Búsqueda",
+        "country" => "País",
+        "province" => "Provincia",
+        "city" => "Ciudad"
+    ];
     private $orden = [
         "id",
         "job_to_apply",
@@ -75,8 +81,7 @@ class CandidateController extends Controller
             "iTotalRecords" => $this->countAllRows(),
             "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length, $search['value']),
             "aaData" => $data_arr,
-            "selectInfo" =>[],
-            // "selectInfo" => $this->getSelectInfo(),
+            "selectInfo" => $this->getSelectInfo(),
             "orden" => $this->orden
         );
         echo json_encode($response);
@@ -114,7 +119,7 @@ class CandidateController extends Controller
     }
     public function getSelectInfo(){
         $infoArray=array();
-        foreach($this->labels as $key => $value){
+        foreach($this->selectables as $key => $value){
             $obj = new class{};
             $obj->name = $key;
             $obj->label = $value;
