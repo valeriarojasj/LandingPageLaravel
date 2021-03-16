@@ -39,6 +39,8 @@ class UserController extends Controller
                 'password' => Hash::make($input['password']),
                 'status' => "activo"
         ])->assignRole('User');
+        return redirect('/internal/users');
+        
         
     }
 }

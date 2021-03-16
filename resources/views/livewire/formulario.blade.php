@@ -46,14 +46,16 @@
             </fieldset>
           </div>
         @endif
+       
 
         @if($step == 1)
+      
           <div>
             <!-- COUNTRY -->
             <fieldset>
               <div class="divCountry">
                 <label for="country">Pais</label>
-                <select class="form-control" wire:model.defer='country' data-country="{{$country}}">
+                <select id="country" class="form-control" wire:model.defer='country' data-country="{{$country}}">
                   <option value=''>Selecciona el país donde vives...</option>
                   <option value='Argentina'>Argentina</option>
                   <option value='Bolivia'>Bolivia</option>
@@ -75,9 +77,9 @@
 
             <!-- PROVINCE -->
             <fieldset>
-              <div class="divProvince" style="display:none;">
+              <div id="divProvince" class="divProvince" style="display:none;">
                 <label for="province">Provincia</label>
-                <select  class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
+                <select  id="province" class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
                   <option value=""> Selecciona la provincia donde vives...</option>
                 </select>
                 @error('province') <span class="error">{{ $message }}</span> @enderror
@@ -85,15 +87,21 @@
             </fieldset> 
             <!-- CITY -->
             <fieldset>
-              <div class="divCity" style="display:none;">
+              <div id="divCity" class="divCity" style="display:none;">
                 <label for="city">Localidad</label>
-                <select class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
+                <select id="city" class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
                   <option selected="{{false}}" value="">Selecciona la ciudad donde vives...</option>
                 </select>
                 @error('city') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
+            <script>
+              cargarPaises();
+            </script>
+            
           </div>
+         
+        
         @endif
       
         @if($step == 2)

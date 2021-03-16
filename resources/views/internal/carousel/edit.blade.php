@@ -47,7 +47,7 @@
                                         {!! Form::label('file', 'Imagen que se mostrará en el carrusel') !!}
                                         {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*']) !!}
                                     </div>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis assumenda itaque commodi ducimus, rerum totam fugit quas accusamus, sed cupiditate nesciunt natus incidunt, quis nisi autem vel quam illum!
+                                    <p>La imagen puede ser en formato jpg, jpeg o png. La imagen debe ser preferiblemente cuadrada para evitar distorsión de la imagen. 
                                     </p>
                                 </div>
                             </div>

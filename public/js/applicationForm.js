@@ -1,11 +1,11 @@
-function cargarPaises(id){
+function cargarPaises(){
     
-    var campoPais=document.getElementById('country-'+id);
-    var campoProvincia=document.getElementById('province-'+id);
-    var campoCiudad=document.getElementById('city-'+id);
+    var campoPais=document.getElementById('country');
+    var campoProvincia=document.getElementById('province');
+    var campoCiudad=document.getElementById('city');
 
     if(campoPais.dataset.country == 'Argentina'){
-        showInputs(id);
+        showInputs();
     }
     //Cargar select paises
     // for(pais of paises){
@@ -43,12 +43,13 @@ function cargarPaises(id){
         var CountrySelected=this.value;
         // si es Argentina cambiar display para que sea visible Provincia y ciudad, de lo contrario dejarlos ocultos.
         if(CountrySelected=="Argentina"){
-            showInputs(id);
+            showInputs();
         }else{
-            hideInputs(id);
+            hideInputs();
         }
     });
 
+    
 
     campoProvincia.addEventListener('change',function(){
      
@@ -85,13 +86,13 @@ function cargarPaises(id){
 
 
 
-function showInputs(id){
-    document.getElementById('divProvince-'+id).style.display = "block";
-    document.getElementById('divCity-'+id).style.display = "block";
+function showInputs(){
+    document.getElementById('divProvince').style.display = "block";
+    document.getElementById('divCity').style.display = "block";
 }
 function hideInputs(id){
-    document.getElementById('divProvince-'+id).style.display = "none";
-    document.getElementById('divCity-'+id).style.display = "none";
+    document.getElementById('divProvince').style.display = "none";
+    document.getElementById('divCity').style.display = "none";
 }
 var paises;
 fetch('https://restcountries.eu/rest/v2/all') 
