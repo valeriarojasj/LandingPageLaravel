@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use App\Models\Candidate;
 use App\Models\JobOpening;
+use Illuminate\Validation\Rule;
 
 class Formulario extends Component
 {   
@@ -43,6 +44,7 @@ class Formulario extends Component
         'submit4',
         'submit5'
     ];
+ 
     protected $rules = [
         'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
@@ -53,7 +55,8 @@ class Formulario extends Component
         'educationLevel' => 'required',
         'educationStatus' => 'required',
         'career' => 'required',
-        'jobToApply' => 'required'
+        'jobToApply' => 'required',
+        
     ];
     protected $messages =[
         'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
@@ -78,6 +81,15 @@ class Formulario extends Component
         $action = $this->stepActions[$this->step];
         $this->$action();
     }
+
+    protected function validator(array $data)
+    {
+        $uniqueRule =  Rule::unique('candidates')->where(function ($query) use 
+                        ($data){
+                            return $query->where('dni', $data['dni']??'')
+                            ->where('jobToApply', $data['jobToApply']??'');
+                        });
+                    }
     public function submit1(){
         $this->step++;
     }
@@ -132,6 +144,7 @@ class Formulario extends Component
 
     public function save(){
         $this->validate();
+
         $candidate = new Candidate;
         $candidate->fullName = $this->fullName;
         $candidate->dni = $this->dni;

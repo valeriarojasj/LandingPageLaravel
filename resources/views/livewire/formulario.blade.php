@@ -6,7 +6,7 @@
           <div>
             <!-- FULLNAME -->
             <fieldset>
-              <div class="divFullName">
+              <div class="mt-3 divFullName">
                 <label for="fullName">Nombre y Apellido</label>
                 <input  type="text" class="form-control applyInput" placeholder="" wire:model.defer='fullName'>
                 @error('fullName') <span class="error">{{ $message }}</span> @enderror
@@ -14,7 +14,7 @@
             </fieldset>
             <!-- DNI -->
             <fieldset>
-              <div class="divDni">
+              <div class="mt-3 divDni">
                 <label for="dni">DNI</label>
                 <input  type="text" class="form-control applyInput"placeholder="" wire:model.defer='dni'>
                 @error('dni') <span class="error">{{ $message }}</span> @enderror
@@ -22,7 +22,7 @@
             </fieldset>
             <!--BDAY-->
             <fieldset>
-              <div class="divBday">
+              <div class="mt-3 divBday">
                 <label  for="bday">Fecha de Nacimiento</label>
                 <input type="date" class="form-control date"  wire:model.defer='bday'>
                 @error('bday') <span class="error">{{ $message }}</span> @enderror
@@ -77,7 +77,7 @@
 
             <!-- PROVINCE -->
             <fieldset>
-              <div id="divProvince" class="divProvince" style="display:none;">
+              <div id="divProvince" class="mt-3 divProvince" style="display:none;">
                 <label for="province">Provincia</label>
                 <select  id="province" class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
                   <option value=""> Selecciona la provincia donde vives...</option>
@@ -87,7 +87,7 @@
             </fieldset> 
             <!-- CITY -->
             <fieldset>
-              <div id="divCity" class="divCity" style="display:none;">
+              <div id="divCity" class="mt-3 divCity" style="display:none;">
                 <label for="city">Localidad</label>
                 <select id="city" class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
                   <option selected="{{false}}" value="">Selecciona la ciudad donde vives...</option>
@@ -166,7 +166,7 @@
               @if($job->open_question_1)
                 <div class="mt-3 divOpenQ1">
                   <div class="mt-1">
-                    <legend class="text-base font-medium text-gray-900">
+                    <legend class="text-base font-medium" style="color:#7c7c7c;">
                       {{$job->open_question_1}}
                     </legend>
                   </div>
@@ -180,7 +180,7 @@
               @if($job->open_question_2)
                 <div class="mt-1 divOpenQ1">
                   <div class="mt-1">
-                    <legend id="openQuestion2"  class="text-base font-medium text-gray-900">
+                    <legend id="openQuestion2"  class="text-base font-medium" style="color:#7c7c7c;">
                       {{$job->open_question_2}}
                     </legend>
                   </div>
@@ -198,7 +198,7 @@
             <fieldset>
               @if($job->multiple_choice_question_1)
                 <div class="block divMCQ1">
-                  <span id="multiple_choice_question_1" class="text-gray-700">
+                  <span id="multiple_choice_question_1"  style="color:#7c7c7c;">
                     {{$job->multiple_choice_question_1}}
                   </span>
                   @if($job->multiple_choice1_option_1)
@@ -237,8 +237,8 @@
             <!-- MULTIPLE CHOICE QUESTION 2 -->
             <fieldset>
               @if($job->multiple_choice_question_2)
-                <div class="block divMCQ2">
-                  <span id="multiple_choice_question_2" class="text-gray-700">
+                <div class="block mt-2 mt-4 divMCQ2">
+                  <span id="multiple_choice_question_2"  style="color:#7c7c7c;">
                     {{$job->multiple_choice_question_2}}
                   </span>
                   @if($job->multiple_choice2_option_1)
@@ -281,7 +281,7 @@
             <!-- PREGUNTA DE CHECKBOX 1 -->
             <fieldset>
               @if($job->checkbox_question_1)
-                <legend id="checkbox_question_1"  class="text-base font-medium text-gray-900">
+                <legend id="checkbox_question_1"  class="text-base font-medium" style="color:#7c7c7c;">
                   {{$job->checkbox_question_1}}
                 </legend>
                 <div class="mt-4 space-y-4">
@@ -291,19 +291,19 @@
                         <input id="checkBox1AOp1" wire:model.defer='checkBox1AOp1' name="checkBox1AOp1" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_1}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkbox1_option_1" class="font-medium text-gray-700">
+                        <label for="checkbox1_option_1" class="font-medium" style="color:#7c7c7c;">
                           {{$job->checkbox1_option_1}}
                         </label>
                       </div>
                     </div>
                   @endif
                   @if($job->checkbox1_option_2)
-                    <div class="flex items-start">
+                    <div class="flex items-start mt-4 ">
                       <div class="flex items-center h-5">
                         <input id="checkBox1AOp2" name="checkBox1AOp2"  wire:model.defer='checkBox1AOp2' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_2}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkBox1AOp2" class="font-medium text-gray-700">
+                        <label for="checkBox1AOp2" class="font-medium" style="color:#7c7c7c;">
                           {{$job->checkbox1_option_2}}
                         </label>
                       </div>
@@ -315,7 +315,7 @@
                         <input id="checkBox1AOp3" name="checkBox1AOp3" wire:model.defer='checkBox1AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_3}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkBox1AOp3" class="font-medium text-gray-700">
+                        <label for="checkBox1AOp3" class="font-medium " style="color:#7c7c7c;">
                           {{$job->checkbox1_option_3}}
                         </label>
                       </div>
@@ -327,7 +327,7 @@
             <!-- PREGUNTA DE CHECKBOX 2 -->
             <fieldset>
               @if($job->checkbox_question_2)
-                <legend id="checkbox_question_2"  class="text-base font-medium text-gray-900">
+                <legend id="checkbox_question_2"  class="text-base font-medium" style="color:#7c7c7c;">
                   {{$job->checkbox_question_2}}
                 </legend>
                 <div class="mt-4 space-y-4">
@@ -337,7 +337,7 @@
                         <input id="checkBox2AOp1" wire:model.defer='checkBox2AOp1' name="checkBox2AOp1" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_1}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkBox2AOp1" class="font-medium text-gray-700">
+                        <label for="checkBox2AOp1" class="font-medium" style="color:#7c7c7c;">
                           {{$job->checkbox2_option_1}}
                         </label>
                       </div>
@@ -349,7 +349,7 @@
                         <input id="checkBox2AOp2" name="checkBox2AOp2"  wire:model.defer='checkBox2AOp2'type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_2}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkBox2AOp2" class="font-medium text-gray-700">
+                        <label for="checkBox2AOp2" class="font-medium" style="color:#7c7c7c;">
                           {{$job->checkbox2_option_2}}
                         </label>
                       </div>
@@ -361,7 +361,7 @@
                         <input id="checkBox2AOp3" name="checkBox2AOp3" wire:model.defer='checkBox2AOp3' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox2_option_3}}">
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="checkBox2AOp3" class="font-medium text-gray-700">
+                        <label for="checkBox2AOp3" class="font-medium" style="color:#7c7c7c;">
                           {{$job->checkbox2_option_3}}
                         </label>
                       </div>
