@@ -53,7 +53,7 @@ class JobOpenings extends Component
     public function render()
     {
         
-        $jobOpenings= JobOpening::latest('id')->paginate('10');
+        $jobOpenings= JobOpening::latest('id')->paginate('5');
         $carousels=CarouselController::getAllCarousels();
         
 
@@ -63,7 +63,7 @@ class JobOpenings extends Component
     
     public function showJobOpenings()
     {
-        $jobOpenings= JobOpening::latest('id')->paginate('10');        
+        $jobOpenings= JobOpening::latest('id')->paginate('5');        
         return view('index',compact('jobOpenings'));
     }
 
@@ -116,6 +116,6 @@ class JobOpenings extends Component
        
     }
     public function reload(){
-        $jobOpenings= JobOpening::latest('id')->paginate('10');
+        $jobOpenings= JobOpening::latest('id')->paginate('5');
     }
 }
