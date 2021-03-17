@@ -13,6 +13,7 @@ class JobOpening extends Model
         'job_title',
         'company_type',
         'job_location',
+        'job_link',
         'open_question_1',
         'open_question_2',
         'multiple_choice_question_1',

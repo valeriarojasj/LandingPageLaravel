@@ -122,15 +122,27 @@
           <div class="review">
             <div class="mb-3 card card-block d-flex justify-content-center align-items-center" >
               <img class ="imgReviewComments" src="img/icono-comentario.png" width="120px" alt="">
-              <div class="row h-100 no-gutters d-flex align-items-center" >
-                <div class="col-md-4 d-flex align-items-center">
-                  <img src="img/mujer.png" class="card-img"  style="width: 80%;" alt="...">
-                </div>
-                <div class="col-md-8 d-flex align-items-center">
-                  <div class="card-body d-flex"> 
-                    <p class="text-justify card-text">"...Realmente <strong>las felicito por el profesionalismo y humanidad </strong>
-                      que le ponen a lo que hacen, uno se siente <strong>persona y no un recurso</strong>"
-                    </p>
+              <div class="mt-5 row h-100 no-gutters d-flex align-items-center" >
+               
+                <div class="col-md-12 d-flex align-items-center">
+                  <div id="carouselComments" class="mt-3 carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <p>
+                          "Comenzando nuevos desafíos gracias a las chicas de <strong>FYG Consultoría.</strong> Este post es simplemente para eso, darles las gracias por estar al pie del cañón, ser super profesionales, estar atentas y entender que del otro lado de la búsqueda... hay alguien que espera. <strong>#graciastotales</strong>"
+                        </p>
+                      </div>
+                      <div class="carousel-item">
+                        <p>
+                          "...Realmente <strong>las felicito por el profesionalismo y humanidad</strong> que le ponen a lo que hacen, uno se siente <strong>persona</strong> y <strong>no un recurso</strong>".
+                        </p>
+                        </div>
+                      <div class="carousel-item">
+                        <p>
+                          "<strong>Muchas gracias</strong> por el aviso. Solo me queda remarcar lo que mencioné antes: <strong>Muy profesional tu gestión dando feedback en todo momento</strong> y dejando todo muy claro"
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

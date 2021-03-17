@@ -18,6 +18,7 @@ class CreateJobOpeningsTable extends Migration
             $table->string('job_title');
             $table->string('company_type');
             $table->string('job_location');
+            $table->string('job_link')->nullable();
             $table->string('open_question_1')->nullable();
             $table->string('open_question_2')->nullable();
             $table->string('multiple_choice_question_1')->nullable();

@@ -13,6 +13,7 @@ class JobOpeningRow extends Component
     public $job_title;
     public $company_type;
     public $job_location;
+    public $job_link;
     public $open_question_1;
     public $open_question_2;
     public $multiple_choice_question_1;
@@ -66,6 +67,7 @@ class JobOpeningRow extends Component
     $this->job_title=$this->objeto->job_title;
     $this->company_type=$this->objeto->company_type;
     $this->job_location=$this->objeto->job_location;
+    $this->job_link=$this->objeto->job_link;
     $this->open_question_1=$this->objeto->open_question_1;
     $this->open_question_2=$this->objeto->open_question_2;
     $this->multiple_choice_question_1=$this->objeto->multiple_choice_question_1;
@@ -114,6 +116,7 @@ class JobOpeningRow extends Component
         $this->job_title=$this->objeto->job_title;
         $this->company_type=$this->objeto->company_type;
         $this->job_location=$this->objeto->job_location;
+        $this->job_link=$this->objeto->job_link;
         $this->open_question_1=$this->objeto->open_question_1;
         $this->open_question_2=$this->objeto->open_question_2;
         $this->multiple_choice_question_1=$this->objeto->multiple_choice_question_1;
@@ -145,6 +148,7 @@ class JobOpeningRow extends Component
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,
+            'job_link' => $this->job_link,
             'open_question_1' => $this->open_question_1,
             'open_question_2' => $this->open_question_2,
             'multiple_choice_question_1' => $this->multiple_choice_question_1,
@@ -197,6 +201,7 @@ class JobOpeningRow extends Component
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,
+            'job_link' => $this->job_link,
             'open_question_1' => $this->open_question_1,
             'open_question_2' => $this->open_question_2,
             'multiple_choice_question_1' => $this->multiple_choice_question_1,

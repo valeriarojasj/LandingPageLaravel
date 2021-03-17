@@ -18,9 +18,12 @@
                                 <p class="mt-2 mb-1 leading-tight empresaBusqueda">{{$job->company_type}}</p>
                                 <span class="lugarBusqueda">{{$job->job_location}}</span>
                                 <br>
+                                
+                                <a href={{$job->job_link}}> ...Ver más</a>
+                                <br>
                                 <small>
                                     @if (($job->updated_at->diffInHours(now()))<24)
-                                        @if (($job->updated_at->diffInHours(now()))<1)
+                                        @if (($job->updated_at->diffInHours(now()))<=1)
                                             Hace {{$job->updated_at->diffInMinutes(now())}} minutos
                                         @else
                                             Hace {{$job->updated_at->diffInHours(now())}} horas
@@ -29,6 +32,8 @@
                                         Hace {{$job->updated_at->diffInDays(now())}} días
                                     @endif
                                 </small>
+                                
+                              
                             </div>
                             <div class="job-card-div-btn">
                                 <button wire:key="button-{{ $job->id }}" wire:click.stop="setSelectedJob({{$job->id}})" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal hover:border-indigo-500 hover:text-indigo-500" >

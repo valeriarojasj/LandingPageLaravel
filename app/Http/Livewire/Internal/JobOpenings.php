@@ -17,6 +17,7 @@ class JobOpenings extends Component
     $job_title,
     $company_type,
     $job_location,
+    $job_link,
     $open_question_1,
     $open_question_2,
     $multiple_choice_question_1,
@@ -76,6 +77,7 @@ class JobOpenings extends Component
              $this->job_title = $jobOpening->job_title;
              $this->company_type = $jobOpening->company_type;
              $this->job_location = $jobOpening->job_location;
+             $this->job_link = $jobOpening->job_link;
              $this->open_question_1 = $jobOpening->open_question_1;
              $this->open_question_2 = $jobOpening->open_question_2;
              $this->multiple_choice_question_1 = $jobOpening->multiple_choice_question_1;

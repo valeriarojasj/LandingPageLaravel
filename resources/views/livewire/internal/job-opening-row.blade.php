@@ -1,5 +1,5 @@
 <tr data-id='{{$uuid}}' style="height:auto;">
-    <td class='first-fixed-col bg-white px-6 py-4 text-sm font-medium text-right align-middle hard_left iconitos whitespace-nowrap'>
+    <td class='px-6 py-4 text-sm font-medium text-right align-middle bg-white first-fixed-col hard_left iconitos whitespace-nowrap'>
         <div class="px-2 btnDiv">
             @if($nuevoObjeto)
                 <button  wire:click="store()" class="w-full font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button button-small edit">
@@ -38,6 +38,9 @@
     </td>
     <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="job_location">
         <textarea {{ $nuevoObjeto||$editable? '' : 'disabled' }}  class="inline-flex text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}"  placeholder="@error('job_location'){{ $message }}@enderror" name="textarea" wire:model.defer='job_location' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+    </td>
+    <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="job_link">
+        <textarea {{ $nuevoObjeto||$editable? '' : 'disabled' }}  class="inline-flex text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}"  placeholder="@error('job_link'){{ $message }}@enderror" name="textarea" wire:model.defer='job_link' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
     <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="open_question_1">
         <textarea {{ $nuevoObjeto||$editable? '' : 'disabled' }}  class="inline-flex text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}"  name="textarea" wire:model.defer='open_question_1' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>

@@ -131,7 +131,7 @@
                 <table class="table mb-0" id="editableTable">
                   <thead class="bg-blue-100">
                     <tr>
-                      <th scope="col" class="bg-blue first-fixed-col px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top hard_left">
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue first-fixed-col hard_left">
                         Opciones de Edición
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
@@ -145,6 +145,9 @@
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                         Lugar de la búsqueda
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        Link de la búsqueda
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                         Pregunta Abierta 1
