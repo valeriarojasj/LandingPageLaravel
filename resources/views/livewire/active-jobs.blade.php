@@ -18,9 +18,10 @@
                                 <p class="mt-2 mb-1 leading-tight empresaBusqueda">{{$job->company_type}}</p>
                                 <span class="lugarBusqueda">{{$job->job_location}}</span>
                                 <br>
-                                
-                                <a href={{$job->job_link}}> ...Ver más</a>
+                                @if (($job->job_link))
+                                <a href={{$job->job_link}} class="text-sm"><b> ...Ver más</b></a>
                                 <br>
+                                @endif
                                 <small>
                                     @if (($job->updated_at->diffInHours(now()))<24)
                                         @if (($job->updated_at->diffInHours(now()))<=1)
