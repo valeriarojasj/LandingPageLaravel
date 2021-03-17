@@ -15,6 +15,7 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamps();
             $table->string('fullName');
             $table->string('dni');
             $table->date('birthday');
@@ -37,7 +38,7 @@ class CreateCandidatesTable extends Migration
             $table->string('checkbox_2_a_op_1')->nullable($value = true);
             $table->string('checkbox_2_a_op_2')->nullable($value = true);
             $table->string('checkbox_2_a_op_3')->nullable($value = true);
-            $table->timestamps();
+            
         });
     }
 

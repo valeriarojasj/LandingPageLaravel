@@ -25,6 +25,7 @@
                                     <thead class="bg-blue-100">
                                         <tr>
                                             <th style=" border-bottom:2px solid #2b6cb0 !important;" >ID</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >Búsqueda</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Nombre completo</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >DNI</th>
@@ -37,12 +38,13 @@
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Nivel Educativo</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Status Estudios</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Título Universitario</th>
-                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >ID</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >Búsqueda</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Nombre completo</th>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >DNI</th>
@@ -55,7 +57,7 @@
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Nivel Educativo</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Status Estudios</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Título Universitario</th>
-                                            <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                            
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -104,6 +106,7 @@
                         },
                         columns : [
                             {data:'id'},
+                            {data:'created_at'},
                             {data:'job_to_apply'},
                             {data:'fullName'},
                             {data:'dni'},
@@ -115,8 +118,8 @@
                             {data:'city'},
                             {data:'education_level'},
                             {data:'education_status'},
-                            {data:'career'},
-                            {data:'created_at'}
+                            {data:'career'}
+                            
                         ],
                         responsive: true,
                         autoWidth : false,

@@ -37,7 +37,7 @@ class UserRow extends Component
         $user->status = $this->status;
         $user->removeRole($this->originalRole);
         $user->assignRole($this->role);
-        $user->updated_at = date('Y-m-d H:i:s');
+        $user->updated_at = date('d-m-Y H:i:s');
         $user->save();
         $this->updateUser();
         $this->editable=false;

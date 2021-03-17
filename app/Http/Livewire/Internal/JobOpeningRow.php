@@ -85,9 +85,9 @@ class JobOpeningRow extends Component
     $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
     $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
     if(!$this->objeto->created_at){$this->created_at="";}else{
-    $this->created_at=$this->objeto->created_at->format('Y-m-d H:i:s');}
+    $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');}
     if(!$this->objeto->updated_at){$this->updated_at="";}else{
-    $this->updated_at=$this->objeto->updated_at->format('Y-m-d H:i:s');}
+    $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');}
     }
     public function ver(){
         dd($this->objeto);
@@ -132,8 +132,8 @@ class JobOpeningRow extends Component
         $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
         $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
-        $this->created_at=$this->objeto->created_at->format('Y-m-d H:i:s');
-        $this->updated_at=$this->objeto->updated_at->format('Y-m-d H:i:s');
+        $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');
+        $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
     }
     public function update($id)

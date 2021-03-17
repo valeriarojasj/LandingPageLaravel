@@ -14,6 +14,7 @@ class CandidateController extends Controller
 
     private $labels = [
         "id" => "ID",
+        "created_at" => "Fecha de Aplicación",
         "job_to_apply" => "Búsqueda",
         "fullName" => "Nombre Completo",
         "dni" => "DNI",
@@ -25,8 +26,8 @@ class CandidateController extends Controller
         "city" => "Ciudad",
         "education_level" => "Nivel Educativo",
         "education_status" => "Status Estudios",
-        "career" => "Título Universitario",
-        "created_at" => "Fecha de Aplicación"
+        "career" => "Título Universitario"
+        
     ];
     private $selectables = [
         "job_to_apply" => "Búsqueda",
@@ -36,6 +37,7 @@ class CandidateController extends Controller
     ];
     private $orden = [
         "id",
+        "created_at",
         "job_to_apply",
         "fullName",
         "dni",
@@ -47,8 +49,8 @@ class CandidateController extends Controller
         "city",
         "education_level",
         "education_status",
-        "career",
-        "created_at"
+        "career"
+        
     ];
     
     public function getCandidates(Request $request){
@@ -133,6 +135,7 @@ class CandidateController extends Controller
         foreach($records as $record){
             $results[] = array(
                 "id" => $record->id,
+                "created_at" => $record->created_at = date('d-m-Y H:i:s'),
                 "fullName" => $record->fullName,
                 "dni" => $record->dni,
                 "birthday" => $record->birthday,
@@ -144,8 +147,8 @@ class CandidateController extends Controller
                 "education_level" => $record->education_level,
                 "education_status" => $record->education_status,
                 "career" => $record->career,
-                "job_to_apply" => $record->job_to_apply,
-                "created_at" => $record->created_at
+                "job_to_apply" => $record->job_to_apply
+                
             );
         }
         return $results;
@@ -194,6 +197,7 @@ class CandidateController extends Controller
         }
         return $records->orderby($columnName, $typeOfOrder)->get([
             'id as ID',
+            'created_at as Fecha_de_Aplicacion',
             'job_to_apply as Busqueda',
             'fullName as Nombre_Completo',
             'dni as DNI',
@@ -205,8 +209,8 @@ class CandidateController extends Controller
             'city as Ciudad',
             'education_level as Nivel_Educativo',
             'education_status as Status_Estudios',
-            'career as Titulo_Universitario',
-            'created_at as Fecha_de_Aplicacion'
+            'career as Titulo_Universitario'
+            
             ])
         ->toArray();
     }
