@@ -38,7 +38,16 @@
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Nivel Educativo</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Status Estudios</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Título Universitario</th>
-                                            
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important; ">Respuesta Abierta 1</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Abierta 2</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Selección 1</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Selección 2</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 1</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 2</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 3</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 1</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 2</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th> 
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -57,6 +66,16 @@
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Nivel Educativo</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Status Estudios</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Título Universitario</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Abierta 1</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Abierta 2</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Selección 1</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Selección 2</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 1</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 2</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 3</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 1</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 2</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th> 
                                             
                                         </tr>
                                     </tfoot>
@@ -104,6 +123,7 @@
                             /*var response = settings.json;
                             console.log(response);*/
                         },
+                        "order": [[ 0, 'desc' ]],
                         columns : [
                             {data:'id'},
                             {data:'created_at'},
@@ -118,7 +138,17 @@
                             {data:'city'},
                             {data:'education_level'},
                             {data:'education_status'},
-                            {data:'career'}
+                            {data:'career'},
+                            {data:'open_answer_1'},
+                            {data:'open_answer_2'},
+                            {data:'multiple_choice_1_a'},
+                            {data:'multiple_choice_2_a'},
+                            {data:'checkbox_1_a_op_1'},
+                            {data:'checkbox_1_a_op_2'},
+                            {data:'checkbox_1_a_op_3'},
+                            {data:'checkbox_2_a_op_1'},
+                            {data:'checkbox_2_a_op_2'},
+                            {data:'checkbox_2_a_op_3'},
                             
                         ],
                         responsive: true,

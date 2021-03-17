@@ -26,15 +26,26 @@ class CandidateController extends Controller
         "city" => "Ciudad",
         "education_level" => "Nivel Educativo",
         "education_status" => "Status Estudios",
-        "career" => "Título Universitario"
-        
+        "career" => "Título Universitario",
+        "open_answer_1" => "Respuesta Abierta 1",
+        "open_answer_2" => "Respuesta Abierta 2",
+        "multiple_choice_1_a" => "Respuesta Selección 1",
+        "multiple_choice_2_a" => "Respuesta Selección 2",
+        "checkbox_1_a_op_1" => "Respuesta Checkbox 1 Opcion 1",
+        "checkbox_1_a_op_2" => "Respuesta Checkbox 1 Opcion 2",
+        "checkbox_1_a_op_3" => "Respuesta Checkbox 1 Opcion 3",
+        "checkbox_2_a_op_1" => "Respuesta Checkbox 2 Opcion 1",
+        "checkbox_2_a_op_2" => "Respuesta Checkbox 2 Opcion 2",
+        "checkbox_2_a_op_3" => "Respuesta Checkbox 2 Opcion 3"
     ];
+
     private $selectables = [
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
         "city" => "Ciudad"
     ];
+
     private $orden = [
         "id",
         "created_at",
@@ -49,7 +60,17 @@ class CandidateController extends Controller
         "city",
         "education_level",
         "education_status",
-        "career"
+        "career",
+        "open_answer_1",
+        "open_answer_2",
+        "multiple_choice_1_a",
+        "multiple_choice_2_a",
+        "checkbox_1_a_op_1",
+        "checkbox_1_a_op_2",
+        "checkbox_1_a_op_3",
+        "checkbox_2_a_op_1",
+        "checkbox_2_a_op_2",
+        "checkbox_2_a_op_3"
         
     ];
     
@@ -147,8 +168,17 @@ class CandidateController extends Controller
                 "education_level" => $record->education_level,
                 "education_status" => $record->education_status,
                 "career" => $record->career,
-                "job_to_apply" => $record->job_to_apply
-                
+                "job_to_apply" => $record->job_to_apply,
+                "open_answer_1"=> $record->open_answer_1,
+                "open_answer_2"=> $record->open_answer_2,
+                "multiple_choice_1_a"=> $record->multiple_choice_1_a,
+                "multiple_choice_2_a"=> $record->multiple_choice_2_a,
+                "checkbox_1_a_op_1"=> $record->checkbox_1_a_op_1,
+                "checkbox_1_a_op_2"=> $record->checkbox_1_a_op_2,
+                "checkbox_1_a_op_3"=> $record->checkbox_1_a_op_3,
+                "checkbox_2_a_op_1"=> $record->checkbox_2_a_op_1,
+                "checkbox_2_a_op_2"=> $record->checkbox_2_a_op_2,
+                "checkbox_2_a_op_3"=> $record->checkbox_2_a_op_3,     
             );
         }
         return $results;
@@ -209,7 +239,18 @@ class CandidateController extends Controller
             'city as Ciudad',
             'education_level as Nivel_Educativo',
             'education_status as Status_Estudios',
-            'career as Titulo_Universitario'
+            'career as Titulo_Universitario',
+            'open_answer_1 as Respuesta_Abierta_1',
+            'open_answer_2 as Respuesta_Abierta_2',
+            'multiple_choice_1_a as Respuesta_Selección_1',
+            'multiple_choice_2_a as Respuesta_Selección_2',
+            'checkbox_1_a_op_1 as Respuesta_Checkbox_1_Opcion_1',
+            'checkbox_1_a_op_2 as Respuesta_Checkbox_1_Opcion_2',
+            'checkbox_1_a_op_3 as Respuesta_Checkbox_1_Opcion_3',
+            'checkbox_2_a_op_1 as Respuesta_Checkbox_2_Opcion_1',
+            'checkbox_2_a_op_2 as Respuesta_Checkbox_2_Opcion_2',
+            'checkbox_2_a_op_3 as Respuesta_Checkbox_2_Opcion_3',
+
             
             ])
         ->toArray();
