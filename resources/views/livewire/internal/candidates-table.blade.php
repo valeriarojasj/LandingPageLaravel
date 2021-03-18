@@ -12,11 +12,10 @@
                 </h1>
                 <!--Card-->
                 <div class="d-flex justify-content-center">
-                <div class="text-blue-700 spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <div class="text-blue-700 spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
-                </div>
-                
                 <div id='recipients' class="mt-6 bg-white rounded lg:mt-0">
                     <div class="mx-6 overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
                         <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
@@ -75,8 +74,7 @@
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 3</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 1</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 2</th>
-                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th> 
-                                            
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th>   
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -149,7 +147,6 @@
                             {data:'checkbox_2_a_op_1'},
                             {data:'checkbox_2_a_op_2'},
                             {data:'checkbox_2_a_op_3'},
-                            
                         ],
                         responsive: true,
                         autoWidth : false,
@@ -222,11 +219,8 @@
                                    }else{
                                     select.append( '<option value="null">Sin contestar</option>' )
                                    }
-                                   
                                };
-                                }
-                                
-                               
+                                }    
                           } );
                      }
                     });
