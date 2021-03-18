@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApplyController;
-use App\Http\Controllers\CandidateController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ApplicationSubmittedMailable;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,13 @@ use App\Http\Controllers\CandidateController;
 
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('application-submitted', function () {
+
+    $correo = new ApplicationSubmittedMailable;
+    Mail::to('valeriarojasj@gmail.com')->send($correo);
+    return "Mensaje enviado";
 });
 
 
