@@ -21,7 +21,9 @@ class Formulario extends Component
     public $educationLevel;
     public $educationStatus;
     public $career;
+    public $job_id;
     public $jobToApply;
+    
     //nuevos campos
     public $openAnswer1;
     public $openAnswer2;
@@ -82,14 +84,14 @@ class Formulario extends Component
         $this->$action();
     }
 
-    protected function validator(array $data)
-    {
-        $uniqueRule =  Rule::unique('candidates')->where(function ($query) use 
-                        ($data){
-                            return $query->where('dni', $data['dni']??'')
-                            ->where('jobToApply', $data['jobToApply']??'');
-                        });
-                    }
+    // protected function validator(array $data)
+    // {
+    //     $uniqueRule =  Rule::unique('candidates')->where(function ($query) use 
+    //                     ($data){
+    //                         return $query->where('dni', $data['dni']??'')
+    //                         ->where('jobToApply', $data['jobToApply']??'');
+    //                     });
+    //                 }
     public function submit1(){
         $this->step++;
     }
@@ -157,6 +159,7 @@ class Formulario extends Component
         $candidate->education_level = $this->educationLevel;
         $candidate->education_status= $this->educationStatus;
         $candidate->career = $this->career;
+        $candidate->job_id = $this->job_id;
         $candidate->job_to_apply = $this->jobToApply;
         $candidate->open_answer_1 = $this->openAnswer1;
         $candidate->open_answer_2 = $this->openAnswer2;
@@ -185,6 +188,7 @@ class Formulario extends Component
         $this->educationLevel='';
         $this->educationStatus='';
         $this->career='';
+        $this->job_id='';
         $this->jobToApply='';
         $this->openAnswer1='';
         $this->openAnswer2='';
@@ -207,7 +211,9 @@ class Formulario extends Component
     }
     public function updateFormulario(JobOpening $job){
         $this->job=$job;
+        $this->job_id = $job->job_id;
         $this->jobToApply = $job->job_title;
+        
         $this->dispatchBrowserEvent('toggle-modal');
     }
 }

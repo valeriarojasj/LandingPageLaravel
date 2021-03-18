@@ -25,6 +25,7 @@
                                         <tr>
                                             <th style=" border-bottom:2px solid #2b6cb0 !important;" >ID</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                            <th style="border-top:2px solid #2b6cb0 !important;" >ID de la Búsqueda</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >Búsqueda</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Nombre completo</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >DNI</th>
@@ -53,6 +54,7 @@
                                         <tr>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >ID</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
+                                            <th style="border-top:2px solid #2b6cb0 !important;" >ID de la Búsqueda</th>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >Búsqueda</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Nombre completo</th>
                                             <th style="border-top:2px solid #2b6cb0 !important;" >DNI</th>
@@ -88,6 +90,7 @@
             <!-- jQuery -->
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
             <!--Datatables -->
+            
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-flash-1.6.4/b-html5-1.6.4/b-print-1.6.4/datatables.min.js"></script>
@@ -98,7 +101,7 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-            
+
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
             <script type="text/javascript" src="{{asset('js/fileSaver.js')}}"></script>

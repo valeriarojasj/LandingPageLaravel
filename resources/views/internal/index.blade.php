@@ -10,6 +10,7 @@
     <!--Button Extension Datatables CSS-->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
     <!--Button Extension Datatables CSS-->
+
     <!-- Aca termina Datatables -->
     </x-slot>
     <!-- <x-slot name="header">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
+use App\Models\JobOpening;
 
 use App\Exports\CandidateExport;
 use App\Imports\CandidateImport;
@@ -49,6 +50,7 @@ class CandidateController extends Controller
     private $orden = [
         "id",
         "created_at",
+        "job_id",
         "job_to_apply",
         "fullName",
         "dni",
@@ -168,6 +170,7 @@ class CandidateController extends Controller
                 "education_level" => $record->education_level,
                 "education_status" => $record->education_status,
                 "career" => $record->career,
+                "job_id" => $record->job_id,
                 "job_to_apply" => $record->job_to_apply,
                 "open_answer_1"=> $record->open_answer_1,
                 "open_answer_2"=> $record->open_answer_2,
@@ -228,6 +231,7 @@ class CandidateController extends Controller
         return $records->orderby($columnName, $typeOfOrder)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
+            'job_id as ID_de_la_Busqueda',
             'job_to_apply as Busqueda',
             'fullName as Nombre_Completo',
             'dni as DNI',

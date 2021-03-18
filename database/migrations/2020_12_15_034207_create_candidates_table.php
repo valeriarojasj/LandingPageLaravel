@@ -38,6 +38,8 @@ class CreateCandidatesTable extends Migration
             $table->string('checkbox_2_a_op_1')->nullable($value = true);
             $table->string('checkbox_2_a_op_2')->nullable($value = true);
             $table->string('checkbox_2_a_op_3')->nullable($value = true);
+
+          
             
         });
     }
