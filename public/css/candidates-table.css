@@ -60,6 +60,12 @@ table.dataTable tbody tr {
     border-color: #d2d6dc;
 }
 
+#example tbody tr td:nth-child(15) {
+    min-width:300px !important;
+  }
+  #example tbody tr td:nth-child(16) {
+    min-width:300px !important;
+  }
 
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button.next:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button.previous:not(.disabled), .dataTables_wrapper .dataTables_paginate .paginate_button:not(.disabled), button.dt-button {

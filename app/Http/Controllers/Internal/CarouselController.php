@@ -15,20 +15,14 @@ class CarouselController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('internal.carousel.index');
-    }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('internal.carousel.create');
-    }
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -36,10 +30,7 @@ class CarouselController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-       
-    }
+ 
 
     /**
      * Display the specified resource.
@@ -47,10 +38,7 @@ class CarouselController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Carousel $carousel)
-    {
-        return view('internal.carousel.show', compact('carousel'));
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -108,8 +96,5 @@ class CarouselController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carousel $carousel)
-    {
-        //
-    }
+ 
 }

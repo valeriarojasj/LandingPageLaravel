@@ -30,10 +30,12 @@
         </td>
         <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="status" >
             @if(!$editable)
+            <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($status=='inactivo') ? 'text-pink-800 bg-pink-100':'text-green-800 bg-green-100'}}">
                 {{$status}} 
+            </span>
             @else
                 <select wire:model='status'>
-                    <option value="activo">
+                    <option  value="activo">
                         activo
                     </option>
                     <option value="inactivo">
@@ -44,7 +46,9 @@
         </td>
         <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="role" >
             @if(!$editable)
+            <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($role=='User') ? 'text-blue-800 bg-blue-100':'text-green-800 bg-green-100'}}">
                 {{$role}}
+            </span>
             @else
                 <select wire:model='role'>
                     <option value="Admin">

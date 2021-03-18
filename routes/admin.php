@@ -18,7 +18,7 @@ Route::resource('users',UserController::class,
     ]
 ])->only(['index','create','store']);
 Route::resource('subscriptions',SubscriptionController::class)->names('internal.subscriptions')->only(['index']);
-Route::resource('carousel',CarouselController::class)->names('internal.carousel');
+Route::resource('carousel',CarouselController::class)->names('internal.carousel')->only(['edit','update']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/candidatos', [CandidateController::class, 'getCandidates'])->name('candidatos');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
