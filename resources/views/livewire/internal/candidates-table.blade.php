@@ -25,7 +25,7 @@
                                         <tr>
                                             <th style=" border-bottom:2px solid #2b6cb0 !important;" >ID</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Aplicación</th>
-                                            <th style="border-top:2px solid #2b6cb0 !important;" >ID de la Búsqueda</th>
+                                            <th style="border-bottom:2px solid #2b6cb0 !important" >ID de la Búsqueda</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >Búsqueda</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Nombre completo</th>
                                             <th style="border-bottom:2px solid #2b6cb0 !important;" >DNI</th>
@@ -128,6 +128,7 @@
                         columns : [
                             {data:'id'},
                             {data:'created_at'},
+                            {data:'job_id'},
                             {data:'job_to_apply'},
                             {data:'fullName'},
                             {data:'dni'},

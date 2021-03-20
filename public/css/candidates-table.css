@@ -60,19 +60,27 @@ table.dataTable tbody tr {
     border-color: #d2d6dc;
 }
 
-#example  tr td:nth-child(15) {
+#example  tr td:nth-child(16) {
     min-width:300px !important;
   }
-  #example  tr td:nth-child(16) {
+  #example  tr td:nth-child(17) {
     min-width:300px !important;
   }
 
-  #example tr td:nth-child(15) {
-    min-width:300px !important;
+  #example  tr td:nth-child(4) {
+    min-width:200px !important;
   }
-  #example  tr td:nth-child(16) {
-    min-width:300px !important;
+
+  #example  tr td:nth-child(10) {
+    min-width:200px !important;
   }
+  #example  tr td:nth-child(11) {
+    min-width:200px !important;
+  }
+  #example  tr td:nth-child(12) {
+    min-width:200px !important;
+  }
+
 
   #example_filter{
       display: inline-block;
