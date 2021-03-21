@@ -237,7 +237,7 @@
               </div>
             </div>
           </div>
-          {{ $jobOpenings->appends(request()->input())->links('pagination::tailwind') }}
+          {{$jobOpenings->links()}}
      
         </div>
       </div>
