@@ -14,8 +14,21 @@ class ActiveJobs extends Component
     public $title;
     public $isMount = true;
     public $selectedJob;
+    public $job_opening_id;
     protected $listeners = [
         'setSelectedJob' => 'setSelectedJob'
+    ];
+
+    protected $rules = [
+        'job_opening_id' => 'required|numeric|exists:job_openings,id'
+        
+    ];
+    protected $messages =[
+        'job_opening_id.required' => 'Por favor ingresa un ID.',
+        'job_opening_id.numeric' => 'El ID den=be ser numérico',
+        'job_opening_id.exists' => 'El ID ingresado no existe'
+
+       
     ];
     public function render()
     {
@@ -54,4 +67,19 @@ class ActiveJobs extends Component
         $this->title=$job->job_title;
         $this->emit('updateJob', $job->id);
     }
+
+    public function search(){
+        $this->validate();
+        
+        $job=JobOpening::find($this->job_opening_id);
+        
+        $this->setSelectedJob($job);
+        $this->job_opening_id=null;
+        
+      
+
+    }
+
+
+
 }

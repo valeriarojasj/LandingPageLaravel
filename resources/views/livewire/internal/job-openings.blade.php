@@ -117,25 +117,22 @@
            </div> 
           </div> -->
           <div class="mt-5 row">
-          <h2 style="font-size:1.2rem !important;" class="mb-4 text-center">Listado de búsquedas y preguntas formulario</h2>
-            
-          <div class="col-md-8">
-            <div class="form-inline">
-            <label for="searchJob" class="mr-2">Buscar por: </label>
-            <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
-          </div>
-          </div>
-          
-             <div class="col-md-4 ">
-   
+            <h2 style="font-size:1.2rem !important;" class="mb-4 text-center">Listado de búsquedas y preguntas formulario</h2>
+            <div class="col-md-8">
+              <div class="form-inline">
+                <label for="searchJob" class="mr-2">Buscar por: </label>
+                <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
+              </div>
+            </div>
+            <div class="col-md-4 ">
               <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
                 <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
-                Nuevo Registro
+                 Nuevo Registro
               </button>
             </div>
           </div>
             <!--este div hace que haga scroll la tabla -->
-            <div class="min-w-full py-2 space-between ">
+          <div class="min-w-full py-2 space-between ">
               <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
                 @if($jobOpenings->count())
                 <div class="table-container">

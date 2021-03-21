@@ -1,6 +1,43 @@
 <div> 
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        
+        /* Firefox */
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+        </style>
+
     <div id='success'>
         
+    </div>
+    <div class="mb-4 searchDiv">
+        <div class="md:flex md:items-center">
+            <div class="md:w-2/6">
+                <label for="searchJobToApply" class="ml-auto">Buscar por: </label>
+            </div>
+            <div class="md:w-3/6">
+                <input id="searchJobToApply" wire:model='job_opening_id' type="number" min="1" class="mr-auto form-control" placeholder=" Ingresa el ID de la búsqueda">
+
+            </div>
+            <div>
+                <button  wire:click="search()" class="px-4 py-1 font-bold text-white bg-blue-400 border border-gray-500 btn hover:border-indigo-500 hover:text-indigo-500" >
+                    Buscar
+                </button>
+
+            </div>
+            <div>
+                @error('job_opening_id') <span class="error">{{ $message }}</span> @enderror
+            </div>
+        </div>
+       
+
+
     </div>
     <div class='flex justify-content-around'>
         <div class="flex content-center">
