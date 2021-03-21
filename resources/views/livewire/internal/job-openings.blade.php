@@ -116,20 +116,17 @@
               <input type="file" name="file" class="form-control file">    
            </div> 
           </div> -->
-          <div class="row">
-          <h2 style="font-size:1.2rem !important;" class="text-center">Listado de búsquedas y preguntas formulario</h2>
+          <div class="mt-5 row">
+          <h2 style="font-size:1.2rem !important;" class="mb-4 text-center">Listado de búsquedas y preguntas formulario</h2>
             
-          
-          <div class="col-md-6 ">
-
-          
+          <div class="col-md-8">
             <div class="form-inline">
-              <label for="searchJob" class="mr-2">Búsqueda </label>
-               <input id="searchJob" wire:model='filter' type="text" class="form-control" placeholder="Ingresa ">
-              </div>
-   
-              </div>
-             <div class="col-md-6 ">
+            <label for="searchJob" class="mr-2">Buscar por: </label>
+            <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
+          </div>
+          </div>
+          
+             <div class="col-md-4 ">
    
               <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
                 <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
@@ -140,103 +137,109 @@
             <!--este div hace que haga scroll la tabla -->
             <div class="min-w-full py-2 space-between ">
               <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
-              <div class="table-container">
-                <table class="table mb-0" id="editableTable">
-                  <thead class="bg-blue-100">
-                    <tr>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue first-fixed-col hard_left">
-                        Opciones de Edición
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
-                        ID
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Título de la búsqueda
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Tipo de empresa
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Lugar de la búsqueda
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Link de la búsqueda
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta Abierta 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta Abierta 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta de Selección Múltiple 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM1 Opción 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM1 Opción 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM1 Opción 3
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta de Selección Múltiple 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM2 Opción 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM2 Opción 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        SM2 Opción 3
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta de Checkbox 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        CB1 Opción 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        CB1 Opción 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        cb1 Opción 3
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Pregunta de Checkbox 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        CB2 Opción 1
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        CB2 Opción 2
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        CB2 Opción 3
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Fecha de Creación
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        Fecha de Actualización
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                  
-                    @if($showRow)
-                      <livewire:internal.job-opening-row :objeto="$newJob" :nuevoObjeto='true' />
-                    @endif
-                    @foreach($jobOpenings as $jobOpening)
-                      <livewire:internal.job-opening-row :key="$jobOpening->id" :objeto="$jobOpening"/>
-                    @endforeach
-                  </tbody>
-                </table>
+                @if($jobOpenings->count())
+                <div class="table-container">
+                  <table class="table mb-0" id="editableTable">
+                    <thead class="bg-blue-100">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top bg-blue first-fixed-col hard_left">
+                          Opciones de Edición
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
+                          ID
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Título de la búsqueda
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Tipo de empresa
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Lugar de la búsqueda
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Link de la búsqueda
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta Abierta 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta Abierta 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta de Selección Múltiple 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM1 Opción 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM1 Opción 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM1 Opción 3
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta de Selección Múltiple 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM2 Opción 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM2 Opción 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          SM2 Opción 3
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta de Checkbox 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          CB1 Opción 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          CB1 Opción 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          cb1 Opción 3
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Pregunta de Checkbox 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          CB2 Opción 1
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          CB2 Opción 2
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          CB2 Opción 3
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Fecha de Creación
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                          Fecha de Actualización
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    
+                      @if($showRow)
+                        <livewire:internal.job-opening-row :objeto="$newJob" :nuevoObjeto='true' />
+                      @endif
+                      @foreach($jobOpenings as $jobOpening)
+                        <livewire:internal.job-opening-row :key="$jobOpening->id" :objeto="$jobOpening"/>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                @else
+                <div class="card">
+                  <strong>No hay registros</strong>
+                </div>
+                @endif
               </div>
-            </div>
-          </div>
+           </div>
           {{$jobOpenings->links()}}
      
         </div>
