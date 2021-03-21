@@ -14,7 +14,7 @@ class AddColumnJobIdToCandidatesTable extends Migration
     public function up()
     {
         Schema::table('candidates', function (Blueprint $table) {
-            $table->unsignedInteger('job_id')->nullable();
+            $table->unsignedInteger('job_id')->after('career')->nullable();
             $table->foreign('job_id')->references('id')->on('fyg_jet.job_openings');
         });
     }

@@ -211,7 +211,7 @@ class Formulario extends Component
     }
     public function updateFormulario(JobOpening $job){
         $this->job=$job;
-        $this->job_id = $job->job_id;
+        $this->job_id = $job->id;
         $this->jobToApply = $job->job_title;
         
         $this->dispatchBrowserEvent('toggle-modal');

@@ -1,3 +1,4 @@
+
 <div>
   <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -10,6 +11,7 @@
             Búsquedas laborales
           </h1>
           <!--Card-->
+         
 
           
           <div class="row">
@@ -116,8 +118,19 @@
           </div> -->
           <div class="row">
           <h2 style="font-size:1.2rem !important;" class="text-center">Listado de búsquedas y preguntas formulario</h2>
-            <div class="col-md-12">
-              <br>
+            
+          
+          <div class="col-md-6 ">
+
+          
+            <div class="form-inline">
+              <label for="searchJob" class="mr-2">Búsqueda </label>
+               <input id="searchJob" wire:model='filter' type="text" class="form-control" placeholder="Ingresa ">
+              </div>
+   
+              </div>
+             <div class="col-md-6 ">
+   
               <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
                 <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
                 Nuevo Registro
@@ -224,7 +237,8 @@
               </div>
             </div>
           </div>
-          {{$jobOpenings->links('pagination::tailwind')}} 
+          {{ $jobOpenings->appends(request()->input())->links('pagination::tailwind') }}
+     
         </div>
       </div>
       <!--/Card-->

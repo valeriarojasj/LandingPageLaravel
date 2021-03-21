@@ -42,9 +42,10 @@ class JobOpenings extends Component
     $openModal=false;
     public $showRow=false;
     public $newJob;
+    public $filter;
     protected $listeners = [
         'abrirModal' => 'open',
-        'reloadJobsopenings' => 'reload',
+        'reloadJobsopenings' => 'render',
         'hideNewRow' => 'hideNewRow'
         
     ];
@@ -54,7 +55,9 @@ class JobOpenings extends Component
     public function render()
     {
         
-        $jobOpenings= JobOpening::latest('id')->paginate('5');
+        $jobOpenings= JobOpening::where('job_title','LIKE','%'.$this->filter.'%')
+        ->latest('id')
+        ->paginate('5');
         $carousels=CarouselController::getAllCarousels();
         
 
@@ -120,4 +123,10 @@ class JobOpenings extends Component
     public function reload(){
         $jobOpenings= JobOpening::latest('id')->paginate('5');
     }
+
+    public function updatingFilter(){
+        $this->resetPage();
+        
+    }
+
 }
