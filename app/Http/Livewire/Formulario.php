@@ -10,7 +10,8 @@ use App\Rules\uniqueCandidatePerJob;
 use Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use stdClass;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ApplicationSubmittedMailable;
 class Formulario extends Component
 {   
     public $fullName;
@@ -42,6 +43,7 @@ class Formulario extends Component
     public $job;
     public $step=0;
     public $uuid;
+    public $messageExist;
     public $stepActions=[
         'submit1',
         'submit2',
@@ -132,23 +134,13 @@ class Formulario extends Component
                 'email' => 'required|email',
                 'linkedin' => 'url|starts_with:https://www.linkedin.com/in/'
             ]);
-
-            $array = $request->only('dni', 'job_id');
-
-$validator = Validator::make( $inputs, [
-   
-    'dni' => [
-        new UniqueCandidatePerJob($array)
-    ],
- 
-]);
-
-            // regla de validación para que el candidato sea unico para ese empleo.
-            // $object = new stdClass();
-            $object=['candidateToValidate' =>['dni'=>$this->dni,'email'=>$this->email, 'job_id'=>$this->job_id]];
-            $this->validate($object, ['candidateToValidate' => new uniqueCandidatePerJob]);
-      
-            $this->step++;
+            
+            if($this->validateCandidate()){
+                $this->messageExist='Ya aplicaste a este empleo';
+            }else{
+                $this->messageExist=null;
+                $this->step++;
+            }
         }elseif($this->step==1){
             $this->validate([
                 'country' => 'required'
@@ -162,7 +154,15 @@ $validator = Validator::make( $inputs, [
     public function decreaseStep(){
         $this->step--;
     }
-
+    public function validateCandidate(){
+        $candidateExists = Candidate::where('job_id', $this->job_id)
+        ->where(function($q) {
+            $q->where('dni', $this->dni)
+            ->orWhere('email', $this->email);
+        })
+        ->get();
+        return $candidateExists->count();
+    }
     public function save(){
         $this->validate();
 
@@ -192,8 +192,12 @@ $validator = Validator::make( $inputs, [
         $candidate->checkbox_2_a_op_3 = $this->checkBox2AOp3;
         $candidate->save();
         $this->dispatchBrowserEvent('toggle-modal');
+        $correo = new ApplicationSubmittedMailable($this->fullName, $this->jobToApply, $this->job_id);
+        Mail::to($this->email)->send($correo);
         $this->resetAttributes();
         $this->dispatchBrowserEvent('showSuccessMessage');
+        
+        
     }
     public function resetAttributes(){
         $this->fullName = '';

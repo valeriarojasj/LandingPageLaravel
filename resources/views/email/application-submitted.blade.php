@@ -8,9 +8,10 @@
 </head>
 <body>
 
-    <h1>Correo Electrónico</h1>
+    <h1>{{$subject }}</h1>
 
-    <p>Este es mi primer correo enviado por Laravel</p>
-    
+    <h2>Hola {{$fullName}}:</h2>
+    <p>Te has postulado a {{$jobToApply}}({{$job_id}})</p>
+    saludos
 </body>
 </html>

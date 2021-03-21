@@ -12,15 +12,19 @@ class ApplicationSubmittedMailable extends Mailable
 {
     use Queueable, SerializesModels;
     public $subject = "Gracias por postularte!";
-
+    public $fullName;
+    public $job_id;
+    public $jobToApply;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($fullName, $jobToApply, $job_id)
     {
-        //
+        $this->fullName = $fullName;
+        $this->job_id = $job_id;
+        $this->jobToApply = $jobToApply;
     }
 
     /**
