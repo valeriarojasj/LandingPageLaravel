@@ -6,7 +6,10 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use App\Models\Candidate;
 use App\Models\JobOpening;
+use App\Rules\uniqueCandidatePerJob;
+use Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use stdClass;
 
 class Formulario extends Component
 {   
@@ -57,7 +60,7 @@ class Formulario extends Component
         'educationLevel' => 'required',
         'educationStatus' => 'required',
         'career' => 'required',
-        'jobToApply' => 'required',
+        'jobToApply' => 'required'
         
     ];
     protected $messages =[
@@ -129,6 +132,22 @@ class Formulario extends Component
                 'email' => 'required|email',
                 'linkedin' => 'url|starts_with:https://www.linkedin.com/in/'
             ]);
+
+            $array = $request->only('dni', 'job_id');
+
+$validator = Validator::make( $inputs, [
+   
+    'dni' => [
+        new UniqueCandidatePerJob($array)
+    ],
+ 
+]);
+
+            // regla de validación para que el candidato sea unico para ese empleo.
+            // $object = new stdClass();
+            $object=['candidateToValidate' =>['dni'=>$this->dni,'email'=>$this->email, 'job_id'=>$this->job_id]];
+            $this->validate($object, ['candidateToValidate' => new uniqueCandidatePerJob]);
+      
             $this->step++;
         }elseif($this->step==1){
             $this->validate([

@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Livewire\Internal;
+
+use App\Models\Candidate;
 use Livewire\Component;
 use App\Models\JobOpening;
 use Livewire\WithPagination;
 use App\Models\Carousel;
+
 use App\Http\Controllers\Internal\CarouselController;
 
 
@@ -13,6 +16,7 @@ class JobOpenings extends Component
     use WithPagination;
 
     public  
+    $job_status,
     $job_id, 
     $job_title,
     $company_type,
@@ -56,6 +60,7 @@ class JobOpenings extends Component
     {
         
         $jobOpenings= JobOpening::where('job_title','LIKE','%'.$this->filter.'%')
+        ->orWhere('job_status','=',$this->filter)
         ->orWhere('company_type','LIKE','%'.$this->filter.'%')
         ->orWhere('job_location','LIKE','%'.$this->filter.'%')
         ->orWhere('id','=',$this->filter)
@@ -79,7 +84,8 @@ class JobOpenings extends Component
         $this->openModal = true;
     }
     public function edit(JobOpening $jobOpening){
-     
+
+             $this->job_status = $jobOpening->job_status;
              $this->job_title = $jobOpening->job_title;
              $this->company_type = $jobOpening->company_type;
              $this->job_location = $jobOpening->job_location;
@@ -109,6 +115,8 @@ class JobOpenings extends Component
 
     public function destroy($id){
         $jobOpening = JobOpening::find($id);
+        $candidates=Candidate::where('job_id',$id)->delete();
+        $carousels=Carousel::where('job_opening_id',$id)->delete();
         $jobOpening->delete();
         $this->openModal = false;
     }

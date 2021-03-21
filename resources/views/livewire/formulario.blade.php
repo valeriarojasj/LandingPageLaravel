@@ -18,6 +18,7 @@
                 <label for="dni">DNI</label>
                 <input  type="text" class="form-control applyInput"placeholder="" wire:model.defer='dni'>
                 @error('dni') <span class="error">{{ $message }}</span> @enderror
+                @error('candidateToValidate') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
             <!--BDAY-->
@@ -34,6 +35,7 @@
                 <label for="email">Correo Electrónico</label>
                 <input  type="email" class="form-control applyInput" placeholder="" wire:model.defer='email'>
                 @error('email') <span class="error">{{ $message }}</span> @enderror
+                @error('candidateToValidate') <span class="error">{{ $message }}</span> @enderror
               </div>
             </fieldset>
             <!-- LINKEDIN -->

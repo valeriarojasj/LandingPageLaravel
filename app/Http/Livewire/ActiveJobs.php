@@ -57,6 +57,7 @@ class ActiveJobs extends Component
  
     public function getJobOpening(){
         $records = JobOpening::select('*')
+        ->where('job_status','Publicada')
         ->orderby('id', 'desc')
         ->skip($this->page*9)
         ->take(9)

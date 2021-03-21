@@ -10,6 +10,7 @@ use DateTimeZone;
 class JobOpeningRow extends Component
 {
     public $uuid;
+    public $job_status;
     public $job_title;
     public $company_type;
     public $job_location;
@@ -63,6 +64,7 @@ class JobOpeningRow extends Component
     }
 
     public function mount(){
+    $this->job_status=$this->objeto->job_status;
     $this->uuid=$this->objeto->id;
     $this->job_title=$this->objeto->job_title;
     $this->company_type=$this->objeto->company_type;
@@ -112,6 +114,7 @@ class JobOpeningRow extends Component
     }
     public function cancel($id){
         $this->editable=false;
+        $this->job_status=$this->objeto->job_status;
         $this->uuid=$this->objeto->id;
         $this->job_title=$this->objeto->job_title;
         $this->company_type=$this->objeto->company_type;
@@ -145,6 +148,7 @@ class JobOpeningRow extends Component
         $jobOpening= JobOpening::find($id);
         $this->validate();
         $jobOpening->update([
+            'job_status' => $this->job_status,
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,
@@ -198,6 +202,7 @@ class JobOpeningRow extends Component
         );*/
         $this->validate();
         JobOpening::create([
+            'job_status' => "Borrador",
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
             'job_location' => $this->job_location,

@@ -14,6 +14,7 @@ class CreateJobOpeningsTable extends Migration
     public function up()
     {
         Schema::create('job_openings', function (Blueprint $table) {
+            $table->string('job_status')->default('Borrador');
             $table->increments('id');
             $table->string('job_title');
             $table->string('company_type');

@@ -10,6 +10,7 @@ class JobOpening extends Model
     use HasFactory;
 
     protected $fillable = [
+        'job_status',
         'job_title',
         'company_type',
         'job_location',

@@ -27,6 +27,26 @@
             @endif
         </div>
     </td>
+    <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="job_status" >
+        @if(!$editable)
+            <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full @if($job_status=='Borrador') text-blue-800 bg-blue-100 @elseif($job_status=='Publicada') text-green-800 bg-green-100 @else text-gray-800 bg-gray-100 @endif">
+                {{$job_status}}
+            </span>
+            @else
+                <select wire:model='job_status'>
+                    <option value="Borrador">
+                        Borrador
+                    </option>
+                    <option value="Publicada">
+                        Publicada
+                    </option>
+                    <option value="Cerrada">
+                        Cerrada
+                    </option>
+                </select>
+            @endif
+        </td>
+     
     <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
       <textarea disabled class="text-xs font-semibold text-center textareatd" name="textarea" wire:model.defer='uuid' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
