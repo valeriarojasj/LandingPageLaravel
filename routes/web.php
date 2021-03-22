@@ -19,12 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('application-submitted', function () {
 
-    $correo = new ApplicationSubmittedMailable;
-    Mail::to('valeriarojasj@gmail.com')->send($correo);
-    return "Mensaje enviado";
-});
 
 
 

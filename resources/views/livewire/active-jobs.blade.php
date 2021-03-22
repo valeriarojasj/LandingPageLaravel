@@ -16,17 +16,17 @@
     <div id='success'>
         
     </div>
-    <div class="mb-4 searchDiv">
+    <div class="px-1 mx-5 mb-4 searchDiv">
         <div class="md:flex md:items-center">
-            <div class="md:w-2/6">
-                <label for="searchJobToApply" class="ml-auto">Buscar por: </label>
+            <div class="md:w-1/6">
+                <label for="searchJobToApply" class="ml-auto">Buscar por ID: </label>
             </div>
-            <div class="md:w-3/6">
-                <input id="searchJobToApply" wire:model='job_opening_id' type="number" min="1" class="mr-auto form-control" placeholder=" Ingresa el ID de la búsqueda">
+            <div class="mr-2 md:w-3/6">
+                <input id="searchJobToApply" wire:model='job_opening_id' type="number" min="1" class="mr-auto form-control" placeholder=" Ingresa el ID de la búsqueda laboral">
 
             </div>
-            <div>
-                <button  wire:click="search()" class="px-4 py-1 font-bold text-white bg-blue-400 border border-gray-500 btn hover:border-indigo-500 hover:text-indigo-500" >
+            <div class="md:w-2/6">
+                <button  wire:click="search()" class="px-4 py-1 font-bold text-white bg-blue-300 border border-gray-500 btn hover:border-indigo-500 hover:text-indigo-500" >
                     Buscar
                 </button>
 

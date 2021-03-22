@@ -161,9 +161,9 @@
       <section id="apply">
         <div class="mb-3 row">
           <div class="mx-auto ">
-            <h2 class=text-center>Aplica a nuestras búsquedas activas</h2>
+            <h2 class="text-center">Aplica a nuestras búsquedas activas</h2>
             
-            <h4 class=text-center>Ésta puede ser tu oportunidad</h4>
+            <h4 style="font-size: 1.6rem !important;"class="mt-2 text-center">Ésta puede ser tu oportunidad</h4>
            
           </div>
         </div>
@@ -194,8 +194,8 @@
                 <a  href="https://www.facebook.com/FyGConsul" ><i class="fab fa-facebook-square" ></i></a>
                 <a   href="https://instagram.com/fygconsultoria?igshid=1qj5nmr67z1f1"><i class="fab fa-instagram"></i></a>
                 <ul class="noBulletsList">
-                  <li class ="contactLi">Horario de atención</li>
-                  <li class ="contactLi">Lunes a Viernes de 9 a 18 hs</li>
+                  <li style="font-size:1.3rem !important;" class ="contactLi">Horario de atención</li>
+                  <li style="font-size:1.3rem !important;" class ="contactLi">Lunes a Viernes de 9 a 18 hs</li>
                 </ul>
               </div>
             </div>
@@ -216,7 +216,7 @@
 
     <footer class="footer">
       <div class="footerDiv">
-        <p class="m-0 text-center footerTxt">FYG Consultoría | Copyright &copy; 2020 - Todos los derechos reservados</p>
+        <p  style="font-size:1rem !important;" class="m-0 text-center footerTxt">FYG Consultoría | Copyright &copy; 2020 - Todos los derechos reservados</p>
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

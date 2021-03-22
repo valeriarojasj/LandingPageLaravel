@@ -300,7 +300,7 @@
                     </div>
                   @endif
                   @if($job->checkbox1_option_2)
-                    <div class="flex items-start mt-4 ">
+                    <div class="flex items-start">
                       <div class="flex items-center h-5">
                         <input id="checkBox1AOp2" name="checkBox1AOp2"  wire:model.defer='checkBox1AOp2' type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" value="{{$job->checkbox1_option_2}}">
                       </div>
@@ -329,7 +329,7 @@
             <!-- PREGUNTA DE CHECKBOX 2 -->
             <fieldset>
               @if($job->checkbox_question_2)
-                <legend id="checkbox_question_2"  class="text-base font-medium" style="color:#7c7c7c;">
+                <legend id="checkbox_question_2"  class="mt-4 text-base font-medium" style="color:#7c7c7c;">
                   {{$job->checkbox_question_2}}
                 </legend>
                 <div class="mt-4 space-y-4">
