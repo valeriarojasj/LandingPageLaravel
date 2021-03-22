@@ -3,7 +3,7 @@
     <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
       <!--<x-jet-welcome />-->
       <!--Container-->
-      <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+      <div class="container w-full px-2 mx-auto mb-3 md:w-4/5 xl:w-3/5">
         <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl" hidden>
           Roles y Permisos
         </h1>
@@ -11,10 +11,43 @@
           Permisos
         </h2>
 
+        <div>
+
+
+          {!! Form::label('job_id', 'ID de la búsqueda') !!}
+
+          {!! Form::number('job_id', 'ID de la búsqueda',  ['class'=>'form-control']) !!}
+
+          {!! Form::label('job_title', 'Título de la búsqueda') !!}
+
+          {!! Form::text('job_title', 'Titulo', ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
+
+         
 
 
 
-      </div>
+          <p>Usuarios con acceso</p>
+          
+          <div class="grid checkboxGrid">
+          @foreach ($users as $user)
+
+
+
+        
+              
+         
+          {!! Form::checkbox('users[]', $user->id, Auth::user(),['class'=>'min-h-full'])!!}
+          {{$user->email}}
+        
+
+          @endforeach
+        </div>
+        
+          </div>
+          
+
+    
+       </div>
     </div>
   </div>
 </div>

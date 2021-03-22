@@ -6,6 +6,12 @@
     margin-bottom: 20px;
   }
   
+  .checkboxGrid{
+
+    grid-template-columns: 1fr 15fr 1fr 15fr 1fr 15fr;
+   
+    
+  }
   
   
   td{

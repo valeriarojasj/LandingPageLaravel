@@ -197,5 +197,53 @@ th{
     
  }
 
+ @media only screen
+and (max-device-width: 640px){
+
+    #divTableBtns{
+        display:block;
+
+    }
+
+    .dt-buttons{
+        
+        float:none !important;
+        min-width: "100%" !important;
+        margin-bottom: 1rem;
+    }
+
+    .dt-button{
+        
+        min-width: fit-content !important;
+    }
+
+   
+
+
+    #example_length{
+        
+        float:none !important;
+        width: "100%" !important;
+        
+        display: inline;
+        
+    }
+
+    #example_filter{
+        margin-top: 1.5rem;
+        float:none !important;
+        width: "100%" !important;
+    }
+
+   
+    
+
+
+
+
+  
+    
+  }
+
 
 

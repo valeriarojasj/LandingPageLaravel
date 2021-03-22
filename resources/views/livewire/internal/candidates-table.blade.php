@@ -45,9 +45,9 @@
                 </div>
                 </div>
                 <div id='recipients' class="mt-6 bg-white rounded lg:mt-0">
-                    <div class="overflow-x-auto  sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
                         <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
-                            <div class="mb-3  align-left sm:rounded-lg">
+                            <div class="mb-3 align-left sm:rounded-lg">
                                 <table id="example" class=" stripe">
                                     <thead class="bg-blue-100">
                                         <tr>
@@ -297,16 +297,14 @@
                     parent.appendChild(div2);
                     parent.appendChild(div3);
                   
-                    div1.style.width = "200px";
+                    div1.style.width = "30%";
                     div1.style.float = "left";
-                    div2.style.width = "220px";
+                    div2.style.width = "35%";
                     div2.style.float = "left";
-                
-                    div2.style.align = "bottom";
-                    
-                    div3.style.width = "100px";
+                    div3.style.width = "35%";
                     div3.style.float = "left";
                     div3.style.whiteSpace="nowrap";
+                   
                     
 
                     var divFooter1=document.getElementById('example_info');
