@@ -158,7 +158,7 @@ class CandidateController extends Controller
         foreach($records as $record){
             $results[] = array(
                 "id" => $record->id,
-                "created_at" => $record->created_at = date('d-m-Y H:i:s'),
+                "created_at" => date( 'd-m-Y H:i:s', strtotime( $record->created_at)),
                 "fullName" => $record->fullName,
                 "dni" => $record->dni,
                 "birthday" => $record->birthday,
@@ -258,6 +258,13 @@ class CandidateController extends Controller
             
             ])
         ->toArray();
+    }
+    public function deleteCandidates($job_id, $from, $to){
+        //Candidate::where('job_id', $job_id)->whereRaw('DATE(created_at) = ?', [$today])->get();
+        return Candidate::where('job_id', $job_id)
+            ->whereRaw('DATE(created_at) >= ?', [$from])
+            ->whereRaw('DATE(created_at) <= ?', [$to])
+            ->get();
     }
     /*public function import() 
     {

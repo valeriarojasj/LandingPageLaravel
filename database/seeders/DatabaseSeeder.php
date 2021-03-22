@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Candidate::factory(15000)->create();
+        
         JobOpening::factory(100)->create();
         Subscription::factory(100)->create();
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CarouselSeeder::class);
+        Candidate::factory(15000)->create();
     }
 }

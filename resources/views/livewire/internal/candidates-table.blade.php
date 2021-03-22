@@ -81,6 +81,19 @@
                                     </tfoot>
                                 </table>
                             </div>
+                            <div>
+                                <label for="from">Desde: </label>
+                                <input id="from" type="date">
+                            </div>
+                            <div>
+                                <label for="to">Hasta: </label>
+                                <input id="to" type="date">
+                            </div>
+                            <div>
+                                <label for="job_id">ID de la Búsqueda: </label>
+                                <input id="job_id" placeholder='ingrese el id' type="number">
+                            </div>
+                            <button id="delete" class="btn btn-primary">Elimnar</button>
                         </div>
                     </div>
                 </div>
@@ -215,7 +228,6 @@
                                            .search( val ? val : '', true, false )
                                            .draw();
                                    } );
-                                   console.log(info)
                                   
                                for(option of info.selectOptions){
                                    if(option[columnName]){
@@ -232,6 +244,25 @@
                 }).on( 'init.dt', function ( e, settings ) {
                     $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
                 } );
+                $('#delete').click( function () {
+                    const from = document.getElementById('from').value;
+                    const to = document.getElementById('to').value;
+                    const job_id = document.getElementById('job_id').value;
+                    const datos = {from, to, job_id};
+                    if(from && to && job_id){
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'DELETE',
+                            url: `/internal/candidatos/${job_id}/${from}/${to}`,
+                            success:function(response) {
+                                console.log(response);
+                            }
+                        });
+                    }
+                    
+                });
             </script>
         </div>
     </div>
