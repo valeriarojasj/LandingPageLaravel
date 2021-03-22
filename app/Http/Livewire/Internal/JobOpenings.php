@@ -60,7 +60,7 @@ class JobOpenings extends Component
     {
         
         $jobOpenings= JobOpening::where('job_title','LIKE','%'.$this->filter.'%')
-        ->orWhere('job_status','=',$this->filter)
+        ->orWhere('job_status','LIKE','%'.$this->filter.'%')
         ->orWhere('company_type','LIKE','%'.$this->filter.'%')
         ->orWhere('job_location','LIKE','%'.$this->filter.'%')
         ->orWhere('id','=',$this->filter)

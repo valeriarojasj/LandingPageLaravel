@@ -7,52 +7,47 @@
             <!--Container-->
             <div class="container w-full px-2 mx-auto md:w-4/5">
                 <!--Title-->
-                <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
+                <h1 class="py-8 text-xl font-bold break-normal md:text-2xl">
                     Candidatos
                 </h1>
                 <!--Card-->
-                <div>
-
-                <div class="row">
-                <div class="col-md-4">
-                    <div class="form-inline">
-                        <label for="job_id">ID de la Búsqueda: </label>
-                        <input id="job_id" placeholder='ingrese el id' class="form-control" type="number">
+            <div>
+                <div class="mt-4 row">
+                    <div class=" col-md-4">
+                        <div class="form-inline">
+                            <label for="job_id">ID de la Búsqueda: </label>
+                            <input id="job_id" placeholder='Ingrese el ID' class="form-control" type="number">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-inline">
+                            <label for="from">Desde: </label>
+                            <input id="from" class="form-control" type="date">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-inline">
+                        <label for="to">Hasta: </label>
+                        <input id="to" class="form-control" type="date">
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-0 col-md-2" >
+                        <button id="delete" class="font-bold text-pink-700 bg-pink-300 rounded-md btn button edit focus:outline-none">Eliminar</button>
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="form-inline">
-                        <label for="from">Desde: </label>
-                        <input id="from" class="form-control" type="date">
-                    </div>
+                <div id="divTableBtns"class="mt-4 mb-4 row ">
+                 {{-- Aca se insertan los botones de datatables con javascript para que permanezcan fijos aunque se haga scroll --}}
                 </div>
-                <div class="col-md-3">
-                    <div class="form-inline">
-                    <label for="to">Hasta: </label>
-                    <input id="to" class="form-control" type="date">
-                    </div>
-                </div>
-
-                <div class="mt-4 mb-0 col-md-2" >
-
-                <button id="delete" class="btn btn-primary">Eliminar</button>
-                </div>
-
             </div>
-                
-                
-
+            <div class="d-flex justify-content-center">
+                <div class="text-blue-700 spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class="text-blue-700 spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
                 </div>
                 <div id='recipients' class="mt-6 bg-white rounded lg:mt-0">
-                    <div class="mx-6 overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
+                    <div class="overflow-x-auto  sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
                         <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
-                            <div class="px-6 mb-3 align-left sm:rounded-lg">
+                            <div class="mb-3  align-left sm:rounded-lg">
                                 <table id="example" class=" stripe">
                                     <thead class="bg-blue-100">
                                         <tr>
@@ -114,9 +109,17 @@
                                     </tfoot>
                                 </table>
                             </div>
+                            
                           
                         </div>
+                       
                     </div>
+                    <div id="divFooterPagination" class ="mt-2 mb-4 row ">
+
+                        {{-- Aca se trae con javascript la paginacion y el numero de registros para que quede fijo aunque se haga scroll --}}
+
+                    </div>
+
                 </div>
                 <!--/Card-->
             </div>
@@ -144,7 +147,15 @@
 
             <script>
                 $(document).ready(function () {
+
                     $('.spinner-border').hide();
+               
+
+                   
+                    
+                    
+                    
+
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -225,7 +236,7 @@
                             lengthMenu:     "Mostrar _MENU_ registros",
                             loadingRecords: "Cargando...",
                             processing:     "Procesando...",
-                            search:         "Buscar:",
+                            search:         "Buscar ",
                             zeroRecords:    "No se encontraron registros",
                             paginate : {
                                 next : 'SIGUIENTE',
@@ -276,6 +287,41 @@
                     
 
                     //FIN DE SELECCIONAR FILAS
+                    var div1= document.querySelector('.dt-buttons');
+                    var div2= document.getElementById('example_length');
+                    var div3= document.getElementById('example_filter');
+                    var parent= document.getElementById('divTableBtns');
+                    
+                 
+                    parent.appendChild(div1);
+                    parent.appendChild(div2);
+                    parent.appendChild(div3);
+                  
+                    div1.style.width = "200px";
+                    div1.style.float = "left";
+                    div2.style.width = "220px";
+                    div2.style.float = "left";
+                
+                    div2.style.align = "bottom";
+                    
+                    div3.style.width = "100px";
+                    div3.style.float = "left";
+                    div3.style.whiteSpace="nowrap";
+                    
+
+                    var divFooter1=document.getElementById('example_info');
+                    var divFooter2=document.getElementById('example_paginate');
+                    var parentFooter= document.getElementById('divFooterPagination');
+                    parentFooter.appendChild(divFooter1);
+                    parentFooter.appendChild(divFooter2);
+                   
+
+                   
+                
+              
+                    
+                   
+
                 }).on( 'init.dt', function ( e, settings ) {
                     $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
                 } );
@@ -295,9 +341,11 @@
                                 console.log(response);
                             }
                         });
+                        
                     }
-                    
+               
                 });
+
             </script>
         </div>
     </div>
