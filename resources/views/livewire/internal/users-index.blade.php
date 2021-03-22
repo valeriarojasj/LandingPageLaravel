@@ -3,11 +3,33 @@
     <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
       <!--<x-jet-welcome />-->
       <!--Container-->
+      <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+        <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl" hidden>
+          Roles y Permisos
+        </h1>
+        <h2 style="font-size:1.5rem !important;" class="mt-5 mb-2 ">
+          Permisos
+        </h2>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="py-12">
+  <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+      <!--<x-jet-welcome />-->
+      <!--Container-->
         <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
           <!--Title-->
-            <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
+            <h2 style="font-size:1.5rem !important;" class="mt-5 mb-4">
               Usuarios y Roles
-            </h1>
+            </h2>
           <!--Card-->
             <div id='users-roles' class="mt-6 bg-white rounded lg:mt-0">
               <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->

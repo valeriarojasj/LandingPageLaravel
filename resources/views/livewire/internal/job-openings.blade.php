@@ -7,7 +7,7 @@
         <!--Container-->
         <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
           <!--Title-->
-          <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
+          <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl" hidden>
             Búsquedas laborales
           </h1>
           <!--Card-->
@@ -15,7 +15,7 @@
 
           
           <div class="row">
-            <h2 style="font-size:1.2rem !important;" class="text-center">Carrusel</h2>
+            <h2 style="font-size:1.2rem !important;" class="mt-5">Carrusel</h2>
             <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
               <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
                 <table id="carousel-table" class="table" style="margin-bottom:0 !important;">
@@ -116,8 +116,26 @@
               <input type="file" name="file" class="form-control file">    
            </div> 
           </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+          <div class="py-12">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+              <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                <!--<x-jet-welcome />-->
+                <!--Container-->
+                <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+
+          
+          
+
+          
           <div class="mt-5 row">
-            <h2 style="font-size:1.2rem !important;" class="mb-4 text-center">Listado de búsquedas y preguntas formulario</h2>
+            <h2 style="font-size:1.2rem !important;" class="mb-4">Listado de búsquedas y preguntas formulario</h2>
             <div class="col-md-8">
               <div class="form-inline">
                 <label for="searchJob" class="mr-2">Buscar por: </label>
@@ -240,7 +258,9 @@
                 @endif
               </div>
            </div>
+           <div class="mb-4">
           {{$jobOpenings->links()}}
+        </div>
      
         </div>
       </div>

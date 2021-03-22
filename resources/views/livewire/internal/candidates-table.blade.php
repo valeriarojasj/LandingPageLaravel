@@ -11,6 +11,39 @@
                     Candidatos
                 </h1>
                 <!--Card-->
+                <div>
+
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="form-inline">
+                        <label for="job_id">ID de la Búsqueda: </label>
+                        <input id="job_id" placeholder='ingrese el id' class="form-control" type="number">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-inline">
+                        <label for="from">Desde: </label>
+                        <input id="from" class="form-control" type="date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-inline">
+                    <label for="to">Hasta: </label>
+                    <input id="to" class="form-control" type="date">
+                    </div>
+                </div>
+
+                <div class="mt-4 mb-0 col-md-2" >
+
+                <button id="delete" class="btn btn-primary">Eliminar</button>
+                </div>
+
+            </div>
+                
+                
+
+                </div>
                 <div class="d-flex justify-content-center">
                     <div class="text-blue-700 spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
@@ -81,19 +114,7 @@
                                     </tfoot>
                                 </table>
                             </div>
-                            <div>
-                                <label for="from">Desde: </label>
-                                <input id="from" type="date">
-                            </div>
-                            <div>
-                                <label for="to">Hasta: </label>
-                                <input id="to" type="date">
-                            </div>
-                            <div>
-                                <label for="job_id">ID de la Búsqueda: </label>
-                                <input id="job_id" placeholder='ingrese el id' type="number">
-                            </div>
-                            <button id="delete" class="btn btn-primary">Elimnar</button>
+                          
                         </div>
                     </div>
                 </div>
@@ -133,7 +154,9 @@
                         processing: true,
                         serverSide: true,
                         ajax: "{{route('candidatos')}}",
+
                         "drawCallback": function (settings) { 
+                            
                             /*var response = settings.json;
                             console.log(response);*/
                         },
@@ -166,6 +189,7 @@
                             {data:'checkbox_2_a_op_3'},
                         ],
                         responsive: true,
+                        select: true,
                         autoWidth : false,
                         "scrollX": true,
                         "scrollY": true,
@@ -173,7 +197,7 @@
                         dom: 'Blfrtip',
                         buttons: [ 'copy',
                             {
-                                text: 'EXCEL',
+                                text: 'Excel',
                                 action: async function ( e, dt, node, config ) {
                                     var datos = dt["context"][0]["json"];
                                     $.ajax({
@@ -241,6 +265,17 @@
                      }
                     });
                     table.columns.adjust();
+                    //SELECCIONAR FILAS
+                    $('#example tbody').on( 'click', 'tr', function () {
+                        $(this).toggleClass('selected');
+                    } );
+                
+                    $('#button').click( function () {
+                        alert( table.rows('.selected').data().length +' row(s) selected' );
+                    } );
+                    
+
+                    //FIN DE SELECCIONAR FILAS
                 }).on( 'init.dt', function ( e, settings ) {
                     $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
                 } );
