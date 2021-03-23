@@ -79,6 +79,7 @@ class CarouselController extends Controller
         $carousel->image_url=$url;
         $carousel->job_opening_id=$request->job_opening_id;
         $carousel->description1=$request->description1;
+        $carousel->updated_by=auth()->user()->name;
         $carousel->save();
         return redirect('/internal/job-openings');
            
