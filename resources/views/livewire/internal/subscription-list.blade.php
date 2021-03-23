@@ -43,16 +43,16 @@
                             </button>
                           </div>
                         </td>
-                        <td class="px-6 py-4 text-center place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
+                        <td class="px-6 py-4 text-sm text-center place-content-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="id">
                           {{$subscription->id}}
                         </td>
-                        <td class="px-6 py-4 text-center whitespace-nowrap" style="position:relative;" data-field="email" >
+                        <td class="px-6 py-4 text-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="email" >
                           {{$subscription->email}}
                         </td>
-                        <td class='px-6 py-4 text-center whitespace-nowrap'  style="position:relative;" data-field="created_at" >
+                        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="created_at" >
                           {{$subscription->created_at}}
                         </td>
-                        <td class='px-6 py-4 text-center whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
+                        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
                           {{$subscription->updated_at}}
                         </td> 
                       </tr>
@@ -60,8 +60,11 @@
                   </tbody>
                 </table>
               </div>
+              <div>
+                {{$subscriptions->links('pagination::tailwind')}}    
+                </div>
             </div>
-            {{$subscriptions->links('pagination::tailwind')}}    
+            
           </div>
         </div>
         <!--/Card-->

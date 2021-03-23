@@ -135,7 +135,7 @@
 
           
           <div class="mt-5 row">
-            <h2 style="font-size:1.2rem !important;" class="mb-4">Listado de búsquedas y preguntas formulario</h2>
+            <h2 style="font-size:1.2rem !important;" class="mb-4">Listado de Búsquedas Laborales con Preguntas del Formulario</h2>
             <div class="col-md-8">
               <div class="form-inline">
                 <label for="searchJob" class="mr-2">Buscar por: </label>
@@ -263,10 +263,10 @@
                 </div>
                 @endif
               </div>
-           </div>
-           <div class="mb-4">
-          {{$jobOpenings->links()}}
-        </div>
+          </div>
+          <div class="mb-4">
+            {{$jobOpenings->links('pagination::tailwind')}}
+          </div>
      
         </div>
       </div>

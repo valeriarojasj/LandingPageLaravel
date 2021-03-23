@@ -19,18 +19,18 @@
             </div>
             @endif
         </td>
-        <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
+        <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="id">
             {{$user->id}}   
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="name" >  
+        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="name" >  
             {{$user->name}} 
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="email" >
+        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="email" >
             {{$user->email}}
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="status" >
+        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="status" >
             @if(!$editable)
-            <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($status=='inactivo') ? 'text-pink-800 bg-pink-100':'text-green-800 bg-green-100'}}">
+            <span style="vertical-align:middle;"  class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($status=='inactivo') ? 'text-pink-800 bg-pink-100':'text-green-800 bg-green-100'}}">
                 {{$status}} 
             </span>
             @else
@@ -44,7 +44,7 @@
                 </select>
             @endif
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" data-field="role" >
+        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="role" >
             @if(!$editable)
             <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($role=='User') ? 'text-blue-800 bg-blue-100':'text-green-800 bg-green-100'}}">
                 {{$role}}
@@ -60,10 +60,10 @@
                 </select>
             @endif
         </td>
-        <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_at" >
+        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="created_at" >
             {{$user->created_at}}
         </td>
-        <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="updated_at" >
+        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="updated_at" >
             {{$user->updated_at}}
         </td> 
 </tr>

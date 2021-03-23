@@ -30,8 +30,10 @@
                     {!! Form::model($carousel,['route'=>['internal.carousel.update',$carousel] , 'autocomplete'=>'off', 'files'=>true, 'method'=>'put']) !!}
                             <livewire:internal.search-title :carousel='$carousel'/>
                             <div class="form-group">
-                                {!! Form::label('description1', 'Descripción de la búsqueda') !!}
+                                {!! Form::label('description1', 'Descripción de la búsqueda (Máximo 249 caracteres)') !!}
+                                
                                 {!! Form::textarea('description1', $carousel->description1, ['class'=>'form-control']) !!}
+                                @error('description1') <span class="error">{{ $message }}</span> @enderror
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -44,15 +46,18 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        {!! Form::label('file', 'Imagen que se mostrará en el carrusel') !!}
+                                        {!! Form::label('file', 'Seleccionar la imagen que se mostrará en el carrusel',['style'=>'font-size:1.2rem; font-weight:500;']) !!}
                                         {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*']) !!}
                                     </div>
-                                    <p>La imagen puede ser en formato jpg, jpeg o png. La imagen debe ser preferiblemente cuadrada para evitar distorsión de la imagen. 
+                                    <p style="line-height: 2rem !important; font-size:1rem ! important; font-style: italic;">Los formatos de imagen permitidos son jpg, jpeg o png. Usar preferiblemente una imagen cuadrada para evitar distorsión al publicarla. 
                                     </p>
                                 </div>
                             </div>
                             {!! Form::submit('Actualizar Carrusel', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
-                    {!! Form::close() !!}
+                            <button  wire:click="cancel({{$carousel}})" class="mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
+                                Cancelar
+                            </button>
+                            {!! Form::close() !!}
                 </div>
             </div>
         </div>

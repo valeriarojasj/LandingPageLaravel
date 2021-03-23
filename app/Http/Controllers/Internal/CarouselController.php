@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class CarouselController extends Controller
 {
+    protected $rules = [
+        'description1' => 'required|max:249'
+        
+    ];
+    protected $messages =[
+        'description1.required' => 'Por favor ingresa una descripción.',
+        'description1.max' => 'La descripción puede tener máximo 249 caracteres.',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -49,6 +57,7 @@ class CarouselController extends Controller
     public function edit(Carousel $carousel, jobOpening $jobOpenings)
     {   
         $jobOpenings=JobOpening::all();
+        
         return view('internal.carousel.edit', compact('carousel','jobOpenings'));
     }
 
@@ -70,12 +79,12 @@ class CarouselController extends Controller
      */
     public function update(Request $request, Carousel $carousel)
     {
-
+       
        $url='img/imagen-scrum.png';
         if($request->file('file')){
         $url= 'storage/'.Storage::put('images', $request->file('file'));
         }
-     
+       
         $carousel->image_url=$url;
         $carousel->job_opening_id=$request->job_opening_id;
         $carousel->description1=$request->description1;
@@ -86,6 +95,20 @@ class CarouselController extends Controller
         
     }
 
+
+    public function cancel(Carousel $carousel)
+    {
+
+     
+        $carousel->image_url=$carousel->image_url;
+        $carousel->job_opening_id=$carousel->job_opening_id;
+        $carousel->description1=$carousel->description1;
+        $carousel->updated_by= $carousel->updated_by;
+       
+        return redirect('/internal/job-openings');
+           
+        
+    }
     public function findJob($id){
         return $id;
 

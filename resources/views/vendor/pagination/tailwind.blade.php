@@ -25,12 +25,12 @@
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
                 <p class="text-sm leading-5 text-gray-700">
-                    Resultados
-                    <span class="font-medium">{{ $paginator->firstItem() }}</span>
-                    a
-                    <span class="font-medium">{{ $paginator->lastItem() }}</span>
-                    de
-                    <span class="font-medium">{{ $paginator->total() }}</span>
+                    
+                    <span class="font-medium">Resultados {{ $paginator->firstItem() }}</span>
+                    
+                    <span class="font-medium">a {{ $paginator->lastItem() }}</span>
+                    
+                    <span class="font-medium">de {{ $paginator->total() }}</span>
                     
                 </p>
             </div>

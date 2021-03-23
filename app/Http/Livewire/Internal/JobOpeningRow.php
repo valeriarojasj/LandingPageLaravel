@@ -184,7 +184,7 @@ class JobOpeningRow extends Component
         
         $this->editable=false;
     
-        $this->emit('reloadJobsopenings');
+        return redirect('/internal/job-openings');
        
        
     }

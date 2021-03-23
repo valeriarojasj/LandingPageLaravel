@@ -8,9 +8,11 @@
 
 
 
-td{
+td textarea{
   color:#7C7C7C;
   font-weight: 400;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
    
 .button.button-small {

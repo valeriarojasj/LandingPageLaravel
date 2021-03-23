@@ -500,6 +500,7 @@ and (min-device-width: 1024px){
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     
+    
   }
 
  
