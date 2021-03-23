@@ -107,11 +107,7 @@ class CarouselController extends Controller
     {
 
      
-        $carousel->image_url=$carousel->image_url;
-        $carousel->job_opening_id=$carousel->job_opening_id;
-        $carousel->description1=$carousel->description1;
-        $carousel->updated_by= $carousel->updated_by;
-       
+        $this->load->helper('url');
         return redirect('/internal/job-openings');
            
         

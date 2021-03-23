@@ -17,47 +17,46 @@
 
         <div>
             <div class="py-12">
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                <!--<x-jet-welcome />-->
-                <!--Container-->
-                <div class="container w-full px-2 pb-5 mx-auto md:w-4/5 xl:w-3/5">
-                <!--Title-->
-                    <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
-                         Editar Carrusel {{$carousel->id}}
-                    </h1>
+                <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                        <!--<x-jet-welcome />-->
+                        <!--Container-->
+                        <div class="container w-full px-2 pb-5 mx-auto md:w-4/5 xl:w-3/5">
+                            <!--Title-->
+                            <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
+                                Editar Carrusel {{$carousel->id}}
+                            </h1>
 
-                    {!! Form::model($carousel,['route'=>['internal.carousel.update',$carousel] , 'autocomplete'=>'off', 'files'=>true, 'method'=>'put']) !!}
-                            <livewire:internal.search-title :carousel='$carousel'/>
-                            <div class="form-group">
-                                {!! Form::label('description1', 'Descripción de la búsqueda (Máximo 249 caracteres)') !!}
-                                
-                                {!! Form::textarea('description1', $carousel->description1, ['class'=>'form-control']) !!}
-                                @error('description1') <span class="error">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="row">
-                                <div class="col">
-
-                                    
-                                    <div class="img-wrapper" >
-                                        <img  id="picture" src="{{ asset('img/imagen-scrum.png') }}" alt="">
-                                    </div>
-                                    
+                            {!! Form::model($carousel,['route'=>['internal.carousel.update',$carousel] , 'autocomplete'=>'off', 'files'=>true, 'method'=>'put']) !!}
+                                <livewire:internal.search-title :carousel='$carousel'/>
+                                <div class="form-group">
+                                    {!! Form::label('description1', 'Descripción de la búsqueda (Máximo 249 caracteres)') !!}
+                                        
+                                    {!! Form::textarea('description1', $carousel->description1, ['class'=>'form-control']) !!}
+                                        @error('description1') <span class="error">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        {!! Form::label('file', 'Seleccionar la imagen que se mostrará en el carrusel',['style'=>'font-size:1.2rem; font-weight:500;']) !!}
-                                        {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*']) !!}
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="img-wrapper" >
+                                            <img  id="picture" src="{{ asset('img/imagen-scrum.png') }}" alt="">
+                                        </div>
+                                            
                                     </div>
-                                    <p style="line-height: 2rem !important; font-size:1rem ! important; font-style: italic;">Los formatos de imagen permitidos son jpg, jpeg o png. Usar preferiblemente una imagen cuadrada para evitar distorsión al publicarla. 
-                                    </p>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('file', 'Seleccionar la imagen que se mostrará en el carrusel',['style'=>'font-size:1.2rem; font-weight:500;']) !!}
+                                            {!! Form::file('file', ['class'=>'form-control-file', 'accept'=>'image/*']) !!}
+                                        </div>
+                                        <p style="line-height: 2rem !important; font-size:1rem ! important; font-style: italic;">Los formatos de imagen permitidos son jpg, jpeg o png. Usar preferiblemente una imagen cuadrada para evitar distorsión al publicarla. 
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            {!! Form::submit('Actualizar Carrusel', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
-                            <button  wire:click="cancel({{$carousel}})" class="mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit">
-                                Cancelar
-                            </button>
+                                    {!! Form::submit('Actualizar Carrusel', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
+                                    <a type="button" href="{{ route('job-openings') }}"  class="mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit" >Cancelar</a>
+                                    
                             {!! Form::close() !!}
+                        </div>   
+                    </div>
                 </div>
             </div>
         </div>
