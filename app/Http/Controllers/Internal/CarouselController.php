@@ -9,15 +9,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class CarouselController extends Controller
-{
-    protected $rules = [
-        'description1' => 'required|max:249'
-        
-    ];
-    protected $messages =[
-        'description1.required' => 'Por favor ingresa una descripción.',
-        'description1.max' => 'La descripción puede tener máximo 249 caracteres.',
-    ];
+
+{   
+   
     /**
      * Display a listing of the resource.
      *
@@ -79,6 +73,18 @@ class CarouselController extends Controller
      */
     public function update(Request $request, Carousel $carousel)
     {
+
+        $rules = [
+           
+            'description1' => 'required|max:249',
+        ];
+    
+        $customMessages = [
+            'required' => 'La descripción de la búsqueda es requerida.',
+            'max' =>'La descripción de la búsqueda es de máximo 249 caracteres'
+        ];
+
+        $this->validate($request, $rules, $customMessages);
        
        $url='img/imagen-scrum.png';
         if($request->file('file')){
@@ -89,6 +95,7 @@ class CarouselController extends Controller
         $carousel->job_opening_id=$request->job_opening_id;
         $carousel->description1=$request->description1;
         $carousel->updated_by=auth()->user()->name;
+        
         $carousel->save();
         return redirect('/internal/job-openings');
            
