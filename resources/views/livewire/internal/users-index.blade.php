@@ -16,11 +16,11 @@
 
           {!! Form::label('job_id', 'ID de la búsqueda') !!}
 
-          {!! Form::number('job_id', 'ID de la búsqueda',  ['class'=>'form-control']) !!}
+          {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda para incluir en el carrusel']) !!}
 
           {!! Form::label('job_title', 'Título de la búsqueda') !!}
 
-          {!! Form::text('job_title', 'Titulo', ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
+          {!! Form::text('job_title', $job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
 
          
 
