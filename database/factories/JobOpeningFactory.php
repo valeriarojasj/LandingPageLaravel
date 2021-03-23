@@ -44,7 +44,10 @@ class JobOpeningFactory extends Factory
             'checkbox_question_2'=>$this->faker->sentence($nbWords = 5,  $variableNbWords = true).'?',
             'checkbox2_option_1'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
             'checkbox2_option_2'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
-            'checkbox2_option_3'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true)
+            'checkbox2_option_3'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
+            'created_by'=>'system',
+            'updated_by'=>null
+
             
             
         ];

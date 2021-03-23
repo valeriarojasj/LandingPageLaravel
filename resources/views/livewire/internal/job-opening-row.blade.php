@@ -116,6 +116,12 @@
     <td class="p-0 whitespace-nowrap" style="position:relative;" data-field="checkbox2_option_3">
         <textarea  {{ $nuevoObjeto||$editable? '' : 'disabled' }}  class="inline-flex text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}" name="textarea" wire:model.defer='checkbox2_option_3' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
     </td>
+    <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_by" >
+        <textarea disabled class='text-xs font-semibold textareatd ' name="textarea" wire:model.defer='created_by' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;" ></textarea>
+    </td>
+    <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="updated_by" >
+        <textarea disabled class='text-xs font-semibold textareatd ' name="textarea" wire:model.defer='updated_by' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;"></textarea>
+    </td> 
     <td class='px-6 py-4 whitespace-nowrap'  style="position:relative;" data-field="created_at" >
         <textarea disabled class='text-xs font-semibold textareatd ' name="textarea" wire:model.defer='created_at' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;" ></textarea>
     </td>

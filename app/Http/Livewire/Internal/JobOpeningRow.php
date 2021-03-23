@@ -33,6 +33,8 @@ class JobOpeningRow extends Component
     public $checkbox2_option_1;
     public $checkbox2_option_2;
     public $checkbox2_option_3;
+    public $created_by;
+    public $updated_by;
     public $created_at;
     public $updated_at;
     public $objeto;
@@ -88,6 +90,8 @@ class JobOpeningRow extends Component
     $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
     $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
     $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
+    $this->created_by=$this->objeto->created_by;
+    $this->updated_by=$this->objeto->updated_by;
     if(!$this->objeto->created_at){$this->created_at="";}else{
     $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');}
     if(!$this->objeto->updated_at){$this->updated_at="";}else{
@@ -138,6 +142,8 @@ class JobOpeningRow extends Component
         $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
         $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
+        $this->created_by=$this->objeto->created_by;
+        $this->updated_by=$this->objeto->updated_by;
         $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');
         $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
@@ -170,9 +176,16 @@ class JobOpeningRow extends Component
             'checkbox_question_2' => $this->checkbox_question_2,
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
-            'checkbox2_option_3' => $this->checkbox2_option_3
+            'checkbox2_option_3' => $this->checkbox2_option_3,
+            'created_by' => $this->created_by,
+            'updated_by' => auth()->user()->name
+            
         ]);
+        
         $this->editable=false;
+    
+        $this->emit('reloadJobsopenings');
+       
        
     }
     public function store()
@@ -224,7 +237,9 @@ class JobOpeningRow extends Component
             'checkbox_question_2' => $this->checkbox_question_2,
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
-            'checkbox2_option_3' => $this->checkbox2_option_3
+            'checkbox2_option_3' => $this->checkbox2_option_3,
+            'created_by' => auth()->user()->name,
+            'updated_by' => null
         ]);
         
       

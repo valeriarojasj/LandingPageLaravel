@@ -7,6 +7,8 @@ use Livewire\Component;
 use App\Models\JobOpening;
 use Livewire\WithPagination;
 use App\Models\Carousel;
+use App\Models\User;
+
 
 use App\Http\Controllers\Internal\CarouselController;
 
@@ -40,6 +42,8 @@ class JobOpenings extends Component
     $checkbox2_option_1,
     $checkbox2_option_2,
     $checkbox2_option_3,
+    $created_by,
+    $updated_by,
     $created_at,
     $updated_at,
     $idToDelete,
@@ -49,7 +53,7 @@ class JobOpenings extends Component
     public $filter;
     protected $listeners = [
         'abrirModal' => 'open',
-        'reloadJobsopenings' => 'render',
+        'reloadJobsopenings' => 'reload',
         'hideNewRow' => 'hideNewRow'
         
     ];
@@ -108,6 +112,8 @@ class JobOpenings extends Component
              $this->checkbox2_option_1 = $jobOpening->checkbox2_option_1;
              $this->checkbox2_option_2 = $jobOpening->checkbox2_option_2;
              $this->checkbox2_option_3 = $jobOpening->checkbox2_option_3;
+             $this->created_by = $jobOpening->created_by;
+             $this->updated_by = $jobOpening->updated_by;
      
     }
 
@@ -132,7 +138,15 @@ class JobOpenings extends Component
        
     }
     public function reload(){
-        $jobOpenings= JobOpening::latest('id')->paginate('5');
+        $jobOpenings= JobOpening::where('job_title','LIKE','%'.$this->filter.'%')
+        ->orWhere('job_status','LIKE','%'.$this->filter.'%')
+        ->orWhere('company_type','LIKE','%'.$this->filter.'%')
+        ->orWhere('job_location','LIKE','%'.$this->filter.'%')
+        ->orWhere('id','=',$this->filter)
+        ->latest('id')
+        ->paginate('5');
+        $carousels=CarouselController::getAllCarousels();
+        return view('livewire.internal.job-openings',compact('jobOpenings','carousels'));
     }
 
     public function updatingFilter(){

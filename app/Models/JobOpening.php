@@ -32,7 +32,9 @@ class JobOpening extends Model
         'checkbox_question_2',
         'checkbox2_option_1',
         'checkbox2_option_2',
-        'checkbox2_option_3'
+        'checkbox2_option_3',
+        'created_by',
+        'updated_by'
     ];
     
 }
