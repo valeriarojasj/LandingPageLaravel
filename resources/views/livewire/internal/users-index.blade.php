@@ -1,53 +1,40 @@
-<div class="py-12">
-  <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-      <!--<x-jet-welcome />-->
-      <!--Container-->
-      <div class="container w-full px-2 mx-auto mb-3 md:w-4/5 xl:w-3/5">
-        <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl" hidden>
-          Roles y Permisos
-        </h1>
-        <h2 style="font-size:1.5rem !important;" class="mt-5 mb-2 ">
-          Permisos
-        </h2>
-
-        <div>
-
-
-          {!! Form::label('job_id', 'ID de la búsqueda') !!}
-
-          {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda para incluir en el carrusel']) !!}
-
-          {!! Form::label('job_title', 'Título de la búsqueda') !!}
-
-          {!! Form::text('job_title', $job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
-
-         
-
-
-
-          <p>Usuarios con acceso</p>
-          
-          <div class="grid checkboxGrid">
-          @foreach ($users as $user)
-
-
-
-        
-              
-         
-          {!! Form::checkbox('users[]', $user->id, Auth::user(),['class'=>'min-h-full'])!!}
-          {{$user->email}}
-        
-
-          @endforeach
-        </div>
-        
+<div>
+  <div class="py-12">
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+        <!--<x-jet-welcome />-->
+        <!--Container-->
+        <div class="container w-full px-2 mx-auto mb-3 md:w-4/5 xl:w-3/5">
+          <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl" hidden>
+            Roles y Permisos
+          </h1>
+          <h2 style="font-size:1.5rem !important;" class="mt-5 mb-2 ">
+            Permisos
+          </h2>
+          <div>
+            <div class="form-group">
+              {!! Form::label('job_id', 'ID de la búsqueda') !!}
+              {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda laboral']) !!}
+            </div>
+          <div class="form-group">
+            {!! Form::label('job_title', 'Título de la búsqueda') !!}
+            {!! Form::text('job_title', $job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
           </div>
-          
+          <span>Usuarios con acceso</span>
+          <div class="grid checkboxGrid">
+            @foreach ($users as $user)
+            {!! Form::checkbox('users[]', $user->id, Auth::user(),['class'=>'min-h-full'])!!}
+            {{$user->email}}
+            @endforeach
+          </div>
+          <div class="mt-3">
+            <button class="font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none">Actualizar</button>
+          </div>
 
-    
-       </div>
+
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
