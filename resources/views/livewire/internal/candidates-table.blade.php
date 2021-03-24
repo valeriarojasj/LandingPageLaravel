@@ -276,17 +276,17 @@
                      }
                     });
                     table.columns.adjust();
-                    //SELECCIONAR FILAS
-                    $('#example tbody').on( 'click', 'tr', function () {
-                        $(this).toggleClass('selected');
-                    } );
+                    // //SELECCIONAR FILAS
+                    // $('#example tbody').on( 'click', 'tr', function () {
+                    //     $(this).toggleClass('selected');
+                    // } );
                 
-                    $('#button').click( function () {
-                        alert( table.rows('.selected').data().length +' row(s) selected' );
-                    } );
+                    // $('#button').click( function () {
+                    //     alert( table.rows('.selected').data().length +' row(s) selected' );
+                    // } );
                     
 
-                    //FIN DE SELECCIONAR FILAS
+                    // //FIN DE SELECCIONAR FILAS
                     var div1= document.querySelector('.dt-buttons');
                     var div2= document.getElementById('example_length');
                     var div3= document.getElementById('example_filter');

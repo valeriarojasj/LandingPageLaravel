@@ -50,10 +50,10 @@
                           {{$subscription->email}}
                         </td>
                         <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="created_at" >
-                          {{$subscription->created_at}}
+                          {{$subscription->created_at->format('d-m-Y H:i:s')}}
                         </td>
                         <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
-                          {{$subscription->updated_at}}
+                          {{$subscription->updated_at->format('d-m-Y H:i:s')}}
                         </td> 
                       </tr>
                     @endforeach

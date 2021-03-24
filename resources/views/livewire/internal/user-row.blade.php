@@ -28,7 +28,7 @@
         <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="email" >
             {{$user->email}}
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="status" >
+        <td class="px-6 py-4 text-center whitespace-nowrap" style="position:relative;vertical-align:middle;" data-field="status" >
             @if(!$editable)
             <span style="vertical-align:middle;"  class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($status=='inactivo') ? 'text-pink-800 bg-pink-100':'text-green-800 bg-green-100'}}">
                 {{$status}} 
@@ -61,9 +61,9 @@
             @endif
         </td>
         <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="created_at" >
-            {{$user->created_at}}
+            {{$user->created_at->format('d-m-Y H:i:s')}}
         </td>
         <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="updated_at" >
-            {{$user->updated_at}}
+            {{$user->updated_at->format('d-m-Y H:i:s')}}
         </td> 
 </tr>

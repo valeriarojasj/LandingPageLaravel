@@ -177,7 +177,7 @@ class CandidateController extends Controller
                 "created_at" => date( 'd-m-Y H:i:s', strtotime( $record->created_at)),
                 "fullName" => $record->fullName,
                 "dni" => $record->dni,
-                "birthday" => $record->birthday,
+                "birthday" => date( 'd-m-Y', strtotime( $record->birthday)),
                 "email" => $record->email,
                 "linkedin" => $record->linkedin,
                 "country" => $record->country,
@@ -245,7 +245,6 @@ class CandidateController extends Controller
         for ($i = 1; $i < count($columnsNames); ++$i){
             $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
         }
-        
         return $records->orderby($columnName, $typeOfOrder)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',

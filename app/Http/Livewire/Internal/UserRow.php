@@ -13,16 +13,23 @@ class UserRow extends Component
     public $role;
     public $originalRole;
     public $status;
+    public $created_at;
+    public $updated_at;
     
 
     public function render()
-    {
+
+
+    {   
         return view('livewire.internal.user-row');
     }
     public function mount(){
         $this->status = $this->user->status;
         $this->role = $this->user->role;
         $this->originalRole = $this->user->role;
+        $this->created_at =$this->user->created_at;
+      
+      
     }
     public function edit(){
         $this->editable = true;
