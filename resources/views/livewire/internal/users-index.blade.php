@@ -13,7 +13,7 @@
           </h2>
           <div>
          
-            {!! Form::model($job,['route'=>['internal.users.index',$job] , 'autocomplete'=>'off',  'method'=>'post']) !!}
+            {!! Form::model($job,['route'=>['assignPermission',$job] , 'autocomplete'=>'off',  'method'=>'post']) !!}
               <div class="form-group">
                 
                   {!! Form::label('job_id', 'ID de la búsqueda') !!}

@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         JobOpening::factory(100)->create();
         $this->call(CarouselSeeder::class);
         Candidate::factory(15000)->create();
-        
+        $this->call(JobUsersSeeder::class);
     }
 }

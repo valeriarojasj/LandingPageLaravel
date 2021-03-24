@@ -6,7 +6,7 @@ use App\Http\Controllers\Internal\SubscriptionController;
 use App\Http\Controllers\Internal\UserController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\Internal\CarouselController;
-
+use App\Http\Controllers\Internal\JobOpeningController;
 
 Route::get('',[HomeController::class,'index']);
 Route::resource('users',UserController::class,
@@ -17,6 +17,7 @@ Route::resource('users',UserController::class,
         'store' => 'internal.users.store'
     ]
 ])->only(['index','create','store']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/job-openings/permissions', [JobOpeningController::class, 'createPermission'])->name('assignPermission');
 Route::resource('subscriptions',SubscriptionController::class)->names('internal.subscriptions')->only(['index']);
 Route::resource('carousel',CarouselController::class)->names('internal.carousel')->only(['edit','update']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/candidatos', [CandidateController::class, 'getCandidates'])->name('candidatos');
