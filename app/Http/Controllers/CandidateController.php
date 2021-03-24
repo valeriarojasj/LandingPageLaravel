@@ -9,7 +9,7 @@ use App\Models\JobOpening;
 use App\Exports\CandidateExport;
 use App\Imports\CandidateImport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Models\JobUser;
 class CandidateController extends Controller
 {
 
@@ -46,7 +46,8 @@ class CandidateController extends Controller
         "province" => "Provincia",
         "city" => "Ciudad"
     ];
-
+    public $assignedJobs;
+    public $valueToSearch;
     private $orden = [
         "id",
         "created_at",
@@ -83,11 +84,12 @@ class CandidateController extends Controller
         $search = $request->get('search');
         $order = $request->get('order');
         $columns = $request->get('columns');
-        
+        $this->valueToSearch= $search['value'];
         $columnToOrder = $order[0]['column'];
         $typeOfOrder = $order[0]['dir'];
         $columnName = $columns[$columnToOrder]['data'];
-        
+        $this->assignedJobs = JobUser::select('job_id')
+            ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
         $searchRecordByColumn = $this->searchToArray($columns);
         if(empty($searchRecordByColumn)){
             $searchRecords = $this->searchCandidates($columnName, $typeOfOrder, $start, $length, $search['value']);
@@ -104,10 +106,11 @@ class CandidateController extends Controller
             "search" => $search,
             "order" => $order,
             "iTotalRecords" => $this->countAllRows(),
-            "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length, $search['value']),
+            "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length),
             "aaData" => $data_arr,
             "selectInfo" => $this->getSelectInfo(),
-            "orden" => $this->orden
+            "orden" => $this->orden,
+            "assignedJobs" => $this->assignedJobs
         );
         echo json_encode($response);
         exit;
@@ -116,27 +119,39 @@ class CandidateController extends Controller
 
 
     public function countAllRows(){
-        return Candidate::select('count(*) as allcount')->count();
+        return Candidate::select('count(*) as allcount')
+            ->whereIn('job_id', $this->assignedJobs)->count();
     }
-
-    public function countSearchRows($column, $order, $start, $length, $valueToSearch){
-        $columnsNames = Schema::getColumnListing('candidates');
+    
+    public function countSearchRows(){
         $records = Candidate::select('*')
-                    ->where('id', 'like', '%'.$valueToSearch.'%');
-        for ($i = 1; $i < count($columnsNames); ++$i){
-            $records->orWhere($columnsNames[$i], 'like', '%'.$valueToSearch.'%');
-        }
+            ->whereIn('job_id', $this->assignedJobs)
+            ->where(function ($query) {
+                $query->where('created_at', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('job_id', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('job_to_apply', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('fullName', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('country', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('province', 'like', '%'.$this->valueToSearch.'%')
+                ->orWhere('city', 'like', '%'.$this->valueToSearch.'%');
+                });
         return $records->count();
     }
 
 
+
     public function searchCandidates($column, $order, $start, $length, $valueToSearch){
         $records = Candidate::select('*')
-                    ->where('id', 'like', '%'.$valueToSearch.'%');
-        $columnsNames = Schema::getColumnListing('candidates');
-        for ($i = 1; $i < count($columnsNames); ++$i){
-            $records->orWhere($columnsNames[$i], 'like', '%'.$valueToSearch.'%');
-        }
+        ->whereIn('job_id', $this->assignedJobs)
+        ->where(function ($query) {
+            $query->where('created_at', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('job_id', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('job_to_apply', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('fullName', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('country', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('province', 'like', '%'.$this->valueToSearch.'%')
+            ->orWhere('city', 'like', '%'.$this->valueToSearch.'%');
+            });
         return $records->orderby($column, $order)
             ->skip($start)
             ->take($length)
@@ -148,7 +163,8 @@ class CandidateController extends Controller
             $obj = new class{};
             $obj->name = $key;
             $obj->label = $value;
-            $obj->selectOptions = Candidate::select($key)->groupBy($key)->get();
+            $obj->selectOptions = Candidate::select($key)
+                ->whereIn('job_id', $this->assignedJobs)->groupBy($key)->get();
             $infoArray[$key]=$obj;
         }
         return $infoArray;
@@ -196,7 +212,7 @@ class CandidateController extends Controller
         return $searchValues;
     }
     public function searchCandidatesBySelectOption($columns, $columnToOrder, $order, $start, $length){
-        $records = Candidate::select('*');
+        $records = Candidate::select('*')->whereIn('job_id', $this->assignedJobs);
         foreach($columns as $column=>$value){
             $records->where($column, $value);
         };
@@ -223,7 +239,8 @@ class CandidateController extends Controller
         $typeOfOrder = $order[0]['dir'];
         $columnName = $columns[$columnIndex]['data'];
 
-        $records = Candidate::where('id', 'like', '%'.$search["value"].'%');
+        $records = Candidate::where('id', 'like', '%'.$search["value"].'%')
+            ->whereIn('job_id', $this->assignedJobs);
         $columnsNames = Schema::getColumnListing('candidates');
         for ($i = 1; $i < count($columnsNames); ++$i){
             $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
@@ -262,6 +279,7 @@ class CandidateController extends Controller
     public function deleteCandidates($job_id, $from, $to){
         //Candidate::where('job_id', $job_id)->whereRaw('DATE(created_at) = ?', [$today])->get();
         return Candidate::where('job_id', $job_id)
+            ->whereIn('job_id', $this->assignedJobs)
             ->whereRaw('DATE(created_at) >= ?', [$from])
             ->whereRaw('DATE(created_at) <= ?', [$to])
             ->get();

@@ -168,8 +168,8 @@
 
                         "drawCallback": function (settings) { 
                             
-                            /*var response = settings.json;
-                            console.log(response);*/
+                            var response = settings.json;
+                            console.log(response);
                         },
                         "order": [[ 0, 'desc' ]],
                         columns : [

@@ -15,7 +15,6 @@
          
             {!! Form::model($job,['route'=>['assignPermission',$job] , 'autocomplete'=>'off',  'method'=>'post']) !!}
               <div class="form-group">
-                
                   {!! Form::label('job_id', 'ID de la búsqueda') !!}
                   {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda laboral']) !!}
                 </div>
@@ -25,15 +24,23 @@
               </div>
               <span>Usuarios con acceso</span>
               <div class="grid checkboxGrid">
+            
                 @foreach ($allUsers as $user)
-              
-                {!! Form::checkbox('users[]', $user->id, $job->created_by==$user->id||$user->role=='Admin',['class'=>'min-h-full'])!!}
-                {{$user->email}}
+                  @if($job_title)
+                    {!! Form::checkbox('users[]', $user->id, $job->created_by==$user->id||$user->role=='Admin',['class'=>'min-h-full'])!!}
+                  @else
+                    {!! Form::checkbox('users[]', $user->id, null,['class'=>'min-h-full', 'disabled'])!!}
+                  @endif
+                  {{$user->email}}
                 @endforeach
               </div>
               <div class="mt-3">
-
+              @if($job_title)
                 {!! Form::submit('Actualizar', ['class'=>'font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none']) !!}
+              @else
+                {!! Form::submit('Actualizar', ['class'=>'font-bold text-gray-700 bg-gray-200 rounded-md saveBtn button button-small edit', 'disabled']) !!}
+              @endif
+
             
               </div>
             {!! Form::close() !!}
