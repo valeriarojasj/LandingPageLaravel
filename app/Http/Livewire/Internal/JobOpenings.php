@@ -62,12 +62,16 @@ class JobOpenings extends Component
 
     public function render()
     {
-        
-        $jobOpenings= JobOpening::where('job_title','LIKE','%'.$this->filter.'%')
-        ->orWhere('job_status','LIKE','%'.$this->filter.'%')
-        ->orWhere('company_type','LIKE','%'.$this->filter.'%')
-        ->orWhere('job_location','LIKE','%'.$this->filter.'%')
-        ->orWhere('id','=',$this->filter)
+        $jobOpenings= JobOpening::select('job_openings.*')
+        ->join('job_users', 'job_openings.id', '=', 'job_users.job_id')
+        ->where('job_users.user_id', auth()->user()->id)
+        ->where(function ($query) {
+            $query->where('job_title','LIKE','%'.$this->filter.'%')
+            ->orWhere('job_status','LIKE','%'.$this->filter.'%')
+            ->orWhere('company_type','LIKE','%'.$this->filter.'%')
+            ->orWhere('job_location','LIKE','%'.$this->filter.'%')
+            ->orWhere('job_openings.id','=',$this->filter);
+        })
         ->latest('id')
         ->paginate('5');
         $carousels=CarouselController::getAllCarousels();
