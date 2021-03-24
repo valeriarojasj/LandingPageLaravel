@@ -245,6 +245,7 @@ class CandidateController extends Controller
         for ($i = 1; $i < count($columnsNames); ++$i){
             $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
         }
+        
         return $records->orderby($columnName, $typeOfOrder)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
