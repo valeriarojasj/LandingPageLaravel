@@ -13,6 +13,12 @@ class UsersIndex extends Component
     public $editable = false;
     public $job_id;
     public $job_title;
+    public $job;
+
+    public function mount(){
+        $this->job=new JobOpening();
+
+    }
 
 
     public function render()
@@ -22,16 +28,27 @@ class UsersIndex extends Component
             ->select('users.*', 'roles.name as role')
             ->latest('users.id')
             ->paginate('10');
-        return view('livewire.internal.users-index', compact('users'));
+
+            $allUsers=User::leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->leftJoin('roles', 'roles.id', '=', 'model_has_roles.role_id')
+            ->select('users.*', 'roles.name as role')
+            ->get();
+           
+        return view('livewire.internal.users-index', compact('users','jobs','allUsers'));
+       
     }
     public function search(){
-        $job=JobOpening::find($this->job_id);
-        if($job){
-            $this->job_title=$job->job_title;
+        
+        $this->job=JobOpening::find($this->job_id);
+        if($this->job){
+            $this->job_title=$this->job->job_title;
         }else{
             $this->job_title='';
+            $this->job=new JobOpening();
+
         }
     }
+    
     
 
 }

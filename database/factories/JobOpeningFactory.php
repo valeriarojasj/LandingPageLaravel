@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\JobOpening;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JobOpeningFactory extends Factory
@@ -21,7 +22,11 @@ class JobOpeningFactory extends Factory
      */
     public function definition()
     {
+        $user_id = User::inRandomOrder()->value('id');
+          
+           
         return [
+            
 
             'job_status'=>$this->faker->randomElement(['Borrador', 'Publicada', 'Cerrada']),
             'job_title'=>$this->faker->jobTitle($nbWords = 3, $variableNbWords = true),
@@ -45,7 +50,7 @@ class JobOpeningFactory extends Factory
             'checkbox2_option_1'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
             'checkbox2_option_2'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
             'checkbox2_option_3'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
-            'created_by'=>'system',
+            'created_by'=>$user_id,
             'updated_by'=>null
 
             

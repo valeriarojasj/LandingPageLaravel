@@ -12,24 +12,31 @@
             Permisos
           </h2>
           <div>
-            <div class="form-group">
-              {!! Form::label('job_id', 'ID de la búsqueda') !!}
-              {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda laboral']) !!}
-            </div>
-          <div class="form-group">
-            {!! Form::label('job_title', 'Título de la búsqueda') !!}
-            {!! Form::text('job_title', $job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
-          </div>
-          <span>Usuarios con acceso</span>
-          <div class="grid checkboxGrid">
-            @foreach ($users as $user)
-            {!! Form::checkbox('users[]', $user->id, Auth::user(),['class'=>'min-h-full'])!!}
-            {{$user->email}}
-            @endforeach
-          </div>
-          <div class="mt-3">
-            <button class="font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none">Actualizar</button>
-          </div>
+         
+            {!! Form::model($job,['route'=>['internal.users.index',$job] , 'autocomplete'=>'off',  'method'=>'post']) !!}
+              <div class="form-group">
+                
+                  {!! Form::label('job_id', 'ID de la búsqueda') !!}
+                  {!! Form::number('job_opening_id', $job_id, ['wire:model'=>'job_id', 'wire:keyup'=>'search', 'class'=>'form-control', 'placeholder'=>'Ingresa el ID de la búsqueda laboral']) !!}
+                </div>
+              <div class="form-group">
+                {!! Form::label('job_title', 'Título de la búsqueda') !!}
+                {!! Form::text('job_title', $job_title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
+              </div>
+              <span>Usuarios con acceso</span>
+              <div class="grid checkboxGrid">
+                @foreach ($allUsers as $user)
+              
+                {!! Form::checkbox('users[]', $user->id, $job->created_by==$user->id||$user->role=='Admin',['class'=>'min-h-full'])!!}
+                {{$user->email}}
+                @endforeach
+              </div>
+              <div class="mt-3">
+
+                {!! Form::submit('Actualizar', ['class'=>'font-bold text-green-700 bg-green-200 rounded-md saveBtn button button-small edit focus:outline-none']) !!}
+            
+              </div>
+            {!! Form::close() !!}
 
 
 
