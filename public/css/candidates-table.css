@@ -27,6 +27,10 @@ div.dt-buttons {
     align-items: center;
 }
 
+.btn:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px#b83280 !important;
+}
 
 
 

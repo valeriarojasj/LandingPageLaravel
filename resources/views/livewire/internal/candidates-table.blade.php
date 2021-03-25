@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="mt-4 mb-0 col-md-2" >
-                        <button id="delete" class="font-bold text-pink-700 bg-pink-300 rounded-md btn button edit focus:outline-none">Eliminar</button>
+                        <button id="delete" class="font-bold text-pink-700 bg-pink-300 rounded-md hover:text-pink-700 btn button edit focus:outline-none">Eliminar</button>
                     </div>
                 </div>
                 <div id="divTableBtns"class="mt-4 mb-4 row ">

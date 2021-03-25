@@ -52,7 +52,8 @@
                                     </div>
                                 </div>
                                     {!! Form::submit('Actualizar Carrusel', ['class'=>' font-bold text-green-700 bg-green-200 rounded-md focus:outline-none saveBtn button px-3 py-1 edit']) !!}
-                                    <a type="button" href="{{ route('job-openings') }}"  class="mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit" >Cancelar</a>
+                                    <a type="button" href="{{ route('job-openings') }}"  class="mt-1 font-bold text-white bg-gray-500 rounded-md focus:outline-none cancelBtn button button-small edit" style="
+                                    text-decoration: none;" >Cancelar</a>
                                     
                             {!! Form::close() !!}
                         </div>   

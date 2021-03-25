@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                   <div class="form-inline">
                     <label for="searchJob" class="mr-2">Buscar: </label>
-                    <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
+                    <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar o empresa">
                   </div>
                 </div>
                 <div class="col-md-4">

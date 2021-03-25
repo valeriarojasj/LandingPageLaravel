@@ -172,8 +172,8 @@
 
 .btn:hover {
  
-  filter: brightness(1.1);
-  color:#fff;
+  filter: brightness(0.9);
+ 
 }
 
   /* .btnModal:hover{

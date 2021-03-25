@@ -231,6 +231,8 @@ class CandidateController extends Controller
         return Excel::download(new CandidateExport, 'candidates.xlsx');
     }
     public function getCandidatesExcel(Request $request){
+        $this->assignedJobs = JobUser::select('job_id')
+            ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
         $search = $request->get('search');
         $order = $request->get('order');
         $columns = $request->get('columns');

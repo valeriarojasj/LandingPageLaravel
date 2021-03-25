@@ -70,29 +70,29 @@ td:last-child .button .fas {
 
 .fa-plus-circle:hover{
   color:#93C5FD!important;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
 }
 
 .editBtn:hover{
-  filter: brightness(1.1);
+  filter: brightness(0.9);
 }
 
 .deleteBtn:hover{
-  filter: brightness(1.1);
+  filter: brightness(0.9);
 }
 
 .saveBtn:hover{
-  filter: brightness(1.1);
+  filter: brightness(0.9);
 }
 
 .cancelBtn:hover{
-  filter: brightness(1.1);
+  filter: brightness(0.9);
 }
 
 
 .add-row:hover{
   color: #93C5FD;
-  filter: brightness(0.7);
+  filter: brightness(0.9);
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
 
@@ -125,7 +125,7 @@ thead{
 } */
 
 .btn:hover {
-  filter: brightness(0.7);
+  filter: brightness(0.9);
   color: #60A5FA;
 }
 
