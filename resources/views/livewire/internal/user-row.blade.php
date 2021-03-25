@@ -34,11 +34,11 @@
                 {{$status}} 
             </span>
             @else
-                <select wire:model='status'>
-                    <option  value="activo">
+                <select  style="font-size: 0.85rem !important;"  wire:model='status'>
+                    <option  style="font-size: 0.85rem !important;" value="activo">
                         activo
                     </option>
-                    <option value="inactivo">
+                    <option style="font-size: 0.85rem !important;" value="inactivo">
                         inactivo
                     </option>
                 </select>
@@ -50,11 +50,11 @@
                 {{$role}}
             </span>
             @else
-                <select wire:model='role'>
-                    <option value="Admin">
+                <select style="font-size: 0.85rem !important;"  wire:model='role'>
+                    <option  style="font-size: 0.85rem !important;" value="Admin">
                         Admin
                     </option>
-                    <option value="User">
+                    <option  style="font-size: 0.85rem !important;" value="User">
                         User
                     </option>
                 </select>

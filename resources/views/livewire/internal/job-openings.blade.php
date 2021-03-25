@@ -11,9 +11,6 @@
             Búsquedas laborales
           </h1>
           <!--Card-->
-         
-
-          
           <div class="row">
             <h2 style="font-size:1.2rem !important;" class="mt-5">Carrusel</h2>
             <div class="inline-block min-w-full py-2 space-between sm:px-6 lg:px-8">
@@ -87,72 +84,52 @@
                 </table>
               </div>
             </div>
-            <!-- <div class="col-4">
-              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 1</label>
-                <input type="number" name="carrusel-job-id" class="form-control file">
-            </div>
-            <div class="col-3">
-              <label for="file">Imagen Carrusel 1</label>
-              <input type="file" name="file" class="form-control file">    
-           </div> 
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 2</label>
-                <input type="number" name="carrusel-job-id" class="form-control file">
-            </div>
-            <div class="col-3">
-              <label for="file">Imagen Carrusel 2</label>
-              <input type="file" name="file" class="form-control file">    
-           </div> 
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <label for="carrusel-job-id">ID de Búsqueda Laboral Carrusel 3</label>
-                <input type="number" name="carrusel-job-id" class="form-control file">
-            </div>
-            <div class="col-3">
-              <label for="file">Imagen Carrusel 3</label>
-              <input type="file" name="file" class="form-control file">    
-           </div> 
-          </div> -->
-
           </div>
         </div>
       </div>
     </div>
+    
+    <div class="py-12">
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+          <!--<x-jet-welcome />-->
+          <!--Container-->
+          <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
+             <div class="mt-5 row">
+                <h2 style="font-size:1.2rem !important;" class="mb-4">Listado de Búsquedas Laborales con Preguntas del Formulario</h2>
+                <div class="col-md-4">
+                  <div class="form-inline">
+                    <label for="searchJob" class="mr-2">Buscar: </label>
+                    <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-inline">
+                    
+                    <label for="statusFilter" class="mr-2">Filtrar por Status: </label>
+                     <select wire:model='statusFilter' class="form-control col-md-6" name="statusFilter" id="statusFilter">
+                      <option value="">Todas</option>
+                       <option value="Borrador">Borrador</option>
+                       <option value="Publicada">Publicada</option>
+                       <option value="Cerrada">Cerrada</option>
 
 
-          <div class="py-12">
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-              <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                <!--<x-jet-welcome />-->
-                <!--Container-->
-                <div class="container w-full px-2 mx-auto md:w-4/5 xl:w-3/5">
 
-          
-          
-
-          
-          <div class="mt-5 row">
-            <h2 style="font-size:1.2rem !important;" class="mb-4">Listado de Búsquedas Laborales con Preguntas del Formulario</h2>
-            <div class="col-md-8">
-              <div class="form-inline">
-                <label for="searchJob" class="mr-2">Buscar por: </label>
-                <input id="searchJob" wire:model='filter' type="text" class="form-control col-md-8" placeholder=" ID, título, lugar de la búsqueda o tipo de empresa">
-              </div>
+                     </select>
+                    
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
+                    <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
+                    Nuevo Registro
+                  </button>
+                </div>
             </div>
-            <div class="col-md-4 ">
-              <button type="button" wire:click='newRow' class="btn btn-default pull-right add-row">
-                <i class="fas fa-plus-circle table-icons" style="font-family: 'Font Awesome 5 Free' !important;"></i>&nbsp;&nbsp; 
-                 Nuevo Registro
-              </button>
-            </div>
-          </div>
             <!--este div hace que haga scroll la tabla -->
           <div class="min-w-full py-2 space-between ">
-              <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
-                @if($jobOpenings->count())
+            <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
+              @if($jobOpenings->count())
                 <div class="table-container">
                   <table class="table mb-0" id="editableTable">
                     <thead class="bg-blue-100">
@@ -257,17 +234,16 @@
                     </tbody>
                   </table>
                 </div>
-                @else
+              @else
                 <div class="card">
                   <strong>No hay registros</strong>
                 </div>
-                @endif
-              </div>
+              @endif
+            </div>
           </div>
           <div class="mb-4">
             {{$jobOpenings->links('pagination::tailwind')}}
           </div>
-     
         </div>
       </div>
       <!--/Card-->

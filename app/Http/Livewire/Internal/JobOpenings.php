@@ -51,6 +51,7 @@ class JobOpenings extends Component
     public $showRow=false;
     public $newJob;
     public $filter;
+    public $statusFilter;
     protected $listeners = [
         'abrirModal' => 'open',
         'reloadJobsopenings' => 'reload',
@@ -65,9 +66,14 @@ class JobOpenings extends Component
         $jobOpenings= JobOpening::select('job_openings.*')
         ->join('job_users', 'job_openings.id', '=', 'job_users.job_id')
         ->where('job_users.user_id', auth()->user()->id)
+        ->when($this->statusFilter, function ($query, $statusFilter) {
+            //busqueda condicional por statusFilter si hay statusFilter
+            $query->where('job_status','LIKE','%'.$this->statusFilter.'%');
+        }, function ($query) {
+            //si no hay statusFilter
+        })
         ->where(function ($query) {
             $query->where('job_title','LIKE','%'.$this->filter.'%')
-            ->orWhere('job_status','LIKE','%'.$this->filter.'%')
             ->orWhere('company_type','LIKE','%'.$this->filter.'%')
             ->orWhere('job_location','LIKE','%'.$this->filter.'%')
             ->orWhere('job_openings.id','=',$this->filter);
@@ -75,6 +81,7 @@ class JobOpenings extends Component
         ->latest('id')
         ->paginate('5');
         $carousels=CarouselController::getAllCarousels();
+
         
 
        

@@ -9,7 +9,7 @@
             Lista de Subscriptores
         </h1>
         <button wire:click='getAllSubscription' class="mt-1 mb-4 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
-          EXCEL
+          Excel
         </button>
         <!--Card-->
         <div id='users-roles' class="mt-6 bg-white lg:mt-0">
