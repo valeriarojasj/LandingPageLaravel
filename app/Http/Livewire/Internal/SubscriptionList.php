@@ -18,4 +18,13 @@ class SubscriptionList extends Component
         $subscription = Subscription::find($id);
         $subscription->delete();
     }
+    public function getAllSubscription(){
+        $subscriptions = Subscription::get([
+            'id as ID',
+            'email as EMAIL',
+            'created_at as FECHA DE CREACIÓN',
+            'updated_at as FECHA DE ACTUALIZACIÓN'
+        ])->toArray();
+        $this->dispatchBrowserEvent('downloadSubscriptions', ['subscriptions' => $subscriptions]);
+    }
 }

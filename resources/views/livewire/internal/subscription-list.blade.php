@@ -8,6 +8,9 @@
         <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
             Lista de Subscriptores
         </h1>
+        <button wire:click='getAllSubscription' class="w-full mt-1 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+          EXCEL
+        </button>
         <!--Card-->
         <div id='users-roles' class="mt-6 bg-white lg:mt-0">
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
@@ -72,4 +75,12 @@
       <!--/container-->
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="{{asset('js/fileSaver.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/excel.js')}}"></script>
+  <script>
+    window.addEventListener('downloadSubscriptions', event => {
+      downloadAsExcel(event.detail.subscriptions);
+    });
+  </script>
 </div>
