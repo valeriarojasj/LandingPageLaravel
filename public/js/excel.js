@@ -13,7 +13,7 @@ function downloadAsExcel(data){
         SheetNames : ['data']
     };
     const excelBuffer = XLSX.write(workbook, {bookType:'xlsx', type:'array'});
-    saveAsExcel(excelBuffer, 'candidatos');
+    saveAsExcel(excelBuffer, 'data');
 
 }
 

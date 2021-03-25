@@ -44,7 +44,7 @@
                 </select>
             @endif
         </td>
-        <td class="px-6 py-4 whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="role" >
+        <td class="px-6 py-4 text-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="role" >
             @if(!$editable)
             <span class = "inline-flex px-2 text-xs font-semibold leading-5 rounded-full {{($role=='User') ? 'text-blue-800 bg-blue-100':'text-green-800 bg-green-100'}}">
                 {{$role}}

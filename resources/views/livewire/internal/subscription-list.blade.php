@@ -8,7 +8,7 @@
         <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
             Lista de Subscriptores
         </h1>
-        <button wire:click='getAllSubscription' class="w-full mt-1 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+        <button wire:click='getAllSubscription' class="mt-1 mb-4 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
           EXCEL
         </button>
         <!--Card-->
