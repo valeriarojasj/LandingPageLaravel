@@ -242,7 +242,7 @@
             </div>
           </div>
           <div class="mb-4">
-            {{$jobOpenings->links('pagination::tailwind')}}
+            {{$jobOpenings->links()}}
           </div>
         </div>
       </div>

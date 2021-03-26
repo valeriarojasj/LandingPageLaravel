@@ -63,9 +63,9 @@
                   </tbody>
                 </table>
               </div>
-              <div>
-                {{$subscriptions->links('pagination::tailwind')}}    
-                </div>
+              <div class="mb-4">
+                {{$subscriptions->links()}}    
+              </div>
             </div>
             
           </div>

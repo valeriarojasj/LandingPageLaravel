@@ -110,7 +110,9 @@
               </div>
             </div>
           <!--/Card-->
-          {{$users->links('pagination::tailwind')}} 
+          <div class="mb-4">
+          {{$users->links()}} 
+        </div>
         </div>
       <!--/container-->
     </div>

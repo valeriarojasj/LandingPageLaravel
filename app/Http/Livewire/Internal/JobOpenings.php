@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Internal;
 
+
 use App\Models\Candidate;
 use Livewire\Component;
 use App\Models\JobOpening;
@@ -16,6 +17,7 @@ use App\Http\Controllers\Internal\CarouselController;
 class JobOpenings extends Component
 {
     use WithPagination;
+    protected $paginationTheme="tailwind";
 
     public  
     $job_status,
