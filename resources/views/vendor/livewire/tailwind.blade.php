@@ -29,7 +29,7 @@
 
             <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
-                    <p class="text-sm leading-5 text-gray-700">
+                    <p class="pt-2 leading-6 text-gray-500 " style="font-size:1rem !important; ">
                         <span>{!! __('Resultados del') !!}</span>
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         <span>{!! __('al') !!}</span>
@@ -40,7 +40,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div  style="margin-left:5px !important; ">
                     <span class="relative z-0 inline-flex rounded-md shadow-sm">
                         <span>
                             {{-- Previous Page Link --}}

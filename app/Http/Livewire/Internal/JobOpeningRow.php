@@ -4,8 +4,10 @@ namespace App\Http\Livewire\Internal;
 
 use Livewire\Component;
 use App\Models\JobOpening;
+use App\Models\JobUser;
 use DateTime;
 use DateTimeZone;
+
 
 class JobOpeningRow extends Component
 {
@@ -144,8 +146,8 @@ class JobOpeningRow extends Component
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
         $this->created_by=$this->objeto->created_by;
         $this->updated_by=$this->objeto->updated_by;
-        $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');
-        $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');
+        $this->created_at=$this->objeto->created_at;
+        $this->updated_at=$this->objeto->updated_at;
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
     }
     public function update($id)
@@ -190,31 +192,33 @@ class JobOpeningRow extends Component
     }
     public function store()
     {
-        /*dd(
-            $this->job_title,
-            $this->company_type,
-            $this->job_location,
-            $this->open_question_1,
-            $this->open_question_2,
-            $this->multiple_choice_question_1,
-            $this->multiple_choice1_option_1,
-            $this->multiple_choice1_option_2,
-            $this->multiple_choice1_option_3,
-            $this->multiple_choice_question_2,
-            $this->multiple_choice2_option_1,
-            $this->multiple_choice2_option_2,
-            $this->multiple_choice2_option_3,
-            $this->checkbox_question_1,
-            $this->checkbox1_option_1,
-            $this->checkbox1_option_2,
-            $this->checkbox1_option_3,
-            $this->checkbox_question_2,
-            $this->checkbox2_option_1,
-            $this->checkbox2_option_2,
-            $this->checkbox2_option_3
-        );*/
+        // dd(
+        //     $this->job_title,
+        //     $this->company_type,
+        //     $this->job_location,
+        //     $this->open_question_1,
+        //     $this->open_question_2,
+        //     $this->multiple_choice_question_1,
+        //     $this->multiple_choice1_option_1,
+        //     $this->multiple_choice1_option_2,
+        //     $this->multiple_choice1_option_3,
+        //     $this->multiple_choice_question_2,
+        //     $this->multiple_choice2_option_1,
+        //     $this->multiple_choice2_option_2,
+        //     $this->multiple_choice2_option_3,
+        //     $this->checkbox_question_1,
+        //     $this->checkbox1_option_1,
+        //     $this->checkbox1_option_2,
+        //     $this->checkbox1_option_3,
+        //     $this->checkbox_question_2,
+        //     $this->checkbox2_option_1,
+        //     $this->checkbox2_option_2,
+        //     $this->checkbox2_option_3,
+        //     $this->created_by
+
+        // );
         $this->validate();
-        JobOpening::create([
+        $job= JobOpening::create([
             'job_status' => "Borrador",
             'job_title' => $this->job_title,
             'company_type' => $this->company_type,
@@ -241,7 +245,12 @@ class JobOpeningRow extends Component
             'created_by' => auth()->user()->name,
             'updated_by' => null
         ]);
-        
+        $jobuser= JobUser::create([
+        'job_id'=>$job->id,
+        'user_id'=> auth()->user()->id
+        ]);
+
+      
       
         $this->emit('hideNewRow');
         

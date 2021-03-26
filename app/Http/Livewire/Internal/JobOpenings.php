@@ -11,6 +11,7 @@ use App\Models\Carousel;
 use App\Models\User;
 
 
+
 use App\Http\Controllers\Internal\CarouselController;
 
 
@@ -56,7 +57,7 @@ class JobOpenings extends Component
     public $statusFilter;
     protected $listeners = [
         'abrirModal' => 'open',
-        'reloadJobsopenings' => 'reload',
+        'reloadJobsopenings' => 'render',
         'hideNewRow' => 'hideNewRow'
         
     ];
