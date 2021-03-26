@@ -46,7 +46,7 @@ class ActiveJobs extends Component
     }
     public function mount(){
         $this->jobs = $this->getJobOpening();
-        $this->cantidad = JobOpening::select('*')->where('job_status','=','Publicada')->count();
+        $this->cantidad = JobOpening::select('*')->where('job_status','Publicada')->count();
         $this->maxPages = floor($this->cantidad/9);
         
     }

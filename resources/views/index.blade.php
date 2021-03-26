@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>FYG</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    {{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      </style>
 
    
     <link rel="stylesheet" href="css/style.css">
@@ -22,7 +24,8 @@
         }
       </style>
     {{-- end of Tailwind modal head --}}
-    <script src="https://kit.fontawesome.com/b67648323f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dd0322cf66.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/b67648323f.js" crossorigin="anonymous"></script> --}}
     @livewireStyles
   </head>
 

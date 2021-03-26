@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\UpdatesTeamNames;
 
+
 class UpdateTeamName implements UpdatesTeamNames
 {
     /**
