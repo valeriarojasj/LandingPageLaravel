@@ -97,7 +97,7 @@ table.dataTable tbody tr {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
     letter-spacing: 0.1em;
-    
+    cursor: pointer;
    
     color: #7C7C7C !important;
    
@@ -133,18 +133,21 @@ table.dataTable tbody tr {
     border-width: 1px !important;
     border-color: #d2d6dc !important;
     color: #374151 !important;
+    cursor: pointer;
 }
 
 .dataTables_paginate .paginate_button.current:not(.disabled) {
     background: #A9CCEE !important;
     color: #ffffff !important;
     border-color: #87a3be !important;
+    cursor: pointer;
 }
 
  .dataTables_paginate .paginate_button.current:hover, .dataTables_paginate .paginate_button.current:hover  {
     background-color: #8da2fb !important;
     color: #ffffff !important;
     border-color: #8da2fb !important;
+    cursor: pointer;
 }
 
 .dataTables_length select {

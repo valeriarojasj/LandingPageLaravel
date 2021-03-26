@@ -37,7 +37,7 @@ class ActiveJobs extends Component
         return view('livewire.active-jobs');
     }
     public function increment(){
-        $this->cantidad = JobOpening::select('*')->count();
+        $this->cantidad = JobOpening::select('*')->where('job_status','=','Publicada')->count();
         $this->maxPages = floor($this->cantidad/9);
         if($this->page < $this->maxPages){
             $this->page++;
@@ -46,6 +46,8 @@ class ActiveJobs extends Component
     }
     public function mount(){
         $this->jobs = $this->getJobOpening();
+        $this->cantidad = JobOpening::select('*')->where('job_status','=','Publicada')->count();
+        $this->maxPages = floor($this->cantidad/9);
         
     }
     public function decrement(){

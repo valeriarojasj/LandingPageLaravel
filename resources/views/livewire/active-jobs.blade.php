@@ -42,7 +42,7 @@
     <div class='flex justify-content-around'>
         <div class="flex content-center">
             <button class="focus:outline-none "wire:click='decrement'>
-                <i class="fas fa-chevron-left"></i> 
+                <i class="fas fa-chevron-left" @if($page==0) style="cursor:default;  filter: brightness(1.8);" @endif></i> 
             </button>
         </div>
         <div class='flex justify-center '>
@@ -84,8 +84,10 @@
             </div>
         </div>
         <div class="flex content-center ">
+           
             <button class="focus:outline-none" wire:click='increment'>
-                <i class="fas fa-chevron-right"></i> 
+ 
+                <i class="fas fa-chevron-right " @if($page==$maxPages) style="cursor:default;  filter: brightness(1.8);" @endif></i> 
             </button>
         </div>
     </div>
