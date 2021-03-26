@@ -23,7 +23,7 @@
             </div>
             <div class="mr-2 md:w-3/6">
                 <input id="searchJobToApply" wire:model='job_opening_id' type="number" min="1" class="mr-auto form-control" placeholder=" Ingresa el ID de la búsqueda laboral">
-
+            <span class="error" >{{$mensajeErrorBusqueda}}</span>
             </div>
             <div class="md:w-2/6">
                 <button  wire:click="search()" class="px-4 py-1 font-bold text-white bg-blue-300 border border-gray-500 btn hover:border-indigo-500 hover:text-indigo-500" >

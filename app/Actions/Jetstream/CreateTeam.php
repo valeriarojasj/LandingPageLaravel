@@ -2,12 +2,10 @@
 
 namespace App\Actions\Jetstream;
 
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Jetstream;
-
 
 class CreateTeam implements CreatesTeams
 {

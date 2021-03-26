@@ -15,6 +15,7 @@ class ActiveJobs extends Component
     public $isMount = true;
     public $selectedJob;
     public $job_opening_id;
+    public $mensajeErrorBusqueda;
     protected $listeners = [
         'setSelectedJob' => 'setSelectedJob'
     ];
@@ -74,10 +75,13 @@ class ActiveJobs extends Component
     public function search(){
         $this->validate();
         
-        $job=JobOpening::find($this->job_opening_id);
-        
-        $this->setSelectedJob($job);
-        $this->job_opening_id=null;
+        $job=JobOpening::where('job_status','Publicada')->where('id', $this->job_opening_id)->get();
+    
+        if(!$job->isEmpty()){
+        $this->setSelectedJob($job[0]);
+        $this->job_opening_id=null;}else{
+         $this->mensajeErrorBusqueda="La busqueda laboral solicitada no se encuentra activa o no existe";
+        }
         
       
 
