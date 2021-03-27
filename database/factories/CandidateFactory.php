@@ -47,7 +47,10 @@ class CandidateFactory extends Factory
             "checkbox_2_a_op_1" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
             "checkbox_2_a_op_2" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
             "checkbox_2_a_op_3" => $this->faker->sentence($nbWords = 2, $variableNbWords = true) ,
-            'created_at' => $this->faker->dateTimeThisMonth()
+            'created_at' => $this->faker->dateTimeThisMonth(),
+            'download_status'=>false,
+            'downloaded_by'=>null,
+            'downloaded_at'=>null
         ];
     }
 }

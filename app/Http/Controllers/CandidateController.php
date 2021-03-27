@@ -37,7 +37,10 @@ class CandidateController extends Controller
         "checkbox_1_a_op_3" => "Respuesta Checkbox 1 Opcion 3",
         "checkbox_2_a_op_1" => "Respuesta Checkbox 2 Opcion 1",
         "checkbox_2_a_op_2" => "Respuesta Checkbox 2 Opcion 2",
-        "checkbox_2_a_op_3" => "Respuesta Checkbox 2 Opcion 3"
+        "checkbox_2_a_op_3" => "Respuesta Checkbox 2 Opcion 3",
+        "download_status" => "Descargado",
+        "downloaded_by" =>"Descargado por",
+        "downloaded_at" =>"Fecha de Descarga"
     ];
 
     private $selectables = [
@@ -73,7 +76,10 @@ class CandidateController extends Controller
         "checkbox_1_a_op_3",
         "checkbox_2_a_op_1",
         "checkbox_2_a_op_2",
-        "checkbox_2_a_op_3"
+        "checkbox_2_a_op_3",
+        "download_status",
+        "downloaded_by",
+        "downloaded_at" 
         
     ];
     
@@ -197,7 +203,10 @@ class CandidateController extends Controller
                 "checkbox_1_a_op_3"=> $record->checkbox_1_a_op_3,
                 "checkbox_2_a_op_1"=> $record->checkbox_2_a_op_1,
                 "checkbox_2_a_op_2"=> $record->checkbox_2_a_op_2,
-                "checkbox_2_a_op_3"=> $record->checkbox_2_a_op_3,     
+                "checkbox_2_a_op_3"=> $record->checkbox_2_a_op_3, 
+                "download_status"=> $record->download_status,
+                "downloaded_by"=> $record->downloaded_by,
+                "downloaded_at"=> $record->downloaded_at,     
             );
         }
         return $results;
@@ -247,6 +256,7 @@ class CandidateController extends Controller
         for ($i = 1; $i < count($columnsNames); ++$i){
             $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
         }
+        $records->update(['download_status' => true,'downloaded_by'=>auth()->user()->name, 'downloaded_at'=>now()]);
         return $records->orderby($columnName, $typeOfOrder)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
@@ -273,6 +283,9 @@ class CandidateController extends Controller
             'checkbox_2_a_op_1 as Respuesta_Checkbox_2_Opcion_1',
             'checkbox_2_a_op_2 as Respuesta_Checkbox_2_Opcion_2',
             'checkbox_2_a_op_3 as Respuesta_Checkbox_2_Opcion_3',
+            'download_status',
+            'downloaded_by',
+            'downloaded_at' 
 
             
             ])

@@ -76,6 +76,9 @@
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 1</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 2</th>
                                             <th  style="border-bottom:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th> 
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Descargado</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Descargado por</th>
+                                            <th  style="border-bottom:2px solid #2b6cb0 !important;">Fecha de Descarga</th> 
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -104,7 +107,10 @@
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 1 Opcion 3</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 1</th>
                                             <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 2</th>
-                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th>   
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Respuesta Checkbox 2 Opcion 3</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Descargado</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Descargado por</th>
+                                            <th  style="border-top:2px solid #2b6cb0 !important;">Fecha de Descarga</th> 
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -198,6 +204,14 @@
                             {data:'checkbox_2_a_op_1'},
                             {data:'checkbox_2_a_op_2'},
                             {data:'checkbox_2_a_op_3'},
+                            {
+                                data:'download_status',
+                                render: function (data, type, row) {
+                                    return (data) ? '<span style="vertical-align:middle;"  class = "inline-flex px-3 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Si</span>' : '<span style="vertical-align:middle;"  class = "inline-flex px-3 text-xs font-semibold leading-5 text-pink-800 bg-pink-100 rounded-full">No</span>' ;
+                                }
+                            },
+                            {data:'downloaded_by'},
+                            {data:'downloaded_at'},
                         ],
                         responsive: true,
                         select: true,
@@ -221,6 +235,7 @@
                                         data: datos,
                                         success:function(response) {
                                             downloadAsExcel(response);
+                                            
                                         }
                                     });
                                 }

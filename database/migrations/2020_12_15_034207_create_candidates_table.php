@@ -37,7 +37,10 @@ class CreateCandidatesTable extends Migration
             $table->string('checkbox_1_a_op_3')->nullable($value = true);
             $table->string('checkbox_2_a_op_1')->nullable($value = true);
             $table->string('checkbox_2_a_op_2')->nullable($value = true);
-            $table->string('checkbox_2_a_op_3')->nullable($value = true);
+            $table->string('checkbox_2_a_op_3')->nullable($value = true); 
+            $table->boolean('download_status')->nullable($value = true);
+            $table->string('downloaded_by')->nullable($value = true);
+            $table->date('downloaded_at')->nullable($value = true);
 
           
             
