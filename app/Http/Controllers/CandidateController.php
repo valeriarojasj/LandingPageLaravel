@@ -49,8 +49,7 @@ class CandidateController extends Controller
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
-        "city" => "Ciudad",
-        "download_status"=>"Descargado"
+        "city" => "Ciudad"
     ];
     public $assignedJobs;
     public $valueToSearch;

@@ -266,34 +266,46 @@
                                 const index = column[0][0];
                                 const columnName = orden[index]
                                 const info= selectInfo[columnName];
+                                console.log(columnName);
+                                
                                 if(info){
                                     var select = $('<select class="form-select form-select-sm" ><option value="">Buscá por '+info.label+'</option></select>')
-                                    .appendTo( $(column.footer()).empty() )
-                                   .on( 'change', function () {
-                                      var val = $.fn.dataTable.util.escapeRegex(
-                                           $(this).val()
-                                       );
-                
-                                       column
-                                           .search( val ? val : '', true, false )
-                                           .draw();
-                                   } );
-                                  console.log(info.selectOptions)
-                               for(option of info.selectOptions){
-                                   if(option[columnName]){
-                                       select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
-                                   }else if(columnName=="download_status"){
-                                    select.append( '<option value="null">No</option>')
-                    
+                                        .appendTo( $(column.footer()).empty() )
+                                        .on( 'change', function () {
+                                            var val = $.fn.dataTable.util.escapeRegex(
+                                                $(this).val()
+                                            );
+                                            column
+                                                .search( val ? val : '', true, false )
+                                                .draw();
+                                        });
+                                    for(option of info.selectOptions){
+                                        if(option[columnName]){
+                                            select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
+                                        } else {
+                                            select.append( '<option value="null">Sin contestar</option>' )
+                                        }
+                                    };
+                                }
+                                
+                                if(columnName=='download_status'){
                                    
-                                   }
-                                   else{
-                                    select.append( '<option value="null">Sin contestar</option>' )
-                                   }
-
-                               };
-                                }    
-                          } );
+                                if(columnName=='download_status'){
+                                    var select = $('<select class="form-select form-select-sm" ><option value="">Buscá por Status</option></select>')
+                                        .appendTo( $(column.footer()).empty() )
+                                        .on( 'change', function () {
+                                            var val = $.fn.dataTable.util.escapeRegex(
+                                                $(this).val()
+                                            );
+                                            column
+                                                .search( val ? val : '', true, false )
+                                                .draw();
+                                        });
+                                        select.append( '<option value="1">SI</option>' )
+                                        select.append( '<option value="0">NO</option>' )
+                                } 
+                                }
+                            });
                      }
                     });
                     table.columns.adjust();
@@ -364,7 +376,6 @@
                     }
                
                 });
-
             </script>
         </div>
     </div>
