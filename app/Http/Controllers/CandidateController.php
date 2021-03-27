@@ -16,6 +16,7 @@ class CandidateController extends Controller
     private $labels = [
         "id" => "ID",
         "created_at" => "Fecha de Aplicación",
+        "job_id"=>"ID de la Búsqueda",
         "job_to_apply" => "Búsqueda",
         "fullName" => "Nombre Completo",
         "dni" => "DNI",
@@ -44,10 +45,12 @@ class CandidateController extends Controller
     ];
 
     private $selectables = [
+        "job_id"=>"Fecha de Aplicación",
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
-        "city" => "Ciudad"
+        "city" => "Ciudad",
+        "download_status"=>"Descargado"
     ];
     public $assignedJobs;
     public $valueToSearch;
@@ -172,6 +175,7 @@ class CandidateController extends Controller
             $obj->selectOptions = Candidate::select($key)
                 ->whereIn('job_id', $this->assignedJobs)->groupBy($key)->get();
             $infoArray[$key]=$obj;
+            
         }
         return $infoArray;
     }

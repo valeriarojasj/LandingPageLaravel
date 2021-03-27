@@ -278,13 +278,19 @@
                                            .search( val ? val : '', true, false )
                                            .draw();
                                    } );
-                                  
+                                  console.log(info.selectOptions)
                                for(option of info.selectOptions){
                                    if(option[columnName]){
                                        select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
-                                   }else{
+                                   }else if(columnName=="download_status"){
+                                    select.append( '<option value="null">No</option>')
+                    
+                                   
+                                   }
+                                   else{
                                     select.append( '<option value="null">Sin contestar</option>' )
                                    }
+
                                };
                                 }    
                           } );
