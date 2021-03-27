@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         Subscription::factory(100)->create();
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-        JobOpening::factory(100)->create();
+        JobOpening::factory(97)->create();
+        $this->call(JobOpeningsSeeder::class);
         $this->call(CarouselSeeder::class);
         Candidate::factory(15000)->create();
         $this->call(JobUsersSeeder::class);

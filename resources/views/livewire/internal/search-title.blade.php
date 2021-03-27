@@ -8,5 +8,6 @@
         <div class="form-group">
             {!! Form::label('job_title', 'Título de la búsqueda') !!}
             {!! Form::text('job_title', $title, ['class'=>'form-control', 'placeholder'=>'Título de la búsqueda','readonly']) !!}
+        <span class="error">{{$mensajeErrorJobID}}</span>
         </div>
 </div>

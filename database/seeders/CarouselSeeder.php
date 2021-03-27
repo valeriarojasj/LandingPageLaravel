@@ -18,7 +18,7 @@ class CarouselSeeder extends Seeder
             'image_url'=>'img/imagen-scrum.png',
             'description1'=>'<p>Para el equipo de IT en importante fintech</p>',
             'updated_by'=>null,
-            'order' => 1
+            'order' => 1,
         ]);
         Carousel::create([
             'job_opening_id'=>99,

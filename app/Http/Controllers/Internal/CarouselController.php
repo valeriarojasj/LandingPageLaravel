@@ -58,6 +58,7 @@ class CarouselController extends Controller
     static public function getAllCarousels(){
         $data = Carousel::select('carousel.*', 'job_openings.job_title')
                 ->join('job_openings', 'carousel.job_opening_id', '=', 'job_openings.id')
+                ->where('job_status','Publicada')
                 ->get();
 
         return $data;

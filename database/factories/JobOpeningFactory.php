@@ -23,10 +23,17 @@ class JobOpeningFactory extends Factory
     public function definition()
     {
         $user_id = User::inRandomOrder()->value('id');
+
+        
+
+
+
+
           
            
         return [
-            
+
+      
 
             'job_status'=>$this->faker->randomElement(['Borrador', 'Publicada', 'Cerrada']),
             'job_title'=>$this->faker->jobTitle($nbWords = 3, $variableNbWords = true),
