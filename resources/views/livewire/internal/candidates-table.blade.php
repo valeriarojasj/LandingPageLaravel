@@ -281,6 +281,15 @@
                                 select.append( '<option value="SI">SI</option>' )
                                 select.append( '<option value="NO">NO</option>' )
                             }
+                            if(columnName=='job_id'){
+                                var select = $('<input class="form-control" type="number">')
+                                    .appendTo( $(column.footer()).empty() )
+                                    .on( 'change', function () {
+                                        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                        column.search( val ? val : '', true, false ).draw();
+                                    });
+                            }
+                            
                             if(columnName=='created_at'){
                                 var div = $('<div></div>').appendTo( $(column.footer()).empty() );
                                 var from = $('<input id="from" class="form-control" type="date">')
