@@ -7,56 +7,94 @@
             <!-- FULLNAME -->
             <fieldset>
               <div class="mt-3 divFullName">
-                <label for="fullName">Nombre y Apellido</label>
+                <label for="fullName">
+                  Nombre y Apellido
+                </label>
                 <input  type="text" class="form-control applyInput" placeholder="" wire:model.defer='fullName'>
-                @error('fullName') <span class="error">{{ $message }}</span> @enderror
+                @error('fullName')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
             <!-- DNI -->
             <fieldset>
               <div class="mt-3 divDni">
-                <label for="dni">DNI</label>
+                <label for="dni">
+                  DNI
+                </label>
                 <input  type="text" class="form-control applyInput"placeholder="" wire:model.defer='dni'>
-                @error('dni') <span class="error">{{ $message }}</span> @enderror
-                @if($messageExist) <span class="error">{{ $messageExist }}</span> @endif
+                @error('dni')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
+                @if($messageExist)
+                  <span class="error">
+                    {{ $messageExist }}
+                  </span>
+                @endif
               </div>
             </fieldset>
             <!--BDAY-->
             <fieldset>
               <div class="mt-3 divBday">
-                <label  for="bday">Fecha de Nacimiento</label>
+                <label for="bday">
+                  Fecha de Nacimiento
+                </label>
                 <input type="date" class="form-control date"  wire:model.defer='bday'>
-                @error('bday') <span class="error">{{ $message }}</span> @enderror
+                @error('bday')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
             <!-- EMAIL -->
             <fieldset>
               <div class="mt-3">
-                <label for="email">Correo Electrónico</label>
+                <label for="email">
+                  Correo Electrónico
+                </label>
                 <input  type="email" class="form-control applyInput" placeholder="" wire:model.defer='email'>
-                @error('email') <span class="error">{{ $message }}</span> @enderror
-                @if($messageExist) <span class="error">{{ $messageExist }}</span> @endif
+                @error('email')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
+                @if($messageExist)
+                  <span class="error">
+                    {{ $messageExist }}
+                  </span>
+                @endif
               </div>
             </fieldset>
             <!-- LINKEDIN -->
             <fieldset>
               <div class="mt-3">
-                <label for="linkedin">LinkedIn</label>
+                <label for="linkedin">
+                  LinkedIn
+                </label>
                 <input type="text" class="form-control applyInput" placeholder="" wire:model.defer='linkedin'>
-                @error('linkedin') <span class="error">{{ $message }}</span> @enderror
+                @error('linkedin')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
           </div>
         @endif
-       
 
         @if($step == 1)
-      
           <div>
             <!-- COUNTRY -->
             <fieldset>
               <div class="divCountry">
-                <label for="country">Pais</label>
+                <label for="country">
+                  Pais
+                </label>
                 <select id="country" class="form-control" wire:model.defer='country' data-country="{{$country}}">
                   <option value=''>Selecciona el país donde vives...</option>
                   <option value='Argentina'>Argentina</option>
@@ -73,37 +111,52 @@
                   <option value='Panama'>Panama</option>      
                   <option value='Otro'>Otro</option>
                 </select>
-                @error('country') <span class="error">{{ $message }}</span> @enderror
+                @error('country')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
 
             <!-- PROVINCE -->
             <fieldset>
               <div id="divProvince" class="mt-3 divProvince" style="display:none;">
-                <label for="province">Provincia</label>
+                <label for="province">
+                  Provincia
+                </label>
                 <select  id="province" class="form-control" wire:model.defer='province' data-provincia="{{$province}}">
                   <option value=""> Selecciona la provincia donde vives...</option>
                 </select>
-                @error('province') <span class="error">{{ $message }}</span> @enderror
+                @error('province')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
-            </fieldset> 
+            </fieldset>
+
             <!-- CITY -->
             <fieldset>
               <div id="divCity" class="mt-3 divCity" style="display:none;">
-                <label for="city">Localidad</label>
+                <label for="city">
+                  Localidad
+                </label>
                 <select id="city" class="form-control" wire:model.defer='city' data-ciudad="{{$city}}">
                   <option selected="{{false}}" value="">Selecciona la ciudad donde vives...</option>
                 </select>
-                @error('city') <span class="error">{{ $message }}</span> @enderror
+                @error('city')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
+
             <script>
               cargarPaises();
             </script>
-            
           </div>
-         
-        
         @endif
       
         @if($step == 2)
@@ -111,7 +164,9 @@
             <!-- EDUCATIONLEVEL -->
             <fieldset>
               <div class="divEducation">
-                <label for="educationLevel">Nivel de educación</label>
+                <label for="educationLevel">
+                  Nivel de educación
+                </label>
                 <select class="form-control" wire:model.defer='educationLevel'>
                   <option selected>Selecciona tu nivel de educación...</option>
                   <option>Secundario</option>
@@ -119,45 +174,48 @@
                   <option>Posgrado</option>
                   <option>Doctorado</option>
                 </select>
-                @error('educationLevel') <span class="error">{{ $message }}</span> @enderror   
+                @error('educationLevel')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror   
               </div>
             </fieldset>
+
             <!-- EDUCATIONSTATUS -->
             <fieldset>
               <div class="mt-3 divEducation">
-                <label for="educationStatus">Status de Estudios</label>
+                <label for="educationStatus">
+                  Status de Estudios
+                </label>
                 <select class="form-control" wire:model.defer='educationStatus'>
                   <option selected>Selecciona tu status de estudios...</option>
                   <option>En curso</option>
                   <option>Graduado</option>
                   <option>Abandonado</option>
                 </select>
-                @error('educationStatus') <span class="error">{{ $message }}</span> @enderror
+                @error('educationStatus')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror
               </div>
             </fieldset>
+
             <!-- CAREER -->
             <fieldset>
               <div class="mt-3 divCareer">
-                <label for="career">Título universitario</label>
+                <label for="career">
+                  Título universitario
+                </label>
                 <input  type="text" class="rounded-md form-control applyInput" placeholder="" wire:model.defer='career'>
-                @error('career') <span class="error">{{ $message }}</span> @enderror   
+                @error('career')
+                  <span class="error">
+                    {{ $message }}
+                  </span>
+                @enderror   
               </div>
             </fieldset>
-            <!-- JOBTOAPPLY -->
-            <!-- 
-            <fieldset>
-              <div class="mt-3 divJobtoApply">
-                <label for="jobToApply">Postularme para la posición</label>
-                <select id="jobToApply-{{$uuid}}" class="rounded-md form-control" wire:model.defer='jobToApply'>
-                  <option selected>Selecciona la búsqueda a la cual deseas postularte...</option>
-                  <option>Analista Contable Ssr</option>
-                  <option>Ejecutivo Large Corporate</option>
-                  <option>Data Hub Jr</option>
-                </select>
-                @error('jobToApply') <span class="error">{{ $message }}</span> @enderror   
-              </div>
-            </fieldset> 
-            -->
           </div>
         @endif
 
@@ -177,6 +235,7 @@
                 </div>
               @endif
             </fieldset>
+
             <!-- PREGUNTA ABIERTA 2 -->
             <fieldset>
               @if($job->open_question_2)
@@ -236,6 +295,7 @@
                 </div>
               @endif
             </fieldset>
+
             <!-- MULTIPLE CHOICE QUESTION 2 -->
             <fieldset>
               @if($job->multiple_choice_question_2)
@@ -278,6 +338,7 @@
             </fieldset>
           </div>
         @endif
+
         @if($step == 5)
           <div>
             <!-- PREGUNTA DE CHECKBOX 1 -->
@@ -326,6 +387,7 @@
                 </div>
               @endif
             </fieldset>
+
             <!-- PREGUNTA DE CHECKBOX 2 -->
             <fieldset>
               @if($job->checkbox_question_2)
@@ -397,6 +459,5 @@
       </div>
     <!--Cierre del Footer-->
   </form>
-
   <script type="text/javascript" src="js/applicationForm.js"></script>
 </div>

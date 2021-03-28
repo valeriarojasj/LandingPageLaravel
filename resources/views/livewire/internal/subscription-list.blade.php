@@ -6,14 +6,14 @@
       <div class="container w-full px-2 mx-auto rounded md:w-4/5 xl:w-3/5">
         <!--Title-->
         <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
-            Lista de Subscriptores
+          Lista de Subscriptores
         </h1>
         <button wire:click='getAllSubscription' class="mt-1 mb-4 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
           Excel
         </button>
         <!--Card-->
         <div id='users-roles' class="mt-6 bg-white lg:mt-0">
-          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >  <!--este div hace que haga scroll la tabla -->
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >
             <div class="inline-block min-w-full pt-0 space-between sm:px-6 lg:px-8">
               <div class="mb-3 overflow-hidden border-b border-gray-200 rounded-lg shadow align-left sm:rounded-lg">
                 <table class="table mb-0" id="subscriptionTable">
@@ -67,7 +67,6 @@
                 {{$subscriptions->links()}}    
               </div>
             </div>
-            
           </div>
         </div>
         <!--/Card-->
