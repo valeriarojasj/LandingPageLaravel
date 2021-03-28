@@ -5,12 +5,8 @@ namespace App\Http\Livewire\Internal;
 use Livewire\Component;
 use App\Models\JobOpening;
 use App\Models\JobUser;
-use DateTime;
-use DateTimeZone;
 
-
-class JobOpeningRow extends Component
-{
+class JobOpeningRow extends Component{
     public $uuid;
     public $job_status;
     public $job_title;
@@ -43,12 +39,10 @@ class JobOpeningRow extends Component
     public $nuevoObjeto=false;
     public $editable=false;
 
-
     protected $rules = [
         'job_title'  => 'required|max:50',
         'company_type' => 'required|max:50',
         'job_location' => 'required|max:50'
-      
     ];
     protected $messages =[
         'job_title.required' => 'Por favor ingresa el nombre del cargo.',
@@ -57,67 +51,69 @@ class JobOpeningRow extends Component
         'company_type.max' => 'Sólo puedes ingresar hasta 50 caracteres.',
         'job_location.required' => 'Por favor ingresa la ubicación del trabajo.',
         'job_location_type.max' => 'Sólo puedes ingresar hasta 50 caracteres.'
-        
     ];
   
-    
-
-    public function render()
-    {
+    public function render(){
         return view('livewire.internal.job-opening-row');
     }
 
     public function mount(){
-    $this->job_status=$this->objeto->job_status;
-    $this->uuid=$this->objeto->id;
-    $this->job_title=$this->objeto->job_title;
-    $this->company_type=$this->objeto->company_type;
-    $this->job_location=$this->objeto->job_location;
-    $this->job_link=$this->objeto->job_link;
-    $this->open_question_1=$this->objeto->open_question_1;
-    $this->open_question_2=$this->objeto->open_question_2;
-    $this->multiple_choice_question_1=$this->objeto->multiple_choice_question_1;
-    $this->multiple_choice1_option_1=$this->objeto->multiple_choice1_option_1;
-    $this->multiple_choice1_option_2=$this->objeto->multiple_choice1_option_2;
-    $this->multiple_choice1_option_3=$this->objeto->multiple_choice1_option_3;
-    $this->multiple_choice_question_2=$this->objeto->multiple_choice_question_2;
-    $this->multiple_choice2_option_1=$this->objeto->multiple_choice2_option_1;
-    $this->multiple_choice2_option_2=$this->objeto->multiple_choice2_option_2;
-    $this->multiple_choice2_option_3=$this->objeto->multiple_choice2_option_3;
-    $this->checkbox_question_1=$this->objeto->checkbox_question_1;
-    $this->checkbox1_option_1=$this->objeto->checkbox1_option_1;
-    $this->checkbox1_option_2=$this->objeto->checkbox1_option_2;
-    $this->checkbox1_option_3=$this->objeto->checkbox1_option_3;
-    $this->checkbox_question_2=$this->objeto->checkbox_question_2;
-    $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
-    $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
-    $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
-    $this->created_by=$this->objeto->created_by;
-    $this->updated_by=$this->objeto->updated_by;
-    if(!$this->objeto->created_at){$this->created_at="";}else{
-    $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');}
-    if(!$this->objeto->updated_at){$this->updated_at="";}else{
-    $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');}
+        $this->job_status=$this->objeto->job_status;
+        $this->uuid=$this->objeto->id;
+        $this->job_title=$this->objeto->job_title;
+        $this->company_type=$this->objeto->company_type;
+        $this->job_location=$this->objeto->job_location;
+        $this->job_link=$this->objeto->job_link;
+        $this->open_question_1=$this->objeto->open_question_1;
+        $this->open_question_2=$this->objeto->open_question_2;
+        $this->multiple_choice_question_1=$this->objeto->multiple_choice_question_1;
+        $this->multiple_choice1_option_1=$this->objeto->multiple_choice1_option_1;
+        $this->multiple_choice1_option_2=$this->objeto->multiple_choice1_option_2;
+        $this->multiple_choice1_option_3=$this->objeto->multiple_choice1_option_3;
+        $this->multiple_choice_question_2=$this->objeto->multiple_choice_question_2;
+        $this->multiple_choice2_option_1=$this->objeto->multiple_choice2_option_1;
+        $this->multiple_choice2_option_2=$this->objeto->multiple_choice2_option_2;
+        $this->multiple_choice2_option_3=$this->objeto->multiple_choice2_option_3;
+        $this->checkbox_question_1=$this->objeto->checkbox_question_1;
+        $this->checkbox1_option_1=$this->objeto->checkbox1_option_1;
+        $this->checkbox1_option_2=$this->objeto->checkbox1_option_2;
+        $this->checkbox1_option_3=$this->objeto->checkbox1_option_3;
+        $this->checkbox_question_2=$this->objeto->checkbox_question_2;
+        $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
+        $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
+        $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
+        $this->created_by=$this->objeto->created_by;
+        $this->updated_by=$this->objeto->updated_by;
+
+        if(!$this->objeto->created_at){
+            $this->created_at="";
+        } else{
+            $this->created_at=$this->objeto->created_at->format('d-m-Y H:i:s');
+        }
+        
+        if(!$this->objeto->updated_at){
+            $this->updated_at="";
+        } else{
+            $this->updated_at=$this->objeto->updated_at->format('d-m-Y H:i:s');
+        }
     }
+
     public function ver(){
         dd($this->objeto);
-        //
     }
+
     public function open($id){
         $this->emit('abrirModal', $id);
     }
 
-    public function save(){
-        
+    public function save(){  
         $this->uuid='save';
-        
+    }
 
-    }
     public function edit(){
-        $this->editable=true;
-        
-      
+        $this->editable=true;  
     }
+
     public function cancel($id){
         $this->editable=false;
         $this->job_status=$this->objeto->job_status;
@@ -150,9 +146,8 @@ class JobOpeningRow extends Component
         $this->updated_at=$this->objeto->updated_at;
         $this->dispatchBrowserEvent('deshabilitarTextArea', ['id' => $id]);
     }
-    public function update($id)
 
-    {
+    public function update($id){
         $jobOpening= JobOpening::find($id);
         $this->validate();
         $jobOpening->update([
@@ -183,40 +178,11 @@ class JobOpeningRow extends Component
             'updated_by' => auth()->user()->name
             
         ]);
-        
         $this->editable=false;
-    
         return redirect('/internal/job-openings');
-       
-       
     }
-    public function store()
-    {
-        // dd(
-        //     $this->job_title,
-        //     $this->company_type,
-        //     $this->job_location,
-        //     $this->open_question_1,
-        //     $this->open_question_2,
-        //     $this->multiple_choice_question_1,
-        //     $this->multiple_choice1_option_1,
-        //     $this->multiple_choice1_option_2,
-        //     $this->multiple_choice1_option_3,
-        //     $this->multiple_choice_question_2,
-        //     $this->multiple_choice2_option_1,
-        //     $this->multiple_choice2_option_2,
-        //     $this->multiple_choice2_option_3,
-        //     $this->checkbox_question_1,
-        //     $this->checkbox1_option_1,
-        //     $this->checkbox1_option_2,
-        //     $this->checkbox1_option_3,
-        //     $this->checkbox_question_2,
-        //     $this->checkbox2_option_1,
-        //     $this->checkbox2_option_2,
-        //     $this->checkbox2_option_3,
-        //     $this->created_by
 
-        // );
+    public function store(){
         $this->validate();
         $job= JobOpening::create([
             'job_status' => "Borrador",
@@ -245,23 +211,15 @@ class JobOpeningRow extends Component
             'created_by' => auth()->user()->name,
             'updated_by' => null
         ]);
-        $jobuser= JobUser::create([
-        'job_id'=>$job->id,
-        'user_id'=> auth()->user()->id
-        ]);
 
-      
-      
+        $jobuser= JobUser::create([
+            'job_id'=>$job->id,
+            'user_id'=> auth()->user()->id
+        ]);
         $this->emit('hideNewRow');
-        
         $this->emit('reloadJobsopenings');
-        
-        
     }
     public function hideRow(){
-       
         $this->emit('hideNewRow');
-      
-        
     }
 }

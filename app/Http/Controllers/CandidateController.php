@@ -1,18 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
-use App\Models\JobOpening;
-
-use App\Exports\CandidateExport;
-use App\Imports\CandidateImport;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Models\JobUser;
 
-class CandidateController extends Controller
-{
+class CandidateController extends Controller{
     public $draw;
     public $start;
     public $length;
@@ -24,13 +17,13 @@ class CandidateController extends Controller
     public $orderByDirection;
     public $columnNameWithValueToSearch=array();
     public $mensajes=array();
+
     private $selectables = [
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
         "city" => "Ciudad"
     ];
-   
     private $orden = [
         "id",
         "created_at",
@@ -95,7 +88,6 @@ class CandidateController extends Controller
         exit;
     }
 
-
     private function setValues($request){
         $this->draw = $request->get('draw');
         $this->start = $request->get('start');
@@ -104,14 +96,17 @@ class CandidateController extends Controller
         $this->order = $request->get('order');
         $this->columns = $request->get('columns');
     }
+
     private function setAssignedJobs(){
         $this->assignedJobs = JobUser::select('job_id')
             ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
     }
+
     private function setColumnToOrderBy(){
         $this->orderByColumn = $this->columns[$this->order[0]['column']]['data'];
         $this->orderByDirection = $this->order[0]['dir'];
     }
+
     public function setColumnNameWithValueToSearch(){
         $this->columnNameWithValueToSearch["job_id"] = $this->getColumnValue("job_id");
         $this->columnNameWithValueToSearch["job_to_apply"] = $this->getColumnValue("job_to_apply");
@@ -121,6 +116,7 @@ class CandidateController extends Controller
         $this->columnNameWithValueToSearch["download_status"] = $this->getColumnValue("download_status");
         $this->columnNameWithValueToSearch["created_at"] = $this->getColumnValue("created_at");
     }
+
     public function getColumnValue($columnName){
         foreach($this->columns as $column){
             if($column["data"] == $columnName){
@@ -191,6 +187,7 @@ class CandidateController extends Controller
         }
         return $basicQuery;
     }
+
     public function prepareResults($records){
         $results = array();
         foreach($records as $record){
@@ -227,9 +224,11 @@ class CandidateController extends Controller
         }
         return $results;
     }
+
     public function countRows($query){
         return intval($query->count());
     }
+
     public function getSelectInfo(){
         $infoArray=array();
         foreach($this->selectables as $key => $value){
@@ -251,8 +250,7 @@ class CandidateController extends Controller
         $this->setColumnNameWithValueToSearch();
         $basicQuery = Candidate::whereIn('job_id', $this->assignedJobs);
         $finalQuery = $this->applyWhereStatements($basicQuery);
-        
-      
+          
         $result = $finalQuery->orderby($this->orderByColumn, $this->orderByDirection)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
@@ -283,11 +281,12 @@ class CandidateController extends Controller
             'downloaded_by',
             'downloaded_at' 
         ])->toArray();
+        
         $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->name, 'downloaded_at'=>now()]);
 
-    return $result;
-       
+        return $result;
     }
+
     public function deleteCandidates(Request $request){
         $this->setValues($request);
         $this->setColumnToOrderBy();

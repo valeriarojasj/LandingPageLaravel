@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApplicationSubmittedMailable;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,7 @@ use App\Mail\ApplicationSubmittedMailable;
 Route::get('/', function () {
     return view('index');
 });
-
+Auth::routes(['reset' => false]);
 
 
 

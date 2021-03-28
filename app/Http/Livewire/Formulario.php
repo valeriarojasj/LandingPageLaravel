@@ -1,19 +1,13 @@
 <?php
 
 namespace App\Http\Livewire;
-use Carbon\Carbon;
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
 use App\Models\Candidate;
 use App\Models\JobOpening;
-use App\Rules\uniqueCandidatePerJob;
-use Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use stdClass;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApplicationSubmittedMailable;
-class Formulario extends Component
-{   
+
+class Formulario extends Component{   
     public $fullName;
     public $dni;
     public $bday;
@@ -27,7 +21,6 @@ class Formulario extends Component
     public $career;
     public $job_id;
     public $jobToApply;
-    
     //nuevos campos
     public $openAnswer1;
     public $openAnswer2;
@@ -40,6 +33,7 @@ class Formulario extends Component
     public $checkBox2AOp2;
     public $checkBox2AOp3;
     //fin de nuevos campos
+
     public $job;
     public $step=0;
     public $uuid;
@@ -62,8 +56,7 @@ class Formulario extends Component
         'educationLevel' => 'required',
         'educationStatus' => 'required',
         'career' => 'required',
-        'jobToApply' => 'required'
-        
+        'jobToApply' => 'required'   
     ];
     protected $messages =[
         'fullName.required' => 'Por favor ingresa tu nombre y apellido.',
@@ -83,26 +76,20 @@ class Formulario extends Component
         'jobToApply' => 'Para postularte debes indicar la posición a la que quieres aplicar.'
     ];
     protected $listeners = ['updateJob' => 'updateFormulario'];
-    public function submit(){
-        
+    
+    public function submit(){   
         $action = $this->stepActions[$this->step];
         $this->$action();
     }
 
-    // protected function validator(array $data)
-    // {
-    //     $uniqueRule =  Rule::unique('candidates')->where(function ($query) use 
-    //                     ($data){
-    //                         return $query->where('dni', $data['dni']??'')
-    //                         ->where('jobToApply', $data['jobToApply']??'');
-    //                     });
-    //                 }
     public function submit1(){
         $this->step++;
     }
+
     public function submit2(){
         $this->step++;
     }
+
     public function submit3(){
         $this->step++;
     }
@@ -115,9 +102,7 @@ class Formulario extends Component
      $this->step++;
     }
 
-
-    public function render()
-    {
+    public function render(){
         return view('livewire.formulario');
     }
 
@@ -134,19 +119,16 @@ class Formulario extends Component
                 'email' => 'required|email',
                 'linkedin' => 'url|starts_with:https://www.linkedin.com/in/'
             ]);
-            
             if($this->validateCandidate()){
                 $this->messageExist='Ya aplicaste a este empleo';
-            }else{
+            } else{
                 $this->messageExist=null;
                 $this->step++;
             }
-        }elseif($this->step==1){
-            $this->validate([
-                'country' => 'required'
-            ]);
+        } elseif($this->step==1){
+            $this->validate(['country' => 'required']);
             $this->step++;
-        }elseif($this->step>=2){
+        } elseif($this->step>=2){
             $this->step++;
         }
     }
@@ -154,18 +136,19 @@ class Formulario extends Component
     public function decreaseStep(){
         $this->step--;
     }
+
     public function validateCandidate(){
         $candidateExists = Candidate::where('job_id', $this->job_id)
-        ->where(function($q) {
-            $q->where('dni', $this->dni)
-            ->orWhere('email', $this->email);
-        })
-        ->get();
+            ->where(function($q) {
+                $q->where('dni', $this->dni)
+                ->orWhere('email', $this->email);
+            })
+            ->get();
         return $candidateExists->count();
     }
+
     public function save(){
         $this->validate();
-
         $candidate = new Candidate;
         $candidate->fullName = $this->fullName;
         $candidate->dni = $this->dni;
@@ -195,10 +178,9 @@ class Formulario extends Component
         $correo = new ApplicationSubmittedMailable($this->fullName, $this->jobToApply, $this->job_id);
         Mail::to($this->email)->send($correo);
         $this->resetAttributes();
-        $this->dispatchBrowserEvent('showSuccessMessage');
-        
-        
+        $this->dispatchBrowserEvent('showSuccessMessage');    
     }
+
     public function resetAttributes(){
         $this->fullName = '';
         $this->dni='';
@@ -225,6 +207,7 @@ class Formulario extends Component
         $this->checkBox2AOp3='';
         $this->step=0;
     }
+
     // validate Province valida si el pais no es Argentina, entonces da valores de null a provincia y a ciudad para que se guarde asi en la base de datos
     public function validateProvince(){
         if($this->country != 'Argentina'){
@@ -232,11 +215,11 @@ class Formulario extends Component
             $this->city = null;
         }
     }
+    
     public function updateFormulario(JobOpening $job){
         $this->job=$job;
         $this->job_id = $job->id;
         $this->jobToApply = $job->job_title;
-        
         $this->dispatchBrowserEvent('toggle-modal');
     }
 }
