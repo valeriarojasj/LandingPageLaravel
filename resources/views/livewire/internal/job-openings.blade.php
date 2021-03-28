@@ -278,8 +278,12 @@
     let isDown = false;
     let startX;
     let scrollLeft;
-
+    let shouldMove=true;
     slider.addEventListener('mousedown', (e) => {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      shouldMove=target.nodeName=='TEXTAREA' && target.disabled;
+      if(!shouldMove)return;
       isDown = true;
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
@@ -288,16 +292,25 @@
       isDown = false;
     });
     slider.addEventListener('mouseup', () => {
+      console.log('mouseup');
       isDown = false;
     });
+    
     slider.addEventListener('mousemove', (e) => {
+      
       if(!isDown) return;
+      if(!shouldMove) return;
+      $(document).click(function(event) {
+        var text = $(event);
+      });
+      console.log('mousemove');
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = x - startX;
       // const walk = (x - startX) * 2; esto es para q se mueva el doble  
       slider.scrollLeft = scrollLeft - walk;
     });
+    
   </script>
 </div>
                    
