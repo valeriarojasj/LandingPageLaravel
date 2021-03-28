@@ -10,49 +10,27 @@ use App\Exports\CandidateExport;
 use App\Imports\CandidateImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\JobUser;
+
 class CandidateController extends Controller
 {
-
-    private $labels = [
-        "id" => "ID",
-        "created_at" => "Fecha de Aplicación",
-        "job_id"=>"ID de la Búsqueda",
-        "job_to_apply" => "Búsqueda",
-        "fullName" => "Nombre Completo",
-        "dni" => "DNI",
-        "birthday" => "Fecha de Nacimiento",
-        "email" => "Email",
-        "linkedin" => "Linkedin",
-        "country" => "País",
-        "province" => "Provincia",
-        "city" => "Ciudad",
-        "education_level" => "Nivel Educativo",
-        "education_status" => "Status Estudios",
-        "career" => "Título Universitario",
-        "open_answer_1" => "Respuesta Abierta 1",
-        "open_answer_2" => "Respuesta Abierta 2",
-        "multiple_choice_1_a" => "Respuesta Selección 1",
-        "multiple_choice_2_a" => "Respuesta Selección 2",
-        "checkbox_1_a_op_1" => "Respuesta Checkbox 1 Opcion 1",
-        "checkbox_1_a_op_2" => "Respuesta Checkbox 1 Opcion 2",
-        "checkbox_1_a_op_3" => "Respuesta Checkbox 1 Opcion 3",
-        "checkbox_2_a_op_1" => "Respuesta Checkbox 2 Opcion 1",
-        "checkbox_2_a_op_2" => "Respuesta Checkbox 2 Opcion 2",
-        "checkbox_2_a_op_3" => "Respuesta Checkbox 2 Opcion 3",
-        "download_status" => "Descargado",
-        "downloaded_by" =>"Descargado por",
-        "downloaded_at" =>"Fecha de Descarga"
-    ];
-
+    public $draw;
+    public $start;
+    public $length;
+    public $search;
+    public $order;
+    public $columns;
+    public $assignedJobs;
+    public $orderByColumn;
+    public $orderByDirection;
+    public $columnNameWithValueToSearch=array();
+    public $mensajes=array();
     private $selectables = [
-        "job_id"=>"ID de la Búsqueda",
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
         "city" => "Ciudad"
     ];
-    public $assignedJobs;
-    public $valueToSearch;
+   
     private $orden = [
         "id",
         "created_at",
@@ -82,101 +60,136 @@ class CandidateController extends Controller
         "download_status",
         "downloaded_by",
         "downloaded_at" 
-        
     ];
     
     public function getCandidates(Request $request){
-        $draw = $request->get('draw');
-        $start = $request->get('start');
-        $length = $request->get('length');
-        $search = $request->get('search');
-        $order = $request->get('order');
-        $columns = $request->get('columns');
-        $this->valueToSearch= $search['value'];
-        $columnToOrder = $order[0]['column'];
-        $typeOfOrder = $order[0]['dir'];
-        $columnName = $columns[$columnToOrder]['data'];
-        $this->assignedJobs = JobUser::select('job_id')
-            ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
-        $searchRecordByColumn = $this->searchToArray($columns);
-        if(empty($searchRecordByColumn)){
-            $searchRecords = $this->searchCandidates($columnName, $typeOfOrder, $start, $length, $search['value']);
-        }else{
-            $searchRecords = $this->searchCandidatesBySelectOption($searchRecordByColumn, $columnName, $typeOfOrder, $start, $length);
-        }
-        
-        $data_arr = $this->prepareResults($searchRecords);
+        $this->setValues($request);
+        $this->setColumnToOrderBy();
+        $this->setAssignedJobs();
+        $this->setColumnNameWithValueToSearch();
+        $basicQuery = Candidate::select('*')->whereIn('job_id', $this->assignedJobs);
+        $recordsTotal = $this->countRows($basicQuery);
+        $finalQuery = $this->applyWhereStatements($basicQuery);
+        $recordsFiltered = $this->countRows($finalQuery);
+        $results = $finalQuery->orderby($this->orderByColumn, $this->orderByDirection)->offset($this->start)->limit($this->length)->get();
+
         $response = array(
-            "columns" => $columns,
-            "draw" => intval($draw),
-            "start" => $start,
-            "length" => $length,
-            "search" => $search,
-            "order" => $order,
-            "iTotalRecords" => $this->countAllRows(),
-            "iTotalDisplayRecords" => $this->countSearchRows($columnName, $typeOfOrder, $start, $length),
-            "aaData" => $data_arr,
+            "columns" => $this->columns,
+            "draw" => intval($this->draw),
+            "start" => $this->start,
+            "length" => $this->length,
+            "search" => $this->search,
+            "order" => $this->order,
+            "iTotalRecords" => $recordsTotal,
+            "iTotalDisplayRecords" => $recordsFiltered,
+            "iDisplayLength" => $this->countRows($finalQuery),
+            "recordsTotal" => $recordsTotal,
+            "recordsFiltered" => $recordsFiltered,
+            "aaData" => $this->prepareResults($results),
             "selectInfo" => $this->getSelectInfo(),
             "orden" => $this->orden,
-            "assignedJobs" => $this->assignedJobs
+            "asdfasdf" => $this->columnNameWithValueToSearch,
+            "mensajes" => $this->mensajes
         );
         echo json_encode($response);
         exit;
     }
 
 
-
-    public function countAllRows(){
-        return Candidate::select('count(*) as allcount')
-            ->whereIn('job_id', $this->assignedJobs)->count();
+    private function setValues($request){
+        $this->draw = $request->get('draw');
+        $this->start = $request->get('start');
+        $this->length = $request->get('length');
+        $this->search = $request->get('search');
+        $this->order = $request->get('order');
+        $this->columns = $request->get('columns');
     }
-    
-    public function countSearchRows(){
-        $records = Candidate::select('*')
-            ->whereIn('job_id', $this->assignedJobs)
-            ->where(function ($query) {
-                $query->where('created_at', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('job_id', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('job_to_apply', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('fullName', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('country', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('province', 'like', '%'.$this->valueToSearch.'%')
-                ->orWhere('city', 'like', '%'.$this->valueToSearch.'%');
-                });
-        return $records->count();
+    private function setAssignedJobs(){
+        $this->assignedJobs = JobUser::select('job_id')
+            ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
     }
-
-
-
-    public function searchCandidates($column, $order, $start, $length, $valueToSearch){
-        $records = Candidate::select('*')
-        ->whereIn('job_id', $this->assignedJobs)
-        ->where(function ($query) {
-            $query->where('created_at', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('job_id', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('job_to_apply', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('fullName', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('country', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('province', 'like', '%'.$this->valueToSearch.'%')
-            ->orWhere('city', 'like', '%'.$this->valueToSearch.'%');
-            });
-        return $records->orderby($column, $order)
-            ->skip($start)
-            ->take($length)
-            ->get();
+    private function setColumnToOrderBy(){
+        $this->orderByColumn = $this->columns[$this->order[0]['column']]['data'];
+        $this->orderByDirection = $this->order[0]['dir'];
     }
-    public function getSelectInfo(){
-        $infoArray=array();
-        foreach($this->selectables as $key => $value){
-            $obj = new class{};
-            $obj->name = $key;
-            $obj->label = $value;
-            $obj->selectOptions = Candidate::select($key)
-                ->whereIn('job_id', $this->assignedJobs)->groupBy($key)->get();
-            $infoArray[$key]=$obj;
-            
+    public function setColumnNameWithValueToSearch(){
+        $this->columnNameWithValueToSearch["job_id"] = $this->getColumnValue("job_id");
+        $this->columnNameWithValueToSearch["job_to_apply"] = $this->getColumnValue("job_to_apply");
+        $this->columnNameWithValueToSearch["country"] = $this->getColumnValue("country");
+        $this->columnNameWithValueToSearch["province"] = $this->getColumnValue("province");
+        $this->columnNameWithValueToSearch["city"] = $this->getColumnValue("city");
+        $this->columnNameWithValueToSearch["download_status"] = $this->getColumnValue("download_status");
+        $this->columnNameWithValueToSearch["created_at"] = $this->getColumnValue("created_at");
+    }
+    public function getColumnValue($columnName){
+        foreach($this->columns as $column){
+            if($column["data"] == $columnName){
+                if($columnName == "created_at"){
+                    return json_decode($column["search"]["value"], true);
+                }
+                return $column["search"]["value"];
+            }
         }
-        return $infoArray;
+        return null;
+    }
+
+    public function applyWhereStatements($basicQuery){
+        if($this->columnNameWithValueToSearch["job_id"]){
+            $this->mensajes["job_id"]="pasé por job_id";
+            $basicQuery->where("job_id", $this->columnNameWithValueToSearch["job_id"]);
+        }
+        if($this->columnNameWithValueToSearch["job_to_apply"]){
+            $this->mensajes["job_to_apply"]="pasé por job_to_apply";
+            $basicQuery->where("job_to_apply", $this->columnNameWithValueToSearch["job_to_apply"]);
+        }
+        if($this->columnNameWithValueToSearch["country"]){
+            $this->mensajes["country"]="pasé por country";
+            $basicQuery->where("country", $this->columnNameWithValueToSearch["country"]);
+        }
+        if($this->columnNameWithValueToSearch["province"]){
+            $this->mensajes["province"]="pasé por province";
+            $basicQuery->where("province", $this->columnNameWithValueToSearch["province"]);
+        }
+        if($this->columnNameWithValueToSearch["city"]){
+            $this->mensajes["city"]="pasé por city";
+            $basicQuery->where("city", $this->columnNameWithValueToSearch["city"]);
+        }
+        if($this->columnNameWithValueToSearch["download_status"]){
+            $this->mensajes["download_status"]="pasé por download_status, VALOR:  ".$this->columnNameWithValueToSearch["download_status"];
+            if($this->columnNameWithValueToSearch["download_status"] == 'SI'){
+                $basicQuery->where("download_status", 1);
+            }else{
+                $basicQuery->where("download_status", 0);
+            }
+        }
+        if($this->columnNameWithValueToSearch["created_at"]){
+            $from = $this->columnNameWithValueToSearch["created_at"]["valFrom"];
+            $to = $this->columnNameWithValueToSearch["created_at"]["valTo"];
+            if($from && $to){
+                $basicQuery
+                    ->whereDate('created_at', '>=', date("Y-m-d", strtotime($from)))
+                    ->whereDate('created_at', '<', date("Y-m-d", strtotime($to)));
+            } else if($from){
+                $this->mensajes["created_at"]= $from;
+                $basicQuery->whereDate('created_at', '>=', date("Y-m-d", strtotime($from)));
+            } else if($to){
+                $this->mensajes["created_at"]= $to;
+                $basicQuery->whereDate('created_at', '<', date("Y-m-d", strtotime($to)));
+            }
+        }
+        if($this->search["value"]){
+            $this->mensajes["search"]="pasé por search y el valor es: ".$this->search["value"];
+            $basicQuery->where(function ($query) {
+                $query->where('created_at', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('job_id', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('job_to_apply', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('fullName', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('country', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('province', 'like', '%'.$this->search["value"].'%')
+                ->orWhere('city', 'like', '%'.$this->search["value"].'%');
+            });
+        }
+        return $basicQuery;
     }
     public function prepareResults($records){
         $results = array();
@@ -214,54 +227,33 @@ class CandidateController extends Controller
         }
         return $results;
     }
-    public function searchToArray($columns){
-        $searchValues = array();
-        foreach($columns as $column){
-            if($column["search"]["value"]){
-                $searchValues[$column["data"]] = $column["search"]["value"];
-            }
+    public function countRows($query){
+        return intval($query->count());
+    }
+    public function getSelectInfo(){
+        $infoArray=array();
+        foreach($this->selectables as $key => $value){
+            $obj = new class{};
+            $obj->name = $key;
+            $obj->label = $value;
+            $obj->selectOptions = Candidate::select($key)
+                ->whereIn('job_id', $this->assignedJobs)->groupBy($key)->get();
+            $infoArray[$key]=$obj;
+            
         }
-       
-        return $searchValues;
+        return $infoArray;
     }
-    public function searchCandidatesBySelectOption($columns, $columnToOrder, $order, $start, $length){
-        $records = Candidate::select('*')->whereIn('job_id', $this->assignedJobs);
-        foreach($columns as $column=>$value){
-            $records->where($column, $value);
-        };
-        return $records->orderby($columnToOrder, $order)
-        ->skip($start)
-        ->take($length)
-        ->get();
-    }
-
-    /*public function importExportView()
-    {
-       return view('import');
-    }*/
-    public function export() 
-    {
-        return Excel::download(new CandidateExport, 'candidates.xlsx');
-    }
-    public function getCandidatesExcel(Request $request){
-        $this->assignedJobs = JobUser::select('job_id')
-            ->where('user_id', auth()->user()->id)->get()->pluck('job_id');
-        $search = $request->get('search');
-        $order = $request->get('order');
-        $columns = $request->get('columns');
-
-        $columnIndex = $order[0]['column'];
-        $typeOfOrder = $order[0]['dir'];
-        $columnName = $columns[$columnIndex]['data'];
-
-        $records = Candidate::where('id', 'like', '%'.$search["value"].'%')
-            ->whereIn('job_id', $this->assignedJobs);
-        $columnsNames = Schema::getColumnListing('candidates');
-        for ($i = 1; $i < count($columnsNames); ++$i){
-            $records->orWhere($columnsNames[$i], 'like', '%'.$search["value"].'%');
-        }
-        $records->update(['download_status' => true,'downloaded_by'=>auth()->user()->name, 'downloaded_at'=>now()]);
-        return $records->orderby($columnName, $typeOfOrder)->get([
+    
+    public function getCandidatesExcel(Request $request){ 
+        $this->setValues($request);
+        $this->setColumnToOrderBy();
+        $this->setAssignedJobs();
+        $this->setColumnNameWithValueToSearch();
+        $basicQuery = Candidate::whereIn('job_id', $this->assignedJobs);
+        $finalQuery = $this->applyWhereStatements($basicQuery);
+        
+      
+        $result = $finalQuery->orderby($this->orderByColumn, $this->orderByDirection)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
             'job_id as ID_de_la_Busqueda',
@@ -290,23 +282,20 @@ class CandidateController extends Controller
             'download_status',
             'downloaded_by',
             'downloaded_at' 
+        ])->toArray();
+        $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->name, 'downloaded_at'=>now()]);
 
-            
-            ])
-        ->toArray();
+    return $result;
+       
     }
-    public function deleteCandidates($job_id, $from, $to){
-        //Candidate::where('job_id', $job_id)->whereRaw('DATE(created_at) = ?', [$today])->get();
-        return Candidate::where('job_id', $job_id)
-            ->whereIn('job_id', $this->assignedJobs)
-            ->whereRaw('DATE(created_at) >= ?', [$from])
-            ->whereRaw('DATE(created_at) <= ?', [$to])
-            ->get();
+    public function deleteCandidates(Request $request){
+        $this->setValues($request);
+        $this->setColumnToOrderBy();
+        $this->setAssignedJobs();
+        $this->setColumnNameWithValueToSearch();
+        $basicQuery = Candidate::whereIn('job_id', $this->assignedJobs);
+        $finalQuery = $this->applyWhereStatements($basicQuery);
+        $finalQuery->delete();
+        return ["success"=> true];
     }
-    /*public function import() 
-    {
-        Excel::import(new CandidateImport,request()->file('file'));
-             
-        return back();
-    }*/
 }

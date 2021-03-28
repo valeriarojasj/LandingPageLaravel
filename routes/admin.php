@@ -30,4 +30,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/job-openings', function (
     return view('internal.job-openings');
 })->name('job-openings');
 Route::middleware(['auth:sanctum', 'verified'])->post('/candidates-excel', [CandidateController::class, 'getCandidatesExcel']);
-Route::middleware(['auth:sanctum', 'verified'])->delete('/candidatos/{job_id}/{from}/{to}', [CandidateController::class, 'deleteCandidates'])->name('deleteCandidates');
+Route::middleware(['auth:sanctum', 'verified'])->delete('/candidatos', [CandidateController::class, 'deleteCandidates'])->name('deleteCandidates');
