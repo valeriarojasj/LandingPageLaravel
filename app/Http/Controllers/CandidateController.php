@@ -45,7 +45,7 @@ class CandidateController extends Controller
     ];
 
     private $selectables = [
-        "job_id"=>"Fecha de Aplicación",
+        "job_id"=>"ID de la Búsqueda",
         "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
@@ -221,6 +221,7 @@ class CandidateController extends Controller
                 $searchValues[$column["data"]] = $column["search"]["value"];
             }
         }
+       
         return $searchValues;
     }
     public function searchCandidatesBySelectOption($columns, $columnToOrder, $order, $start, $length){

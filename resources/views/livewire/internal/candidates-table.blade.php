@@ -207,7 +207,7 @@
                             {
                                 data:'download_status',
                                 render: function (data, type, row) {
-                                    return (data) ? '<span style="vertical-align:middle;"  class = "inline-flex px-3 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Si</span>' : '<span style="vertical-align:middle;"  class = "inline-flex px-3 text-xs font-semibold leading-5 text-pink-800 bg-pink-100 rounded-full">No</span>' ;
+                                    return (data) ? '<span style="vertical-align:middle; min-width:40px !important;"  class = "inline-flex justify-center text-xs font-semibold leading-5 text-green-800 bg-green-100 border-green-400 rounded-full border-1">Si</span>' : '<span style="vertical-align:middle; min-width:40px !important;"  class = "inline-flex justify-center text-xs font-semibold leading-5 text-pink-800 bg-pink-100 border-pink-400 rounded-full border-1">No</span>' ;
                                 }
                             },
                             {data:'downloaded_by'},
