@@ -5,22 +5,22 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('Gracias por registrarte! Antes de comenzar, podr´âs verificar tu email haciendo click en el link que acabamos de enviarte? Si no lo recibiste podemos enviarte otro nuevamente.') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            <div class="mb-4 text-sm font-medium text-green-600">
+                {{ __('Te hemos enviado un nuevo link de verificación al email con que te registraste.') }}
             </div>
         @endif
 
-        <div class="mt-4 flex items-center justify-between">
+        <div class="flex items-center justify-between mt-4">
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
 
                 <div>
                     <x-jet-button type="submit">
-                        {{ __('Resend Verification Email') }}
+                        {{ __('Enviar Nuevamente Email de Verificación') }}
                     </x-jet-button>
                 </div>
             </form>
@@ -28,8 +28,8 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Logout') }}
+                <button type="submit" class="text-sm text-gray-600 underline hover:text-gray-900">
+                    {{ __('Cerrar sesión') }}
                 </button>
             </form>
         </div>
