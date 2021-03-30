@@ -30,7 +30,9 @@ class CarouselSeeder extends Seeder
         Carousel::create([
             'job_opening_id'=>98,
             'image_url'=>'img/contable.png',
-            'description1'=>'<p>Disponibilidad para viajar</p>',
+            'description1'=>'<ul><li> Al menos 3 años de experiencia en desarrollo de software con Angular IONIC / Capacitor.</li>
+           <li> Conocimientos Cloud Platform y utilización de API rest</li>
+            <li> Deseable .NET Core y SQL Server</li></ul>',
             'updated_by'=>null,
             'order' => 3
         ]);

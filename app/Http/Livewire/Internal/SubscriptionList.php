@@ -5,11 +5,10 @@ use App\Models\Subscription;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class SubscriptionList extends Component
-{
-   use WithPagination;
-    public function render()
-    {
+class SubscriptionList extends Component{
+    use WithPagination;
+
+    public function render(){
         $subscriptions= Subscription::latest('id')->paginate('10');
         return view('livewire.internal.subscription-list', compact('subscriptions'));
     }
@@ -18,6 +17,7 @@ class SubscriptionList extends Component
         $subscription = Subscription::find($id);
         $subscription->delete();
     }
+    
     public function getAllSubscription(){
         $subscriptions = Subscription::get([
             'id as ID',

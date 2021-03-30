@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Livewire\Internal;
-
 use App\Models\User;
-
 use Livewire\Component;
 
-class UserRow extends Component
-{
+class UserRow extends Component{
+
     public $user;
     public $editable=false;
     public $role;
@@ -16,29 +14,27 @@ class UserRow extends Component
     public $created_at;
     public $updated_at;
     
-
-    public function render()
-
-
-    {   
+    public function render(){   
         return view('livewire.internal.user-row');
     }
+
     public function mount(){
         $this->status = $this->user->status;
         $this->role = $this->user->role;
         $this->originalRole = $this->user->role;
-        $this->created_at =$this->user->created_at;
-      
-      
+        $this->created_at =$this->user->created_at;  
     }
+
     public function edit(){
         $this->editable = true;
     }
+
     public function cancel(){
         $this->status = $this->user->status;
         $this->role = $this->originalRole;
         $this->editable = false;
     }
+
     public function update(){
         $user = User::find($this->user->id);
         $user->status = $this->status;
@@ -49,6 +45,7 @@ class UserRow extends Component
         $this->updateUser();
         $this->editable=false;
     }
+    
     public function updateUser(){
         $this->user = User::find($this->user->id);
     }

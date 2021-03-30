@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApplicationSubmittedMailable;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +17,6 @@ use App\Mail\ApplicationSubmittedMailable;
 Route::get('/', function () {
     return view('index');
 });
-
 
 
 
