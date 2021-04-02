@@ -54,7 +54,7 @@
                         <div class="px-4 py-3 rounded-xl job-card-content d-flex flex-column">
                             <div class="job-card-text-content">
                                 <h5 class="tituloBusqueda">
-                                    {{$job->job_title}}
+                                    {{$job->job_title}} (ID: {{$job->id}})
                                 </h5>
                                 <p class="mt-2 mb-1 leading-tight empresaBusqueda">
                                     {{$job->company_type}}

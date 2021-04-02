@@ -18,7 +18,7 @@
             </label>
           </div>
           <div class="subscribe-item2">
-            <input type="email" class="form-control" id="inputEmailSubscribe" placeholder="Escribí tu dirección de email" wire:model.defer='email'>
+            <input type="email" class="form-control" id="inputEmailSubscribe" autocomplete= "off" placeholder="Escribí tu dirección de email" wire:model.defer='email'>
             @error('email')
               <span class="error">
                 {{ $message }}
@@ -26,7 +26,7 @@
             @enderror
           </div>
           <div class="subscribe-item3">
-            <button type="button" id="subscribeBtn" wire:click="save" class="rounded-full btn applyBtn">
+            <button type="button" id="subscribeBtn" style="background-color: #D895B2;" wire:click="save"  class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn hover:border-indigo-500 hover:text-indigo-500">
               Subscribirme
             </button>
           </div>

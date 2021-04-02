@@ -55,6 +55,8 @@ class JobOpenings extends Component{
     ];
     
     public function render(){
+
+        
         $jobOpenings= JobOpening::select('job_openings.*')
             ->join('job_users', 'job_openings.id', '=', 'job_users.job_id')
             ->where('job_users.user_id', auth()->user()->id)
@@ -69,6 +71,7 @@ class JobOpenings extends Component{
             })
             ->latest('id')
             ->paginate('5');
+          
         $carousels=CarouselController::getAllCarousels();
         return view('livewire.internal.job-openings',compact('jobOpenings','carousels'));
     }

@@ -8,9 +8,26 @@
         <h1 class="px-2 py-8 text-xl font-bold break-normal md:text-2xl">
           Lista de Subscriptores
         </h1>
+        <div class="row">
+        <div class="col-md-2">
         <button wire:click='getAllSubscription' class="mt-1 mb-4 font-bold text-gray-700 bg-gray-300 rounded-md deleteBtn button button-small edit focus:outline-none">
           Excel
         </button>
+      </div>
+        <div class="col-md-5">
+          <div class="form-inline">  
+            <label for="downloadedFilter" class="mr-2">
+              Filtrar por Descargado: 
+            </label>
+            <select wire:model='downloadedFilter' class="form-control col-md-6" name="downloadedFilter" id="downloadedFilter">
+              <option value=''>Todo</option>
+              <option value='true'>Si</option>
+              <option value='false'>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
         <!--Card-->
         <div id='users-roles' class="mt-6 bg-white lg:mt-0">
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8" >
@@ -33,6 +50,15 @@
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                         Fecha de Actualización
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        Descargado
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        Descargado por
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        Fecha de Descarga
                       </th>
                     </tr>
                   </thead>
@@ -58,6 +84,15 @@
                         <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
                           {{$subscription->updated_at->format('d-m-Y H:i:s')}}
                         </td> 
+                        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
+                          {{$subscription->download_status}}
+                        </td> 
+                        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
+                          {{$subscription->downloaded_by}}
+                        </td> 
+                        <td class='px-6 py-4 text-sm text-center whitespace-nowrap'  style="position:relative; vertical-align:middle; " data-field="updated_at" >
+                          {{$subscription->downloaded_at}}
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
@@ -80,6 +115,7 @@
   <script>
     window.addEventListener('downloadSubscriptions', event => {
       downloadAsExcel(event.detail.subscriptions);
+      
     });
   </script>
 </div>

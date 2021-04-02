@@ -177,49 +177,49 @@
                             Pregunta de Selección Múltiple 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM1 Opción 1
+                            Opción 1 Pregunta Selección Multiple 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM1 Opción 2
+                            Opción 2 Pregunta Selección Multiple 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM1 Opción 3
+                            Opción 3 Pregunta Selección Multiple 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                             Pregunta de Selección Múltiple 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM2 Opción 1
+                            Opción 1 Pregunta Selección Multiple 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM2 Opción 2
+                            Opción 2 Pregunta Selección Multiple 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            SM2 Opción 3
+                            Opción 3 Pregunta Selección Multiple 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            Pregunta de Checkbox 1
+                            Pregunta Checkbox 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            CB1 Opción 1
+                            Opción 1 Pregunta Checkbox 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            CB1 Opción 2
+                            Opción 2 Pregunta Checkbox 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            cb1 Opción 3
+                            Opción 3 Pregunta Checkbox 1
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                             Pregunta de Checkbox 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            CB2 Opción 1
+                            Opción 1 Pregunta Checkbox 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            CB2 Opción 2
+                            Opción 2 Pregunta Checkbox 2
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            CB2 Opción 3
+                            Opción 3 Pregunta Checkbox 3
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                             Creado por

@@ -220,6 +220,7 @@
         @endif
 
         @if($step == 3)
+        @if($job->open_question_1||$job->open_question_2)
           <div>
             <!-- PREGUNTA ABIERTA 1 -->
             <fieldset>
@@ -251,9 +252,12 @@
               @endif
             </fieldset>
           </div>
+        @else 
+        @endif
         @endif
       
         @if($step == 4)
+        
           <div>
             <!-- MULTIPLE CHOICE QUESTION 1 -->
             <fieldset>
@@ -340,6 +344,8 @@
         @endif
 
         @if($step == 5)
+       
+
           <div>
             <!-- PREGUNTA DE CHECKBOX 1 -->
             <fieldset>
@@ -442,17 +448,17 @@
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
         @if($step>0 && $step<=5)
-          <button type='button' id="btnBack" class="mr-2 rounded-md btn applyBtn" style="background-color:#A9CCEE;"  wire:click="decreaseStep">
+          <button type='button' id="btnBack" class="mr-2 text-white bg-blue-300 border border-gray-500 rounded-md btn backBtn hover:border-indigo-500 hover:text-indigo-500" style="background-color:#A9CCEE;"  wire:click="decreaseStep">
             Atrás
           </button>
         @endif
         @if($step == 5)
-          <button id="btnFormulario" type='submit' class="p-3 px-4 text-white bg-indigo-500 rounded-md rounded-lg btn applyBtn modal-close hover:bg-indigo-400" >
+          <button id="btnFormulario" type='submit' class="px-4 text-white bg-indigo-500 rounded-md rounded-lg btn modal-close hover:bg-indigo-400" >
             Enviar
           </button>
         @endif
         @if($step < 5)
-          <button type='button' id="btnNext" class="rounded-md btn applyBtn"  wire:click="increaseStep">
+          <button type='button' id="btnNext" class="text-white border border-pink-500 rounded-md btn applyBtn hover:border-pink-500 hover:text-pink-500"  wire:click="increaseStep">
             Siguiente
           </button>
         @endif

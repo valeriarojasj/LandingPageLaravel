@@ -15,8 +15,11 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
         $table->increments('id');   
-        $table->string('email'); 
+        $table->string('email');
         $table->timestamps();
+        $table->boolean('download_status')->nullable($value = true); 
+        $table->string('downloaded_by')->nullable($value = true);
+        $table->date('downloaded_at')->nullable($value = true);
     });
 }
  

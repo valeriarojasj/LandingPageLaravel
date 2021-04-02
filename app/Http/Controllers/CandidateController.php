@@ -219,8 +219,9 @@ class CandidateController extends Controller{
                 "checkbox_2_a_op_3"=> $record->checkbox_2_a_op_3, 
                 "download_status"=> $record->download_status,
                 "downloaded_by"=> $record->downloaded_by,
-                "downloaded_at"=> $record->downloaded_at,     
+                "downloaded_at"=> $record->downloaded_at
             );
+                
         }
         return $results;
     }
@@ -282,7 +283,7 @@ class CandidateController extends Controller{
             'downloaded_at' 
         ])->toArray();
         
-        $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->name, 'downloaded_at'=>now()]);
+        $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->email, 'downloaded_at'=>now()]);
 
         return $result;
     }

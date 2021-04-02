@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Internal;
 use Livewire\Component;
 use App\Models\JobOpening;
 use App\Models\JobUser;
+use App\Models\User;
 
 class JobOpeningRow extends Component{
     public $uuid;
@@ -84,6 +85,8 @@ class JobOpeningRow extends Component{
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
         $this->created_by=$this->objeto->created_by;
         $this->updated_by=$this->objeto->updated_by;
+
+       
 
         if(!$this->objeto->created_at){
             $this->created_at="";
@@ -175,7 +178,7 @@ class JobOpeningRow extends Component{
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3,
             'created_by' => $this->created_by,
-            'updated_by' => auth()->user()->name
+            'updated_by' => auth()->user()->email
             
         ]);
         $this->editable=false;
@@ -208,7 +211,7 @@ class JobOpeningRow extends Component{
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3,
-            'created_by' => auth()->user()->name,
+            'created_by' => auth()->user()->email,
             'updated_by' => null
         ]);
 

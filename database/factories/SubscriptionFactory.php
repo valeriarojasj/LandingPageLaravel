@@ -22,7 +22,10 @@ class SubscriptionFactory extends Factory
     public function definition()
     {
         return [
-            "email"=> $this->faker->unique()->safeEmail
+            "email"=> $this->faker->unique()->safeEmail,
+            'download_status'=>false,
+            'downloaded_by'=>null,
+            'downloaded_at'=>null
         ];
     }
 }

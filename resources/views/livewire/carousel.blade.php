@@ -20,7 +20,7 @@
                         </h3>
                         {!!$carousel->description1!!}
                         <div class="mt-3 text-right">
-                            <a wire:key="ancle-{{ $carousel->id }}" wire:click="$emit('setSelectedJob', {{$carousel->job_opening_id}})" class="rounded-full btn applyBtn" href="#apply" role="button">
+                            <a wire:key="ancle-{{ $carousel->id }}" wire:click="$emit('setSelectedJob', {{$carousel->job_opening_id}})" class="px-4 py-1 font-bold text-white border border-gray-500 rounded-full btn btnModal hover:border-indigo-500 hover:text-indigo-500" href="#apply" role="button">
                                 Postúlate
                             </a>
                         </div>
