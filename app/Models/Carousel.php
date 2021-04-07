@@ -10,4 +10,11 @@ class Carousel extends Model
     use HasFactory;
     protected $table = 'carousel';
     protected $fillable =['image_url'];
+
+    public function jobOpening() {
+        return $this->belongsTo('App\Models\JobOpening','job_opening_id');
+    }
+    public function updatedBy() {
+        return $this->belongsTo('App\Models\User','updated_by');
+    }
 }

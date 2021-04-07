@@ -39,10 +39,10 @@ class CreateCandidatesTable extends Migration
             $table->string('checkbox_2_a_op_2')->nullable($value = true);
             $table->string('checkbox_2_a_op_3')->nullable($value = true); 
             $table->boolean('download_status')->nullable($value = true);
-            $table->string('downloaded_by')->nullable($value = true);
+            $table->unsignedBigInteger('downloaded_by')->nullable($value = true);
             $table->date('downloaded_at')->nullable($value = true);
 
-          
+            $table->foreign('downloaded_by')->references('id')->on('users');
             
         });
     }

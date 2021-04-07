@@ -14,4 +14,11 @@ class JobUser extends Model
         'job_id',
         'user_id'
     ];
+    
+    public function jobOpening() {
+        return $this->belongsTo('App\Models\JobOpening','job_id');
+    }
+    public function user() {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
 }

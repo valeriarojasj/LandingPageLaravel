@@ -20,9 +20,10 @@ class CreateCarouselTable extends Migration
             $table->string('image_url')->default('img/imagen-scrum.png');
             $table->string('description1')->nullable();
             $table->unsignedInteger('order')->nullable();
-            $table->string('updated_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
             $table->foreign('job_opening_id')->references('id')->on('fyg_jet.job_openings');
+            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 

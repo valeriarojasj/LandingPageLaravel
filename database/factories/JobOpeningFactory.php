@@ -22,19 +22,8 @@ class JobOpeningFactory extends Factory
      */
     public function definition()
     {
-        $user_id = User::inRandomOrder()->value('id');
-
-        
-
-
-
-
-          
-           
+        $user_id = User::inRandomOrder()->value('id');     
         return [
-
-      
-
             'job_status'=>$this->faker->randomElement(['Borrador', 'Publicada', 'Cerrada']),
             'job_title'=>$this->faker->jobTitle($nbWords = 3, $variableNbWords = true),
             'company_type'=>$this->faker->randomElement(['Importante banco', 'Empresa de retail', 'Empresa lider de tecnología', 'Startup', 'Importante compañía automotriz','Empresa de la industria farmaceútica' ,'Empresa Multinacional']),
@@ -59,9 +48,6 @@ class JobOpeningFactory extends Factory
             'checkbox2_option_3'=>$this->faker->sentence($nbWords = 3,  $variableNbWords = true),
             'created_by'=>$user_id,
             'updated_by'=>null
-
-            
-            
         ];
     }
 }

@@ -9,4 +9,7 @@ class Subscription extends Model
 {
     use HasFactory;
     protected $fillable=['email'];
+    public function downloadedBy() {
+        return $this->belongsTo('App\Models\User','downloaded_by');
+    }
 }

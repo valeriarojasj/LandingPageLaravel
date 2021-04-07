@@ -59,6 +59,7 @@ class JobOpeningRow extends Component{
     }
 
     public function mount(){
+
         $this->job_status=$this->objeto->job_status;
         $this->uuid=$this->objeto->id;
         $this->job_title=$this->objeto->job_title;
@@ -83,10 +84,8 @@ class JobOpeningRow extends Component{
         $this->checkbox2_option_1=$this->objeto->checkbox2_option_1;
         $this->checkbox2_option_2=$this->objeto->checkbox2_option_2;
         $this->checkbox2_option_3=$this->objeto->checkbox2_option_3;
-        $this->created_by=$this->objeto->created_by;
-        $this->updated_by=$this->objeto->updated_by;
-
-       
+        $this->created_by=$this->objeto->createdBy->email;
+        $this->updated_by=$this->objeto->updatedBy ?  $this->objeto->updatedBy->email : '';
 
         if(!$this->objeto->created_at){
             $this->created_at="";
@@ -177,8 +176,7 @@ class JobOpeningRow extends Component{
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3,
-            'created_by' => $this->created_by,
-            'updated_by' => auth()->user()->email
+            'updated_by' => auth()->user()->id
             
         ]);
         $this->editable=false;
@@ -211,7 +209,7 @@ class JobOpeningRow extends Component{
             'checkbox2_option_1' => $this->checkbox2_option_1,
             'checkbox2_option_2' => $this->checkbox2_option_2,
             'checkbox2_option_3' => $this->checkbox2_option_3,
-            'created_by' => auth()->user()->email,
+            'created_by' => auth()->user()->id,
             'updated_by' => null
         ]);
 

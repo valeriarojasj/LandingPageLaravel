@@ -69,9 +69,10 @@ class JobOpenings extends Component{
                 ->orWhere('job_location','LIKE','%'.$this->filter.'%')
                 ->orWhere('job_openings.id','=',$this->filter);
             })
+            ->with('createdBy')
+            ->with('updatedBy')
             ->latest('id')
             ->paginate('5');
-          
         $carousels=CarouselController::getAllCarousels();
         return view('livewire.internal.job-openings',compact('jobOpenings','carousels'));
     }

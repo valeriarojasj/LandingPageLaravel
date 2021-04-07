@@ -37,4 +37,10 @@ class JobOpening extends Model
         'updated_by'
     ];
     
+    public function createdBy() {
+        return $this->belongsTo('App\Models\User','created_by');
+    }
+    public function updatedBy() {
+        return $this->belongsTo('App\Models\User','updated_by');
+    }
 }

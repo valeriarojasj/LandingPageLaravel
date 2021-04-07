@@ -38,9 +38,11 @@ class CreateJobOpeningsTable extends Migration
             $table->string('checkbox2_option_1')->nullable();
             $table->string('checkbox2_option_2')->nullable();
             $table->string('checkbox2_option_3')->nullable();
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps(); 
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 

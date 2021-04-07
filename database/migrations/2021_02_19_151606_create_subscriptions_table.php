@@ -18,8 +18,9 @@ class CreateSubscriptionsTable extends Migration
         $table->string('email');
         $table->timestamps();
         $table->boolean('download_status')->nullable($value = true); 
-        $table->string('downloaded_by')->nullable($value = true);
+        $table->unsignedBigInteger('downloaded_by')->nullable($value = true);
         $table->date('downloaded_at')->nullable($value = true);
+        $table->foreign('downloaded_by')->references('id')->on('users');
     });
 }
  
