@@ -19,7 +19,6 @@ class CandidateController extends Controller{
     public $mensajes=array();
 
     private $selectables = [
-        "job_to_apply" => "Búsqueda",
         "country" => "País",
         "province" => "Provincia",
         "city" => "Ciudad"
@@ -60,7 +59,7 @@ class CandidateController extends Controller{
         $this->setColumnToOrderBy();
         $this->setAssignedJobs();
         $this->setColumnNameWithValueToSearch();
-        $basicQuery = Candidate::select('*')->whereIn('job_id', $this->assignedJobs);
+        $basicQuery = Candidate::select('*')->whereIn('job_id', $this->assignedJobs)->with('downloadedBy')->with('jobOpening');
         $recordsTotal = $this->countRows($basicQuery);
         $finalQuery = $this->applyWhereStatements($basicQuery);
         $recordsFiltered = $this->countRows($finalQuery);
@@ -82,7 +81,8 @@ class CandidateController extends Controller{
             "selectInfo" => $this->getSelectInfo(),
             "orden" => $this->orden,
             "asdfasdf" => $this->columnNameWithValueToSearch,
-            "mensajes" => $this->mensajes
+            "mensajes" => $this->mensajes,
+            "resultados" => $results
         );
         echo json_encode($response);
         exit;
@@ -108,7 +108,6 @@ class CandidateController extends Controller{
     }
 
     public function setColumnNameWithValueToSearch(){
-        $this->columnNameWithValueToSearch["job_id"] = $this->getColumnValue("job_id");
         $this->columnNameWithValueToSearch["job_to_apply"] = $this->getColumnValue("job_to_apply");
         $this->columnNameWithValueToSearch["country"] = $this->getColumnValue("country");
         $this->columnNameWithValueToSearch["province"] = $this->getColumnValue("province");
@@ -130,13 +129,8 @@ class CandidateController extends Controller{
     }
 
     public function applyWhereStatements($basicQuery){
-        if($this->columnNameWithValueToSearch["job_id"]){
-            $this->mensajes["job_id"]="pasé por job_id";
-            $basicQuery->where("job_id", $this->columnNameWithValueToSearch["job_id"]);
-        }
         if($this->columnNameWithValueToSearch["job_to_apply"]){
-            $this->mensajes["job_to_apply"]="pasé por job_to_apply";
-            $basicQuery->where("job_to_apply", $this->columnNameWithValueToSearch["job_to_apply"]);
+            $basicQuery->where("job_id", $this->columnNameWithValueToSearch["job_to_apply"]);
         }
         if($this->columnNameWithValueToSearch["country"]){
             $this->mensajes["country"]="pasé por country";
@@ -174,7 +168,6 @@ class CandidateController extends Controller{
             }
         }
         if($this->search["value"]){
-            $this->mensajes["search"]="pasé por search y el valor es: ".$this->search["value"];
             $basicQuery->where(function ($query) {
                 $query->where('created_at', 'like', '%'.$this->search["value"].'%')
                 ->orWhere('job_id', 'like', '%'.$this->search["value"].'%')
@@ -206,7 +199,7 @@ class CandidateController extends Controller{
                 "education_status" => $record->education_status,
                 "career" => $record->career,
                 "job_id" => $record->job_id,
-                "job_to_apply" => $record->job_to_apply,
+                "job_to_apply" => $record->jobOpening->job_title,
                 "open_answer_1"=> $record->open_answer_1,
                 "open_answer_2"=> $record->open_answer_2,
                 "multiple_choice_1_a"=> $record->multiple_choice_1_a,
@@ -218,7 +211,7 @@ class CandidateController extends Controller{
                 "checkbox_2_a_op_2"=> $record->checkbox_2_a_op_2,
                 "checkbox_2_a_op_3"=> $record->checkbox_2_a_op_3, 
                 "download_status"=> $record->download_status,
-                "downloaded_by"=> $record->downloaded_by,
+                "downloaded_by"=> $record->downloadedBy? $record->downloadedBy->email : null,
                 "downloaded_at"=> $record->downloaded_at
             );
                 
@@ -239,8 +232,13 @@ class CandidateController extends Controller{
             $obj->selectOptions = Candidate::select($key)
                 ->whereIn('job_id', $this->assignedJobs)->groupBy($key)->get();
             $infoArray[$key]=$obj;
-            
         }
+        $obj = new class{};
+        $obj->name = "job_to_apply";
+        $obj->label = "Búsqueda";
+        $obj->selectOptions = Candidate::select("job_id")
+            ->whereIn('job_id', $this->assignedJobs)->groupBy("job_id")->with('jobOpening')->get();
+        $infoArray["job_to_apply"]=$obj;
         return $infoArray;
     }
     
@@ -251,12 +249,11 @@ class CandidateController extends Controller{
         $this->setColumnNameWithValueToSearch();
         $basicQuery = Candidate::whereIn('job_id', $this->assignedJobs);
         $finalQuery = $this->applyWhereStatements($basicQuery);
-          
+        
         $result = $finalQuery->orderby($this->orderByColumn, $this->orderByDirection)->get([
             'id as ID',
             'created_at as Fecha_de_Aplicacion',
             'job_id as ID_de_la_Busqueda',
-            'job_to_apply as Busqueda',
             'fullName as Nombre_Completo',
             'dni as DNI',
             'birthday as Fecha_de_Nacimiento',
@@ -279,13 +276,12 @@ class CandidateController extends Controller{
             'checkbox_2_a_op_2 as Respuesta_Checkbox_2_Opcion_2',
             'checkbox_2_a_op_3 as Respuesta_Checkbox_2_Opcion_3',
             'download_status',
-            'downloaded_by',
-            'downloaded_at' 
+            'downloaded_at'
         ])->toArray();
         
-        $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->email, 'downloaded_at'=>now()]);
-
-        return $result;
+        //$finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->id, 'downloaded_at'=>now()]);
+            return $finalQuery->count();
+        //return $result;
     }
 
     public function deleteCandidates(Request $request){

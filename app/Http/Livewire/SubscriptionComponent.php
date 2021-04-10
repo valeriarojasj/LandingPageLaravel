@@ -26,6 +26,7 @@ class SubscriptionComponent extends Component{
         $this->validate();
         $subscription = new Subscription();
         $subscription->email = $this->email;
+        $subscription->	download_status = false;
         $subscription->save();
         $this->success=true;        
         $this->resetAttributes();

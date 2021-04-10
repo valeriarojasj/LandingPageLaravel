@@ -16,6 +16,8 @@ class CarouselController extends Controller {
 
     static public function getAllCarousels(){
         $data = Carousel::select('carousel.*', 'job_openings.job_title')
+                    ->with('updatedBy')
+                    ->with('jobOpening')
                     ->join('job_openings', 'carousel.job_opening_id', '=', 'job_openings.id')
                     ->where('job_status','Publicada')
                     ->get();
@@ -36,7 +38,7 @@ class CarouselController extends Controller {
         $carousel->image_url=$url;
         $carousel->job_opening_id=$request->job_opening_id;
         $carousel->description1=$request->description1;
-        $carousel->updated_by=auth()->user()->name;
+        $carousel->updated_by=auth()->user()->id;
         $carousel->save();
         return redirect('/internal/job-openings');
     }

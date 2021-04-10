@@ -13,8 +13,6 @@ class Carousel extends Component{
     }
 
     public function mount(){
-        $this->carousels = CarouselModel::join('job_openings', 'job_openings.id', '=', 'carousel.job_opening_id')
-            ->select('carousel.*', 'job_openings.job_title')
-            ->get();
+        $this->carousels = CarouselModel::with('jobOpening')->get();
     }
 }

@@ -79,7 +79,7 @@
                         </td>
                         <td class="p-0 whitespace-nowrap" style="position:relative; ">
                           <textarea class="inline-flex text-xs font-semibold text-center textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">
-                            {{$carousel->updated_by}}
+                            {{$carousel->updatedBy ? $carousel->updatedBy->email : ''}}
                           </textarea>
                         </td>
                         <td class="p-0 whitespace-nowrap" style="position:relative;">

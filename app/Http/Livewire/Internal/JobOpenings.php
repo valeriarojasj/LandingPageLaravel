@@ -55,8 +55,6 @@ class JobOpenings extends Component{
     ];
     
     public function render(){
-
-        
         $jobOpenings= JobOpening::select('job_openings.*')
             ->join('job_users', 'job_openings.id', '=', 'job_users.job_id')
             ->where('job_users.user_id', auth()->user()->id)

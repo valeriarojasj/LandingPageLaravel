@@ -16,7 +16,7 @@
                     </div>
                     <div class="divText d-block">
                         <h3 class="text-left">
-                            {{$carousel->job_title}}
+                            {{$carousel->jobOpening->job_title}}
                         </h3>
                         {!!$carousel->description1!!}
                         <div class="mt-3 text-right">
@@ -30,4 +30,3 @@
         @endforeach
     </div>
 </div>
-  
