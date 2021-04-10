@@ -220,40 +220,49 @@
         @endif
 
         @if($step == 3)
-        @if($job->open_question_1||$job->open_question_2)
-          <div>
-            <!-- PREGUNTA ABIERTA 1 -->
-            <fieldset>
-              @if($job->open_question_1)
-                <div class="mt-3 divOpenQ1">
-                  <div class="mt-1">
-                    <legend class="text-base font-medium" style="color:#7c7c7c;">
-                      {{$job->open_question_1}}
-                    </legend>
+          @if($job->open_question_1||$job->open_question_2)
+            <div>
+              <!-- PREGUNTA ABIERTA 1 -->
+              <fieldset>
+                @if($job->open_question_1)
+                  <div class="mt-3 divOpenQ1">
+                    <div class="mt-1">
+                      <legend class="text-base font-medium" style="color:#7c7c7c;">
+                        {{$job->open_question_1}}
+                      </legend>
+                    </div>
+                    <textarea  placeholder="" wire:model.defer='openAnswer1' class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4">
+                    </textarea>
+                    @error('openAnswer1')
+                      <span class="error">
+                        {{ $message }}
+                      </span>
+                    @enderror 
                   </div>
-                  <textarea  placeholder="" wire:model.defer='openAnswer1' class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4">
-                  </textarea>
-                </div>
-              @endif
-            </fieldset>
+                @endif
+              </fieldset>
 
-            <!-- PREGUNTA ABIERTA 2 -->
-            <fieldset>
-              @if($job->open_question_2)
-                <div class="mt-1 divOpenQ1">
-                  <div class="mt-1">
-                    <legend id="openQuestion2"  class="text-base font-medium" style="color:#7c7c7c;">
-                      {{$job->open_question_2}}
-                    </legend>
+              <!-- PREGUNTA ABIERTA 2 -->
+              <fieldset>
+                @if($job->open_question_2)
+                  <div class="mt-1 divOpenQ1">
+                    <div class="mt-1">
+                      <legend id="openQuestion2"  class="text-base font-medium" style="color:#7c7c7c;">
+                        {{$job->open_question_2}}
+                      </legend>
+                    </div>
+                    <textarea id="openAnswer2" placeholder="" wire:model.defer='openAnswer2'  class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4">
+                    </textarea>
+                    @error('openAnswer2')
+                      <span class="error">
+                        {{ $message }}
+                      </span>
+                    @enderror
                   </div>
-                  <textarea id="openAnswer2" placeholder="" wire:model.defer='openAnswer2'  class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4">
-                  </textarea>
-                </div>
-              @endif
-            </fieldset>
-          </div>
-        @else 
-        @endif
+                @endif
+              </fieldset>
+            </div>
+          @endif
         @endif
       
         @if($step == 4)
@@ -296,6 +305,11 @@
                       </label>
                     </div>
                   @endif
+                  @error('multipleChoice1A')
+                    <span class="error">
+                      {{ $message }}
+                    </span>
+                  @enderror
                 </div>
               @endif
             </fieldset>
@@ -336,7 +350,12 @@
                         </span>
                       </label>
                     </div>
-                  @endif  
+                  @endif
+                  @error('multipleChoice2A')
+                    <span class="error">
+                      {{ $message }}
+                    </span>
+                  @enderror
                 </div>
               @endif
             </fieldset>
@@ -447,17 +466,17 @@
     <!--Footer-->
       <div class="flex justify-end pt-2">
         <!--BUTTONS (SUBMIT, INCREASE, DECREASE)-->
-        @if($step>0 && $step<=5)
+        @if($step>0 && $step<=$lastStep)
           <button type='button' id="btnBack" class="mr-2 text-white bg-blue-300 border border-gray-500 rounded-md btn backBtn hover:border-indigo-500 hover:text-indigo-500" style="background-color:#A9CCEE;"  wire:click="decreaseStep">
             Atrás
           </button>
         @endif
-        @if($step == 5)
+        @if($step == $lastStep)
           <button id="btnFormulario" type='submit' class="px-4 text-white bg-indigo-500 rounded-md rounded-lg btn modal-close hover:bg-indigo-400" >
             Enviar
           </button>
         @endif
-        @if($step < 5)
+        @if($step < $lastStep)
           <button type='button' id="btnNext" class="text-white border border-pink-500 rounded-md btn applyBtn hover:border-pink-500 hover:text-pink-500"  wire:click="increaseStep">
             Siguiente
           </button>

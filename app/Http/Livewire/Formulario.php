@@ -45,7 +45,7 @@ class Formulario extends Component{
         'submit4',
         'submit5'
     ];
- 
+    public $lastStep = 5;
     protected $rules = [
         'fullName' => 'required',
         'dni' => 'required|regex:/^[0-9]*$/i',
@@ -73,7 +73,11 @@ class Formulario extends Component{
         'educationLevel.required' => 'Por favor selecciona tu Nivel Educativo.',
         'educationStatus.required' => 'Por favor selecciona el status de tus estudios.',
         'career.required' => 'Por favor ingresa tu Título Universitario, si no tienes escribe: Ninguno.',
-        'jobToApply' => 'Para postularte debes indicar la posición a la que quieres aplicar.'
+        'jobToApply' => 'Para postularte debes indicar la posición a la que quieres aplicar.',
+        'openAnswer1.required' => 'Por favor ingresá tu respuesta',
+        'openAnswer2.required' =>  'Por favor ingresá tu respuesta',
+        'multipleChoice1A.required' => 'Por favor selecciona una opción',
+        'multipleChoice2A.required' => 'Por favor selecciona una opción',
     ];
     protected $listeners = ['updateJob' => 'updateFormulario'];
     
@@ -128,9 +132,93 @@ class Formulario extends Component{
         } elseif($this->step==1){
             $this->validate(['country' => 'required']);
             $this->step++;
-        } elseif($this->step>=2){
-            $this->step++;
+            if(!$this->existOpenQuestion() && !$this->existMultipleChoice() && !$this->existCheckbox()){
+                $this->lastStep = 2;// caso 1
+            } else {
+                if($this->existOpenQuestion()){
+                    if($this->existMultipleChoice()){
+                        if($this->existCheckbox()){
+                            $this->lastStep = 5; //caso 2
+                        } else {
+                            $this->lastStep = 4; // caso 6
+                        }
+                    } else {
+                        if($this->existCheckbox()){
+                            $this->lastStep = 5; //caso 7
+                        } else {
+                            $this->lastStep = 3; // caso 3
+                        }
+                    }
+                } else {
+                    if($this->existMultipleChoice()){
+                        if($this->existCheckbox()){
+                            $this->lastStep = 5; //caso 8
+                        } else {
+                            $this->lastStep = 4; // caso 4
+                        }
+                    } else {
+                        $this->lastStep = 5; // caso 5
+                    }
+                }
+            }
+            
+        } elseif($this->step==2){
+            if($this->existOpenQuestion()){
+                $this->step = $this->step + 1;
+            } elseif ($this->existMultipleChoice()) {
+                $this->step = $this->step + 2;
+            } elseif ($this->existCheckbox()){
+                $this->step = $this->step + 3;
+            }
+        } elseif($this->step==3){
+            if($this->job->open_question_1 && $this->job->open_question_2){
+                $this->validate([
+                    'openAnswer1' => 'required',
+                    'openAnswer2' => 'required'
+                ]);
+            } elseif ($this->job->open_question_2){
+                $this->validate([
+                    'openAnswer2' => 'required'
+                ]);
+            } else {
+                $this->validate([
+                    'openAnswer1' => 'required'
+                ]);
+            }
+           
+            if ($this->existMultipleChoice()) {
+                $this->step = $this->step + 1;
+            } elseif ($this->existCheckbox()){
+                $this->step = $this->step + 2;
+            }
+        } elseif($this->step==4){
+            if($this->job->multiple_choice_question_1 && $this->job->multiple_choice_question_2){
+                $this->validate([
+                    'multipleChoice2A' => 'required',
+                    'multipleChoice1A' => 'required'
+                ]);
+            } elseif ($this->job->multiple_choice_question_2){
+                $this->validate([
+                    'multipleChoice2A' => 'required'
+                ]);
+            } else {
+                $this->validate([
+                    'multipleChoice1A' => 'required'
+                ]);
+            }
+            if ($this->existCheckbox()){
+                $this->step = $this->step + 1;
+            }
         }
+    }
+    public function existOpenQuestion(){
+        return $this->job->open_question_1 || $this->job->open_question_2;
+    }
+    public function existMultipleChoice(){
+        return $this->job->multiple_choice_question_1 || $this->job->multiple_choice_question_2;
+    }
+    public function existCheckbox(){
+        return $this->job->checkbox_question_1 || $this->job->checkbox_question_2;
     }
 
     public function decreaseStep(){
