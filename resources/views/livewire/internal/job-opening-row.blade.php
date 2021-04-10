@@ -20,9 +20,11 @@
                     <button  wire:click="edit()" class="w-full font-bold text-blue-700 bg-blue-200 rounded-md focus:outline-none editBtn button button-small edit">
                         Editar
                     </button>
-                    <button  wire:click="open({{ $objeto->id }})" class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
-                        Eliminar
-                    </button>
+                    @if($isAdmin)
+                        <button  wire:click="open({{ $objeto->id }})" class="w-full mt-1 font-bold text-pink-700 bg-pink-300 rounded-md deleteBtn button button-small edit focus:outline-none">
+                            Eliminar
+                        </button>
+                    @endif
                 @endif
             @endif
         </div>
@@ -46,10 +48,12 @@
             </select>
         @endif
     </td>
-     
+    <td class="px-6 py-4 text-center next_left place-content-center whitespace-nowrap" style="position:relative; vertical-align: middle;" data-field="id">
+        {{$candidates}}
+    </td>
     <td class="px-6 py-4 text-center next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
-      <textarea disabled class="text-xs font-semibold text-center textareatd" name="textarea" wire:model.defer='uuid' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">
-      </textarea>
+        <textarea disabled class="text-xs font-semibold text-center textareatd" name="textarea" wire:model.defer='uuid' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">
+        </textarea>
     </td>
     <td  class="px-6 py-4 text-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="job_title" >
         <textarea  {{ $nuevoObjeto||$editable? '' : 'disabled' }} class="inline-flex text-center text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}" placeholder="@error('job_title'){{ $message }}@enderror"name="textarea" wire:model.defer='job_title' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%; vertical-align:middle; ">

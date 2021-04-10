@@ -27,7 +27,7 @@
               <div class="grid checkboxGrid">
                 @foreach ($allUsers as $user)
                   @if($job_title)
-                    {!! Form::checkbox('users[]', $user->id, $job->created_by==$user->id||$user->role=='Admin',['class' => 'min-h-full ',$user->role=='Admin' ? 'disabled':''])!!}
+                    {!! Form::checkbox('users[]', $user->id, in_array($user->id, $jobUsers),['class' => 'min-h-full ',$user->role=='Admin' ? 'disabled':''])!!}
                   @else
                     {!! Form::checkbox('users[]', $user->id, null,['class'=>'min-h-full', 'disabled'])!!}
                   @endif

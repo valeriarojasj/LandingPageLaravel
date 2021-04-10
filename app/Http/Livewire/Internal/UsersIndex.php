@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use Livewire\WithPagination;
 use App\Models\JobOpening;
+use App\Models\JobUser;
 
 class UsersIndex extends Component{
     use WithPagination;
@@ -14,6 +15,7 @@ class UsersIndex extends Component{
     public $job_id;
     public $job_title;
     public $job;
+    public $jobUsers=[];
 
     public function mount(){
         $this->job=new JobOpening();
@@ -39,9 +41,11 @@ class UsersIndex extends Component{
         $this->job=JobOpening::find($this->job_id);
         if($this->job){
             $this->job_title=$this->job->job_title;
+            $this->jobUsers=JobUser::where('job_id', $this->job_id)->get()->pluck('user_id')->toArray();
         }else{
             $this->job_title='';
             $this->job=new JobOpening();
+            $this->jobUsers=[];
         }
     }
 }

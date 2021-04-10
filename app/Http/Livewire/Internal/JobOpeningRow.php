@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\JobOpening;
 use App\Models\JobUser;
 use App\Models\User;
-
+use App\Models\Candidate;
 class JobOpeningRow extends Component{
     public $uuid;
     public $job_status;
@@ -39,6 +39,7 @@ class JobOpeningRow extends Component{
     public $objeto;
     public $nuevoObjeto=false;
     public $editable=false;
+    public $isAdmin = false;
 
     protected $rules = [
         'job_title'  => 'required|max:50',
@@ -55,7 +56,9 @@ class JobOpeningRow extends Component{
     ];
   
     public function render(){
-        return view('livewire.internal.job-opening-row');
+        $candidates = Candidate::where('job_id', $this->uuid)->count();
+        $this->isAdmin = User::find(auth()->user()->id)->getRoleNames()[0] == 'Admin';
+        return view('livewire.internal.job-opening-row', compact('candidates'));
     }
 
     public function mount(){

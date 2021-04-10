@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\JobOpening;
 use Livewire\WithPagination;
 use App\Models\Carousel;
+use App\Models\User;
 use App\Http\Controllers\Internal\CarouselController;
 
 class JobOpenings extends Component{
@@ -114,11 +115,12 @@ class JobOpenings extends Component{
     }
 
     public function destroy($id){
-        $jobOpening = JobOpening::find($id);
-        $candidates=Candidate::where('job_id',$id)->delete();
-        $carousels=Carousel::where('job_opening_id',$id)->delete();
-        $jobOpening->delete();
-        $this->openModal = false;
+            $jobOpening = JobOpening::find($id);
+            $candidates=Candidate::where('job_id',$id)->delete();
+            $carousels=Carousel::where('job_opening_id',$id)->delete();
+            $jobOpening->delete();
+            $this->openModal = false;
+        
     }
 
     public function newRow(){
