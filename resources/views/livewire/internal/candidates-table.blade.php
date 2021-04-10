@@ -296,7 +296,7 @@
                         "scrollY": true,
                         scrollCollapse: true,
                         dom: 'Blfrtip',
-                        buttons: [
+                        buttons: "{!! $role !!}" == "Admin" ? [
                             'copy',
                             {
                                 text: 'Excel',
@@ -322,7 +322,6 @@
                             {
                                 text: 'Borrar',
                                 id:'borrar',
-                                className:"font-bold text-pink-700 bg-pink-300 rounded-md hover:text-pink-700 btn button edit focus:outline-none",
                                 action: function ( e, dt, node, config ) {
                                     if (window.confirm("¿Está seguro de borrar?. Los datos ya no se podrán reponer.")) {
                                         var datos = dt["context"][0]["json"];
@@ -345,6 +344,31 @@
                                     }else{
                                         alert(':p');
                                     }
+                                }
+                            }
+                        ]
+                        :
+                        [
+                            'copy',
+                            {
+                                text: 'Excel',
+                                action: async function ( e, dt, node, config ) {
+                                    var datos = dt["context"][0]["json"];
+                                    $.ajax({
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
+                                        url: '/internal/candidates-excel',
+                                        dataType : 'json',
+                                        type: 'POST',
+                                        data: datos,
+                                        success: async function(response) {
+                                            await console.log('antes del response');
+                                            await console.log(response);
+                                            await console.log('despues del response');
+                                            //downloadAsExcel(response);
+                                        }
+                                    });
                                 }
                             }
                         ],
