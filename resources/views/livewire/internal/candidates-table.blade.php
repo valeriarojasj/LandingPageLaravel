@@ -296,7 +296,7 @@
                         "scrollY": true,
                         scrollCollapse: true,
                         dom: 'Blfrtip',
-                        buttons: "{!! $role !!}" == "Admin" ? [
+                        buttons: [
                             'copy',
                             {
                                 text: 'Excel',
@@ -311,10 +311,10 @@
                                         type: 'POST',
                                         data: datos,
                                         success: async function(response) {
-                                            await console.log('antes del response');
+                                            /*await console.log('antes del response');
                                             await console.log(response);
-                                            await console.log('despues del response');
-                                            //downloadAsExcel(response);
+                                            await console.log('despues del response');*/
+                                            downloadAsExcel(response);
                                         }
                                     });
                                 }
@@ -322,6 +322,7 @@
                             {
                                 text: 'Borrar',
                                 id:'borrar',
+                                className:"font-bold text-pink-700 bg-pink-300 rounded-md hover:text-pink-700 btn button edit focus:outline-none",
                                 action: function ( e, dt, node, config ) {
                                     if (window.confirm("¿Está seguro de borrar?. Los datos ya no se podrán reponer.")) {
                                         var datos = dt["context"][0]["json"];
@@ -346,31 +347,6 @@
                                     }
                                 }
                             }
-                        ]
-                        :
-                        [
-                            'copy',
-                            {
-                                text: 'Excel',
-                                action: async function ( e, dt, node, config ) {
-                                    var datos = dt["context"][0]["json"];
-                                    $.ajax({
-                                        headers: {
-                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                        },
-                                        url: '/internal/candidates-excel',
-                                        dataType : 'json',
-                                        type: 'POST',
-                                        data: datos,
-                                        success: async function(response) {
-                                            await console.log('antes del response');
-                                            await console.log(response);
-                                            await console.log('despues del response');
-                                            //downloadAsExcel(response);
-                                        }
-                                    });
-                                }
-                            }
                         ],
                         language:{
                             emptyTable: "No hay datos disponibles",
@@ -391,8 +367,6 @@
                         },
                         initComplete: function(data){
                             const {orden, selectInfo} = data.json;
-                            console.log(data.json);
-                            console.log(selectInfo);
                             this.api().columns().every(function(){
                                 var column = this;
                                 const index = column[0][0];
@@ -405,20 +379,14 @@
                                             var val = $.fn.dataTable.util.escapeRegex($(this).val());
                                             column.search( val ? val : '', true, false ).draw();
                                         });
-                                    if(columnName === "job_to_apply"){
-                                        for(option of info.selectOptions){
-                                            select.append( '<option value="'+option.job_id+'">'+option.job_opening.job_title+'</option>' )
-                                        };
-                                    }else{
-                                        for(option of info.selectOptions){
-                                            if(option[columnName]){
-                                                select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
-                                            } else {
-                                                select.append( '<option value="null">Sin contestar</option>' )
-                                            }
-                                        };
-                                    }
                                     
+                                    for(option of info.selectOptions){
+                                        if(option[columnName]){
+                                            select.append( '<option value="'+option[columnName]+'">'+option[columnName]+'</option>' )
+                                        } else {
+                                            select.append( '<option value="null">Sin contestar</option>' )
+                                        }
+                                    };
                                 }  
                                 if(columnName=='download_status'){
                                     var select = $('<select class="form-select form-select-sm" ><option value="">Buscá por Status</option></select>')
@@ -429,6 +397,14 @@
                                         });
                                     select.append( '<option value="SI">SI</option>' )
                                     select.append( '<option value="NO">NO</option>' )
+                                }
+                                if(columnName=='job_id'){
+                                    var select = $('<input class="form-control" type="number" min="1">')
+                                        .appendTo( $(column.footer()).empty() )
+                                        .on( 'change', function () {
+                                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                            column.search( val ? val : '', true, false ).draw();
+                                        });
                                 }
                                 
                                 if(columnName=='created_at'){
@@ -468,7 +444,6 @@
                         }
                     });
                     table.columns.adjust();
-
                     var div1= document.querySelector('.dt-buttons');
                     var div2= document.getElementById('example_length');
                     var div3= document.getElementById('example_filter');

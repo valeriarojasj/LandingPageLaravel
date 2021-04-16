@@ -23,10 +23,10 @@
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top" style="width:10px;">
                         Opciones de Edición
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                        ID 
+                      <th scope="col"  style="width:50px;" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
+                        ID de la búsqueda laboral
                       </th>
-                      <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top ">
+                      <th scope="col" style="width:100px;" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top ">
                         Título 
                       </th>
                       <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
@@ -54,13 +54,13 @@
                             Editar
                           </a>
                         </td>
-                        <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative;">
+                        <td class="px-6 py-4 next_left place-content-center whitespace-nowrap" style="position:relative; width:50px;">
                           <textarea disabled class='text-xs font-semibold text-center textareatd' name="textarea" style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">
                             {{$carousel->job_opening_id}}
                           </textarea>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap" style="position:relative;" >
-                          <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">
+                          <textarea class="inline-flex text-xs font-semibold textareatd" name="textarea"  style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%; width:100px;">
                             {{$carousel->job_title}}
                           </textarea> 
                         </td>
@@ -82,10 +82,11 @@
                             {{$carousel->updatedBy ? $carousel->updatedBy->email : ''}}
                           </textarea>
                         </td>
-                        <td class="p-0 whitespace-nowrap" style="position:relative;">
-                            <textarea class="inline-flex text-xs font-semibold text-center textareatd"  name="textarea" style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">
+                        <td class="p-0 text-xs font-semibold text-center whitespace-nowrap" style="position:relative;  color:#7C7C7C; vertical-align: middle;
+                        ">
+                       
                               {{$carousel->updated_at}}
-                            </textarea>
+                            
                         </td>
                       </tr>
                     @endforeach
@@ -150,7 +151,7 @@
                             Opciones de Edición
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
-                            Status de la búsqueda
+                            Status de la búsqueda laboral
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top next_left">
                             N° de candidatos
@@ -159,16 +160,16 @@
                             ID
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            Título de la búsqueda
+                            Título de la búsqueda laboral
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                             Tipo de empresa
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            Lugar de la búsqueda
+                            Lugar de la búsqueda laboral
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
-                            Link de la búsqueda
+                            Link de la búsqueda laboral
                           </th>
                           <th scope="col" class="px-6 py-3 text-xs font-bold tracking-wider text-center text-blue-700 uppercase align-text-top">
                             Pregunta Abierta 1

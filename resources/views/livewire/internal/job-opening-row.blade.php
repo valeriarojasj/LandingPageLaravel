@@ -48,12 +48,11 @@
             </select>
         @endif
     </td>
-    <td class="px-6 py-4 text-center next_left place-content-center whitespace-nowrap" style="position:relative; vertical-align: middle;" data-field="id">
+    <td class="px-6 py-4 text-xs font-semibold text-center text-gray-500 next_left place-content-center whitespace-nowrap" style="position:relative; vertical-align: middle;  font-family: 'Montserrat', sans-serif !important; data-field="id">
         {{$candidates}}
     </td>
-    <td class="px-6 py-4 text-center next_left place-content-center whitespace-nowrap" style="position:relative;" data-field="id">
-        <textarea disabled class="text-xs font-semibold text-center textareatd" name="textarea" wire:model.defer='uuid' style="position:absolute; top:0; left:0; resize:none; width:100%; height:100%;">
-        </textarea>
+    <td  wire:model.defer='uuid' disabled class="px-6 py-4 text-xs font-semibold text-center text-gray-500 next_left place-content-center whitespace-nowrap" style="position:relative; vertical-align: middle;" data-field="id">
+        {{$uuid}}
     </td>
     <td  class="px-6 py-4 text-center whitespace-nowrap" style="position:relative; vertical-align:middle;" data-field="job_title" >
         <textarea  {{ $nuevoObjeto||$editable? '' : 'disabled' }} class="inline-flex text-center text-xs font-semibold textareatd  {{ ($nuevoObjeto||$editable) ? 'bg-green-100 text-green-800' : '' }}" placeholder="@error('job_title'){{ $message }}@enderror"name="textarea" wire:model.defer='job_title' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%; vertical-align:middle; ">
@@ -156,7 +155,7 @@
         </textarea>
     </td>
     <td class='px-6 py-4 text-center whitespace-nowrap'  style="position:relative; vertical-align:middle;" data-field="updated_at" >
-        <textarea disabled class='text-xs font-semibold text-center textareatd ' name="textarea" wire:model.defer='updated_at' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%;">
+        <textarea disabled class='text-xs font-semibold text-center textareatd ' name="textarea" wire:model.defer='updated_at' style="position:absolute; top:0; left:0; right:0; bottom:0; resize:none; width:100%; height:100%; ">
         </textarea>
     </td> 
 </tr>
