@@ -301,7 +301,7 @@
                             {
                                 text: 'Excel',
                                 action: async function ( e, dt, node, config ) {
-                                    var datos = dt["context"][0]["json"];
+                                    var {draw, start, length, search, order, columns} = dt["context"][0]["json"];
                                     $.ajax({
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -309,12 +309,9 @@
                                         url: '/internal/candidates-excel',
                                         dataType : 'json',
                                         type: 'POST',
-                                        data: datos,
+                                        data: {draw, start, length, search, order, columns},
                                         success: async function(response) {
-                                            await console.log('antes del response');
-                                            await console.log(response);
-                                            await console.log('despues del response');
-                                            //downloadAsExcel(response);
+                                            downloadAsExcel(response);
                                         }
                                     });
                                 }
@@ -324,14 +321,14 @@
                                 id:'borrar',
                                 action: function ( e, dt, node, config ) {
                                     if (window.confirm("¿Está seguro de borrar?. Los datos ya no se podrán reponer.")) {
-                                        var datos = dt["context"][0]["json"];
+                                        var {draw, start, length, search, order, columns} = dt["context"][0]["json"];
                                         $.ajax({
                                             headers: {
                                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                             },
                                             type: 'DELETE',
                                             dataType : 'json',
-                                            data: datos,
+                                            data: {draw, start, length, search, order, columns},
                                             url: "{{route('deleteCandidates')}}",
                                             success:function(response) {
                                                 if(response.success){
@@ -353,7 +350,7 @@
                             {
                                 text: 'Excel',
                                 action: async function ( e, dt, node, config ) {
-                                    var datos = dt["context"][0]["json"];
+                                    var {draw, start, length, search, order, columns} = dt["context"][0]["json"];
                                     $.ajax({
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -361,12 +358,9 @@
                                         url: '/internal/candidates-excel',
                                         dataType : 'json',
                                         type: 'POST',
-                                        data: datos,
+                                        data: {draw, start, length, search, order, columns},
                                         success: async function(response) {
-                                            await console.log('antes del response');
-                                            await console.log(response);
-                                            await console.log('despues del response');
-                                            //downloadAsExcel(response);
+                                            downloadAsExcel(response);
                                         }
                                     });
                                 }
@@ -391,8 +385,6 @@
                         },
                         initComplete: function(data){
                             const {orden, selectInfo} = data.json;
-                            console.log(data.json);
-                            console.log(selectInfo);
                             this.api().columns().every(function(){
                                 var column = this;
                                 const index = column[0][0];

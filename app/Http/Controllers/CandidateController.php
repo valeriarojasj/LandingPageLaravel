@@ -279,9 +279,8 @@ class CandidateController extends Controller{
             'downloaded_at'
         ])->toArray();
         
-        //$finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->id, 'downloaded_at'=>now()]);
-            return $finalQuery->count();
-        //return $result;
+        $finalQuery->update(['download_status' => 1,'downloaded_by'=>auth()->user()->id, 'downloaded_at'=>now()]);
+        return $result;
     }
 
     public function deleteCandidates(Request $request){
