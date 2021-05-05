@@ -9,7 +9,7 @@
             Roles y Permisos
           </h1>
           <h2 style="font-size:1.5rem !important;" class="mt-5 mb-2 ">
-            Permisos
+            Permisos (usuarios y admin con acceso a la búsqueda laboral)
           </h2>
           <div>
             {!! Form::model($job,['route'=>['assignPermission',$job] , 'autocomplete'=>'off',  'method'=>'post']) !!}
