@@ -211,13 +211,22 @@ class JobOpeningRow extends Component{
             'created_by' => auth()->user()->id,
             'updated_by' => null
         ]);
-
-        $jobuser= JobUser::create([
+        $this->assignPermission($job);
+        $this->emit('hideNewRow');
+        $this->emit('reloadJobsopenings');
+    }
+    public function assignPermission($job) {
+        JobUser::create([
             'job_id'=>$job->id,
             'user_id'=> auth()->user()->id
         ]);
-        $this->emit('hideNewRow');
-        $this->emit('reloadJobsopenings');
+        $admins = User::role('Admin')->get()->pluck('id')->toArray();
+        foreach($admins as $admin_id) {
+            JobUser::create([
+                'job_id'=>$job->id,
+                'user_id'=> $admin_id
+            ]);
+        }
     }
     public function hideRow(){
         $this->emit('hideNewRow');
