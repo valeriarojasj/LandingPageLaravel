@@ -1,4 +1,4 @@
-<tr data-id='{{$uuid}}' style="height:auto;">
+<tr id="{{$uuid}}" data-id='{{$uuid}}' style="height:auto;">
     <td class='px-6 py-4 text-sm font-medium text-right align-middle bg-white first-fixed-col hard_left iconitos whitespace-nowrap'>
         <div class="px-2 btnDiv">
             @if($nuevoObjeto)

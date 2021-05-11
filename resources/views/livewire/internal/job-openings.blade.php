@@ -240,10 +240,10 @@
                       </thead>
                       <tbody class="bg-white divide-y divide-gray-200">
                         @if($showRow)
-                          <livewire:internal.job-opening-row :objeto="$newJob" :nuevoObjeto='true' />
+                          <livewire:internal.job-opening-row id="nuevo" :key="time()" :objeto="$newJob" :nuevoObjeto='true' />
                         @endif
                         @foreach($jobOpenings as $jobOpening)
-                          <livewire:internal.job-opening-row :key="$jobOpening->id" :objeto="$jobOpening"/>
+                          <livewire:internal.job-opening-row id="{{$jobOpening->id}}" :key="$jobOpening->id" :objeto="$jobOpening"/>
                         @endforeach
                       </tbody>
                     </table>

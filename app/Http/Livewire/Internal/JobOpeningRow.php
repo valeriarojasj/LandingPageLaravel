@@ -222,10 +222,12 @@ class JobOpeningRow extends Component{
         ]);
         $admins = User::role('Admin')->get()->pluck('id')->toArray();
         foreach($admins as $admin_id) {
-            JobUser::create([
-                'job_id'=>$job->id,
-                'user_id'=> $admin_id
-            ]);
+            if(auth()->user()->id != $admin_id){
+                JobUser::create([
+                    'job_id'=>$job->id,
+                    'user_id'=> $admin_id
+                ]);
+            }
         }
     }
     public function hideRow(){
