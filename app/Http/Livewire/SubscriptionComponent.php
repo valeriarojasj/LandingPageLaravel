@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Subscription;
 use Livewire\Component;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SubscriptionMail;
 
 class SubscriptionComponent extends Component{
 
@@ -26,9 +28,11 @@ class SubscriptionComponent extends Component{
         $this->validate();
         $subscription = new Subscription();
         $subscription->email = $this->email;
-        $subscription->	download_status = false;
+        $subscription->download_status = false;
         $subscription->save();
-        $this->success=true;        
+        $this->success=true;
+        $mail = new SubscriptionMail();
+        Mail::to($this->email)->send($mail);
         $this->resetAttributes();
     }
 
